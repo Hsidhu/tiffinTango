@@ -15,7 +15,7 @@ export function AppRoutes({ isAuthenticated }) {
             <Suspense fallback={<div>Loading...</div>}>
                 <Switch>
 
-                    <PublicRoute path={["/", '/*']} isAuthenticated={isAuthenticated} exact>
+                    <PublicRoute path={["/", '/order/*']} isAuthenticated={isAuthenticated} exact>
                         <PublicRoutes />
                     </PublicRoute>
                     <AuthRoute path={["/login", "/registration"]} isAuthenticated={isAuthenticated} exact>

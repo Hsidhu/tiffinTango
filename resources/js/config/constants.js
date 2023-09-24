@@ -7,5 +7,5 @@ export const axiosConfig = {
     },
 };
 
-export const GOOGLE_API_KEY = 'AIzaSyBEqSY4vEjuJnO8zbX5Pb8PO3ln9czPQxk';
+export const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 

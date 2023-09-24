@@ -16159,7 +16159,7 @@ var axiosConfig = {
     Accept: 'application/json'
   }
 };
-var GOOGLE_API_KEY = 'AIzaSyBEqSY4vEjuJnO8zbX5Pb8PO3ln9czPQxk';
+var GOOGLE_API_KEY = "AIzaSyBEqSY4vEjuJnO8zbX5Pb8PO3ln9czPQxk";
 
 /***/ }),
 
@@ -17048,7 +17048,7 @@ function AppRoutes(_ref) {
       }),
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Switch, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_routes_helpers__WEBPACK_IMPORTED_MODULE_1__.PublicRoute, {
-          path: ["/", '/*'],
+          path: ["/", '/order/*'],
           isAuthenticated: isAuthenticated,
           exact: true,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_routes_PublicRoutes__WEBPACK_IMPORTED_MODULE_4__["default"], {})

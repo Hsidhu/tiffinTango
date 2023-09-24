@@ -3,15 +3,17 @@ import { Button, message, Steps, theme } from 'antd';
 
 const steps = [
     {
-        title: 'Select Your Plan',
+        title: 'Select MealPlan',
+        subTitle:"subtitle",
+        description:"description",
         content: 'First-content',
     },
     {
-        title: 'Second',
+        title: 'Add Ons',
         content: 'Second-content',
     },
     {
-        title: 'Last',
+        title: 'Details',
         content: 'Last-content',
     },
 ];
@@ -38,6 +40,8 @@ const OrderMealPlan = () => {
         border: `1px dashed #494848`,
         marginTop: 16,
     };
+
+    console.log(process.env.APP_NAME, 'test', process)
     return (
         <>
             <Steps current={current} items={items} />
