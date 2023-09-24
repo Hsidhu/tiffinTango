@@ -1,0 +1,175 @@
+import React, { useState, useEffect } from 'react';
+import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import { useHistory, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'
+import {isEmpty} from 'lodash';
+import {
+    Row, Col, Button,
+    Form, Input, Switch, InputNumber,
+    Upload
+} from 'antd';
+import { getMealPlan, updateMealPlan } from '../redux/MealPlan/actions';
+
+
+const MealPlanForm = ({ }) => {
+    const history = useHistory()
+    let { id } = useParams();
+    const [componentSize, setComponentSize] = useState();
+    const [previewVisible, setPreviewVisible] = useState(false);
+    const [previewImage, setPreviewImage] = useState("");
+    const [fileList, setFileList] = useState([]);
+
+    const mealplan = useSelector(state => state.mealplan)
+    const dispatch = useDispatch();
+
+    if(!mealplan){
+        return null;
+    }
+
+    const handleCancel = () => {
+        setPreviewVisible(false)
+    }
+    const handlePreview = file => {
+        setPreviewImage(file.thumbUrl)
+        setPreviewVisible(true)
+    };
+    const handleUpload = ({ fileList }) => {
+        setFileList(fileList)
+    };
+
+    const [form] = Form.useForm()
+
+    const onFormLayoutChange = ({ first_name }) => {
+        console.log(first_name);
+        setComponentSize(first_name);
+    };
+
+    const onFormSubmit = (values) => {
+        // formData.append("file", this.state.fileList[0].originFileObj);
+        values.file = isEmpty(fileList) ? null : fileList[0].originFileObj;
+        console.log(values)
+        dispatch(updateMealPlan(values));
+    }
+
+    useEffect(() => {
+        form.setFieldsValue({...mealplan})
+    }, [form, mealplan])
+
+    return (
+        <Form
+            form={form}
+            labelCol={{ span: 4, }}
+            wrapperCol={{ span: 14, }}
+            layout="horizontal"
+            onValuesChange={onFormLayoutChange}
+            onFinish={onFormSubmit}
+        >
+            <Form.Item name="id" hidden>
+                <Input type="hidden" />
+            </Form.Item>
+            <Row>
+                <Col span={12}>
+                    <Form.Item label="Name" name="name"
+                        rules={[
+                            {
+                                required: true
+                            },
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item label="Description" name="description"
+                        rules={[
+                            {
+                                required: true
+                            },
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item label="Short Description" name="short_description"
+                        rules={[
+                            {
+                                required: false
+                            },
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item
+                        name = {['price']}
+                        label = "Price"
+                        rules={[
+                            {
+                                required: true
+                            },
+                        ]}
+                    >
+                        <InputNumber
+                            min={1}
+                            precision={2}
+                            step={1.00}
+                            stringMode
+                        />
+                    </Form.Item>
+                    <Form.Item
+                        name = {['discount']}
+                        label = "Discount"
+                        rules={[
+                            {
+                                required: false
+                            },
+                        ]}
+                    >
+                        <InputNumber
+                            min={1}
+                            precision={2}
+                            step={1.00}
+                            stringMode
+                        />
+                    </Form.Item>
+
+                </Col>
+                <Col span={12}>
+                    <Form.Item label="duration" name="duration"
+                        rules={[{
+                            required: false
+                        }]}
+                    >
+                        <Input />
+                    </Form.Item>
+
+                    <Form.Item label="Upload" name='image'>
+                        <Upload
+                            disabled={fileList.length == 0 ? false : true}
+                            listType="picture-card"
+                            fileList={fileList}
+                            onPreview={handlePreview}
+                            onChange={handleUpload}
+                            beforeUpload={() => false} // return false so that antd doesn't upload the picture right away
+                            >
+                            <div>
+                                <PlusOutlined />
+                                <div className="ant-upload-text">Upload</div>
+                            </div>
+                        </Upload>
+                    </Form.Item>
+                    
+                    <Form.Item label="Status" name="status" valuePropName="checked">
+                        <Switch />
+                    </Form.Item>
+                    
+                </Col>
+            </Row>
+            <Row>
+                <Col span={12}>
+                    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                        <Button type="primary" htmlType="submit">Submit</Button>
+                    </Form.Item>
+                </Col>
+            </Row>
+        </Form>
+    );
+}
+
+export default MealPlanForm;
