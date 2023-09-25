@@ -1,13 +1,16 @@
 import React from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import { Button, Layout, Menu, MenuProps, Col, Row, Space } from 'antd';
+import { Layout, Menu, MenuProps, Col, Row, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import actions from '../redux/Authenticate/actions';
-import {privateRouteList} from './routes';
-
 import { LoginOutlined } from '@ant-design/icons';
-import { protectedSideMenu } from './menu';
+
+import {privateRouteList} from '../routes/routes';
+
+import actions from '../redux/Authenticate/actions';
+
+import { protectedSideMenu } from '../routes/menu';
 import HeaderProfileDorpdown from '../components/headerProfileDorpdown';
+import HeaderLogo from '../components/headerLogo';
 
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -16,6 +19,7 @@ const headerMenuItems = ['logout', '2'].map((name, index) => ({
     label: `${name}`,
     icon: <LoginOutlined />
 }));
+
 
 
 function ProtectedRoutes() {
@@ -31,12 +35,12 @@ function ProtectedRoutes() {
     }
 
     return (
-        <Layout>
+        <Layout style={{ minHeight: "100vh" }}>
 
             <Header>
                 <Row justify="space-between" align="center">
                     <Col flex={2}>
-                        <div className="demo-logo">{name}</div>
+                        <HeaderLogo />
                     </Col>
                     <Col flex={3}>
                         <div style={{ display: 'flex', alignItems:'center', justifyContent:'end' }}>

@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import { Button, message, Steps, theme } from 'antd';
 
+import SelectMealPlanForm from '../components/containers/cart/selectMealPlanForm';
+
 const steps = [
     {
         title: 'Select MealPlan',
-        subTitle:"subtitle",
-        description:"description",
-        content: 'First-content',
+        description:"subtitle",
+        content: <SelectMealPlanForm />,
     },
     {
         title: 'Add Ons',
+        description:"subtitle",
         content: 'Second-content',
     },
     {
         title: 'Details',
+        description:"subtitle",
         content: 'Last-content',
     },
 ];
@@ -30,7 +33,9 @@ const OrderMealPlan = () => {
     const items = steps.map((item) => ({
         key: item.title,
         title: item.title,
+        description: item.description
     }));
+
     const contentStyle = {
         lineHeight: '260px',
         textAlign: 'center',
@@ -45,7 +50,9 @@ const OrderMealPlan = () => {
     return (
         <>
             <Steps current={current} items={items} />
+            
             <div style={contentStyle}>{steps[current].content}</div>
+
             <div
                 style={{
                     marginTop: 24,

@@ -1,9 +1,11 @@
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { Layout, Row, Col, Menu, Space } from 'antd';
-import {publicRouteList} from './routes';
+import {publicRouteList} from '../routes/routes';
 import {  publicTopMenu } from '../routes/menu'
-const { Header, Sider, Content, Footer } = Layout;
+import HeaderLogo from '../components/headerLogo';
 
+
+const { Header, Sider, Content, Footer } = Layout;
 
 // Layout for public pages
 const PublicRoutes = () => {
@@ -16,13 +18,11 @@ const PublicRoutes = () => {
     };
 
     return (
-        <Layout className="layout">
+        <Layout className="layout" style={{ minHeight: "100vh" }}>
             <Header>
                 <Row>
                     <Col span={8}>
-                        <div className="demo-logo">
-                            Logo
-                        </div>
+                        <HeaderLogo />
                     </Col>
                     <Col span={8}>
 

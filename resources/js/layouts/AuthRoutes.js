@@ -1,6 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
 import { Layout } from 'antd';
-import {authRouteList} from './routes';
+import {authRouteList} from '../routes/routes';
 
 const AuthRoutes = () => {
     return (

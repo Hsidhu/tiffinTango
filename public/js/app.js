@@ -15983,6 +15983,54 @@ function Spinner() {
 
 /***/ }),
 
+/***/ "./resources/js/components/headerLogo.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/headerLogo.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure " + obj); }
+
+
+
+
+var styles = {
+  logoLink: {
+    display: 'flex',
+    alignItems: 'center',
+    height: '100%'
+  },
+  logo: {
+    height: "44px",
+    marginRight: "16px",
+    verticalAlign: "top"
+  }
+};
+var HeaderLogo = function HeaderLogo(_ref) {
+  _objectDestructuringEmpty(_ref);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+    to: "/",
+    style: styles.logoLink,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+      alt: "logo",
+      style: styles.logo,
+      src: 'https://jkfoodservices.dvl.to/assets/media/uploads/ab_catering_logo.png'
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HeaderLogo);
+
+/***/ }),
+
 /***/ "./resources/js/components/headerProfileDorpdown.js":
 /*!**********************************************************!*\
   !*** ./resources/js/components/headerProfileDorpdown.js ***!
@@ -16190,6 +16238,292 @@ root.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)
   store: (0,_redux_store__WEBPACK_IMPORTED_MODULE_4__["default"])(),
   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_ReactApp__WEBPACK_IMPORTED_MODULE_2__["default"], {})
 }));
+
+/***/ }),
+
+/***/ "./resources/js/layouts/AuthRoutes.js":
+/*!********************************************!*\
+  !*** ./resources/js/layouts/AuthRoutes.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/layout/index.js");
+/* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../routes/routes */ "./resources/js/routes/routes.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var AuthRoutes = function AuthRoutes() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    className: "layout",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Switch, {
+      children: _routes_routes__WEBPACK_IMPORTED_MODULE_0__.authRouteList.map(function (_ref, index) {
+        var Component = _ref.component,
+          path = _ref.path,
+          exact = _ref.exact;
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Route, {
+          path: "/".concat(path),
+          exact: exact,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Component, {})
+        }, index);
+      })
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AuthRoutes);
+
+/***/ }),
+
+/***/ "./resources/js/layouts/ProtectedRoutes.js":
+/*!*************************************************!*\
+  !*** ./resources/js/layouts/ProtectedRoutes.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/layout/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/row/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/col/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/menu/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ant-design/icons */ "./node_modules/@ant-design/icons/es/icons/LoginOutlined.js");
+/* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../routes/routes */ "./resources/js/routes/routes.js");
+/* harmony import */ var _redux_Authenticate_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../redux/Authenticate/actions */ "./resources/js/redux/Authenticate/actions.js");
+/* harmony import */ var _routes_menu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../routes/menu */ "./resources/js/routes/menu.js");
+/* harmony import */ var _components_headerProfileDorpdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/headerProfileDorpdown */ "./resources/js/components/headerProfileDorpdown.js");
+/* harmony import */ var _components_headerLogo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/headerLogo */ "./resources/js/components/headerLogo.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+
+
+
+
+
+var Header = antd__WEBPACK_IMPORTED_MODULE_8__["default"].Header,
+  Sider = antd__WEBPACK_IMPORTED_MODULE_8__["default"].Sider,
+  Content = antd__WEBPACK_IMPORTED_MODULE_8__["default"].Content,
+  Footer = antd__WEBPACK_IMPORTED_MODULE_8__["default"].Footer;
+var headerMenuItems = ['logout', '2'].map(function (name, index) {
+  return {
+    key: "/".concat(index),
+    label: "".concat(name),
+    icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+  };
+});
+function ProtectedRoutes() {
+  var _useSelector = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
+      return state.authenticateReducer;
+    }),
+    name = _useSelector.name;
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
+  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_10__.useHistory)();
+  var sidebarOnClickHandler = function sidebarOnClickHandler(_ref) {
+    var key = _ref.key;
+    if (key) {
+      history.push(key);
+    }
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    style: {
+      minHeight: "100vh"
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Header, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
+        justify: "space-between",
+        align: "center",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(antd__WEBPACK_IMPORTED_MODULE_12__["default"], {
+          flex: 2,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_headerLogo__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(antd__WEBPACK_IMPORTED_MODULE_12__["default"], {
+          flex: 3,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            style: {
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'end'
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(antd__WEBPACK_IMPORTED_MODULE_13__["default"], {
+              mode: "horizontal",
+              defaultSelectedKeys: ['1']
+              // defaultSelectedKeys={[this.props.location.pathname]}
+              ,
+              style: {
+                height: '100%',
+                borderRight: 0
+              },
+              items: headerMenuItems
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_headerProfileDorpdown__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
+          })
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      hasSider: true,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Sider, {
+        width: 200,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(antd__WEBPACK_IMPORTED_MODULE_13__["default"], {
+          mode: "inline",
+          defaultSelectedKeys: ['/admin/dashboard'],
+          defaultOpenKeys: ['sub1'],
+          style: {
+            height: '100%',
+            borderRight: 0
+          },
+          items: _routes_menu__WEBPACK_IMPORTED_MODULE_4__.protectedSideMenu,
+          onClick: sidebarOnClickHandler
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        style: {
+          padding: '0 24px 24px'
+        },
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Content, {
+          style: {
+            padding: 24,
+            margin: 0,
+            minHeight: 280
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Switch, {
+            children: _routes_routes__WEBPACK_IMPORTED_MODULE_2__.privateRouteList.map(function (_ref2, index) {
+              var Component = _ref2.component,
+                path = _ref2.path,
+                exact = _ref2.exact;
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+                path: "/".concat(path),
+                exact: exact,
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Component, {})
+              }, index);
+            })
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Footer, {
+          style: {
+            textAlign: 'center'
+          },
+          children: "Ant Design \xA92023 Created by Ant UED"
+        })]
+      })]
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProtectedRoutes);
+
+/***/ }),
+
+/***/ "./resources/js/layouts/PublicRoutes.js":
+/*!**********************************************!*\
+  !*** ./resources/js/layouts/PublicRoutes.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/layout/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/row/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/col/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/menu/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/space/index.js");
+/* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../routes/routes */ "./resources/js/routes/routes.js");
+/* harmony import */ var _routes_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../routes/menu */ "./resources/js/routes/menu.js");
+/* harmony import */ var _components_headerLogo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/headerLogo */ "./resources/js/components/headerLogo.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+var Header = antd__WEBPACK_IMPORTED_MODULE_4__["default"].Header,
+  Sider = antd__WEBPACK_IMPORTED_MODULE_4__["default"].Sider,
+  Content = antd__WEBPACK_IMPORTED_MODULE_4__["default"].Content,
+  Footer = antd__WEBPACK_IMPORTED_MODULE_4__["default"].Footer;
+
+// Layout for public pages
+var PublicRoutes = function PublicRoutes() {
+  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useHistory)();
+  var handleMenuClick = function handleMenuClick(_ref) {
+    var key = _ref.key;
+    if (key) {
+      history.push(key);
+    }
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    className: "layout",
+    style: {
+      minHeight: "100vh"
+    },
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Header, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          span: 8,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_headerLogo__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          span: 8
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          span: 8,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
+            mode: "horizontal",
+            defaultSelectedKeys: ['home'],
+            items: _routes_menu__WEBPACK_IMPORTED_MODULE_1__.publicTopMenu,
+            onClick: handleMenuClick
+          })
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Content, {
+      style: {
+        padding: '0 50px'
+      },
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        direction: "vertical",
+        size: "middle",
+        style: {
+          display: 'flex',
+          margin: '14px 14px'
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Switch, {
+          children: _routes_routes__WEBPACK_IMPORTED_MODULE_0__.publicRouteList.map(function (_ref2, index) {
+            var Component = _ref2.component,
+              path = _ref2.path,
+              exact = _ref2.exact;
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+              path: "/".concat(path),
+              exact: exact,
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Component, {})
+            }, index);
+          })
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Footer, {
+      style: {
+        textAlign: 'center'
+      },
+      children: "Ant Design \xA92023 Created by Ant UED"
+    })]
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PublicRoutes);
 
 /***/ }),
 
@@ -16523,6 +16857,82 @@ function Reducer() {
   }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Reducer);
+
+/***/ }),
+
+/***/ "./resources/js/redux/Cart/actions.js":
+/*!********************************************!*\
+  !*** ./resources/js/redux/Cart/actions.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ORDER_CUSTOMER_INFO: () => (/* binding */ ORDER_CUSTOMER_INFO),
+/* harmony export */   ORDER_META_DATA: () => (/* binding */ ORDER_META_DATA),
+/* harmony export */   SELECT_MEALPLAN: () => (/* binding */ SELECT_MEALPLAN),
+/* harmony export */   SELECT_MEALPLAN_OPTIONS: () => (/* binding */ SELECT_MEALPLAN_OPTIONS),
+/* harmony export */   selectMealPlan: () => (/* binding */ selectMealPlan),
+/* harmony export */   selectMealPlanOption: () => (/* binding */ selectMealPlanOption),
+/* harmony export */   setOrderMetaData: () => (/* binding */ setOrderMetaData)
+/* harmony export */ });
+/* harmony import */ var _config_axiosClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config/axiosClient */ "./resources/js/config/axiosClient.js");
+
+var SELECT_MEALPLAN = "SELECT_MEALPLAN";
+var SELECT_MEALPLAN_OPTIONS = "SELECT_MEALPLAN_OPTIONS";
+var ORDER_META_DATA = "ORDER_META_DATA";
+var ORDER_CUSTOMER_INFO = "ORDER_META_DATA";
+var selectMealPlan = function selectMealPlan(selectedMealPlanID) {
+  return function (dispatch) {
+    dispatch({
+      type: SELECT_MEALPLAN,
+      payload: selectedMealPlanID
+    });
+  };
+};
+var selectMealPlanOption = function selectMealPlanOption(selectedMealPlanOptions) {
+  return function (dispatch) {
+    dispatch({
+      type: SELECT_MEALPLAN_OPTIONS,
+      payload: selectedMealPlanOptions
+    });
+  };
+};
+var setOrderMetaData = function setOrderMetaData(data) {
+  return function (dispatch) {
+    dispatch({
+      type: SELECT_MEALPLAN_OPTIONS,
+      payload: data
+    });
+  };
+};
+
+/***/ }),
+
+/***/ "./resources/js/redux/Cart/redux.js":
+/*!******************************************!*\
+  !*** ./resources/js/redux/Cart/redux.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   cart: () => (/* binding */ cart)
+/* harmony export */ });
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions */ "./resources/js/redux/Cart/actions.js");
+
+var cart = function cart() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.SELECT_MEALPLAN:
+      return action.payload;
+    default:
+      return state;
+  }
+};
 
 /***/ }),
 
@@ -16909,6 +17319,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Common_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Common/reducer */ "./resources/js/redux/Common/reducer.js");
 /* harmony import */ var _Customer_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Customer/reducer */ "./resources/js/redux/Customer/reducer.js");
 /* harmony import */ var _MealPlan_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MealPlan/redux */ "./resources/js/redux/MealPlan/redux.js");
+/* harmony import */ var _Cart_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Cart/redux */ "./resources/js/redux/Cart/redux.js");
+
 
 
 
@@ -16922,7 +17334,8 @@ __webpack_require__.r(__webpack_exports__);
   customer: _Customer_reducer__WEBPACK_IMPORTED_MODULE_2__.customer,
   mealplans: _MealPlan_redux__WEBPACK_IMPORTED_MODULE_3__.mealplans,
   mealplan: _MealPlan_redux__WEBPACK_IMPORTED_MODULE_3__.mealplan,
-  mealplanOptions: _MealPlan_redux__WEBPACK_IMPORTED_MODULE_3__.mealplanOptions
+  mealplanOptions: _MealPlan_redux__WEBPACK_IMPORTED_MODULE_3__.mealplanOptions,
+  cart: _Cart_redux__WEBPACK_IMPORTED_MODULE_4__.cart
 });
 
 /***/ }),
@@ -17024,9 +17437,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _routes_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../routes/helpers */ "./resources/js/routes/helpers.js");
-/* harmony import */ var _routes_ProtectedRoutes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../routes/ProtectedRoutes */ "./resources/js/routes/ProtectedRoutes.js");
-/* harmony import */ var _routes_AuthRoutes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../routes/AuthRoutes */ "./resources/js/routes/AuthRoutes.js");
-/* harmony import */ var _routes_PublicRoutes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../routes/PublicRoutes */ "./resources/js/routes/PublicRoutes.js");
+/* harmony import */ var _layouts_PublicRoutes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layouts/PublicRoutes */ "./resources/js/layouts/PublicRoutes.js");
+/* harmony import */ var _layouts_AuthRoutes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../layouts/AuthRoutes */ "./resources/js/layouts/AuthRoutes.js");
+/* harmony import */ var _layouts_ProtectedRoutes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../layouts/ProtectedRoutes */ "./resources/js/layouts/ProtectedRoutes.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -17051,16 +17464,16 @@ function AppRoutes(_ref) {
           path: ["/", '/order/*'],
           isAuthenticated: isAuthenticated,
           exact: true,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_routes_PublicRoutes__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_layouts_PublicRoutes__WEBPACK_IMPORTED_MODULE_2__["default"], {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_routes_helpers__WEBPACK_IMPORTED_MODULE_1__.AuthRoute, {
           path: ["/login", "/registration"],
           isAuthenticated: isAuthenticated,
           exact: true,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_routes_AuthRoutes__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_layouts_AuthRoutes__WEBPACK_IMPORTED_MODULE_3__["default"], {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_routes_helpers__WEBPACK_IMPORTED_MODULE_1__.PrivateRoute, {
           path: ["/admin/*"],
           isAuthenticated: isAuthenticated,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_routes_ProtectedRoutes__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_layouts_ProtectedRoutes__WEBPACK_IMPORTED_MODULE_4__["default"], {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Route, {
           path: "*",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(NoPageFound, {})
@@ -17069,288 +17482,6 @@ function AppRoutes(_ref) {
     })
   });
 }
-
-/***/ }),
-
-/***/ "./resources/js/routes/AuthRoutes.js":
-/*!*******************************************!*\
-  !*** ./resources/js/routes/AuthRoutes.js ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/layout/index.js");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes */ "./resources/js/routes/routes.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-var AuthRoutes = function AuthRoutes() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    className: "layout",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Switch, {
-      children: _routes__WEBPACK_IMPORTED_MODULE_0__.authRouteList.map(function (_ref, index) {
-        var Component = _ref.component,
-          path = _ref.path,
-          exact = _ref.exact;
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Route, {
-          path: "/".concat(path),
-          exact: exact,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Component, {})
-        }, index);
-      })
-    })
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AuthRoutes);
-
-/***/ }),
-
-/***/ "./resources/js/routes/ProtectedRoutes.js":
-/*!************************************************!*\
-  !*** ./resources/js/routes/ProtectedRoutes.js ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/layout/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/row/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/col/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/menu/index.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _redux_Authenticate_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../redux/Authenticate/actions */ "./resources/js/redux/Authenticate/actions.js");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes */ "./resources/js/routes/routes.js");
-/* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ant-design/icons */ "./node_modules/@ant-design/icons/es/icons/LoginOutlined.js");
-/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./menu */ "./resources/js/routes/menu.js");
-/* harmony import */ var _components_headerProfileDorpdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/headerProfileDorpdown */ "./resources/js/components/headerProfileDorpdown.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-
-
-
-
-
-var Header = antd__WEBPACK_IMPORTED_MODULE_7__["default"].Header,
-  Sider = antd__WEBPACK_IMPORTED_MODULE_7__["default"].Sider,
-  Content = antd__WEBPACK_IMPORTED_MODULE_7__["default"].Content,
-  Footer = antd__WEBPACK_IMPORTED_MODULE_7__["default"].Footer;
-var headerMenuItems = ['logout', '2'].map(function (name, index) {
-  return {
-    key: "/".concat(index),
-    label: "".concat(name),
-    icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_8__["default"], {})
-  };
-});
-function ProtectedRoutes() {
-  var _useSelector = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
-      return state.authenticateReducer;
-    }),
-    name = _useSelector.name;
-  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
-  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.useHistory)();
-  var sidebarOnClickHandler = function sidebarOnClickHandler(_ref) {
-    var key = _ref.key;
-    if (key) {
-      history.push(key);
-    }
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(Header, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
-        justify: "space-between",
-        align: "center",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
-          flex: 2,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-            className: "demo-logo",
-            children: name
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
-          flex: 3,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-            style: {
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'end'
-            },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(antd__WEBPACK_IMPORTED_MODULE_12__["default"], {
-              mode: "horizontal",
-              defaultSelectedKeys: ['1']
-              // defaultSelectedKeys={[this.props.location.pathname]}
-              ,
-              style: {
-                height: '100%',
-                borderRight: 0
-              },
-              items: headerMenuItems
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_headerProfileDorpdown__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
-          })
-        })]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
-      hasSider: true,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(Sider, {
-        width: 200,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(antd__WEBPACK_IMPORTED_MODULE_12__["default"], {
-          mode: "inline",
-          defaultSelectedKeys: ['/admin/dashboard'],
-          defaultOpenKeys: ['sub1'],
-          style: {
-            height: '100%',
-            borderRight: 0
-          },
-          items: _menu__WEBPACK_IMPORTED_MODULE_4__.protectedSideMenu,
-          onClick: sidebarOnClickHandler
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        style: {
-          padding: '0 24px 24px'
-        },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(Content, {
-          style: {
-            padding: 24,
-            margin: 0,
-            minHeight: 280
-          },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Switch, {
-            children: _routes__WEBPACK_IMPORTED_MODULE_3__.privateRouteList.map(function (_ref2, index) {
-              var Component = _ref2.component,
-                path = _ref2.path,
-                exact = _ref2.exact;
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
-                path: "/".concat(path),
-                exact: exact,
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(Component, {})
-              }, index);
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(Footer, {
-          style: {
-            textAlign: 'center'
-          },
-          children: "Ant Design \xA92023 Created by Ant UED"
-        })]
-      })]
-    })]
-  });
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProtectedRoutes);
-
-/***/ }),
-
-/***/ "./resources/js/routes/PublicRoutes.js":
-/*!*********************************************!*\
-  !*** ./resources/js/routes/PublicRoutes.js ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/layout/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/row/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/col/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/menu/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/space/index.js");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes */ "./resources/js/routes/routes.js");
-/* harmony import */ var _routes_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../routes/menu */ "./resources/js/routes/menu.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-var Header = antd__WEBPACK_IMPORTED_MODULE_3__["default"].Header,
-  Sider = antd__WEBPACK_IMPORTED_MODULE_3__["default"].Sider,
-  Content = antd__WEBPACK_IMPORTED_MODULE_3__["default"].Content,
-  Footer = antd__WEBPACK_IMPORTED_MODULE_3__["default"].Footer;
-
-// Layout for public pages
-var PublicRoutes = function PublicRoutes() {
-  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useHistory)();
-  var handleMenuClick = function handleMenuClick(_ref) {
-    var key = _ref.key;
-    if (key) {
-      history.push(key);
-    }
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    className: "layout",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Header, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
-          span: 8,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "demo-logo",
-            children: "Logo"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
-          span: 8
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
-          span: 8,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
-            mode: "horizontal",
-            defaultSelectedKeys: ['home'],
-            items: _routes_menu__WEBPACK_IMPORTED_MODULE_1__.publicTopMenu,
-            onClick: handleMenuClick
-          })
-        })]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Content, {
-      style: {
-        padding: '0 50px'
-      },
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        direction: "vertical",
-        size: "middle",
-        style: {
-          display: 'flex',
-          margin: '14px 14px'
-        },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Switch, {
-          children: _routes__WEBPACK_IMPORTED_MODULE_0__.publicRouteList.map(function (_ref2, index) {
-            var Component = _ref2.component,
-              path = _ref2.path,
-              exact = _ref2.exact;
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
-              path: "/".concat(path),
-              exact: exact,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Component, {})
-            }, index);
-          })
-        })
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Footer, {
-      style: {
-        textAlign: 'center'
-      },
-      children: "Ant Design \xA92023 Created by Ant UED"
-    })]
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PublicRoutes);
 
 /***/ }),
 

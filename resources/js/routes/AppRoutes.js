@@ -1,9 +1,9 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { PrivateRoute, PublicRoute, AuthRoute } from '../routes/helpers';
-import ProtectedRoutes from '../routes/ProtectedRoutes';
-import AuthRoutes from "../routes/AuthRoutes"
-import PublicRoutes from '../routes/PublicRoutes';
+import PublicRoutes from '../layouts/PublicRoutes';
+import AuthRoutes from "../layouts/AuthRoutes"
+import ProtectedRoutes from '../layouts/ProtectedRoutes';
 
 const NoPageFound = lazy(() => import('../pages/noPageFound'));
 
