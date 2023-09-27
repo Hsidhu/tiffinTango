@@ -8,6 +8,7 @@ use App\Models\MealPlan;
 use App\Models\MealPlanOption;
 use App\Models\MealPlanOptionValue;
 use App\Http\Resources\MealPlanResource;
+use App\Http\Resources\MealPlanOrderResource;
 use App\Models\MealPlanAddon;
 use Illuminate\Support\Facades\Storage;
 
@@ -81,11 +82,11 @@ class MealPlanController extends Controller
 
     public function edit($id)
     {
-        $mealPlan = MealPlan::with('addOns')->find($id);
+        $mealPlan = MealPlan::find($id);
         return response()->json($mealPlan);
     }
 
-    public function options()
+    public function options($id)
     {
         $mealPlanOptions = MealPlanOption::with('optionValues')->get();
         return response()->json($mealPlanOptions);
@@ -134,6 +135,11 @@ class MealPlanController extends Controller
         $extension = $file->getClientOriginalExtension();
 
         return $filename.'_'.time().'.'.$extension;
+    }
 
+    public function mealPlanOrderData()
+    {
+        $mealPlans = MealPlan::where('status', 1)->get();
+        return MealPlanOrderResource::collection($mealPlans);
     }
 }

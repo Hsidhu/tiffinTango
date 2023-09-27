@@ -105,3 +105,13 @@ export const updateMealPlan = (data) => (dispatch) => {
         });
     });
 }
+
+
+export const getMealPlanForOrder = () => (dispatch) => {
+    const res = getRequest('mealplanorder/data').then(response => {
+        dispatch({
+            type: GET_MEALPLANS,
+            payload: response.data
+        });
+    });
+}

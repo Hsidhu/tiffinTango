@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, message, Steps, theme } from 'antd';
+import { Button, message, Steps, Space, Divider } from 'antd';
 
 import SelectMealPlanForm from '../components/containers/cart/selectMealPlanForm';
 
@@ -51,7 +51,8 @@ const OrderMealPlan = () => {
         <>
             <Steps current={current} items={items} />
             
-            <div style={contentStyle}>{steps[current].content}</div>
+                <Divider />
+                <div style={contentStyle}>{steps[current].content}</div>
 
             <div
                 style={{

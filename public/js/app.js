@@ -17138,6 +17138,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   createMealPlan: () => (/* binding */ createMealPlan),
 /* harmony export */   createMealPlanOption: () => (/* binding */ createMealPlanOption),
 /* harmony export */   getMealPlan: () => (/* binding */ getMealPlan),
+/* harmony export */   getMealPlanForOrder: () => (/* binding */ getMealPlanForOrder),
 /* harmony export */   getMealPlanOptions: () => (/* binding */ getMealPlanOptions),
 /* harmony export */   getMealPlans: () => (/* binding */ getMealPlans),
 /* harmony export */   updateMealPlan: () => (/* binding */ updateMealPlan)
@@ -17249,6 +17250,16 @@ var updateMealPlan = function updateMealPlan(data) {
       dispatch({
         type: SET_ERRORS,
         payload: errs
+      });
+    });
+  };
+};
+var getMealPlanForOrder = function getMealPlanForOrder() {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.getRequest)('mealplanorder/data').then(function (response) {
+      dispatch({
+        type: GET_MEALPLANS,
+        payload: response.data
       });
     });
   };

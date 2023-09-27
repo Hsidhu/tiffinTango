@@ -16,8 +16,8 @@ class MealPlanAddon extends Model
         return $this->belongsTo(\App\Models\MealPlan::class);
     }
 
-    public function mealPlanOptions()
+    public function mealPlanOption()
     {
-        return $this->hasMany(\App\Models\MealPlanOption::class);
+        return $this->hasOne(\App\Models\MealPlanOption::class, 'id', 'meal_plan_option_id');
     }
 }

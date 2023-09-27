@@ -5915,7 +5915,7 @@ function _wrapNativeSuper(Class) {
 var formatRegExp = /%[sdj%]/g;
 var warning = function warning() {}; // don't print warning message when in production env or node runtime
 
-if (typeof process !== 'undefined' && process.env && "development" !== 'production' && typeof window !== 'undefined' && typeof document !== 'undefined') {
+if (typeof process !== 'undefined' && ({"APP_NAME":"Laravel","NODE_ENV":"development","GOOGLE_API_KEY":"AIzaSyBEqSY4vEjuJnO8zbX5Pb8PO3ln9czPQxk"}) && "development" !== 'production' && typeof window !== 'undefined' && typeof document !== 'undefined') {
   warning = function warning(type, errors) {
     if (typeof console !== 'undefined' && console.warn && typeof ASYNC_VALIDATOR_NO_WARNING === 'undefined') {
       if (errors.every(function (e) {

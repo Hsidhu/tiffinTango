@@ -43,3 +43,6 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
 
 Route::get('images/{folder}/{filename}', [App\Http\Controllers\Api\FileController::class, 'images'])
     ->where(['folder' => '.*', 'filename' => '.*']);
+
+
+Route::get('/mealplanorder/data', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'mealPlanOrderData']);
