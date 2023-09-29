@@ -16,9 +16,8 @@ class MealPlan extends Model
         return $this->hasMany(\App\Models\MealPlanAddon::class);
     }
 
-    public function getImageAttribute()
-    {
-        return 'images/mealplan/'.$this->attributes['image'];
-        //return number_format($this->attributes['price']);
-    }
+    // public function getImageAttribute()
+    // {
+    //     return 'images/mealplan/'.$this->attributes['image'];
+    // }
 }

@@ -20,10 +20,13 @@
   display: none;
 }
 /* stylelint-disable property-no-vendor-prefix, at-rule-no-vendor-prefix */
-html,
-body {
+html {
   width: 100%;
   height: 100%;
+}
+body {
+  width: 100%;
+  height: auto;
 }
 input::-ms-clear,
 input::-ms-reveal {

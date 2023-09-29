@@ -140,6 +140,6 @@ class MealPlanController extends Controller
     public function mealPlanOrderData()
     {
         $mealPlans = MealPlan::where('status', 1)->get();
-        return MealPlanOrderResource::collection($mealPlans);
+        return MealPlanOrderResource::collection($mealPlans)->collection;
     }
 }

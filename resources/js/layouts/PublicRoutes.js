@@ -18,7 +18,7 @@ const PublicRoutes = () => {
     };
 
     return (
-        <Layout className="layout" style={{ minHeight: "100vh" }}>
+        <Layout>
             <Header>
                 <Row>
                     <Col span={8}>

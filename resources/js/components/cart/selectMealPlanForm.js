@@ -4,14 +4,20 @@ import { useHistory, useParams } from 'react-router-dom';
 import { isEmpty } from 'lodash';
 import {
     Row, Col, Button,
-    Form, Card,
-    Radio, Space
+    Select, Card,
+    Radio, Space,
+    List, Skeleton,
+    Avatar,
+    Image
 } from 'antd';
+
+import { axiosConfig } from '../../config/constants';
 
 
 const SelectMealPlanForm = ({ mealplans, getMealPlanForOrder }) => {
 
-    const [componentSize, setComponentSize] = useState();
+    const [selectedMealPlan, setSelectedMealPlan] = useState();
+    const [selectedMealPlanOption, setSelectedMealPlanOption] = useState();
 
     useEffect(() => {
         getMealPlanForOrder()
@@ -21,30 +27,61 @@ const SelectMealPlanForm = ({ mealplans, getMealPlanForOrder }) => {
         return null;
     }
 
-    const optionItems = mealplans.data.map((item)=>({
+    const optionItems = mealplans.map((item) => ({
         label: item.name,
         value: item.id
     }));
 
-    const onChange = (e) => {
-        console.log('radio checked', e.target.value);
+    const handleChange = (value) => {
+        console.log('Select checked', value);
+        const meal = _.find(mealplans, { id: value });
+        setSelectedMealPlan(meal)
     };
 
     return (
-        <Row>
-            <Col span={14}>
-                <Radio.Group name={'mealplan'} options={optionItems} onChange={onChange}>
-                    <Space direction="vertical">
-                        <Radio value={1}>Option A</Radio>
-                    </Space>
-                </Radio.Group>
-            </Col>
-            <Col span={10}>
-                <Card title="Card title" bordered={false} style={{ width: 300 }}>
-                    <p>Card content</p>
-                    <p>Card content</p>
-                    <p>Card content</p>
+        <Row gutter={16}>
+            <Col span={16}>
+                <Card title="Select Mealpan"  >
+                    <Select
+                        defaultValue="1"
+                        style={{ width: 400 }}
+                        onChange={handleChange}
+                        options={optionItems}
+                    />
+                    <div>
+                        {
+                            selectedMealPlan ? selectedMealPlan.name : null
+                        }
+                        {
+                            selectedMealPlan ? 
+                                <Image
+                                    width={200}
+                                    src={`${axiosConfig.HOST_URL}/${selectedMealPlan.image}`}
+                                />
+                            : null
+                        }
+                    </div>
                 </Card>
+
+            </Col>
+            <Col span={8} >
+
+                    <Card title="Selected MealPlan" style={{ width: 400 }}>
+                        
+                        <List itemLayout="horizontal">
+                            <List.Item
+                                actions={[<a key="list-loadmore-edit">Price</a>]}
+                                >
+                                    <List.Item.Meta
+                                        avatar={<Avatar src={'https://randomuser.me/api/portraits/men/66.jpg'} />}
+                                        title={<a href="https://ant.design">{'test'}</a>}
+                                        description="Ant Design"
+                                    />
+                            </List.Item>
+                        </List>
+
+                    </Card>
+
             </Col>
         </Row>
     );
