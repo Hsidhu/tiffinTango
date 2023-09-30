@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Request;
+use Illuminate\Support\Facades\Request;
+use Exception;
 // use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Customer extends Model
@@ -17,10 +18,10 @@ class Customer extends Model
     
     public $appends = ['full_name'];
     
-    // public function mealplanorders()
-    // {
-    //     return $this->hasMany(App\Models\MealPlanOrder::class);
-    // }
+    public function mealplanorders()
+    {
+        return $this->hasMany(App\Models\MealPlanOrder::class);
+    }
     
     public function address()
     {

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Request;
-use Carbon;
+use Carbon\Carbon;
 
 class MealPlanOrder extends Model
 {
@@ -13,18 +13,10 @@ class MealPlanOrder extends Model
 
     protected $guarded = [];
 
-    // public $relation = [
-    //     'belongsTo' => [
-    //         'customer' => 'Admin\Models\Customers_model',
-    //         'location' => 'Admin\Models\Locations_model',
-    //         'address' => 'Admin\Models\Addresses_model',
-    //         'payment_method' => ['Admin\Models\Payments_model', 'foreignKey' => 'payment', 'otherKey' => 'code'],
-    //     ],
-    //     'hasMany' => [
-    //         'payment_logs' => 'Admin\Models\Payment_logs_model',
-    //     ],
-    // ];
-
+    public function customer()
+    {
+        return $this->belongsTo(\App\Models\Customer::class);
+    }
 
     public function items()
     {
