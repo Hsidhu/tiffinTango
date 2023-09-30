@@ -16915,11 +16915,22 @@ var setOrderMetaData = function setOrderMetaData(data) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   cart: () => (/* binding */ cart)
+/* harmony export */   cart: () => (/* binding */ cart),
+/* harmony export */   orderSummary: () => (/* binding */ orderSummary)
 /* harmony export */ });
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions */ "./resources/js/redux/Cart/actions.js");
 
 var cart = function cart() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.SELECT_MEALPLAN:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+var orderSummary = function orderSummary() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var action = arguments.length > 1 ? arguments[1] : undefined;
   switch (action.type) {
@@ -17342,7 +17353,8 @@ __webpack_require__.r(__webpack_exports__);
   mealplans: _MealPlan_redux__WEBPACK_IMPORTED_MODULE_3__.mealplans,
   mealplan: _MealPlan_redux__WEBPACK_IMPORTED_MODULE_3__.mealplan,
   mealplanOptions: _MealPlan_redux__WEBPACK_IMPORTED_MODULE_3__.mealplanOptions,
-  cart: _Cart_redux__WEBPACK_IMPORTED_MODULE_4__.cart
+  cart: _Cart_redux__WEBPACK_IMPORTED_MODULE_4__.cart,
+  orderSummary: _Cart_redux__WEBPACK_IMPORTED_MODULE_4__.orderSummary
 });
 
 /***/ }),

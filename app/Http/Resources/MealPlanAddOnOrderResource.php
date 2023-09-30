@@ -15,13 +15,14 @@ class MealPlanAddOnOrderResource extends JsonResource
      */
     public function toArray($request)
     {
+        // mix of meal addon and meal options
         return [
-            'id' => $this->id,
+            'meal_plan_id' => $this->meal_plan_id,
             'meal_plan_option_id' => $this->meal_plan_option_id,
             'required' => $this->required,
-            'option_name' => $this->mealPlanOption->name,
+            'name' => $this->mealPlanOption->name,
             'display' => $this->mealPlanOption->display_type,
-            'option_values'=> MealPlanOptionValueOrderResource::collection($this->mealPlanOption->optionValues)
+            'values'=> MealPlanOptionValueOrderResource::collection($this->mealPlanOption->optionValues)
         ];
     }
 }

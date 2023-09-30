@@ -45,4 +45,4 @@ Route::get('images/{folder}/{filename}', [App\Http\Controllers\Api\FileControlle
     ->where(['folder' => '.*', 'filename' => '.*']);
 
 
-Route::get('/mealplanorder/data', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'mealPlanOrderData']);
+Route::get('/mealplanorder/data', [App\Http\Controllers\Api\OrderController::class, 'getMealPlans']);

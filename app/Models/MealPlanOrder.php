@@ -5,11 +5,36 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Request;
+use Carbon;
 
 class MealPlanOrder extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
+    // public $relation = [
+    //     'belongsTo' => [
+    //         'customer' => 'Admin\Models\Customers_model',
+    //         'location' => 'Admin\Models\Locations_model',
+    //         'address' => 'Admin\Models\Addresses_model',
+    //         'payment_method' => ['Admin\Models\Payments_model', 'foreignKey' => 'payment', 'otherKey' => 'code'],
+    //     ],
+    //     'hasMany' => [
+    //         'payment_logs' => 'Admin\Models\Payment_logs_model',
+    //     ],
+    // ];
+
+
+    public function items()
+    {
+        return $this->hasMany(\App\Models\MealPlanOrderItem::class);
+    }
+
+    public function total()
+    {
+        return $this->hasMany(\App\Models\MealPlanOrderTotal::class);
+    }
 
     //
     // Events

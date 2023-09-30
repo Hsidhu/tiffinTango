@@ -13,3 +13,13 @@ export const cart = (state = [], action) => {
 }
 
 
+export const orderSummary = (state = [], action) => {
+    switch (action.type) {
+        case SELECT_MEALPLAN:
+            return action.payload
+        default:
+            return state
+    }
+}
+
+

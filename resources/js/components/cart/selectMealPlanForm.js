@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { useHistory, useParams } from 'react-router-dom';
 import { isEmpty } from 'lodash';
 import {
     Row, Col, Button,
     Select, Card,
-    Radio, Space,
+    Radio, Table,
     List, Skeleton,
     Avatar,
-    Image
+    Image, Typography
 } from 'antd';
 
+const { Text } = Typography;
+
 import { axiosConfig } from '../../config/constants';
+import MealPlanOptions from "./mealPlanOptions"
 
 
 const SelectMealPlanForm = ({ mealplans, getMealPlanForOrder }) => {
@@ -28,8 +30,8 @@ const SelectMealPlanForm = ({ mealplans, getMealPlanForOrder }) => {
     }
 
     const optionItems = mealplans.map((item) => ({
-        label: item.name,
-        value: item.id
+        value: item.id,
+        label: `${item.name} - $${item.price}`
     }));
 
     const handleChange = (value) => {
@@ -38,12 +40,41 @@ const SelectMealPlanForm = ({ mealplans, getMealPlanForOrder }) => {
         setSelectedMealPlan(meal)
     };
 
+    const columns = [
+        {
+            title: 'Name',
+            dataIndex: 'name',
+        },
+        {
+            title: 'Borrow',
+            dataIndex: 'borrow',
+        }
+    ];
+
+    const data = [
+        {
+            key: 'price',
+            name: 'Sub Total:',
+            borrow: 30
+        },
+        {
+            key: 'delivery',
+            name: 'Delivery',
+            borrow: 0
+        },
+        {
+            key: 'tax',
+            name: 'HST[13%]',
+            borrow: 30
+        }
+    ];
+
     return (
         <Row gutter={16}>
             <Col span={16}>
                 <Card title="Select Mealpan"  >
                     <Select
-                        defaultValue="1"
+                        placeholder = "Select MealPlan"
                         style={{ width: 400 }}
                         onChange={handleChange}
                         options={optionItems}
@@ -53,11 +84,19 @@ const SelectMealPlanForm = ({ mealplans, getMealPlanForOrder }) => {
                             selectedMealPlan ? selectedMealPlan.name : null
                         }
                         {
-                            selectedMealPlan ? 
+                            selectedMealPlan ?
                                 <Image
                                     width={200}
                                     src={`${axiosConfig.HOST_URL}/${selectedMealPlan.image}`}
                                 />
+                                : null
+                        }
+
+                        {
+                            selectedMealPlan ? 
+                            <MealPlanOptions 
+                                options={selectedMealPlan.mealPlanOptions}
+                            />
                             : null
                         }
                     </div>
@@ -66,21 +105,45 @@ const SelectMealPlanForm = ({ mealplans, getMealPlanForOrder }) => {
             </Col>
             <Col span={8} >
 
-                    <Card title="Selected MealPlan" style={{ width: 400 }}>
-                        
-                        <List itemLayout="horizontal">
-                            <List.Item
-                                actions={[<a key="list-loadmore-edit">Price</a>]}
-                                >
-                                    <List.Item.Meta
-                                        avatar={<Avatar src={'https://randomuser.me/api/portraits/men/66.jpg'} />}
-                                        title={<a href="https://ant.design">{'test'}</a>}
-                                        description="Ant Design"
-                                    />
-                            </List.Item>
-                        </List>
+                <Card title="Selected MealPlan" style={{ width: 400 }}>
 
-                    </Card>
+                    <List itemLayout="horizontal">
+                        <List.Item
+                            actions={[
+                                <a key="list-loadmore-edit">{selectedMealPlan?.price}</a>
+                            ]}
+                        >
+                            <List.Item.Meta
+                                avatar={<Avatar src={'https://randomuser.me/api/portraits/men/66.jpg'} />}
+                                title={<a href="https://ant.design">{'test'}</a>}
+                                description="Ant Design"
+                            />
+                        </List.Item>
+                    </List>
+
+                    <Table columns={columns} dataSource={data}
+                        pagination={false}
+                        showHeader={false}
+                        summary={(pageData) => {
+                            let totalBorrow = 0;
+                            pageData.forEach(({ borrow }) => {
+                                totalBorrow += borrow;
+                            });
+                            return (
+                                <>
+                                    <Table.Summary.Row>
+                                        <Table.Summary.Cell index={0}>Order Total</Table.Summary.Cell>
+                                        <Table.Summary.Cell index={1}>
+                                            <Text type="danger">{totalBorrow}</Text>
+                                        </Table.Summary.Cell>
+                                    </Table.Summary.Row>
+                                </>
+                            );
+                        }}
+
+                    />
+
+                </Card>
 
             </Col>
         </Row>

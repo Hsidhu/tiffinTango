@@ -172,18 +172,17 @@ return new class extends Migration
             $table->id();
             $table->string('hash', 40)->nullable()->index();
             $table->integer('customer_id')->nullable();
-            $table->string('first_name', 32);
-            $table->string('last_name', 32);
-            $table->string('email', 96);
-            $table->string('telephone', 32);
-            $table->integer('location_id');
+            $table->string('first_name', 32)->nullable();
+            $table->string('last_name', 32)->nullable();
+            $table->string('email', 96)->nullable();
+            $table->string('telephone', 32)->nullable();
             $table->integer('address_id')->nullable();
             $table->text('cart');
             $table->integer('total_items');
             $table->text('comment');
             $table->string('payment', 35);
             $table->string('order_type', 32);
-            $table->dateTime('date_added');
+            $table->dateTime('start_date');
             $table->date('date_modified');
             $table->time('order_time');
             $table->date('order_date');
@@ -192,7 +191,6 @@ return new class extends Migration
             $table->string('ip_address', 40);
             $table->string('user_agent');
             $table->boolean('notify');
-            $table->integer('assignee_id');
             $table->integer('invoice_no');
             $table->string('invoice_prefix', 32);
             $table->dateTime('invoice_date');
@@ -208,7 +206,6 @@ return new class extends Migration
             $table->integer('order_id');
             $table->integer('meal_plan_id');
             $table->string('name');
-            $table->integer('quantity');
             $table->decimal('price', 15, 4)->nullable();
             $table->decimal('subtotal', 15, 4)->nullable();
             $table->text('option_values');
@@ -226,7 +223,6 @@ return new class extends Migration
             $table->decimal('order_option_price', 15, 4)->nullable();
             $table->string('order_option_value_name', 128);
             $table->decimal('order_option_value_price', 15, 4)->nullable();
-            $table->integer('quantity');
         });
         
         // order total with delivery an taxes
