@@ -22,8 +22,16 @@ class OrderController extends Controller
         return MealPlanOrderResource::collection($mealPlans)->collection;
     }
 
-    public function save(Request $request)
+    public function saveOrder(Request $request)
     {
-
+        $mealPlanId = $request->get('id');
+        $this->validate($request, [
+            'name' => ['required', 'between:1,64'],
+            'description' => ['required', 'between:1,48'],
+            'short_description' => ['between:1,48'],
+            'price' => ['required','numeric'],
+            'discount' => ['numeric'],
+            'duration' => ['max:64']
+        ]);
     }
 }

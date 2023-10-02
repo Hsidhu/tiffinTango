@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
 import SelectMealPlanForm from "../../cart/selectMealPlanForm";
-import { getMealPlanForOrder } from '../../../redux/MealPlan/actions';
+import { getMealPlanForOrder, selectMealPlan, selectMealPlanOption } from '../../../redux/Cart/actions';
+
 export default connect(
-    ({mealplans}) => ({mealplans}),
-    { getMealPlanForOrder }
+    ({orderData, cart}) => ({orderData, cart}),
+    { getMealPlanForOrder, selectMealPlan, selectMealPlanOption }
 )(SelectMealPlanForm)

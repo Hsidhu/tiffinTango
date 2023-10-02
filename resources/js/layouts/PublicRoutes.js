@@ -4,7 +4,6 @@ import {publicRouteList} from '../routes/routes';
 import {  publicTopMenu } from '../routes/menu'
 import HeaderLogo from '../components/headerLogo';
 
-
 const { Header, Sider, Content, Footer } = Layout;
 
 // Layout for public pages

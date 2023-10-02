@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
-import orderSummary from "../../cart/orderSummary";
-import { getMealPlanForOrder } from '../../../redux/MealPlan/actions';
+import OrderSummary from "../../cart/orderSummary";
+
 export default connect(
-    ({mealplans}) => ({mealplans}),
-    { getMealPlanForOrder }
-)(orderSummary)
+    ({ cart }) => ({ cart }),
+    {  }
+)(OrderSummary)

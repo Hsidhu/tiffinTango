@@ -1,5 +1,8 @@
 import React from 'react';
 import { Carousel } from 'antd';
+
+import { axiosConfig } from '../config/constants';
+
 const contentStyle = {
     margin: 0,
     height: '160px',
@@ -15,7 +18,7 @@ const CarouselSlider = () => {
     return (
         <Carousel afterChange={onChange}>
             <div>
-                <h3 style={contentStyle}>1</h3>
+                <img src={`${axiosConfig.HOST_URL}/images/site/slider_440.png`} />
             </div>
             <div>
                 <h3 style={contentStyle}>2</h3>

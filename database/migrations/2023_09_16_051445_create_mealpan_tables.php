@@ -183,6 +183,7 @@ return new class extends Migration
             $table->string('payment', 35);
             $table->string('order_type', 32);
             $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->date('date_modified');
             $table->time('order_time');
             $table->date('order_date');

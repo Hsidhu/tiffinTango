@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { isEmpty } from 'lodash';
+import {
+    Card, Table,
+    List, Typography,
+    Avatar
+} from 'antd';
 
+const { Text } = Typography;
 
-const OrderSummary = ({ mealplans }) => {
+const OrderSummary = ({ cart }) => {
 
     const [selectedMealPlan, setSelectedMealPlan] = useState();
-    const [selectedMealPlanOption, setSelectedMealPlanOption] = useState();
 
-    
-
-    if (isEmpty(mealplans)) {
+    if (isEmpty(cart)) {
         return null;
     }
 
 
     const handleChange = (value) => {
         console.log('Select checked', value);
-        const meal = _.find(mealplans, { id: value });
-        setSelectedMealPlan(meal)
     };
 
     const columns = [
@@ -33,9 +35,9 @@ const OrderSummary = ({ mealplans }) => {
 
     const data = [
         {
-            key: 'price',
-            name: 'Sub Total:',
-            borrow: 30
+            key: `mealplan-${cart.id}`,
+            name: cart.name,
+            borrow: cart.price
         },
         {
             key: 'delivery',
@@ -48,6 +50,15 @@ const OrderSummary = ({ mealplans }) => {
             borrow: 30
         }
     ];
+
+
+    const options = cart?.options.map((item) =>({
+        key: item.id,
+        name: item.value,
+        borrow: item.price
+    }))
+    data.push(...options)
+
 
     return (
         <Card title="Selected MealPlan" style={{ width: 400 }}>
@@ -64,9 +75,8 @@ const OrderSummary = ({ mealplans }) => {
                 </List.Item>
             </List>
 
-            <Table columns={columns} dataSource={data}
+            <Table columns={columns} showHeader={false} dataSource={data}
                 pagination={false}
-                showHeader={false}
                 bordered
                 summary={(pageData) => {
                     let totalBorrow = 0;

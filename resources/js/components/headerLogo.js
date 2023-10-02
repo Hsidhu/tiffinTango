@@ -2,6 +2,8 @@ import React from 'react';
 import { Button, Result } from 'antd';
 import { Route, Switch, useHistory, Link } from 'react-router-dom';
 
+import { axiosConfig } from '../config/constants';
+
 const styles = {
     logoLink:{
         display: 'flex',
@@ -18,7 +20,7 @@ const styles = {
 
 const HeaderLogo = ({}) => (
     <Link to="/" style={styles.logoLink}>
-        <img alt="logo" style={styles.logo} src={'https://jkfoodservices.dvl.to/assets/media/uploads/ab_catering_logo.png'} />
+        <img alt="logo" style={styles.logo} src={`${axiosConfig.HOST_URL}/images/site/ab_catering_logo.png`} />
     </Link>
 );
 

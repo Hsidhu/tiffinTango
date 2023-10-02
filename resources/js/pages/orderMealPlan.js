@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
-import { Button, message, Steps, Layout, Divider } from 'antd';
+import {
+    Button, message, Steps,
+    Layout, Divider, Row, Col
+} from 'antd';
 
 import SelectMealPlanForm from '../components/containers/cart/selectMealPlanForm';
+import CustomerDetailForm from '../components/containers/cart/customerDetailForm';
+import OrderSummary from '../components/containers/cart/orderSummary';
 const { Content } = Layout;
 
 const steps = [
     {
-        title: 'Select MealPlan',
-        description: "subtitle",
+        title: 'MealPlans',
+        description: "Select your mealplan",
         content: <SelectMealPlanForm />,
     },
     {
-        title: 'Add Ons',
-        description: "subtitle",
-        content: 'Second-content',
-    },
-    {
         title: 'Details',
-        description: "subtitle",
-        content: 'Last-content',
-    },
+        description: "Customer Detail",
+        content: <CustomerDetailForm />,
+    }
 ];
 
 const OrderMealPlan = () => {
@@ -49,34 +49,44 @@ const OrderMealPlan = () => {
             <Steps current={current} items={items} />
 
             <Divider />
-            <div style={contentStyle}>
+            <Row gutter={16}>
+                <Col span={16}>
 
-                {steps[current].content}
+                    <div style={contentStyle}>
 
-                <div>
-                    {current < steps.length - 1 && (
-                        <Button type="primary" onClick={() => next()}>
-                            Next
-                        </Button>
-                    )}
-                    {current === steps.length - 1 && (
-                        <Button type="primary" onClick={() => message.success('Processing complete!')}>
-                            Done
-                        </Button>
-                    )}
-                    {current > 0 && (
-                        <Button
-                            style={{
-                                margin: '0 8px',
-                            }}
-                            onClick={() => prev()}
-                        >
-                            Previous
-                        </Button>
-                    )}
-                </div>
+                        {steps[current].content}
 
-            </div>
+                        <div>
+                            {current < steps.length - 1 && (
+                                <Button type="primary" onClick={() => next()}>
+                                    Next
+                                </Button>
+                            )}
+                            {current === steps.length - 1 && (
+                                <Button type="primary" onClick={() => message.success('Processing complete!')}>
+                                    Done
+                                </Button>
+                            )}
+                            {current > 0 && (
+                                <Button
+                                    style={{
+                                        margin: '0 8px',
+                                    }}
+                                    onClick={() => prev()}
+                                >
+                                    Previous
+                                </Button>
+                            )}
+                        </div>
+
+                    </div>
+                </Col>
+
+                <Col span={8} >
+                    <OrderSummary />
+                </Col>
+
+            </Row>
 
 
         </>
