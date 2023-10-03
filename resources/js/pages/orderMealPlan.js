@@ -7,7 +7,8 @@ import {
 import SelectMealPlanForm from '../components/containers/cart/selectMealPlanForm';
 import CustomerDetailForm from '../components/containers/cart/customerDetailForm';
 import OrderSummary from '../components/containers/cart/orderSummary';
-const { Content } = Layout;
+
+
 
 const steps = [
     {
@@ -46,12 +47,12 @@ const OrderMealPlan = () => {
 
     return (
         <>
-            <Steps current={current} items={items} />
-
-            <Divider />
+        
             <Row gutter={16}>
-                <Col span={16}>
 
+                <Col span={16}>
+                    <Steps current={current} items={items} />
+                    <Divider />
                     <div style={contentStyle}>
 
                         {steps[current].content}

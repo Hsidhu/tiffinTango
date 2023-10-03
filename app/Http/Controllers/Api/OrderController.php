@@ -12,6 +12,8 @@ use App\Models\MealPlanOrder;
 use App\Models\MealPlanOrderItem;
 use App\Models\MealPlanOrderItemOption;
 use App\Models\MealPlanOrderTotal;
+use App\Models\Customer;
+use App\Models\Address;
 
 class OrderController extends Controller
 {
@@ -22,9 +24,17 @@ class OrderController extends Controller
         return MealPlanOrderResource::collection($mealPlans)->collection;
     }
 
-    public function saveOrder(Request $request)
+    public function createOrder(Request $request)
     {
-        $mealPlanId = $request->get('id');
+        $mealPlan =  MealPlan::find($request->get('id'));
+
+        // MealPlanOrder
+        // MealPlanOrderItem -> which mealplan
+        // MealPlanOrderItemOption -> which options
+        // MealPlanOrderTotal -> iitem total + delivery total + HST
+        // Customer
+        // Address
+
         $this->validate($request, [
             'name' => ['required', 'between:1,64'],
             'description' => ['required', 'between:1,48'],

@@ -3,48 +3,65 @@ import { useHistory, useParams } from 'react-router-dom';
 import { isEmpty } from 'lodash';
 import moment from "moment";
 import {
-    Row, Col, Button,
-    Select, Card,
-    Radio,
-    DatePicker
+    Row, Col, Button, Select, Card,
+    Radio, DatePicker, Form
 } from 'antd';
 import { axiosConfig } from '../../config/constants';
+import CustomerCreateForm from '../customerCreateForm';
 
-const CustomerDetailForm = ({ cart}) => {
+const CustomerDetailForm = ({ cart }) => {
 
-    const [selectedMealPlan, setSelectedMealPlan] = useState();
     const [orderType, setOrderType] = useState('pickup');
+    const [form] = Form.useForm();
 
     if (isEmpty(cart)) {
         return null;
     }
 
-    const onChange3 = ({ target: { value } }) => {
+    const onOrderTypeChange = ({ target: { value } }) => {
         console.log('radio3 checked', value);
         setOrderType(value)
     };
+
     const orderTypeOptions = [
         { label: 'Delivery', value: 'delivery' },
         { label: 'Pickup', value: 'pickup' }
     ];
 
-    const onDateChange = (date, dateString) => {
-        console.log(date, dateString);
+    const triggerSubmit = () => {
+        form
+        .validateFields()
+        .then((values) => {
+
+            console.log(values)
+        })
+        .catch((err) => {
+            err.values.start_date = err.values.start_date.format('YYYY-MM-DD')
+            console.log(err)
+        });
+    }
+    const onSubmitCustomerForm = (values) => {
+        console.log(values)
     }
 
     return (
         <Card title="Details" >
-            <div>
-                <br />
-                <Radio.Group optionType="button" options={orderTypeOptions} 
-                    onChange={onChange3} value={orderType} />
-                <br />
-                <DatePicker onChange={onDateChange} 
-                    disabledDate={current => {
-                        return current && current < moment().add(1, "day");
-                    }}
-                />
-            </div>
+            <Row>
+                <Col span={3}>
+                    Type:
+                </Col>
+                <Col span={8}>
+                    <Radio.Group size="large" optionType="button" options={orderTypeOptions} 
+                        onChange={onOrderTypeChange} value={orderType} />
+                </Col>
+            </Row>
+
+            <Row>
+                <Col span={24}>
+                    <CustomerCreateForm form={form} onFormSubmit={onSubmitCustomerForm} />
+                    <Button type="primary" onClick={triggerSubmit}>Submit</Button>
+                </Col>
+            </Row>
 
         </Card>
     );

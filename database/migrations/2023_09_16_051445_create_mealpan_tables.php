@@ -303,7 +303,6 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
-            $table->integer('location_id');
             $table->string('key', 64);
             $table->string('value', 128);
             $table->timestamps();

@@ -2,9 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { isEmpty } from 'lodash';
 import {
+    Row, Col,
     Select, Card,
-    Image, Descriptions
+    Image, Descriptions,
+    Typography
 } from 'antd';
+
+const { Text } = Typography;
 
 import { axiosConfig } from '../../config/constants';
 import MealPlanOptions from "../containers/cart/mealPlanOptions"
@@ -36,13 +40,22 @@ const SelectMealPlanForm = ({ orderData, cart, getMealPlanForOrder, selectMealPl
 
     return (
         <Card title="Select Mealpan"  >
-            <Select
-                placeholder = "Select MealPlan"
-                defaultValue={cart?.id}
-                style={{ width: 450 }}
-                onChange={handleChange}
-                options={optionItems}
-            />
+
+            <Row>
+                <Col span={3}>
+                    <Text>Select your Plan:</Text>
+                </Col>
+                <Col span={8}>
+                    <Select size="large"
+                        placeholder = "Select MealPlan"
+                        defaultValue={cart?.id}
+                        style={{ width: '100%' }}
+                        onChange={handleChange}
+                        options={optionItems}
+                    />
+                </Col>
+            </Row>
+            
             <div>
                 {
                     !isEmpty(cart) ? <Descriptions title="Selected Meal Plan Description" bordered layout="vertical">
@@ -50,7 +63,7 @@ const SelectMealPlanForm = ({ orderData, cart, getMealPlanForOrder, selectMealPl
                             <Descriptions.Item label="Description">{cart.description}</Descriptions.Item>
                             <Descriptions.Item label="Billing">Monthly</Descriptions.Item>
                             <Descriptions.Item label="Price">${cart.price}</Descriptions.Item>
-                  </Descriptions>: null
+                    </Descriptions>: null
                 }
                 <br/>
                 {
