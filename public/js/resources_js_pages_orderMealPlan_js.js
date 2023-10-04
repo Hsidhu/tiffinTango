@@ -15301,7 +15301,7 @@ var MealPlanOptions = function MealPlanOptions(_ref) {
       size: "large",
       options: buildData,
       onChange: onChange,
-      defaultValue: defaultValue ? defaultValue.id : null
+      defaultValue: defaultValue ? defaultValue.value_id : null
     });
   };
   var buildSelectOptions = function buildSelectOptions(values) {
@@ -15426,7 +15426,7 @@ var OrderSummary = function OrderSummary(_ref) {
   var options = cart.items.map(function (item) {
     var _item$meal_id, _item$name;
     return {
-      key: (_item$meal_id = item === null || item === void 0 ? void 0 : item.meal_id) !== null && _item$meal_id !== void 0 ? _item$meal_id : item.value_id,
+      key: (_item$meal_id = item === null || item === void 0 ? void 0 : item.meal_id) !== null && _item$meal_id !== void 0 ? _item$meal_id : "".concat(item.meal_plan_option_id, "-").concat(item.value_id),
       name: (_item$name = item === null || item === void 0 ? void 0 : item.name) !== null && _item$name !== void 0 ? _item$name : item.meal_plan_option_name,
       price: item.price
     };
@@ -15435,12 +15435,12 @@ var OrderSummary = function OrderSummary(_ref) {
   data.push({
     key: 'delivery',
     name: 'Delivery',
-    price: 0
+    price: cart.deliveryCharges
   });
   data.push({
     key: 'tax',
     name: 'HST[13%]',
-    price: 1.3
+    price: cart.tax
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
     title: "Selected MealPlan",
@@ -15470,7 +15470,6 @@ var OrderSummary = function OrderSummary(_ref) {
         var totalPrice = 0;
         pageData.forEach(function (currentData) {
           if (currentData.key === 'tax') {
-            console.log(totalPrice * currentData.price, totalPrice, currentData.price);
             totalPrice = totalPrice * currentData.price;
           } else {
             totalPrice += currentData.price;
@@ -15915,7 +15914,7 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
         style: {
           width: "100%"
         },
-        format: 'YYYY/MM/DD',
+        format: 'DD-MM-YYYY',
         disabledDate: function disabledDate(current) {
           return current && current < moment__WEBPACK_IMPORTED_MODULE_1___default()().add(1, "day");
         }

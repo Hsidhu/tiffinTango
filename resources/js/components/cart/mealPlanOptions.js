@@ -39,7 +39,7 @@ const MealPlanOptions = ({mealPlanID, orderData, cart, selectMealPlanOption}) =>
         return <Radio.Group size="large"
                 options={buildData}
                 onChange={onChange}
-                defaultValue={ defaultValue ? defaultValue.id : null }
+                defaultValue={ defaultValue ? defaultValue.value_id : null }
             />;
     }
 

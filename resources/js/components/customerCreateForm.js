@@ -99,7 +99,7 @@ const CustomerCreateForm = ({ form }) => {
             <Form.Item label="Start Date" name="start_date" 
                 rules={[{ required: true, message: 'Please select Start Date!' }]}
                 >
-                <DatePicker size="large" style={{width: "100%"}} format={'YYYY/MM/DD'}
+                <DatePicker size="large" style={{width: "100%"}} format={'DD-MM-YYYY'}
                     disabledDate={current => {
                         return current && current < moment().add(1, "day");
                     }}

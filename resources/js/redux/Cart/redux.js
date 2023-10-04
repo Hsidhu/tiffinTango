@@ -17,7 +17,8 @@ export const cart = (state = {}, action) => {
     switch (action.type) {
         case SELECT_MEALPLAN:
             return  {
-                ...state,
+                deliveryCharges:0,
+                tax:1.3,
                 items: [action.payload],
             };
         case SELECT_MEALPLAN_OPTIONS:

@@ -36,7 +36,7 @@ const OrderSummary = ({ cart }) => {
     let data = [];
 
     const options = cart.items.map((item) =>({
-        key: item?.meal_id ?? item.value_id,
+        key: item?.meal_id ?? `${item.meal_plan_option_id}-${item.value_id}`,
         name: item?.name ?? item.meal_plan_option_name,
         price: item.price
     }))
@@ -45,12 +45,12 @@ const OrderSummary = ({ cart }) => {
     data.push({
         key: 'delivery',
         name: 'Delivery',
-        price: 0
+        price: cart.deliveryCharges
     })
     data.push({
         key: 'tax',
         name: 'HST[13%]',
-        price: 1.3
+        price: cart.tax
     })
 
     return (
@@ -73,11 +73,10 @@ const OrderSummary = ({ cart }) => {
                 summary={(pageData) => {
                     let totalPrice = 0;
                     pageData.forEach((currentData) => {
-                        if(currentData.key === 'tax'){
-                            console.log(totalPrice * currentData.price, totalPrice, currentData.price)
+                        if(currentData.key === 'tax') {
                             totalPrice = totalPrice * currentData.price;
                         }
-                        else{
+                        else {
                             totalPrice += currentData.price;
                         }
                         
