@@ -3,6 +3,6 @@ import CustomerDetailForm from "../../cart/customerDetailForm";
 import { getMealPlanForOrder } from '../../../redux/Cart/actions';
 
 export default connect(
-    ({ cart }) => ({ cart }),
+    ({ orderData, cart }) => ({ orderData, cart }),
     { getMealPlanForOrder }
 )(CustomerDetailForm)

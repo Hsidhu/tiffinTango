@@ -16199,7 +16199,8 @@ function deleteRequest(URL) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   GOOGLE_API_KEY: () => (/* binding */ GOOGLE_API_KEY),
-/* harmony export */   axiosConfig: () => (/* binding */ axiosConfig)
+/* harmony export */   axiosConfig: () => (/* binding */ axiosConfig),
+/* harmony export */   orderTypeOptions: () => (/* binding */ orderTypeOptions)
 /* harmony export */ });
 var axiosConfig = {
   //HOST_URL: 'https://laravel-react-boilerplate.herokuapp.com/api',
@@ -16210,6 +16211,13 @@ var axiosConfig = {
   }
 };
 var GOOGLE_API_KEY = "AIzaSyBEqSY4vEjuJnO8zbX5Pb8PO3ln9czPQxk";
+var orderTypeOptions = [{
+  label: 'Delivery',
+  value: 'delivery'
+}, {
+  label: 'Pickup',
+  value: 'pickup'
+}];
 
 /***/ }),
 
@@ -16872,8 +16880,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   ORDER_META_DATA: () => (/* binding */ ORDER_META_DATA),
 /* harmony export */   SELECT_MEALPLAN: () => (/* binding */ SELECT_MEALPLAN),
 /* harmony export */   SELECT_MEALPLAN_OPTIONS: () => (/* binding */ SELECT_MEALPLAN_OPTIONS),
+/* harmony export */   addToCartselectMealPlan: () => (/* binding */ addToCartselectMealPlan),
 /* harmony export */   getMealPlanForOrder: () => (/* binding */ getMealPlanForOrder),
-/* harmony export */   selectMealPlan: () => (/* binding */ selectMealPlan),
 /* harmony export */   selectMealPlanOption: () => (/* binding */ selectMealPlanOption),
 /* harmony export */   setOrderMetaData: () => (/* binding */ setOrderMetaData)
 /* harmony export */ });
@@ -16894,7 +16902,7 @@ var getMealPlanForOrder = function getMealPlanForOrder() {
     });
   };
 };
-var selectMealPlan = function selectMealPlan(mealPlanObject) {
+var addToCartselectMealPlan = function addToCartselectMealPlan(mealPlanObject) {
   return function (dispatch) {
     dispatch({
       type: SELECT_MEALPLAN,
@@ -16931,6 +16939,7 @@ var setOrderMetaData = function setOrderMetaData(data) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   cart: () => (/* binding */ cart),
+/* harmony export */   cartTotal: () => (/* binding */ cartTotal),
 /* harmony export */   orderData: () => (/* binding */ orderData),
 /* harmony export */   orderSummary: () => (/* binding */ orderSummary)
 /* harmony export */ });
@@ -16957,22 +16966,22 @@ var cart = function cart() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
   switch (action.type) {
     case _actions__WEBPACK_IMPORTED_MODULE_0__.SELECT_MEALPLAN:
-      return _objectSpread(_objectSpread({}, action.payload), {}, {
-        options: []
+      return _objectSpread(_objectSpread({}, state), {}, {
+        items: [action.payload]
       });
     case _actions__WEBPACK_IMPORTED_MODULE_0__.SELECT_MEALPLAN_OPTIONS:
       var newState = _.cloneDeep(state);
       var newOptionValue = action.payload;
       // get options with same option
-      var index = newState.options.findIndex(function (item) {
+      var index = newState.items.findIndex(function (item) {
         return item.meal_plan_option_id === newOptionValue.meal_plan_option_id;
       });
       if (index !== -1) {
         // Update the existing item
-        newState.options[index] = newOptionValue;
+        newState.items[index] = newOptionValue;
       } else {
         // Add the new item to the array
-        newState.options.push(newOptionValue);
+        newState.items.push(newOptionValue);
       }
       return newState;
     default:
@@ -16984,6 +16993,18 @@ var orderSummary = function orderSummary() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
   switch (action.type) {
     case _actions__WEBPACK_IMPORTED_MODULE_0__.SELECT_MEALPLAN:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+var cartTotal = function cartTotal() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.SELECT_MEALPLAN:
+      return action.payload;
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.SELECT_MEALPLAN_OPTIONS:
       return action.payload;
     default:
       return state;

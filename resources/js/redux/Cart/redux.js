@@ -16,18 +16,21 @@ export const orderData = (state = [], action) => {
 export const cart = (state = {}, action) => {
     switch (action.type) {
         case SELECT_MEALPLAN:
-            return {...action.payload, options:[]}
+            return  {
+                ...state,
+                items: [action.payload],
+            };
         case SELECT_MEALPLAN_OPTIONS:
             let newState = _.cloneDeep(state);
             const newOptionValue = action.payload;
             // get options with same option
-            const index = newState.options.findIndex((item) => item.meal_plan_option_id === newOptionValue.meal_plan_option_id);
+            const index = newState.items.findIndex((item) => item.meal_plan_option_id === newOptionValue.meal_plan_option_id);
             if (index !== -1) {
                 // Update the existing item
-                newState.options[index] = newOptionValue;
+                newState.items[index] = newOptionValue;
             } else {
                 // Add the new item to the array
-                newState.options.push(newOptionValue);
+                newState.items.push(newOptionValue);
             }
             return newState
         default:
@@ -39,6 +42,17 @@ export const cart = (state = {}, action) => {
 export const orderSummary = (state = [], action) => {
     switch (action.type) {
         case SELECT_MEALPLAN:
+            return action.payload
+        default:
+            return state
+    }
+}
+
+export const cartTotal = (state = [], action) => {
+    switch (action.type) {
+        case SELECT_MEALPLAN:
+            return action.payload
+        case SELECT_MEALPLAN_OPTIONS:
             return action.payload
         default:
             return state

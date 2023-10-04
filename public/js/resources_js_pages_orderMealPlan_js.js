@@ -15175,8 +15175,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/card/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/row/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/col/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/radio/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/button/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/button/index.js");
 /* harmony import */ var _config_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../config/constants */ "./resources/js/config/constants.js");
 /* harmony import */ var _customerCreateForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../customerCreateForm */ "./resources/js/components/customerCreateForm.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -15207,58 +15206,28 @@ var CustomerDetailForm = function CustomerDetailForm(_ref) {
   if ((0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(cart)) {
     return null;
   }
-  var onOrderTypeChange = function onOrderTypeChange(_ref2) {
-    var value = _ref2.target.value;
-    console.log('radio3 checked', value);
-    setOrderType(value);
-  };
-  var orderTypeOptions = [{
-    label: 'Delivery',
-    value: 'delivery'
-  }, {
-    label: 'Pickup',
-    value: 'pickup'
-  }];
   var triggerSubmit = function triggerSubmit() {
     form.validateFields().then(function (values) {
+      values.start_date = err.values.start_date.format('YYYY-MM-DD');
       console.log(values);
     })["catch"](function (err) {
-      err.values.start_date = err.values.start_date.format('YYYY-MM-DD');
       console.log(err);
     });
   };
-  var onSubmitCustomerForm = function onSubmitCustomerForm(values) {
-    console.log(values);
-  };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
     title: "Details",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
-        span: 3,
-        children: "Type:"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
-        span: 8,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"].Group, {
-          size: "large",
-          optionType: "button",
-          options: orderTypeOptions,
-          onChange: onOrderTypeChange,
-          value: orderType
-        })
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
         span: 24,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_customerCreateForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          form: form,
-          onFormSubmit: onSubmitCustomerForm
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
+          form: form
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
           type: "primary",
           onClick: triggerSubmit,
           children: "Submit"
         })]
       })
-    })]
+    })
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CustomerDetailForm);
@@ -15278,46 +15247,57 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/typography/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/radio/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/select/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/space/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/row/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/col/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/typography/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/radio/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/select/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/space/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/row/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/col/index.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+var Text = antd__WEBPACK_IMPORTED_MODULE_1__["default"].Text,
+  Link = antd__WEBPACK_IMPORTED_MODULE_1__["default"].Link;
 
 
 
 
-
-var Text = antd__WEBPACK_IMPORTED_MODULE_2__["default"].Text,
-  Link = antd__WEBPACK_IMPORTED_MODULE_2__["default"].Link;
 var MealPlanOptions = function MealPlanOptions(_ref) {
-  var cart = _ref.cart,
+  var mealPlanID = _ref.mealPlanID,
+    orderData = _ref.orderData,
+    cart = _ref.cart,
     selectMealPlanOption = _ref.selectMealPlanOption;
-  if (!cart.mealPlanOptions) {
+  if ((0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(cart.items)) {
     return null;
   }
-  var options = cart.mealPlanOptions;
+  var mealPlan = orderData.find(function (mealPlan) {
+    return mealPlan.meal_id === mealPlanID;
+  });
+  if ((0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(mealPlan.mealPlanOptions)) {
+    return null;
+  }
+  var options = mealPlan.mealPlanOptions;
   var buildRadioOptions = function buildRadioOptions(values) {
     var buildData = values.map(function (item) {
       return {
-        value: item.id,
+        value: item.value_id,
         label: "".concat(item.value, " - $").concat(item.price)
       };
     });
-    var defaultValue = cart.options.find(function (selectedOption) {
+    var defaultValue = cart.items.find(function (selectedOption) {
       return values.some(function (option) {
-        return option.id === selectedOption.id;
+        return option.value_id === selectedOption.value_id;
       });
     });
     var onChange = function onChange(e) {
       var optionValue = _.find(values, {
-        id: Number(e.target.value)
+        value_id: Number(e.target.value)
       });
       selectMealPlanOption(optionValue);
     };
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"].Group, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"].Group, {
       size: "large",
       options: buildData,
       onChange: onChange,
@@ -15327,25 +15307,25 @@ var MealPlanOptions = function MealPlanOptions(_ref) {
   var buildSelectOptions = function buildSelectOptions(values) {
     var buildData = values.map(function (item) {
       return {
-        value: item.id,
+        value: item.value_id,
         label: "".concat(item.value, " - $").concat(item.price)
       };
     });
-    var defaultValue = cart.options.find(function (selectedOption) {
+    var defaultValue = cart.items.find(function (cartItem) {
       return values.some(function (option) {
-        return option.id === selectedOption.id;
+        return option.value_id === cartItem.value_id;
       });
     });
     var onChange = function onChange(value) {
       var optionValue = _.find(values, {
-        id: Number(value)
+        value_id: Number(value)
       });
       selectMealPlanOption(optionValue);
     };
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
       size: "large",
       options: buildData,
-      defaultValue: defaultValue ? defaultValue.id : null,
+      defaultValue: defaultValue ? defaultValue.value_id : null,
       onChange: onChange,
       placeholder: "Select Extra Options",
       style: {
@@ -15354,27 +15334,27 @@ var MealPlanOptions = function MealPlanOptions(_ref) {
     });
   };
   var optionView = options.map(function (option, index) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
       direction: "vertical",
       size: "middle",
       style: {
         display: 'flex',
         margin: "12px 0px"
       },
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
           span: 3,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(Text, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Text, {
             children: [option.name, ": "]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
           span: 8,
           children: [option.display == 'select' ? buildSelectOptions(option.values) : null, option.display == 'radio' ? buildRadioOptions(option.values) : null]
         })]
       })
     }, option.meal_plan_option_id);
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: optionView
   });
 };
@@ -15400,8 +15380,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/typography/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/card/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/list/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/avatar/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/table/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/table/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -15427,7 +15406,7 @@ var OrderSummary = function OrderSummary(_ref) {
     _useState2 = _slicedToArray(_useState, 2),
     selectedMealPlan = _useState2[0],
     setSelectedMealPlan = _useState2[1];
-  if ((0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(cart)) {
+  if ((0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(cart.items)) {
     return null;
   }
   var handleChange = function handleChange(value) {
@@ -15437,30 +15416,32 @@ var OrderSummary = function OrderSummary(_ref) {
     title: 'Name',
     dataIndex: 'name'
   }, {
-    title: 'Borrow',
-    dataIndex: 'borrow'
+    title: 'Price',
+    dataIndex: 'price',
+    render: function render(price) {
+      return "$".concat(price.toFixed(2));
+    }
   }];
-  var data = [{
-    key: "mealplan-".concat(cart.id),
-    name: cart.name,
-    borrow: cart.price
-  }, {
-    key: 'delivery',
-    name: 'Delivery',
-    borrow: 0
-  }, {
-    key: 'tax',
-    name: 'HST[13%]',
-    borrow: 30
-  }];
-  var options = cart === null || cart === void 0 ? void 0 : cart.options.map(function (item) {
+  var data = [];
+  var options = cart.items.map(function (item) {
+    var _item$meal_id, _item$name;
     return {
-      key: item.id,
-      name: item.value,
-      borrow: item.price
+      key: (_item$meal_id = item === null || item === void 0 ? void 0 : item.meal_id) !== null && _item$meal_id !== void 0 ? _item$meal_id : item.value_id,
+      name: (_item$name = item === null || item === void 0 ? void 0 : item.name) !== null && _item$name !== void 0 ? _item$name : item.meal_plan_option_name,
+      price: item.price
     };
   });
   data.push.apply(data, _toConsumableArray(options));
+  data.push({
+    key: 'delivery',
+    name: 'Delivery',
+    price: 0
+  });
+  data.push({
+    key: 'tax',
+    name: 'HST[13%]',
+    price: 1.3
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
     title: "Selected MealPlan",
     style: {
@@ -15469,42 +15450,42 @@ var OrderSummary = function OrderSummary(_ref) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
       itemLayout: "horizontal",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].Item, {
-        actions: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-          children: "selectedMealPlan"
+        actions: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(Text, {
+          children: ["$", cart.items[0].price]
         }, "list-loadmore-edit")],
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].Item.Meta, {
-          avatar: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
-            src: 'https://randomuser.me/api/portraits/men/66.jpg'
-          }),
-          title: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-            href: "https://ant.design",
-            children: 'test'
+          title: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Text, {
+            children: cart.items[0].name
           }),
           description: "Ant Design"
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
       columns: columns,
       showHeader: false,
       dataSource: data,
       pagination: false,
       bordered: true,
       summary: function summary(pageData) {
-        var totalBorrow = 0;
-        pageData.forEach(function (_ref2) {
-          var borrow = _ref2.borrow;
-          totalBorrow += borrow;
+        var totalPrice = 0;
+        pageData.forEach(function (currentData) {
+          if (currentData.key === 'tax') {
+            console.log(totalPrice * currentData.price, totalPrice, currentData.price);
+            totalPrice = totalPrice * currentData.price;
+          } else {
+            totalPrice += currentData.price;
+          }
         });
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_7__["default"].Summary.Row, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"].Summary.Cell, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Summary.Row, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Summary.Cell, {
               index: 0,
               children: "Order Total"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"].Summary.Cell, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Summary.Cell, {
               index: 1,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Text, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(Text, {
                 type: "danger",
-                children: totalBorrow
+                children: ["$", totalPrice.toFixed(2)]
               })
             })]
           })
@@ -15561,7 +15542,7 @@ var SelectMealPlanForm = function SelectMealPlanForm(_ref) {
   var orderData = _ref.orderData,
     cart = _ref.cart,
     getMealPlanForOrder = _ref.getMealPlanForOrder,
-    selectMealPlan = _ref.selectMealPlan;
+    addToCartselectMealPlan = _ref.addToCartselectMealPlan;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState2 = _slicedToArray(_useState, 2),
     selectedMealPlan = _useState2[0],
@@ -15574,18 +15555,18 @@ var SelectMealPlanForm = function SelectMealPlanForm(_ref) {
   }
   var optionItems = orderData.map(function (item) {
     return {
-      value: item.id,
+      value: item.meal_id,
       label: "".concat(item.name, " - $").concat(item.price)
     };
   });
   var handleChange = function handleChange(value) {
     console.log('Select checked', value);
     var meal = _.find(orderData, {
-      id: value
+      meal_id: value
     });
     setSelectedMealPlan(meal);
     // selected mealPlan
-    selectMealPlan(meal);
+    addToCartselectMealPlan(meal);
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
     title: "Select Mealpan",
@@ -15609,27 +15590,29 @@ var SelectMealPlanForm = function SelectMealPlanForm(_ref) {
         })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      children: [!(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(cart) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      children: [!(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(selectedMealPlan) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
         title: "Selected Meal Plan Description",
         bordered: true,
         layout: "vertical",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"].Item, {
           label: "Name",
-          children: cart.name
+          children: selectedMealPlan.name
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"].Item, {
           label: "Description",
-          children: cart.description
+          children: selectedMealPlan.description
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"].Item, {
           label: "Billing",
           children: "Monthly"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_10__["default"].Item, {
           label: "Price",
-          children: ["$", cart.price]
+          children: ["$", selectedMealPlan.price]
         })]
-      }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(cart) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(selectedMealPlan) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
         width: 200,
-        src: "".concat(_config_constants__WEBPACK_IMPORTED_MODULE_3__.axiosConfig.HOST_URL, "/").concat(cart.image)
-      }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_containers_cart_mealPlanOptions__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+        src: "".concat(_config_constants__WEBPACK_IMPORTED_MODULE_3__.axiosConfig.HOST_URL, "/").concat(selectedMealPlan.image)
+      }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(selectedMealPlan) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_containers_cart_mealPlanOptions__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        mealPlanID: selectedMealPlan.meal_id
+      }) : null]
     })]
   });
 };
@@ -15655,8 +15638,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(function (_ref) {
-  var cart = _ref.cart;
+  var orderData = _ref.orderData,
+    cart = _ref.cart;
   return {
+    orderData: orderData,
     cart: cart
   };
 }, {
@@ -15683,8 +15668,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(function (_ref) {
-  var cart = _ref.cart;
+  var orderData = _ref.orderData,
+    cart = _ref.cart;
   return {
+    orderData: orderData,
     cart: cart
   };
 }, {
@@ -15709,8 +15696,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(function (_ref) {
-  var cart = _ref.cart;
+  var orderData = _ref.orderData,
+    cart = _ref.cart;
   return {
+    orderData: orderData,
     cart: cart
   };
 }, {})(_cart_orderSummary__WEBPACK_IMPORTED_MODULE_1__["default"]));
@@ -15743,7 +15732,7 @@ __webpack_require__.r(__webpack_exports__);
   };
 }, {
   getMealPlanForOrder: _redux_Cart_actions__WEBPACK_IMPORTED_MODULE_2__.getMealPlanForOrder,
-  selectMealPlan: _redux_Cart_actions__WEBPACK_IMPORTED_MODULE_2__.selectMealPlan,
+  addToCartselectMealPlan: _redux_Cart_actions__WEBPACK_IMPORTED_MODULE_2__.addToCartselectMealPlan,
   selectMealPlanOption: _redux_Cart_actions__WEBPACK_IMPORTED_MODULE_2__.selectMealPlanOption
 })(_cart_selectMealPlanForm__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
@@ -15763,10 +15752,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/form/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/date-picker/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/row/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/col/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/input/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/radio/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/date-picker/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/row/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/col/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/input/index.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_google_autocomplete__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-google-autocomplete */ "./node_modules/react-google-autocomplete/index.js");
@@ -15789,8 +15779,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var CustomerCreateForm = function CustomerCreateForm(_ref) {
-  var form = _ref.form,
-    onFormSubmit = _ref.onFormSubmit;
+  var form = _ref.form;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState2 = _slicedToArray(_useState, 2),
     componentSize = _useState2[0],
@@ -15903,16 +15892,25 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
       size: componentSize
     },
     onValuesChange: onFormLayoutChange,
-    style: {},
-    onFinish: onFormSubmit,
+    style: {}
+    // onFinish={onFormSubmit}
+    ,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
+      label: "Order Type",
+      name: "order_type",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"].Group, {
+        size: "large",
+        optionType: "button",
+        options: _config_constants__WEBPACK_IMPORTED_MODULE_3__.orderTypeOptions
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
       label: "Start Date",
       name: "start_date",
       rules: [{
         required: true,
-        message: 'Please select Start Date Date!'
+        message: 'Please select Start Date!'
       }],
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
         size: "large",
         style: {
           width: "100%"
@@ -15922,9 +15920,9 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
           return current && current < moment__WEBPACK_IMPORTED_MODULE_1___default()().add(1, "day");
         }
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
       gutter: 16,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
         span: 12,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
           label: "First Name",
@@ -15932,9 +15930,9 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
           rules: [{
             required: true
           }],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
         span: 12,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
           label: "Last Name",
@@ -15942,12 +15940,12 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
           rules: [{
             required: true
           }],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {})
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
       gutter: 16,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
         span: 12,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
           name: ['email'],
@@ -15956,9 +15954,9 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
             required: true,
             type: 'email'
           }],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
         span: 12,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
           name: "phone",
@@ -15970,21 +15968,21 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
             phonePattern: _validationHelper__WEBPACK_IMPORTED_MODULE_4__.phonePattern,
             message: 'Phone must be in the right format'
           }],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
             style: {
               width: '100%'
             }
           })
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
       gutter: 16,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
         span: 24,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
           label: "Search Address",
           name: "search_address",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
             ref: function ref(c) {
               console.log(c);
               antInputRef.current = c;
@@ -15993,9 +15991,9 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
           })
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
       gutter: 16,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
         span: 24,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
           label: "Address",
@@ -16009,12 +16007,12 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
           rules: [{
             required: true
           }],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {})
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
       gutter: 16,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
         span: 12,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
           label: "City",
@@ -16022,9 +16020,9 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
           rules: [{
             required: true
           }],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
         span: 12,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
           label: "State",
@@ -16032,11 +16030,11 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
           rules: [{
             required: true
           }],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {})
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
         span: 12,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
           name: ['postal_code'],
@@ -16047,9 +16045,9 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
           rules: [{
             required: true
           }],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
         span: 12,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
           name: "country",
@@ -16058,7 +16056,7 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
             required: true,
             message: 'Please input your phone number!'
           }],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
             style: {
               width: '100%'
             }
@@ -16068,13 +16066,13 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
       name: "lat",
       hidden: true,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
         type: "hidden"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
       name: "lng",
       hidden: true,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
         type: "hidden"
       })
     })]

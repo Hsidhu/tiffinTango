@@ -9,3 +9,9 @@ export const axiosConfig = {
 
 export const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 
+
+export const orderTypeOptions = [
+    { label: 'Delivery', value: 'delivery' },
+    { label: 'Pickup', value: 'pickup' }
+];
+

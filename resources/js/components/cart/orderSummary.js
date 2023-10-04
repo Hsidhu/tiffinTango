@@ -13,10 +13,9 @@ const OrderSummary = ({ cart }) => {
 
     const [selectedMealPlan, setSelectedMealPlan] = useState();
 
-    if (isEmpty(cart)) {
+    if (isEmpty(cart.items)) {
         return null;
     }
-
 
     const handleChange = (value) => {
         console.log('Select checked', value);
@@ -28,48 +27,41 @@ const OrderSummary = ({ cart }) => {
             dataIndex: 'name',
         },
         {
-            title: 'Borrow',
-            dataIndex: 'borrow',
+            title: 'Price',
+            dataIndex: 'price',
+            render: (price) => `$${price.toFixed(2)}`
         }
     ];
 
-    const data = [
-        {
-            key: `mealplan-${cart.id}`,
-            name: cart.name,
-            borrow: cart.price
-        },
-        {
-            key: 'delivery',
-            name: 'Delivery',
-            borrow: 0
-        },
-        {
-            key: 'tax',
-            name: 'HST[13%]',
-            borrow: 30
-        }
-    ];
+    let data = [];
 
-
-    const options = cart?.options.map((item) =>({
-        key: item.id,
-        name: item.value,
-        borrow: item.price
+    const options = cart.items.map((item) =>({
+        key: item?.meal_id ?? item.value_id,
+        name: item?.name ?? item.meal_plan_option_name,
+        price: item.price
     }))
     data.push(...options)
 
+    data.push({
+        key: 'delivery',
+        name: 'Delivery',
+        price: 0
+    })
+    data.push({
+        key: 'tax',
+        name: 'HST[13%]',
+        price: 1.3
+    })
 
     return (
         <Card title="Selected MealPlan" style={{ width: 400 }}>
 
             <List itemLayout="horizontal">
                 <List.Item
-                    actions={[<a key="list-loadmore-edit">selectedMealPlan</a>]}
+                    actions={[<Text key="list-loadmore-edit">${cart.items[0].price}</Text>]}
                 >
                     <List.Item.Meta
-                        avatar={<Avatar src={'https://randomuser.me/api/portraits/men/66.jpg'} />}
-                        title={<a href="https://ant.design">{'test'}</a>}
+                        title={<Text>{cart.items[0].name}</Text>}
                         description="Ant Design"
                     />
                 </List.Item>
@@ -79,16 +71,23 @@ const OrderSummary = ({ cart }) => {
                 pagination={false}
                 bordered
                 summary={(pageData) => {
-                    let totalBorrow = 0;
-                    pageData.forEach(({ borrow }) => {
-                        totalBorrow += borrow;
+                    let totalPrice = 0;
+                    pageData.forEach((currentData) => {
+                        if(currentData.key === 'tax'){
+                            console.log(totalPrice * currentData.price, totalPrice, currentData.price)
+                            totalPrice = totalPrice * currentData.price;
+                        }
+                        else{
+                            totalPrice += currentData.price;
+                        }
+                        
                     });
                     return (
                         <>
                             <Table.Summary.Row>
                                 <Table.Summary.Cell index={0}>Order Total</Table.Summary.Cell>
                                 <Table.Summary.Cell index={1}>
-                                    <Text type="danger">{totalBorrow}</Text>
+                                    <Text type="danger">${totalPrice.toFixed(2)}</Text>
                                 </Table.Summary.Cell>
                             </Table.Summary.Row>
                         </>

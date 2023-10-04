@@ -13,7 +13,7 @@ const { Text } = Typography;
 import { axiosConfig } from '../../config/constants';
 import MealPlanOptions from "../containers/cart/mealPlanOptions"
 
-const SelectMealPlanForm = ({ orderData, cart, getMealPlanForOrder, selectMealPlan }) => {
+const SelectMealPlanForm = ({ orderData, cart, getMealPlanForOrder, addToCartselectMealPlan }) => {
 
     const [selectedMealPlan, setSelectedMealPlan] = useState();
 
@@ -26,16 +26,16 @@ const SelectMealPlanForm = ({ orderData, cart, getMealPlanForOrder, selectMealPl
     }
 
     const optionItems = orderData.map((item) => ({
-        value: item.id,
+        value: item.meal_id,
         label: `${item.name} - $${item.price}`
     }));
 
     const handleChange = (value) => {
         console.log('Select checked', value);
-        const meal = _.find(orderData, { id: value });
+        const meal = _.find(orderData, { meal_id: value });
         setSelectedMealPlan(meal);
         // selected mealPlan
-        selectMealPlan(meal);
+        addToCartselectMealPlan(meal);
     };
 
     return (
@@ -58,22 +58,25 @@ const SelectMealPlanForm = ({ orderData, cart, getMealPlanForOrder, selectMealPl
             
             <div>
                 {
-                    !isEmpty(cart) ? <Descriptions title="Selected Meal Plan Description" bordered layout="vertical">
-                            <Descriptions.Item label="Name">{cart.name}</Descriptions.Item>
-                            <Descriptions.Item label="Description">{cart.description}</Descriptions.Item>
+                    !isEmpty(selectedMealPlan) ? <Descriptions title="Selected Meal Plan Description" bordered layout="vertical">
+                            <Descriptions.Item label="Name">{selectedMealPlan.name}</Descriptions.Item>
+                            <Descriptions.Item label="Description">{selectedMealPlan.description}</Descriptions.Item>
                             <Descriptions.Item label="Billing">Monthly</Descriptions.Item>
-                            <Descriptions.Item label="Price">${cart.price}</Descriptions.Item>
+                            <Descriptions.Item label="Price">${selectedMealPlan.price}</Descriptions.Item>
                     </Descriptions>: null
                 }
                 <br/>
                 {
-                    !isEmpty(cart) ? <Image
+                    !isEmpty(selectedMealPlan) ? <Image
                                 width={200}
-                                src={`${axiosConfig.HOST_URL}/${cart.image}`}
+                                src={`${axiosConfig.HOST_URL}/${selectedMealPlan.image}`}
                             /> : null
                 }
                 <br/>
-                <MealPlanOptions />
+                {
+                    !isEmpty(selectedMealPlan) ? <MealPlanOptions mealPlanID={selectedMealPlan.meal_id} /> : null
+                }
+                
             </div>
         </Card>
     );

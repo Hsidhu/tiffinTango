@@ -18,7 +18,7 @@ class MealPlanOrderResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
+            'meal_id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
             'short_description' => $this->short_description,

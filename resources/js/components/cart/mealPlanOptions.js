@@ -6,26 +6,33 @@ import {
 } from 'antd';
 
 const { Text, Link } = Typography;
+import { isEmpty } from 'lodash';
 
-const MealPlanOptions = ({ cart, selectMealPlanOption}) => {
+const MealPlanOptions = ({mealPlanID, orderData, cart, selectMealPlanOption}) => {
 
-    if(!cart.mealPlanOptions){
+    if(isEmpty(cart.items)){
         return null;
     }
-    const options = cart.mealPlanOptions;
+    const mealPlan = orderData.find((mealPlan) => mealPlan.meal_id === mealPlanID )
+
+    if(isEmpty(mealPlan.mealPlanOptions)){
+        return null;
+    }
+
+    const options = mealPlan.mealPlanOptions;
 
     const buildRadioOptions = (values) =>{
         const buildData = values.map((item)=>({
-            value: item.id,
+            value: item.value_id,
             label: `${item.value} - $${item.price}`
         }))
 
-        const defaultValue = cart.options.find((selectedOption) =>
-            values.some((option) => option.id === selectedOption.id)
+        const defaultValue = cart.items.find((selectedOption) =>
+            values.some((option) => option.value_id === selectedOption.value_id)
         );
 
         const onChange = (e) => {
-            const optionValue = _.find(values, {id: Number(e.target.value) });
+            const optionValue = _.find(values, {value_id: Number(e.target.value) });
             selectMealPlanOption(optionValue)
         }
 
@@ -38,22 +45,22 @@ const MealPlanOptions = ({ cart, selectMealPlanOption}) => {
 
     const buildSelectOptions = (values) => {
         const buildData = values.map((item)=>({
-            value: item.id,
+            value: item.value_id,
             label: `${item.value} - $${item.price}`
         }))
         
-        const defaultValue = cart.options.find((selectedOption) =>
-            values.some((option) => option.id === selectedOption.id)
+        const defaultValue = cart.items.find((cartItem) =>
+            values.some((option) => option.value_id === cartItem.value_id)
         );
 
         const onChange = (value) => {
-            const optionValue = _.find(values, {id: Number(value) });
+            const optionValue = _.find(values, {value_id: Number(value) });
             selectMealPlanOption(optionValue)
         }
 
         return <Select size="large"
                 options={buildData}
-                defaultValue={ defaultValue ? defaultValue.id : null }
+                defaultValue={ defaultValue ? defaultValue.value_id : null }
                 onChange={onChange}
                 placeholder = "Select Extra Options"
                 style={{

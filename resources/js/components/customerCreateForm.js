@@ -7,10 +7,10 @@ import {
 import moment from "moment";
 
 import { usePlacesWidget } from "react-google-autocomplete";
-import { GOOGLE_API_KEY } from '../config/constants';
+import { GOOGLE_API_KEY, orderTypeOptions } from '../config/constants';
 import { phonePattern } from '../validationHelper'
 
-const CustomerCreateForm = ({ form, onFormSubmit }) => {
+const CustomerCreateForm = ({ form }) => {
     const [componentSize, setComponentSize] = useState();
     const antInputRef = useRef(null);
 
@@ -89,10 +89,15 @@ const CustomerCreateForm = ({ form, onFormSubmit }) => {
             initialValues={{ size: componentSize, }}
             onValuesChange={onFormLayoutChange}
             style={{}}
-            onFinish={onFormSubmit}
+            // onFinish={onFormSubmit}
         >
+
+            <Form.Item label="Order Type" name="order_type" >
+                    <Radio.Group size="large" optionType="button" options={orderTypeOptions}  />
+            </Form.Item>
+
             <Form.Item label="Start Date" name="start_date" 
-                rules={[{ required: true, message: 'Please select Start Date Date!' }]}
+                rules={[{ required: true, message: 'Please select Start Date!' }]}
                 >
                 <DatePicker size="large" style={{width: "100%"}} format={'YYYY/MM/DD'}
                     disabledDate={current => {
@@ -182,7 +187,7 @@ const CustomerCreateForm = ({ form, onFormSubmit }) => {
                 </Col>
                 <Col span={12}>
                     <Form.Item label="State" name="state"
-                        rules={[{ required: true },]}
+                        rules={[{ required: true }]}
                     >
                         <Input />
                     </Form.Item>

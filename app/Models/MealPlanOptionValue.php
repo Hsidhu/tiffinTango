@@ -14,4 +14,9 @@ class MealPlanOptionValue extends Model
     protected $casts = [
         "price" => 'float'
     ];
+
+    public function mealplanOption()
+    {
+        return $this->belongsTo(\App\Models\MealPlanOption::class, 'meal_plan_option_id');
+    }
 }

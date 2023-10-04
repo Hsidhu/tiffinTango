@@ -16,7 +16,7 @@ export const getMealPlanForOrder = () => (dispatch) => {
     });
 }
 
-export const selectMealPlan = (mealPlanObject) => (dispatch) => {
+export const addToCartselectMealPlan = (mealPlanObject) => (dispatch) => {
     dispatch({
         type: SELECT_MEALPLAN,
         payload: mealPlanObject
