@@ -45,4 +45,9 @@ Route::get('images/{folder}/{filename}', [App\Http\Controllers\Api\FileControlle
     ->where(['folder' => '.*', 'filename' => '.*']);
 
 Route::get('/mealplanorder/data', [App\Http\Controllers\Api\OrderController::class, 'getMealPlans']);
-Route::get('/mealplanorder/create', [App\Http\Controllers\Api\OrderController::class, 'createOrder']);
+Route::post('/mealplanorder/create', [App\Http\Controllers\Api\OrderController::class, 'createOrder']);
+Route::get('/mealplanorder/deliveryCharge', [App\Http\Controllers\Api\OrderController::class, 'getDeliveryCharges']);
+
+
+Route::get('/orders', [App\Http\Controllers\Api\Admin\OrderController::class, 'index']);
+Route::get('/order/view/{id}', [App\Http\Controllers\Api\Admin\OrderController::class, 'view']);

@@ -1,23 +1,32 @@
 import React, { useState, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'
 import {
-    Row, Col, Button,
+    Row, Col,
+    Button,
     Form,
-    Input, Radio, DatePicker
+    Input,
+    InputNumber
 } from 'antd';
-import moment from "moment";
 
-import { usePlacesWidget } from "react-google-autocomplete";
-import { GOOGLE_API_KEY, orderTypeOptions } from '../config/constants';
-import { phonePattern } from '../validationHelper'
+import Autocomplete, { usePlacesWidget } from "react-google-autocomplete";
+import { GOOGLE_API_KEY } from '../../../config/constants';
+import { createCustomers } from '../../../redux/Customer/actions'
+import { phonePattern } from '../../../validationHelper'
 
-const CustomerCreateForm = ({ form, orderData, getDeliveryCharge, placeOrder }) => {
-    const [orderType, setOrderType] = useState('pickup');
+const Create = ({ }) => {
+    const history = useHistory()
+    const [componentSize, setComponentSize] = useState();
+    const errors = useSelector(state => state.errors)
+    const dispatch = useDispatch();
+
+    const [form] = Form.useForm()
+
     const antInputRef = useRef(null);
-
     const { ref: antRef } = usePlacesWidget({
         apiKey: GOOGLE_API_KEY,
         options: {
-            componentRestrictions: { country: ["ca"] },
+            componentRestrictions: { country: ["us", "ca"] },
             fields: ["address_components", "geometry"],
             types: ["address"]
         },
@@ -64,85 +73,64 @@ const CustomerCreateForm = ({ form, orderData, getDeliveryCharge, placeOrder }) 
                     }
                 }
 
-                form.setFieldsValue({ 
-                    lat: place.geometry.location.lat(),
-                    lng: place.geometry.location.lng(),
-                    search_address: `${street1} ${city} ${state}`
-                });
-                if(orderType != 'pickup'){
-                    getDeliveryCharge()
-                }
+                form.setFieldsValue({ lat: place.geometry.location.lat() });
+                form.setFieldsValue({ lng: place.geometry.location.lng() });
+                //antInputRef.current.setValue(place?.formatted_address);
             }
         }
     });
 
-    const onFormLayoutChange = ({ order_type }) => {
-        console.log(order_type);
-        setOrderType(order_type);
+    const formValueChange = (value, key) => {
+        const fields = form.getFieldsValue()
+        const { projects } = fields
+        Object.assign(projects[key], { type: value })
+        form.setFieldsValue({ projects })
+    }
+
+    const onFormLayoutChange = ({ first_name }) => {
+        console.log(first_name);
+        setComponentSize(first_name);
     };
 
-    const onDateChange = (date, dateString) => {
-        console.log(date, dateString);
-        setStartDate(date)
+    const onFormSubmit = (values) => {
+        if (errors) {
+            // errors.reset()
+        }
+        console.log(values)
+        dispatch(createCustomers(values));
     }
 
     return (
         <Form
             form={form}
-            labelCol={{ span: 6, }}
-            wrapperCol={{ span: 16, }}
-            layout="vertical"
-            initialValues={{ order_type: orderType }}
+            labelCol={{ span: 4, }}
+            wrapperCol={{ span: 14, }}
+            layout="horizontal"
+            initialValues={{ size: componentSize, }}
             onValuesChange={onFormLayoutChange}
             style={{}}
-            // onFinish={onFormSubmit}
+            onFinish={onFormSubmit}
         >
-
-            <Form.Item label="Order Type" name="order_type" >
-                    <Radio.Group size="large" optionType="button" options={orderTypeOptions}  />
-            </Form.Item>
-
-            <Form.Item label="Start Date" name="start_date" 
-                rules={[{ required: true, message: 'Please select Start Date!' }]}
-                >
-                <DatePicker size="large" style={{width: "100%"}} format={'DD-MM-YYYY'}
-                    disabledDate={current => {
-                        return current && current < moment().add(1, "day");
-                    }}
-                />
-            </Form.Item>
-            
-            <Row gutter={16}>
+            <Row>
                 <Col span={12}>
-                    <Form.Item label="First Name" name="first_name"
-                        rules={[{ required: true }, ]}
-                        >
-                            <Input />
-                    </Form.Item>
-                </Col>
-                <Col span={12}>
-                    <Form.Item label="Last Name" name="last_name"
-                        rules={[{required: true}]}
-                    >
-                        <Input />
-                    </Form.Item>
-                </Col>
-            </Row>
-
-            <Row gutter={16}>
-                <Col span={12}>
-                    <Form.Item name={['email']} label="Email"
+                    <Form.Item label="Name" name="name"
                         rules={[
                             {
-                                required: true,
-                                type: 'email',
+                                required: true
                             },
                         ]}
                     >
                         <Input />
                     </Form.Item>
-                </Col>
-                <Col span={12}>
+                    <Form.Item label="Description" name="description"
+                        rules={[
+                            {
+                                required: true
+                            },
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
                     <Form.Item name="phone" label="Phone"
                         rules={[
                             {
@@ -154,12 +142,19 @@ const CustomerCreateForm = ({ form, orderData, getDeliveryCharge, placeOrder }) 
                     >
                         <Input style={{ width: '100%' }} />
                     </Form.Item>
-                </Col>
-            </Row>
 
-            <Row gutter={16}>
-                <Col span={24}>
-                    <Form.Item label="Search Address" name="search_address" >
+                    <Form.Item
+                        name={['radius']}
+                        label="Radius"
+                        rules={[{ required: true, }]}
+                    >
+                        <InputNumber />
+                    </Form.Item>
+
+                </Col>
+                <Col span={12}>
+
+                    <Form.Item label="Search Address" name="search_address" labelWrap>
                         <Input
                             ref={(c) => {
                                 console.log(c)
@@ -169,46 +164,29 @@ const CustomerCreateForm = ({ form, orderData, getDeliveryCharge, placeOrder }) 
                             }}
                         />
                     </Form.Item>
-                </Col>
-            </Row>
 
-            <Row gutter={16}>
-                <Col span={24}>
                     <Form.Item label="Address" name="address"
-                        labelCol={{span:6}} wrapperCol={{span:16}}
                         rules={[{ required: true }]}
                     >
                         <Input />
                     </Form.Item>
-                </Col>
-            </Row>
-
-            <Row gutter={16}>
-                <Col span={12}>
                     <Form.Item label="City" name="city"
                         rules={[{ required: true },]}
                     >
                         <Input />
                     </Form.Item>
-                </Col>
-                <Col span={12}>
                     <Form.Item label="State" name="state"
-                        rules={[{ required: true }]}
+                        rules={[{ required: true },]}
                     >
                         <Input />
                     </Form.Item>
-                </Col>
-            </Row>
-
-            <Row>
-                <Col span={12}>
-                    <Form.Item name={['postal_code']} label="Postal Code" labelCol={{span:6}}
+                    <Form.Item
+                        name={['postal_code']}
+                        label="Postal Code"
                         rules={[{ required: true, }]}
                     >
                         <Input />
                     </Form.Item>
-                </Col>
-                <Col span={12}>
                     <Form.Item name="country" label="Country"
                         rules={[{
                             required: true,
@@ -218,18 +196,25 @@ const CustomerCreateForm = ({ form, orderData, getDeliveryCharge, placeOrder }) 
                     >
                         <Input style={{ width: '100%' }} />
                     </Form.Item>
+                    <Form.Item name="lat" hidden>
+                        <Input type="hidden" />
+                    </Form.Item>
+                    <Form.Item name="lng" hidden>
+                        <Input type="hidden" />
+                    </Form.Item>
                 </Col>
             </Row>
 
-            <Form.Item name="lat" hidden>
-                <Input type="hidden" />
-            </Form.Item>
-            <Form.Item name="lng" hidden>
-                <Input type="hidden" />
-            </Form.Item>
+            <Row>
+                <Col span={12}>
+                    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                        <Button type="primary" htmlType="submit">Submit</Button>
+                    </Form.Item>
+                </Col>
+            </Row>
 
         </Form>
     );
 }
 
-export default CustomerCreateForm;
+export default Create;

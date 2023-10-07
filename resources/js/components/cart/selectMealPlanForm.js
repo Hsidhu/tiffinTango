@@ -5,7 +5,7 @@ import {
     Row, Col,
     Select, Card,
     Image, Descriptions,
-    Typography
+    Typography, Button
 } from 'antd';
 
 const { Text } = Typography;
@@ -13,7 +13,7 @@ const { Text } = Typography;
 import { axiosConfig } from '../../config/constants';
 import MealPlanOptions from "../containers/cart/mealPlanOptions"
 
-const SelectMealPlanForm = ({ orderData, cart, getMealPlanForOrder, addToCartselectMealPlan }) => {
+const SelectMealPlanForm = ({ nextForm, orderData, cart, getMealPlanForOrder, addToCartselectMealPlan }) => {
 
     const [selectedMealPlan, setSelectedMealPlan] = useState();
 
@@ -29,6 +29,8 @@ const SelectMealPlanForm = ({ orderData, cart, getMealPlanForOrder, addToCartsel
         value: item.meal_id,
         label: `${item.name} - $${item.price}`
     }));
+
+    const defaultValue = cart?.items ? cart?.items[0] : null
 
     const handleChange = (value) => {
         console.log('Select checked', value);
@@ -48,7 +50,7 @@ const SelectMealPlanForm = ({ orderData, cart, getMealPlanForOrder, addToCartsel
                 <Col span={8}>
                     <Select size="large"
                         placeholder = "Select MealPlan"
-                        defaultValue={cart?.id}
+                        defaultValue={selectedMealPlan?.meal_id}
                         style={{ width: '100%' }}
                         onChange={handleChange}
                         options={optionItems}
@@ -77,6 +79,9 @@ const SelectMealPlanForm = ({ orderData, cart, getMealPlanForOrder, addToCartsel
                     !isEmpty(selectedMealPlan) ? <MealPlanOptions mealPlanID={selectedMealPlan.meal_id} /> : null
                 }
                 
+                <Button type="primary" onClick={nextForm}>
+                    Next
+                </Button>
             </div>
         </Card>
     );

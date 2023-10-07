@@ -26,22 +26,122 @@ class OrderController extends Controller
 
     public function createOrder(Request $request)
     {
-        $mealPlan =  MealPlan::find($request->get('id'));
+        $items = $request->input('items');
+        $mealPlan = $this->getMealPlan($items)['mealPlan'];
+        $options = $this->getMealPlan($items)['options'];
+        $subTotal = $this->getMealPlan($items)['subTotal'];
 
-        // MealPlanOrder
-        // MealPlanOrderItem -> which mealplan
-        // MealPlanOrderItemOption -> which options
-        // MealPlanOrderTotal -> iitem total + delivery total + HST
-        // Customer
-        // Address
+        // create customer and address
+        $customer = $this->createCustomer($request);
 
-        $this->validate($request, [
-            'name' => ['required', 'between:1,64'],
-            'description' => ['required', 'between:1,48'],
-            'short_description' => ['between:1,48'],
-            'price' => ['required','numeric'],
-            'discount' => ['numeric'],
-            'duration' => ['max:64']
-        ]);
+        $orderData = [
+            'customer_id' => $customer->id,
+            'order_type' => $request->get('order_type'),
+            "start_date" => $request->get('start_date'),
+            'total_items' => count($request->get('items')),
+            "total_price" => $subTotal,
+            "invoice_no" => 'adsfaf',
+            "payment_type" => 'cash',
+            'payment_processed' => 1,
+            'status_id' => 1,
+            'comment'=>''
+        ];
+        $order = MealPlanOrder::create($orderData);
+        $orderItem = [
+            'order_id' => $order->id,
+            'meal_plan_id' => $mealPlan['meal_id'],
+            'name' => $mealPlan['name'],
+            'price' => $mealPlan['price'],
+            'subtotal' => $subTotal,
+        ];
+        $orderItem = MealPlanOrderItem::create($orderItem);
+
+        foreach($options as $option)
+        {
+            MealPlanOrderItemOption::create([
+                "order_id" => $order->id,
+                "meal_plan_order_item_id" => $orderItem->id,
+                "meal_plan_id" => $mealPlan['meal_id'],
+                "meal_plan_option_id" => $option["meal_plan_option_id"],
+                "option_name" => $option["meal_plan_option_name"],
+                "value_id" => $option["value_id"],
+                "value_name" => $option["value"],
+                "value_price" => $option["price"],
+            ]);
+        }
+
+        $orderTotalItems[0] = [
+            "order_id" => $order->id,
+            "code" => 'subtotal',
+            "title" => 'Subtotal',
+            "value" => $subTotal,
+            "is_summable" => 1
+        ];
+        $orderTotalItems[1] = [
+            "order_id" => $order->id,
+            "code" => 'delivery',
+            "title" => 'Delivery',
+            "value" => $request->get('deliveryCharges'),
+            "is_summable" => 1
+        ];
+        $subTotal += $request->get('deliveryCharges');
+        $taxAmount = $subTotal * 0.13;
+        $orderTotalItems[2] = [
+            "order_id" => $order->id,
+            "code" => 'tax',
+            "title" => 'Tax[13%]',
+            "value" => $taxAmount,
+            "is_summable" => 1
+        ];
+        $subTotal += $taxAmount;
+        $orderTotalItems[3] =[
+            "order_id" => $order->id,
+            "code" => 'total',
+            "title" => 'total',
+            "value" => $subTotal,
+            "is_summable" => 0
+        ];
+
+        $orderItemTotal = MealPlanOrderTotal::insert($orderTotalItems);
+
+        return;
+
+    }
+
+    private function createCustomer(Request $request)
+    {
+        $address = Address::create($request->only(['address', 'city', 'state', 'postal_code', 'country', 'lat', 'lng']));
+        $customerData = array_merge(['address_id' => $address->id, 'password' => '123456'],
+            $request->only(['first_name','last_name','email', 'phone'])
+        );
+        return Customer::create($customerData);
+    }
+
+    public function getDeliveryCharges()
+    {
+        return 10;    
+    }
+
+    private function getMealPlan($items)
+    {
+        $mealItems = [];
+        $optionItems = [];
+        $totalPrice = 0;
+        foreach ($items as $item) {
+            if (isset($item['meal_id'])) {
+                $mealId = $item['meal_id'];
+                unset($item['mealPlanOptions']);
+                $mealItems[$mealId] = $item;
+            } elseif (isset($item['meal_plan_option_id'])) {
+                $optionId = $item['meal_plan_option_id'];
+                $optionItems[$optionId] = $item;
+            }
+            $totalPrice += $item['price'];
+        }
+        return [
+            'mealPlan' => reset($mealItems), // get first mealplan
+            'options' => $optionItems,
+            'subTotal' => $totalPrice
+        ];
     }
 }

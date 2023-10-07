@@ -62,10 +62,9 @@ const HeaderProfileDorpdown = () => {
             <Button
                 danger
                 type="primary"
-                icon={<LogoutOutlined />}
                 loading={logOutLoader}
                 onClick={onLogout}
-            />
+            >Logout</Button>
           ),
         }
       ];

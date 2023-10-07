@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\MealPlanOrder;
 
 class HomeController extends Controller
 {
@@ -24,5 +25,13 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function invoice($id)
+    {
+        $order = MealPlanOrder::find($id);
+        return view('order.invoice',[
+            'model' => $order
+        ]);
     }
 }

@@ -13,7 +13,7 @@ return new class extends Migration
         DB::statement("
             CREATE TABLE `locations` (
                 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-                `location_name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+                `name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
                 `description` text COLLATE utf8mb4_unicode_ci,
                 `address` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
                 `city` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -172,32 +172,20 @@ return new class extends Migration
             $table->id();
             $table->string('hash', 40)->nullable()->index();
             $table->integer('customer_id')->nullable();
-            $table->string('first_name', 32)->nullable();
-            $table->string('last_name', 32)->nullable();
-            $table->string('email', 96)->nullable();
-            $table->string('telephone', 32)->nullable();
-            $table->integer('address_id')->nullable();
-            $table->text('cart');
-            $table->integer('total_items');
-            $table->text('comment');
-            $table->string('payment', 35);
             $table->string('order_type', 32);
             $table->dateTime('start_date');
-            $table->dateTime('end_date');
-            $table->date('date_modified');
-            $table->time('order_time');
-            $table->date('order_date');
-            $table->decimal('order_total', 15, 4)->nullable();
-            $table->integer('status_id');
+            $table->dateTime('end_date')->nullable();
+            $table->text('cart')->nullable();
+            $table->integer('total_items');
+            $table->decimal('total_price', 15, 4)->nullable();
             $table->string('ip_address', 40);
             $table->string('user_agent');
-            $table->boolean('notify');
-            $table->integer('invoice_no');
-            $table->string('invoice_prefix', 32);
-            $table->dateTime('invoice_date');
-            $table->boolean('processed')->nullable();
+            $table->string('invoice_no');
+            $table->string('payment_type', 35);
+            $table->boolean('payment_processed')->nullable();
+            $table->integer('status_id');
+            $table->text('comment')->nullable();
             $table->text('delivery_comment')->nullable();
-            $table->integer('area_id')->nullable();
             $table->timestamps();
         });
     
@@ -207,23 +195,23 @@ return new class extends Migration
             $table->integer('order_id');
             $table->integer('meal_plan_id');
             $table->string('name');
-            $table->decimal('price', 15, 4)->nullable();
-            $table->decimal('subtotal', 15, 4)->nullable();
-            $table->text('option_values');
-            $table->text('comment');
+            $table->decimal('price', 15)->nullable();
+            $table->decimal('subtotal', 15)->nullable();
+            $table->text('option_values')->nullable();
+            $table->timestamps();
         });
         // will have meal plan item options
         Schema::create('meal_plan_order_item_options', function (Blueprint $table) {
             $table->id();
-            $table->integer('meal_plan_order_item_id');
             $table->integer('order_id');
+            $table->integer('meal_plan_order_item_id');
             $table->integer('meal_plan_id');
-            $table->integer('meal_plan_order_option_id');
-            $table->integer('meal_plan_option_value_id');
-            $table->string('order_option_name', 128);
-            $table->decimal('order_option_price', 15, 4)->nullable();
-            $table->string('order_option_value_name', 128);
-            $table->decimal('order_option_value_price', 15, 4)->nullable();
+            $table->integer('meal_plan_option_id');
+            $table->string('option_name', 128);
+            $table->integer('value_id');
+            $table->string('value_name', 128);
+            $table->decimal('value_price', 15)->nullable();
+            $table->timestamps();
         });
         
         // order total with delivery an taxes
@@ -234,8 +222,8 @@ return new class extends Migration
                 $table->string('code', 30);
                 $table->string('title');
                 $table->decimal('value', 15);
-                $table->boolean('priority');
                 $table->boolean('is_summable')->default(0);
+                $table->timestamps();
         });
 
         Schema::create('meal_plan_order_transactions', function (Blueprint $table) {

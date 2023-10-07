@@ -21,7 +21,6 @@ function getItem(key, label, icon, children) {
     };
 }
 
-
 export const publicTopMenu = [
     getItem('/', 'Home', <DashboardOutlined />),
     getItem('/order/mealplan', 'MealPlan', <DesktopOutlined />),
@@ -30,6 +29,7 @@ export const publicTopMenu = [
 
 export const protectedSideMenu = [
     getItem('/admin/dashboard', 'Dashboard', <DashboardOutlined />),
+    getItem('/admin/orders', 'Orders', <DesktopOutlined />),
     getItem('/admin/locations', 'Locations', <DesktopOutlined />),
     getItem('/admin/location_zones', 'Zones', <PushpinFilled />),
     getItem('/admin/mealplan', 'MealPlan', <CopyFilled />),

@@ -10,16 +10,28 @@ class MealPlanOrderItem extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $guarded = [];
 
-    public function item()
+    protected $casts = [
+        "price" => 'float',
+        "subtotal" => 'float'
+    ];
+
+    public function mealPlan()
     {
-        return $this->belongTo(\App\Models\MealPlanOrderItem::class);
+        return $this->belongTo(\App\Models\MealPlan::class, "meal_plan_id");
+    }
+
+    public function order()
+    {
+        return $this->belongTo(\App\Models\MealPlanOrder::class, "order_id");
     }
  
     public function options()
     {
-        return $this->hasMany(\App\Models\MealPlanOrderItemOption::class);
+        return $this->hasMany(\App\Models\MealPlanOrderItemOption::class, "meal_plan_order_item_id");
     }
 
 }

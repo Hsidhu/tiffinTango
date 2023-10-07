@@ -15177,8 +15177,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/col/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/button/index.js");
 /* harmony import */ var _config_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../config/constants */ "./resources/js/config/constants.js");
-/* harmony import */ var _customerCreateForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../customerCreateForm */ "./resources/js/components/customerCreateForm.js");
+/* harmony import */ var _containers_customerCreateForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../containers/customerCreateForm */ "./resources/js/components/containers/customerCreateForm.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -15195,7 +15201,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var CustomerDetailForm = function CustomerDetailForm(_ref) {
-  var cart = _ref.cart;
+  var prevForm = _ref.prevForm,
+    cart = _ref.cart,
+    placeOrder = _ref.placeOrder;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('pickup'),
     _useState2 = _slicedToArray(_useState, 2),
     orderType = _useState2[0],
@@ -15208,8 +15216,9 @@ var CustomerDetailForm = function CustomerDetailForm(_ref) {
   }
   var triggerSubmit = function triggerSubmit() {
     form.validateFields().then(function (values) {
-      values.start_date = err.values.start_date.format('YYYY-MM-DD');
+      values.start_date = values.start_date.format('YYYY-MM-DD');
       console.log(values);
+      placeOrder(_objectSpread(_objectSpread({}, values), cart));
     })["catch"](function (err) {
       console.log(err);
     });
@@ -15219,12 +15228,16 @@ var CustomerDetailForm = function CustomerDetailForm(_ref) {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
         span: 24,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_customerCreateForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_containers_customerCreateForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
           form: form
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
           type: "primary",
           onClick: triggerSubmit,
           children: "Submit"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          type: "primary",
+          onClick: prevForm,
+          children: "prevForm"
         })]
       })
     })
@@ -15470,7 +15483,7 @@ var OrderSummary = function OrderSummary(_ref) {
         var totalPrice = 0;
         pageData.forEach(function (currentData) {
           if (currentData.key === 'tax') {
-            totalPrice = totalPrice * currentData.price;
+            totalPrice = totalPrice + totalPrice * currentData.price;
           } else {
             totalPrice += currentData.price;
           }
@@ -15519,6 +15532,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/select/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/descriptions/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/image/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/button/index.js");
 /* harmony import */ var _config_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../config/constants */ "./resources/js/config/constants.js");
 /* harmony import */ var _containers_cart_mealPlanOptions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../containers/cart/mealPlanOptions */ "./resources/js/components/containers/cart/mealPlanOptions.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -15538,7 +15552,8 @@ var Text = antd__WEBPACK_IMPORTED_MODULE_2__["default"].Text;
 
 
 var SelectMealPlanForm = function SelectMealPlanForm(_ref) {
-  var orderData = _ref.orderData,
+  var nextForm = _ref.nextForm,
+    orderData = _ref.orderData,
     cart = _ref.cart,
     getMealPlanForOrder = _ref.getMealPlanForOrder,
     addToCartselectMealPlan = _ref.addToCartselectMealPlan;
@@ -15558,6 +15573,7 @@ var SelectMealPlanForm = function SelectMealPlanForm(_ref) {
       label: "".concat(item.name, " - $").concat(item.price)
     };
   });
+  var defaultValue = cart !== null && cart !== void 0 && cart.items ? cart === null || cart === void 0 ? void 0 : cart.items[0] : null;
   var handleChange = function handleChange(value) {
     console.log('Select checked', value);
     var meal = _.find(orderData, {
@@ -15580,7 +15596,7 @@ var SelectMealPlanForm = function SelectMealPlanForm(_ref) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
           size: "large",
           placeholder: "Select MealPlan",
-          defaultValue: cart === null || cart === void 0 ? void 0 : cart.id,
+          defaultValue: selectedMealPlan === null || selectedMealPlan === void 0 ? void 0 : selectedMealPlan.meal_id,
           style: {
             width: '100%'
           },
@@ -15611,7 +15627,11 @@ var SelectMealPlanForm = function SelectMealPlanForm(_ref) {
         src: "".concat(_config_constants__WEBPACK_IMPORTED_MODULE_3__.axiosConfig.HOST_URL, "/").concat(selectedMealPlan.image)
       }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(selectedMealPlan) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_containers_cart_mealPlanOptions__WEBPACK_IMPORTED_MODULE_4__["default"], {
         mealPlanID: selectedMealPlan.meal_id
-      }) : null]
+      }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_12__["default"], {
+        type: "primary",
+        onClick: nextForm,
+        children: "Next"
+      })]
     })]
   });
 };
@@ -15644,7 +15664,9 @@ __webpack_require__.r(__webpack_exports__);
     cart: cart
   };
 }, {
-  getMealPlanForOrder: _redux_Cart_actions__WEBPACK_IMPORTED_MODULE_2__.getMealPlanForOrder
+  getMealPlanForOrder: _redux_Cart_actions__WEBPACK_IMPORTED_MODULE_2__.getMealPlanForOrder,
+  getDeliveryCharge: _redux_Cart_actions__WEBPACK_IMPORTED_MODULE_2__.getDeliveryCharge,
+  placeOrder: _redux_Cart_actions__WEBPACK_IMPORTED_MODULE_2__.placeOrder
 })(_cart_customerDetailForm__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
@@ -15737,6 +15759,37 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/containers/customerCreateForm.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/containers/customerCreateForm.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _customerCreateForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../customerCreateForm */ "./resources/js/components/customerCreateForm.js");
+/* harmony import */ var _redux_Cart_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../redux/Cart/actions */ "./resources/js/redux/Cart/actions.js");
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(function (_ref) {
+  var orderData = _ref.orderData,
+    cart = _ref.cart;
+  return {
+    orderData: orderData,
+    cart: cart
+  };
+}, {
+  getDeliveryCharge: _redux_Cart_actions__WEBPACK_IMPORTED_MODULE_2__.getDeliveryCharge,
+  placeOrder: _redux_Cart_actions__WEBPACK_IMPORTED_MODULE_2__.placeOrder
+})(_customerCreateForm__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
 /***/ "./resources/js/components/customerCreateForm.js":
 /*!*******************************************************!*\
   !*** ./resources/js/components/customerCreateForm.js ***!
@@ -15778,11 +15831,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var CustomerCreateForm = function CustomerCreateForm(_ref) {
-  var form = _ref.form;
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
+  var form = _ref.form,
+    orderData = _ref.orderData,
+    getDeliveryCharge = _ref.getDeliveryCharge,
+    placeOrder = _ref.placeOrder;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('pickup'),
     _useState2 = _slicedToArray(_useState, 2),
-    componentSize = _useState2[0],
-    setComponentSize = _useState2[1];
+    orderType = _useState2[0],
+    setOrderType = _useState2[1];
   var antInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var _usePlacesWidget = (0,react_google_autocomplete__WEBPACK_IMPORTED_MODULE_2__.usePlacesWidget)({
       apiKey: _config_constants__WEBPACK_IMPORTED_MODULE_3__.GOOGLE_API_KEY,
@@ -15860,19 +15916,21 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
             _iterator.f();
           }
           form.setFieldsValue({
-            lat: place.geometry.location.lat()
+            lat: place.geometry.location.lat(),
+            lng: place.geometry.location.lng(),
+            search_address: "".concat(street1, " ").concat(city, " ").concat(state)
           });
-          form.setFieldsValue({
-            lng: place.geometry.location.lng()
-          });
+          if (orderType != 'pickup') {
+            getDeliveryCharge();
+          }
         }
       }
     }),
     antRef = _usePlacesWidget.ref;
   var onFormLayoutChange = function onFormLayoutChange(_ref2) {
-    var first_name = _ref2.first_name;
-    console.log(first_name);
-    setComponentSize(first_name);
+    var order_type = _ref2.order_type;
+    console.log(order_type);
+    setOrderType(order_type);
   };
   var onDateChange = function onDateChange(date, dateString) {
     console.log(date, dateString);
@@ -15888,7 +15946,7 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
     },
     layout: "vertical",
     initialValues: {
-      size: componentSize
+      order_type: orderType
     },
     onValuesChange: onFormLayoutChange,
     style: {}
@@ -16118,15 +16176,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var steps = [{
-  title: 'MealPlans',
-  description: "Select your mealplan",
-  content: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_containers_cart_selectMealPlanForm__WEBPACK_IMPORTED_MODULE_1__["default"], {})
-}, {
-  title: 'Details',
-  description: "Customer Detail",
-  content: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_containers_cart_customerDetailForm__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-}];
+var contentStyle = {
+  color: '#000000',
+  borderRadius: '8px',
+  border: "1px dashed #494848",
+  marginTop: 16
+};
 var OrderMealPlan = function OrderMealPlan() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState2 = _slicedToArray(_useState, 2),
@@ -16138,6 +16193,19 @@ var OrderMealPlan = function OrderMealPlan() {
   var prev = function prev() {
     setCurrent(current - 1);
   };
+  var steps = [{
+    title: 'MealPlans',
+    description: "Select your mealplan",
+    content: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_containers_cart_selectMealPlanForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      nextForm: next
+    })
+  }, {
+    title: 'Details',
+    description: "Customer Detail",
+    content: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_containers_cart_customerDetailForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      prevForm: prev
+    })
+  }];
   var items = steps.map(function (item) {
     return {
       key: item.title,
@@ -16145,12 +16213,6 @@ var OrderMealPlan = function OrderMealPlan() {
       description: item.description
     };
   });
-  var contentStyle = {
-    color: '#000000',
-    borderRadius: '8px',
-    border: "1px dashed #494848",
-    marginTop: 16
-  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
       gutter: 16,
@@ -16162,13 +16224,7 @@ var OrderMealPlan = function OrderMealPlan() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           style: contentStyle,
           children: [steps[current].content, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            children: [current < steps.length - 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
-              type: "primary",
-              onClick: function onClick() {
-                return next();
-              },
-              children: "Next"
-            }), current === steps.length - 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+            children: [current === steps.length - 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
               type: "primary",
               onClick: function onClick() {
                 return antd__WEBPACK_IMPORTED_MODULE_10__["default"].success('Processing complete!');

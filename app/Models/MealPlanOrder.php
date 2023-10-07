@@ -13,55 +13,24 @@ class MealPlanOrder extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        "total_price" => 'float'
+    ];
+
     public function customer()
     {
-        return $this->belongsTo(\App\Models\Customer::class);
+        return $this->belongsTo(\App\Models\Customer::class, 'customer_id');
     }
 
     public function items()
     {
-        return $this->hasMany(\App\Models\MealPlanOrderItem::class);
+        return $this->hasMany(\App\Models\MealPlanOrderItem::class, 'order_id');
     }
 
-    public function total()
+    public function totals()
     {
-        return $this->hasMany(\App\Models\MealPlanOrderTotal::class);
+        return $this->hasMany(\App\Models\MealPlanOrderTotal::class, 'order_id');
     }
-
-    //
-    // Events
-    //
-
-    protected function beforeCreate()
-    {
-        $this->generateHash();
-
-        $this->ip_address = Request::getClientIp();
-        $this->user_agent = Request::userAgent();
-    }
-
-
-    /**
-     * Generate a unique hash for this order.
-     * @return string
-     */
-    protected function generateHash()
-    {
-        $this->hash = $this->createHash();
-        while ($this->newQuery()->where('hash', $this->hash)->count() > 0) {
-            $this->hash = $this->createHash();
-        }
-    }
-
-    /**
-     * Create a hash for this order.
-     * @return string
-     */
-    protected function createHash()
-    {
-        return md5(uniqid('order', microtime()));
-    }
-
 
     /**
      * Return the order data to build mail template

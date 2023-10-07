@@ -6,6 +6,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
 
+use App\Models\Customer;
+use App\Observers\CustomerObserver;
+
+use App\Models\MealPlanOrder;
+use App\Observers\MealPlanOrderObserver;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -33,5 +39,9 @@ class AppServiceProvider extends ServiceProvider
                 );
             });
         }
+
+        // observers
+        Customer::observe(CustomerObserver::class);
+        MealPlanOrder::observe(MealPlanOrderObserver::class);
     }
 }

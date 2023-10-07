@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class MealPlanOrderItemOption extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     protected $guarded = [];
+
+    protected $casts = [
+        "value_price" => 'float'
+    ];
+
 }

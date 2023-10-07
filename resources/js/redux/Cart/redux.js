@@ -1,7 +1,8 @@
 import {
     GET_MEALPLAN_ORDER_DATA,
     SELECT_MEALPLAN,
-    SELECT_MEALPLAN_OPTIONS
+    SELECT_MEALPLAN_OPTIONS,
+    ADD_DELIVERY_CHARGE
 } from './actions'
 
 export const orderData = (state = [], action) => {
@@ -18,7 +19,7 @@ export const cart = (state = {}, action) => {
         case SELECT_MEALPLAN:
             return  {
                 deliveryCharges:0,
-                tax:1.3,
+                tax:0.13,
                 items: [action.payload],
             };
         case SELECT_MEALPLAN_OPTIONS:
@@ -34,6 +35,10 @@ export const cart = (state = {}, action) => {
                 newState.items.push(newOptionValue);
             }
             return newState
+        case ADD_DELIVERY_CHARGE:
+            let newStateDelivery = _.cloneDeep(state);
+            newStateDelivery.deliveryCharges = action.payload
+            return newStateDelivery
         default:
             return state
     }

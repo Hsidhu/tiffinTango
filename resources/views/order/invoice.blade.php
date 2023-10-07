@@ -2,8 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>{!! $model->invoice_number.' - '.lang('admin::lang.orders.text_invoice').' - '.setting('site_name') !!}</title>
-    {!! get_style_tags() !!}
+    <title>{!! $model->invoice_on.' - MealPlan Order' !!}</title>
     <style>
         body {
             background-color: #FFF;
@@ -16,8 +15,8 @@
     <div class="row">
         <div class="col">
             <div class="invoice-title">
-                <h3 class="pull-right">@lang('admin::lang.orders.label_order_id')&nbsp;#{{$model->order_id}}</h3>
-                <h2>@lang('admin::lang.orders.text_invoice')</h2>
+                <h3 class="pull-right">Order ID: &nbsp;#{{$model->id}}</h3>
+                <h2>orders.text_invoice</h2>
             </div>
         </div>
     </div>
@@ -30,9 +29,9 @@
 
     <div class="row">
         <div class="col-6">
-            <strong>@lang('admin::lang.orders.text_restaurant')</strong><br>
-            <span>{{ $model->location->getName() }}</span><br>
-            <address>{{ format_address($model->location->getAddress(), true) }}</address>
+            <strong>text_restaurant</strong><br>
+            <span>Location Name</span><br>
+            <address>Location Address</address>
         </div>
         <div class="col-6 text-right">
             <img class="img-responsive" src="{{ uploads_url(setting('invoice_logo') ?: setting('site_logo')) }}" alt="" style="max-height:120px;" />

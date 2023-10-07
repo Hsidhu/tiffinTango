@@ -6,6 +6,13 @@ import { GOOGLE_API_KEY } from "../../../config/constants";
 
 const Zone = () => {
     const handleApiLoaded = (map, maps) => {
+
+        const from = new maps.LatLng(39.46, -0.36);
+        const to = new maps.LatLng(40.40, -3.68);
+
+        const distance = maps.geometry.spherical.computeDistanceBetween(from, to);
+        console.log(Math.ceil(distance / 1000) + ' km')
+
         const drawingManager = new maps.drawing.DrawingManager({
             drawingMode: maps.drawing.OverlayType.MARKER,
             drawingControl: true,
@@ -61,7 +68,7 @@ const Zone = () => {
     }
     return (
         <GoogleMapReact
-            bootstrapURLKeys={{ libraries: 'drawing', key: GOOGLE_API_KEY }}
+            bootstrapURLKeys={{ libraries: ['drawing', 'geometry'], key: GOOGLE_API_KEY }}
             defaultCenter={{ lat: 40.7549394, lng: -73.9772689 }}
             defaultZoom={10}
             yesIWantToUseGoogleMapApiInternals={true}

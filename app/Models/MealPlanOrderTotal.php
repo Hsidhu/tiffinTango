@@ -10,6 +10,12 @@ class MealPlanOrderTotal extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $guarded = [];
     
+    protected $casts = [
+        "value" => 'float'
+    ];
+
 }

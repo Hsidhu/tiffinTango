@@ -7,9 +7,9 @@ import {
     Radio, DatePicker, Form
 } from 'antd';
 import { axiosConfig } from '../../config/constants';
-import CustomerCreateForm from '../customerCreateForm';
+import CustomerCreateForm from '../containers/customerCreateForm';
 
-const CustomerDetailForm = ({ cart }) => {
+const CustomerDetailForm = ({prevForm, cart, placeOrder }) => {
 
     const [orderType, setOrderType] = useState('pickup');
     const [form] = Form.useForm();
@@ -19,13 +19,12 @@ const CustomerDetailForm = ({ cart }) => {
     }
 
     const triggerSubmit = () => {
-        form
-        .validateFields()
+        form.validateFields()
         .then((values) => {
-            values.start_date = err.values.start_date.format('YYYY-MM-DD')
+            values.start_date = values.start_date.format('YYYY-MM-DD')
             console.log(values)
-        })
-        .catch((err) => {
+            placeOrder({...values,...cart })
+        }).catch((err) => {
             console.log(err)
         });
     }
@@ -37,6 +36,10 @@ const CustomerDetailForm = ({ cart }) => {
                 <Col span={24}>
                     <CustomerCreateForm form={form} />
                     <Button type="primary" onClick={triggerSubmit}>Submit</Button>
+                    <br/>
+                    <Button type="primary" onClick={prevForm}>
+                        prevForm
+                    </Button>
                 </Col>
             </Row>
 

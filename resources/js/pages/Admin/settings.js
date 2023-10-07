@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Tabs } from 'antd';
 
 import Zone from './Zones/index'
+import PlacesAutoComplete from '../../components/PlacesAutoComplete';
 
 const Settings = () => {
     const history = useHistory()
@@ -19,7 +20,10 @@ const Settings = () => {
         { 
             label: 'Location', 
             key: 'location-1', 
-            children: <a>test</a>
+            children: <div>
+                triggerSubmit
+                <PlacesAutoComplete/>
+            </div>
         },
         { 
             label: 'Tab 2', 
