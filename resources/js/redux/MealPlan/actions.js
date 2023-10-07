@@ -1,5 +1,6 @@
 import { getRequest, postRequest, deleteRequest } from "../../config/axiosClient"
 import Errors from "../../services/errors"
+import { message } from 'antd';
 
 export const GET_MEALPLANS = "GET_MEALPLANS"
 export const GET_MEALPLAN = "GET_MEALPLAN"
@@ -53,7 +54,7 @@ export const createMealPlan = (data) => (dispatch) => {
 }
 
 export const createMealPlanOption = (data) => (dispatch) => {
-    let errs= Errors;
+
     const res = postRequest('mealplan/create/option', data).then(response => {
         console.log(response.data)
         dispatch({
@@ -61,11 +62,7 @@ export const createMealPlanOption = (data) => (dispatch) => {
             payload: response.data
         });
     }).catch(error => {
-        errs.setErrors(error.response)
-        dispatch({
-            type: SET_ERRORS,
-            payload: errs
-        });
+        message.error('something is wrong');
     });
 }
 

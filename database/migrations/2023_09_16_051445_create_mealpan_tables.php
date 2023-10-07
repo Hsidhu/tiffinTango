@@ -291,6 +291,7 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
+            $table->string('code', 64);
             $table->string('key', 64);
             $table->string('value', 128);
             $table->timestamps();

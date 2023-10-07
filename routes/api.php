@@ -51,3 +51,9 @@ Route::get('/mealplanorder/deliveryCharge', [App\Http\Controllers\Api\OrderContr
 
 Route::get('/orders', [App\Http\Controllers\Api\Admin\OrderController::class, 'index']);
 Route::get('/order/view/{id}', [App\Http\Controllers\Api\Admin\OrderController::class, 'view']);
+
+
+Route::get('/settings/{code}', [App\Http\Controllers\Api\Admin\SettingController::class, 'index']);
+Route::post('/settings/save', [App\Http\Controllers\Api\Admin\SettingController::class, 'save']);
+
+//Route::apiResource('settings', App\Http\Controllers\Api\Admin\SettingController::class);

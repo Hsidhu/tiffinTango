@@ -4,6 +4,7 @@ import { Tabs } from 'antd';
 
 import Zone from './Zones/index'
 import PlacesAutoComplete from '../../components/PlacesAutoComplete';
+import CoreSettings from '../../components/containers/coreSettings.';
 
 const Settings = () => {
     const history = useHistory()
@@ -18,11 +19,24 @@ const Settings = () => {
 
     const tabContent = [
         { 
-            label: 'Location', 
-            key: 'location-1', 
+            key: 'general',
+            label: 'General',
+            children: <div>
+                <CoreSettings/>
+            </div>
+        },
+        {
+            key: 'sales',
+            label: 'Sales',
+            children: <div>
+                Tax
+            </div>
+        },
+        { 
+            label: 'Location',
+            key: 'location-1',
             children: <div>
                 triggerSubmit
-                <PlacesAutoComplete/>
             </div>
         },
         { 

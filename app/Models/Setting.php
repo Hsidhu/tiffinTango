@@ -182,12 +182,12 @@ class Setting extends Model
      */
     public static function defaultExtensions()
     {
-        return Config::get('system.assets.media.defaultExtensions', [
+        return [
             'jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff', 'svg', 'ico', 'webp',
             'doc', 'docx', 'ppt', 'pptx', 'pdf', 'txt', 'xls', 'xlsx',
             'mp4', 'avi', 'mov', 'mpg', 'mpeg', 'mkv', 'webm', 'ogg',
             'mp3', 'wav', 'wma', 'm4a',
-        ]);
+        ];
     }
 
     /**
@@ -197,9 +197,9 @@ class Setting extends Model
      */
     public static function imageExtensions()
     {
-        return Config::get('system.assets.media.imageExtensions', [
+        return [
             'jpg', 'jpeg', 'bmp', 'png', 'webp', 'gif', 'svg',
-        ]);
+        ];
     }
 
     /**
@@ -209,9 +209,9 @@ class Setting extends Model
      */
     public static function videoExtensions()
     {
-        return Config::get('system.assets.media.videoExtensions', [
+        return [
             'mp4', 'avi', 'mov', 'mpg', 'mpeg', 'mkv', 'webm', 'ogv',
-        ]);
+        ];
     }
 
     /**
@@ -221,8 +221,8 @@ class Setting extends Model
      */
     public static function audioExtensions()
     {
-        return Config::get('system.assets.media.audioExtensions', [
+        return [
             'mp3', 'wav', 'wma', 'm4a', 'ogg', 'oga',
-        ]);
+        ];
     }
 }

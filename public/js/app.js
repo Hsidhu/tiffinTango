@@ -17199,6 +17199,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _config_axiosClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config/axiosClient */ "./resources/js/config/axiosClient.js");
 /* harmony import */ var _services_errors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/errors */ "./resources/js/services/errors.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
+
 
 
 var GET_MEALPLANS = "GET_MEALPLANS";
@@ -17255,7 +17257,6 @@ var createMealPlan = function createMealPlan(data) {
 };
 var createMealPlanOption = function createMealPlanOption(data) {
   return function (dispatch) {
-    var errs = _services_errors__WEBPACK_IMPORTED_MODULE_1__["default"];
     var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.postRequest)('mealplan/create/option', data).then(function (response) {
       console.log(response.data);
       dispatch({
@@ -17263,11 +17264,7 @@ var createMealPlanOption = function createMealPlanOption(data) {
         payload: response.data
       });
     })["catch"](function (error) {
-      errs.setErrors(error.response);
-      dispatch({
-        type: SET_ERRORS,
-        payload: errs
-      });
+      antd__WEBPACK_IMPORTED_MODULE_2__["default"].error('something is wrong');
     });
   };
 };
@@ -17413,6 +17410,80 @@ var orders = function orders() {
 
 /***/ }),
 
+/***/ "./resources/js/redux/Settings/actions.js":
+/*!************************************************!*\
+  !*** ./resources/js/redux/Settings/actions.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   GET_SETTINGS: () => (/* binding */ GET_SETTINGS),
+/* harmony export */   SAVE_SETTINGS: () => (/* binding */ SAVE_SETTINGS),
+/* harmony export */   getSettings: () => (/* binding */ getSettings),
+/* harmony export */   saveSettings: () => (/* binding */ saveSettings)
+/* harmony export */ });
+/* harmony import */ var _config_axiosClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config/axiosClient */ "./resources/js/config/axiosClient.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
+
+
+var GET_SETTINGS = "GET_SETTINGS";
+var SAVE_SETTINGS = "SAVE_SETTINGS";
+var getSettings = function getSettings(code) {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.getRequest)("settings/".concat(code)).then(function (response) {
+      dispatch({
+        type: GET_SETTINGS,
+        payload: response.data
+      });
+    });
+  };
+};
+var saveSettings = function saveSettings(data) {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.postRequest)('settings/save', data).then(function (response) {
+      dispatch({
+        type: SAVE_SETTINGS,
+        payload: response.data
+      });
+    })["catch"](function (error) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('something is wrong');
+    });
+    ;
+  };
+};
+
+/***/ }),
+
+/***/ "./resources/js/redux/Settings/redux.js":
+/*!**********************************************!*\
+  !*** ./resources/js/redux/Settings/redux.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   settings: () => (/* binding */ settings)
+/* harmony export */ });
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions */ "./resources/js/redux/Settings/actions.js");
+
+var settings = function settings() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.GET_SETTINGS:
+      return action.payload;
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.SAVE_SETTINGS:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+/***/ }),
+
 /***/ "./resources/js/redux/rootReducers.js":
 /*!********************************************!*\
   !*** ./resources/js/redux/rootReducers.js ***!
@@ -17430,6 +17501,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MealPlan_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MealPlan/redux */ "./resources/js/redux/MealPlan/redux.js");
 /* harmony import */ var _Cart_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Cart/redux */ "./resources/js/redux/Cart/redux.js");
 /* harmony import */ var _Order_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Order/redux */ "./resources/js/redux/Order/redux.js");
+/* harmony import */ var _Settings_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Settings/redux */ "./resources/js/redux/Settings/redux.js");
+
 
 
 
@@ -17440,6 +17513,7 @@ __webpack_require__.r(__webpack_exports__);
 //Include all the reducer to combine and provide to configure store.
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   authenticateReducer: _Authenticate_reducer__WEBPACK_IMPORTED_MODULE_0__["default"],
+  settings: _Settings_redux__WEBPACK_IMPORTED_MODULE_6__.settings,
   errors: _Common_reducer__WEBPACK_IMPORTED_MODULE_1__.errors,
   customers: _Customer_reducer__WEBPACK_IMPORTED_MODULE_2__.customers,
   customer: _Customer_reducer__WEBPACK_IMPORTED_MODULE_2__.customer,
