@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
+import moment from "moment";
 import {
     Row, Col, Typography,
     Space, Button, Descriptions,
-    Card, Table
+    Card, Table, Divider
 } from 'antd';
 
 import { getOrder } from "../../../redux/Order/actions"
@@ -96,9 +97,9 @@ const View = ({ }) => {
 
     let data2 = order.items?.map((item) => ({
         key: `items-${item.meal_plan_id}`,
-        name: item.meal_plan_name,
+        name: `${item.meal_plan_name} - $${item.price.toFixed(2)}`,
         price: item.price,
-        subtotal: item.subtotal,
+        subtotal: item.subtotal.toFixed(2),
         options: item.options
     }));
 
@@ -109,7 +110,6 @@ const View = ({ }) => {
         subtotal: item.value,
         options: []
     }));
-    console.log(totals);
     data2.push(...totals)
 
     return (
@@ -134,7 +134,7 @@ const View = ({ }) => {
             <Row>
                 <Col span={24}>
                     <Descriptions title="" bordered layout="vertical"
-                        column={5}
+                        column={6}
                         labelStyle={{ fontSize: "20px" }}
                         contentStyle={{ fontSize: "20px" }}
                     >
@@ -148,10 +148,11 @@ const View = ({ }) => {
                             {order?.order_type}
                         </Descriptions.Item>
                         <Descriptions.Item
-                            label="Start Date">{order?.start_date}</Descriptions.Item>
-
+                            label="Start Date">{moment(order.start_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}
+                        </Descriptions.Item>
                         <Descriptions.Item
-                            label="Total Price">{order?.total_price}</Descriptions.Item>
+                            label="Status">{order?.status}
+                        </Descriptions.Item>
                     </Descriptions>
                 </Col>
             </Row>
@@ -176,15 +177,13 @@ const View = ({ }) => {
                 <Col span={6}>
                     <Card
                         title="Customer details"
-                        extra={<a href="#">More</a>}
-
                     >
                         <p>Name: {order.customer_name}</p>
                         <p>Email: {order.email}</p>
                         <p>Phone: {order.phone}</p>
-                        <p>Start Date: {order.start_date}</p>
-                        <p>End Date: {order.end_date}</p>
-                        <p>Created Date: {order.created_date}</p>
+                        <p>Start Date: {moment(order.start_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
+                        <p>End Date: {moment(order.end_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
+                        <p>Created Date: {moment(order.created_at, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
                     </Card>
                 </Col>
             </Row>
