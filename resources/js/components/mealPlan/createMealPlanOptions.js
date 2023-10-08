@@ -12,7 +12,7 @@ import {
     Space,
     Radio
 } from 'antd';
-import { createMealPlanOption } from '../../../redux/MealPlan/actions';
+import { createMealPlanOption } from '../../redux/MealPlan/actions';
 
 const CreateMealPlanOptions = ({ }) => {
     const history = useHistory()
@@ -23,19 +23,9 @@ const CreateMealPlanOptions = ({ }) => {
 
     const [form] = Form.useForm()
 
-    const onFormLayoutChange = ({ first_name }) => {
-        console.log(first_name);
-        setComponentSize(first_name);
-    };
-
     const onFormSubmit = (values) => {
-        if (errors) {
-            // errors.reset()
-        }
-        console.log(values);
         dispatch(createMealPlanOption(values));
     }
-
 
     return (
         <Form
@@ -44,7 +34,6 @@ const CreateMealPlanOptions = ({ }) => {
             wrapperCol={{ span: 14, }}
             layout="horizontal"
             initialValues={{ display_type: 'radio', optionValues:[{value : " ", price:1.00}] }}
-            onValuesChange={onFormLayoutChange}
             style={{}}
             onFinish={onFormSubmit}
         >
@@ -70,7 +59,6 @@ const CreateMealPlanOptions = ({ }) => {
                             <Radio.Button value="radio">radio</Radio.Button>
                             <Radio.Button value="select">select</Radio.Button>
                             <Radio.Button value="input">input</Radio.Button>
-                            <Radio.Button value="checkbox">checkbox</Radio.Button>
                         </Radio.Group>
                     </Form.Item>
 

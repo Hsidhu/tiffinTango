@@ -17,8 +17,8 @@ export const getMealPlans = () => (dispatch) => {
     });
 }
 
-export const getMealPlanOptions = () => (dispatch) => {
-    const res = getRequest('mealplan/options').then(response => {
+export const getMealPlanOptions = (mealplan_id) => (dispatch) => {
+    const res = getRequest(`mealplan/options/${mealplan_id}`).then(response => {
         dispatch({
             type: GET_MEALPLAN_OPTIONS,
             payload: response.data
@@ -61,6 +61,7 @@ export const createMealPlanOption = (data) => (dispatch) => {
             type: CREATE_MEALPLAN_OPTION,
             payload: response.data
         });
+        message.success('This is a success message');
     }).catch(error => {
         message.error('something is wrong');
     });
@@ -100,5 +101,19 @@ export const updateMealPlan = (data) => (dispatch) => {
             type: SET_ERRORS,
             payload: errs
         });
+    });
+}
+
+
+export const createMealPlanAddon = (data) => (dispatch) => {
+
+    const res = postRequest('mealplan/create/addon', data).then(response => {
+        console.log(response.data)
+        dispatch({
+            type: CREATE_MEALPLAN_OPTION,
+            payload: response.data
+        });
+    }).catch(error => {
+        message.error('something is wrong');
     });
 }

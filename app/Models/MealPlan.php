@@ -20,6 +20,11 @@ class MealPlan extends Model
         return $this->hasMany(\App\Models\MealPlanAddon::class);
     }
 
+    public function options()
+    {
+        return $this->belongsToMany(\App\Models\MealPlanOption::class, 'meal_plan_addons');
+    }
+
     // Accessor to format price without .00
     // public function getPriceAttribute()
     // {

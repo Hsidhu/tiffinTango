@@ -17191,6 +17191,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   GET_MEALPLANS: () => (/* binding */ GET_MEALPLANS),
 /* harmony export */   GET_MEALPLAN_OPTIONS: () => (/* binding */ GET_MEALPLAN_OPTIONS),
 /* harmony export */   createMealPlan: () => (/* binding */ createMealPlan),
+/* harmony export */   createMealPlanAddon: () => (/* binding */ createMealPlanAddon),
 /* harmony export */   createMealPlanOption: () => (/* binding */ createMealPlanOption),
 /* harmony export */   getMealPlan: () => (/* binding */ getMealPlan),
 /* harmony export */   getMealPlanOptions: () => (/* binding */ getMealPlanOptions),
@@ -17218,9 +17219,9 @@ var getMealPlans = function getMealPlans() {
     });
   };
 };
-var getMealPlanOptions = function getMealPlanOptions() {
+var getMealPlanOptions = function getMealPlanOptions(mealplan_id) {
   return function (dispatch) {
-    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.getRequest)('mealplan/options').then(function (response) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.getRequest)("mealplan/options/".concat(mealplan_id)).then(function (response) {
       dispatch({
         type: GET_MEALPLAN_OPTIONS,
         payload: response.data
@@ -17263,6 +17264,7 @@ var createMealPlanOption = function createMealPlanOption(data) {
         type: CREATE_MEALPLAN_OPTION,
         payload: response.data
       });
+      antd__WEBPACK_IMPORTED_MODULE_2__["default"].success('This is a success message');
     })["catch"](function (error) {
       antd__WEBPACK_IMPORTED_MODULE_2__["default"].error('something is wrong');
     });
@@ -17302,6 +17304,19 @@ var updateMealPlan = function updateMealPlan(data) {
         type: SET_ERRORS,
         payload: errs
       });
+    });
+  };
+};
+var createMealPlanAddon = function createMealPlanAddon(data) {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.postRequest)('mealplan/create/addon', data).then(function (response) {
+      console.log(response.data);
+      dispatch({
+        type: CREATE_MEALPLAN_OPTION,
+        payload: response.data
+      });
+    })["catch"](function (error) {
+      antd__WEBPACK_IMPORTED_MODULE_2__["default"].error('something is wrong');
     });
   };
 };
@@ -17786,7 +17801,7 @@ function getItem(key, label, icon, children) {
   };
 }
 var publicTopMenu = [getItem('/', 'Home', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_1__["default"], {})), getItem('/order/mealplan', 'MealPlan', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_2__["default"], {})), getItem('/login', 'login', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_2__["default"], {}))];
-var protectedSideMenu = [getItem('/admin/dashboard', 'Dashboard', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_1__["default"], {})), getItem('/admin/orders', 'Orders', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_2__["default"], {})), getItem('/admin/locations', 'Locations', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_2__["default"], {})), getItem('/admin/location_zones', 'Zones', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_3__["default"], {})), getItem('/admin/mealplan', 'MealPlan', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {})), getItem('/admin/mealplanorders', 'MealPlan - Orders', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {})), getItem('/admin/drivers', 'Drivers', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {})), getItem('/admin/customer', 'Customers', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {})), getItem('/admin/settings', 'Settings', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_6__["default"], {})), getItem('User', 'sub1', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_7__["default"], {}), [getItem('Tom', '3'), getItem('Bill', '4')])];
+var protectedSideMenu = [getItem('/admin/dashboard', 'Dashboard', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_1__["default"], {})), getItem('/admin/orders', 'Orders', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_2__["default"], {})), getItem('/admin/locations', 'Locations', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_3__["default"], {})), getItem('/admin/mealplan', 'MealPlan', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {})), getItem('/admin/customer', 'Customers', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {})), getItem('/admin/drivers', 'Drivers', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {})), getItem('/admin/settings', 'Settings', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_6__["default"], {})), getItem('User', 'sub1', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_7__["default"], {}), [getItem('Tom', '3'), getItem('Bill', '4')])];
 
 /***/ }),
 
@@ -17847,7 +17862,7 @@ var privateRouteList = [{
 }, {
   path: 'admin/order/view',
   component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
-    return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_Order_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/Order/index */ "./resources/js/pages/Admin/Order/index.js"));
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_Order_view_js").then(__webpack_require__.t.bind(__webpack_require__, /*! ../pages/Admin/Order/view */ "./resources/js/pages/Admin/Order/view.js", 23));
   }),
   exact: true
 }, {
@@ -17881,12 +17896,6 @@ var privateRouteList = [{
   }),
   exact: true
 }, {
-  path: 'admin/drivers',
-  component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
-    return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_Drivers_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/Drivers/index */ "./resources/js/pages/Admin/Drivers/index.js"));
-  }),
-  exact: true
-}, {
   path: 'admin/mealplan',
   component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
     return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_MealPlan_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/MealPlan/index */ "./resources/js/pages/Admin/MealPlan/index.js"));
@@ -17899,15 +17908,15 @@ var privateRouteList = [{
   }),
   exact: true
 }, {
-  path: 'admin/mealplan/create/options',
-  component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
-    return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_MealPlan_createMealPlanOptions_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/MealPlan/createMealPlanOptions */ "./resources/js/pages/Admin/MealPlan/createMealPlanOptions.js"));
-  }),
-  exact: true
-}, {
   path: 'admin/mealplan/edit/:id',
   component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
     return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_MealPlan_edit_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/MealPlan/edit */ "./resources/js/pages/Admin/MealPlan/edit.js"));
+  }),
+  exact: true
+}, {
+  path: 'admin/drivers',
+  component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_Drivers_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/Drivers/index */ "./resources/js/pages/Admin/Drivers/index.js"));
   }),
   exact: true
 }, {
@@ -92236,7 +92245,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_noPageFound_js":1,"resources_js_pages_Welcome_js":1,"resources_js_pages_orderMealPlan_js":1,"resources_js_pages_Auth_Login_js":1,"resources_js_pages_Auth_Registration_js":1,"resources_js_pages_Admin_Dashboard_js":1,"resources_js_pages_Admin_Order_index_js":1,"resources_js_pages_Admin_Locations_index_js":1,"resources_js_pages_Admin_Locations_create_js":1,"resources_js_pages_Admin_Customer_index_js":1,"resources_js_pages_Admin_Customer_create_js":1,"resources_js_pages_Admin_Customer_edit_js":1,"resources_js_pages_Admin_Drivers_index_js":1,"resources_js_pages_Admin_MealPlan_index_js":1,"resources_js_pages_Admin_MealPlan_create_js":1,"resources_js_pages_Admin_MealPlan_createMealPlanOptions_js":1,"resources_js_pages_Admin_MealPlan_edit_js":1,"resources_js_pages_Admin_settings_js":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_noPageFound_js":1,"resources_js_pages_Welcome_js":1,"resources_js_pages_orderMealPlan_js":1,"resources_js_pages_Auth_Login_js":1,"resources_js_pages_Auth_Registration_js":1,"resources_js_pages_Admin_Dashboard_js":1,"resources_js_pages_Admin_Order_index_js":1,"resources_js_pages_Admin_Order_view_js":1,"resources_js_pages_Admin_Locations_index_js":1,"resources_js_pages_Admin_Locations_create_js":1,"resources_js_pages_Admin_Customer_index_js":1,"resources_js_pages_Admin_Customer_create_js":1,"resources_js_pages_Admin_Customer_edit_js":1,"resources_js_pages_Admin_MealPlan_index_js":1,"resources_js_pages_Admin_MealPlan_create_js":1,"resources_js_pages_Admin_MealPlan_edit_js":1,"resources_js_pages_Admin_Drivers_index_js":1,"resources_js_pages_Admin_settings_js":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

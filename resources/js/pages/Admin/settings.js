@@ -33,15 +33,8 @@ const Settings = () => {
             </div>
         },
         { 
-            label: 'Location',
-            key: 'location-1',
-            children: <div>
-                triggerSubmit
-            </div>
-        },
-        { 
-            label: 'Tab 2', 
-            key: 'item-2', 
+            label: 'Delivery zones', 
+            key: 'zone', 
             children: <div style={{height:'400px'}}>
                     <Zone />
             </div>

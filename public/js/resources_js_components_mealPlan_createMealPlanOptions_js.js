@@ -1,39 +1,5 @@
 "use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_pages_Admin_MealPlan_create_js"],{
-
-/***/ "./node_modules/@ant-design/icons-svg/es/asn/CheckOutlined.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/es/asn/CheckOutlined.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// This icon file is generated automatically.
-var CheckOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z" } }] }, "name": "check", "theme": "outlined" };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CheckOutlined);
-
-
-/***/ }),
-
-/***/ "./node_modules/@ant-design/icons-svg/es/asn/DeleteOutlined.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/es/asn/DeleteOutlined.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// This icon file is generated automatically.
-var DeleteOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z" } }] }, "name": "delete", "theme": "outlined" };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DeleteOutlined);
-
-
-/***/ }),
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_components_mealPlan_createMealPlanOptions_js"],{
 
 /***/ "./node_modules/@ant-design/icons-svg/es/asn/DownOutlined.js":
 /*!*******************************************************************!*\
@@ -48,23 +14,6 @@ __webpack_require__.r(__webpack_exports__);
 // This icon file is generated automatically.
 var DownOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z" } }] }, "name": "down", "theme": "outlined" };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DownOutlined);
-
-
-/***/ }),
-
-/***/ "./node_modules/@ant-design/icons-svg/es/asn/DownloadOutlined.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/es/asn/DownloadOutlined.js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// This icon file is generated automatically.
-var DownloadOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z" } }] }, "name": "download", "theme": "outlined" };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DownloadOutlined);
 
 
 /***/ }),
@@ -103,10 +52,10 @@ var EyeOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896
 
 /***/ }),
 
-/***/ "./node_modules/@ant-design/icons-svg/es/asn/FileTwoTone.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/es/asn/FileTwoTone.js ***!
-  \******************************************************************/
+/***/ "./node_modules/@ant-design/icons-svg/es/asn/MinusCircleOutlined.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@ant-design/icons-svg/es/asn/MinusCircleOutlined.js ***!
+  \**************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -114,42 +63,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 // This icon file is generated automatically.
-var FileTwoTone = { "icon": function render(primaryColor, secondaryColor) { return { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M534 352V136H232v752h560V394H576a42 42 0 01-42-42z", "fill": secondaryColor } }, { "tag": "path", "attrs": { "d": "M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM602 137.8L790.2 326H602V137.8zM792 888H232V136h302v216a42 42 0 0042 42h216v494z", "fill": primaryColor } }] }; }, "name": "file", "theme": "twotone" };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FileTwoTone);
-
-
-/***/ }),
-
-/***/ "./node_modules/@ant-design/icons-svg/es/asn/PaperClipOutlined.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/es/asn/PaperClipOutlined.js ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// This icon file is generated automatically.
-var PaperClipOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z" } }] }, "name": "paper-clip", "theme": "outlined" };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PaperClipOutlined);
-
-
-/***/ }),
-
-/***/ "./node_modules/@ant-design/icons-svg/es/asn/PictureTwoTone.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/@ant-design/icons-svg/es/asn/PictureTwoTone.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-// This icon file is generated automatically.
-var PictureTwoTone = { "icon": function render(primaryColor, secondaryColor) { return { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 632H136v-39.9l138.5-164.3 150.1 178L658.1 489 888 761.6V792zm0-129.8L664.2 396.8c-3.2-3.8-9-3.8-12.2 0L424.6 666.4l-144-170.7c-3.2-3.8-9-3.8-12.2 0L136 652.7V232h752v430.2z", "fill": primaryColor } }, { "tag": "path", "attrs": { "d": "M424.6 765.8l-150.1-178L136 752.1V792h752v-30.4L658.1 489z", "fill": secondaryColor } }, { "tag": "path", "attrs": { "d": "M136 652.7l132.4-157c3.2-3.8 9-3.8 12.2 0l144 170.7L652 396.8c3.2-3.8 9-3.8 12.2 0L888 662.2V232H136v420.7zM304 280a88 88 0 110 176 88 88 0 010-176z", "fill": secondaryColor } }, { "tag": "path", "attrs": { "d": "M276 368a28 28 0 1056 0 28 28 0 10-56 0z", "fill": secondaryColor } }, { "tag": "path", "attrs": { "d": "M304 456a88 88 0 100-176 88 88 0 000 176zm0-116c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z", "fill": primaryColor } }] }; }, "name": "picture", "theme": "twotone" };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PictureTwoTone);
+var MinusCircleOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M696 480H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h368c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z" } }, { "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" } }] }, "name": "minus-circle", "theme": "outlined" };
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MinusCircleOutlined);
 
 
 /***/ }),
@@ -222,70 +137,6 @@ var UpOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896"
 
 /***/ }),
 
-/***/ "./node_modules/@ant-design/icons/es/icons/CheckOutlined.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/es/icons/CheckOutlined.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ant_design_icons_svg_es_asn_CheckOutlined__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/CheckOutlined */ "./node_modules/@ant-design/icons-svg/es/asn/CheckOutlined.js");
-/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-
-
-
-var CheckOutlined = function CheckOutlined(props, ref) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
-    ref: ref,
-    icon: _ant_design_icons_svg_es_asn_CheckOutlined__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }));
-};
-CheckOutlined.displayName = 'CheckOutlined';
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(CheckOutlined));
-
-/***/ }),
-
-/***/ "./node_modules/@ant-design/icons/es/icons/DeleteOutlined.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/es/icons/DeleteOutlined.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ant_design_icons_svg_es_asn_DeleteOutlined__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/DeleteOutlined */ "./node_modules/@ant-design/icons-svg/es/asn/DeleteOutlined.js");
-/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-
-
-
-var DeleteOutlined = function DeleteOutlined(props, ref) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
-    ref: ref,
-    icon: _ant_design_icons_svg_es_asn_DeleteOutlined__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }));
-};
-DeleteOutlined.displayName = 'DeleteOutlined';
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(DeleteOutlined));
-
-/***/ }),
-
 /***/ "./node_modules/@ant-design/icons/es/icons/DownOutlined.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/@ant-design/icons/es/icons/DownOutlined.js ***!
@@ -315,38 +166,6 @@ var DownOutlined = function DownOutlined(props, ref) {
 };
 DownOutlined.displayName = 'DownOutlined';
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(DownOutlined));
-
-/***/ }),
-
-/***/ "./node_modules/@ant-design/icons/es/icons/DownloadOutlined.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/es/icons/DownloadOutlined.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ant_design_icons_svg_es_asn_DownloadOutlined__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/DownloadOutlined */ "./node_modules/@ant-design/icons-svg/es/asn/DownloadOutlined.js");
-/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-
-
-
-var DownloadOutlined = function DownloadOutlined(props, ref) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
-    ref: ref,
-    icon: _ant_design_icons_svg_es_asn_DownloadOutlined__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }));
-};
-DownloadOutlined.displayName = 'DownloadOutlined';
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(DownloadOutlined));
 
 /***/ }),
 
@@ -414,10 +233,10 @@ EyeOutlined.displayName = 'EyeOutlined';
 
 /***/ }),
 
-/***/ "./node_modules/@ant-design/icons/es/icons/FileTwoTone.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/es/icons/FileTwoTone.js ***!
-  \****************************************************************/
+/***/ "./node_modules/@ant-design/icons/es/icons/MinusCircleOutlined.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@ant-design/icons/es/icons/MinusCircleOutlined.js ***!
+  \************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -427,7 +246,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ant_design_icons_svg_es_asn_FileTwoTone__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/FileTwoTone */ "./node_modules/@ant-design/icons-svg/es/asn/FileTwoTone.js");
+/* harmony import */ var _ant_design_icons_svg_es_asn_MinusCircleOutlined__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/MinusCircleOutlined */ "./node_modules/@ant-design/icons-svg/es/asn/MinusCircleOutlined.js");
 /* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
 
 // GENERATE BY ./scripts/generate.ts
@@ -435,78 +254,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var FileTwoTone = function FileTwoTone(props, ref) {
+var MinusCircleOutlined = function MinusCircleOutlined(props, ref) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
     ref: ref,
-    icon: _ant_design_icons_svg_es_asn_FileTwoTone__WEBPACK_IMPORTED_MODULE_3__["default"]
+    icon: _ant_design_icons_svg_es_asn_MinusCircleOutlined__WEBPACK_IMPORTED_MODULE_3__["default"]
   }));
 };
-FileTwoTone.displayName = 'FileTwoTone';
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(FileTwoTone));
-
-/***/ }),
-
-/***/ "./node_modules/@ant-design/icons/es/icons/PaperClipOutlined.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/es/icons/PaperClipOutlined.js ***!
-  \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ant_design_icons_svg_es_asn_PaperClipOutlined__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/PaperClipOutlined */ "./node_modules/@ant-design/icons-svg/es/asn/PaperClipOutlined.js");
-/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-
-
-
-var PaperClipOutlined = function PaperClipOutlined(props, ref) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
-    ref: ref,
-    icon: _ant_design_icons_svg_es_asn_PaperClipOutlined__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }));
-};
-PaperClipOutlined.displayName = 'PaperClipOutlined';
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(PaperClipOutlined));
-
-/***/ }),
-
-/***/ "./node_modules/@ant-design/icons/es/icons/PictureTwoTone.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@ant-design/icons/es/icons/PictureTwoTone.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ant_design_icons_svg_es_asn_PictureTwoTone__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/PictureTwoTone */ "./node_modules/@ant-design/icons-svg/es/asn/PictureTwoTone.js");
-/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
-
-// GENERATE BY ./scripts/generate.ts
-// DON NOT EDIT IT MANUALLY
-
-
-
-var PictureTwoTone = function PictureTwoTone(props, ref) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
-    ref: ref,
-    icon: _ant_design_icons_svg_es_asn_PictureTwoTone__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }));
-};
-PictureTwoTone.displayName = 'PictureTwoTone';
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(PictureTwoTone));
+MinusCircleOutlined.displayName = 'MinusCircleOutlined';
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(MinusCircleOutlined));
 
 /***/ }),
 
@@ -635,6 +390,27 @@ var UpOutlined = function UpOutlined(props, ref) {
 };
 UpOutlined.displayName = 'UpOutlined';
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(UpOutlined));
+
+/***/ }),
+
+/***/ "./node_modules/antd/es/_util/getDataOrAriaProps.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/antd/es/_util/getDataOrAriaProps.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getDataOrAriaProps)
+/* harmony export */ });
+function getDataOrAriaProps(props) {
+  return Object.keys(props).reduce(function (prev, key) {
+    if ((key.startsWith('data-') || key.startsWith('aria-') || key === 'role') && !key.startsWith('data-__')) {
+      prev[key] = props[key];
+    }
+    return prev;
+  }, {});
+}
 
 /***/ }),
 
@@ -3310,318 +3086,185 @@ function hasPrefixSuffix(props) {
 
 /***/ }),
 
-/***/ "./node_modules/antd/es/progress/Circle.js":
-/*!*************************************************!*\
-  !*** ./node_modules/antd/es/progress/Circle.js ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _ant_design_colors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ant-design/colors */ "./node_modules/@ant-design/colors/dist/index.esm.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var rc_progress__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rc-progress */ "./node_modules/rc-progress/es/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils */ "./node_modules/antd/es/progress/utils.js");
-
-
-
-
-
-
-function getPercentage(_ref) {
-  var percent = _ref.percent,
-    success = _ref.success,
-    successPercent = _ref.successPercent;
-  var realSuccessPercent = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.validProgress)((0,_utils__WEBPACK_IMPORTED_MODULE_5__.getSuccessPercent)({
-    success: success,
-    successPercent: successPercent
-  }));
-  return [realSuccessPercent, (0,_utils__WEBPACK_IMPORTED_MODULE_5__.validProgress)((0,_utils__WEBPACK_IMPORTED_MODULE_5__.validProgress)(percent) - realSuccessPercent)];
-}
-function getStrokeColor(_ref2) {
-  var _ref2$success = _ref2.success,
-    success = _ref2$success === void 0 ? {} : _ref2$success,
-    strokeColor = _ref2.strokeColor;
-  var successColor = success.strokeColor;
-  return [successColor || _ant_design_colors__WEBPACK_IMPORTED_MODULE_1__.presetPrimaryColors.green, strokeColor || null];
-}
-var Circle = function Circle(props) {
-  var prefixCls = props.prefixCls,
-    width = props.width,
-    strokeWidth = props.strokeWidth,
-    _props$trailColor = props.trailColor,
-    trailColor = _props$trailColor === void 0 ? null : _props$trailColor,
-    _props$strokeLinecap = props.strokeLinecap,
-    strokeLinecap = _props$strokeLinecap === void 0 ? 'round' : _props$strokeLinecap,
-    gapPosition = props.gapPosition,
-    gapDegree = props.gapDegree,
-    type = props.type,
-    children = props.children,
-    success = props.success;
-  var circleSize = width || 120;
-  var circleStyle = {
-    width: circleSize,
-    height: circleSize,
-    fontSize: circleSize * 0.15 + 6
-  };
-  var circleWidth = strokeWidth || 6;
-  var gapPos = gapPosition || type === 'dashboard' && 'bottom' || undefined;
-  var getGapDegree = function getGapDegree() {
-    // Support gapDeg = 0 when type = 'dashboard'
-    if (gapDegree || gapDegree === 0) {
-      return gapDegree;
-    }
-    if (type === 'dashboard') {
-      return 75;
-    }
-    return undefined;
-  };
-  // using className to style stroke color
-  var isGradient = Object.prototype.toString.call(props.strokeColor) === '[object Object]';
-  var strokeColor = getStrokeColor({
-    success: success,
-    strokeColor: props.strokeColor
-  });
-  var wrapperClassName = classnames__WEBPACK_IMPORTED_MODULE_2___default()("".concat(prefixCls, "-inner"), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, "".concat(prefixCls, "-circle-gradient"), isGradient));
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement("div", {
-    className: wrapperClassName,
-    style: circleStyle
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(rc_progress__WEBPACK_IMPORTED_MODULE_3__.Circle, {
-    percent: getPercentage(props),
-    strokeWidth: circleWidth,
-    trailWidth: circleWidth,
-    strokeColor: strokeColor,
-    strokeLinecap: strokeLinecap,
-    trailColor: trailColor,
-    prefixCls: prefixCls,
-    gapDegree: getGapDegree(),
-    gapPosition: gapPos
-  }), children);
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Circle);
-
-/***/ }),
-
-/***/ "./node_modules/antd/es/progress/Line.js":
+/***/ "./node_modules/antd/es/radio/context.js":
 /*!***********************************************!*\
-  !*** ./node_modules/antd/es/progress/Line.js ***!
+  !*** ./node_modules/antd/es/radio/context.js ***!
   \***********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   handleGradient: () => (/* binding */ handleGradient),
-/* harmony export */   sortGradient: () => (/* binding */ sortGradient)
+/* harmony export */   RadioGroupContextProvider: () => (/* binding */ RadioGroupContextProvider),
+/* harmony export */   RadioOptionTypeContext: () => (/* binding */ RadioOptionTypeContext),
+/* harmony export */   RadioOptionTypeContextProvider: () => (/* binding */ RadioOptionTypeContextProvider),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var RadioGroupContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createContext(null);
+var RadioGroupContextProvider = RadioGroupContext.Provider;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RadioGroupContext);
+var RadioOptionTypeContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createContext(null);
+var RadioOptionTypeContextProvider = RadioOptionTypeContext.Provider;
+
+/***/ }),
+
+/***/ "./node_modules/antd/es/radio/group.js":
+/*!*********************************************!*\
+  !*** ./node_modules/antd/es/radio/group.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _ant_design_colors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ant-design/colors */ "./node_modules/@ant-design/colors/dist/index.esm.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils */ "./node_modules/antd/es/progress/utils.js");
-
-var __rest = undefined && undefined.__rest || function (s, e) {
-  var t = {};
-  for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
-  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
-  }
-  return t;
-};
-
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var rc_util_es_hooks_useMergedState__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rc-util/es/hooks/useMergedState */ "./node_modules/rc-util/es/hooks/useMergedState.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _config_provider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../config-provider */ "./node_modules/antd/es/config-provider/context.js");
+/* harmony import */ var _config_provider_SizeContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../config-provider/SizeContext */ "./node_modules/antd/es/config-provider/SizeContext.js");
+/* harmony import */ var _util_getDataOrAriaProps__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../_util/getDataOrAriaProps */ "./node_modules/antd/es/_util/getDataOrAriaProps.js");
+/* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./context */ "./node_modules/antd/es/radio/context.js");
+/* harmony import */ var _radio__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./radio */ "./node_modules/antd/es/radio/radio.js");
 
 
-/**
- * @example
- *   {
- *     "0%": "#afc163",
- *     "75%": "#009900",
- *     "50%": "green", // ====> '#afc163 0%, #66FF00 25%, #00CC00 50%, #009900 75%, #ffffff 100%'
- *     "25%": "#66FF00",
- *     "100%": "#ffffff"
- *   }
- */
-var sortGradient = function sortGradient(gradients) {
-  var tempArr = [];
-  Object.keys(gradients).forEach(function (key) {
-    var formattedKey = parseFloat(key.replace(/%/g, ''));
-    if (!isNaN(formattedKey)) {
-      tempArr.push({
-        key: formattedKey,
-        value: gradients[key]
-      });
+
+
+
+
+
+
+
+
+
+var RadioGroup = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.forwardRef(function (props, ref) {
+  var _classNames;
+  var _React$useContext = react__WEBPACK_IMPORTED_MODULE_5__.useContext(_config_provider__WEBPACK_IMPORTED_MODULE_6__.ConfigContext),
+    getPrefixCls = _React$useContext.getPrefixCls,
+    direction = _React$useContext.direction;
+  var size = react__WEBPACK_IMPORTED_MODULE_5__.useContext(_config_provider_SizeContext__WEBPACK_IMPORTED_MODULE_7__["default"]);
+  var _useMergedState = (0,rc_util_es_hooks_useMergedState__WEBPACK_IMPORTED_MODULE_4__["default"])(props.defaultValue, {
+      value: props.value
+    }),
+    _useMergedState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_useMergedState, 2),
+    value = _useMergedState2[0],
+    setValue = _useMergedState2[1];
+  var onRadioChange = function onRadioChange(ev) {
+    var lastValue = value;
+    var val = ev.target.value;
+    if (!('value' in props)) {
+      setValue(val);
     }
-  });
-  tempArr = tempArr.sort(function (a, b) {
-    return a.key - b.key;
-  });
-  return tempArr.map(function (_ref) {
-    var key = _ref.key,
-      value = _ref.value;
-    return "".concat(value, " ").concat(key, "%");
-  }).join(', ');
-};
-/**
- * Then this man came to realize the truth: Besides six pence, there is the moon. Besides bread and
- * butter, there is the bug. And... Besides women, there is the code.
- *
- * @example
- *   {
- *     "0%": "#afc163",
- *     "25%": "#66FF00",
- *     "50%": "#00CC00", // ====>  linear-gradient(to right, #afc163 0%, #66FF00 25%,
- *     "75%": "#009900", //        #00CC00 50%, #009900 75%, #ffffff 100%)
- *     "100%": "#ffffff"
- *   }
- */
-var handleGradient = function handleGradient(strokeColor, directionConfig) {
-  var _strokeColor$from = strokeColor.from,
-    from = _strokeColor$from === void 0 ? _ant_design_colors__WEBPACK_IMPORTED_MODULE_1__.presetPrimaryColors.blue : _strokeColor$from,
-    _strokeColor$to = strokeColor.to,
-    to = _strokeColor$to === void 0 ? _ant_design_colors__WEBPACK_IMPORTED_MODULE_1__.presetPrimaryColors.blue : _strokeColor$to,
-    _strokeColor$directio = strokeColor.direction,
-    direction = _strokeColor$directio === void 0 ? directionConfig === 'rtl' ? 'to left' : 'to right' : _strokeColor$directio,
-    rest = __rest(strokeColor, ["from", "to", "direction"]);
-  if (Object.keys(rest).length !== 0) {
-    var sortedGradients = sortGradient(rest);
-    return {
-      backgroundImage: "linear-gradient(".concat(direction, ", ").concat(sortedGradients, ")")
-    };
-  }
-  return {
-    backgroundImage: "linear-gradient(".concat(direction, ", ").concat(from, ", ").concat(to, ")")
+    var onChange = props.onChange;
+    if (onChange && val !== lastValue) {
+      onChange(ev);
+    }
   };
-};
-var Line = function Line(props) {
-  var prefixCls = props.prefixCls,
-    directionConfig = props.direction,
-    percent = props.percent,
-    strokeWidth = props.strokeWidth,
-    size = props.size,
-    strokeColor = props.strokeColor,
-    _props$strokeLinecap = props.strokeLinecap,
-    strokeLinecap = _props$strokeLinecap === void 0 ? 'round' : _props$strokeLinecap,
+  var customizePrefixCls = props.prefixCls,
+    _props$className = props.className,
+    className = _props$className === void 0 ? '' : _props$className,
+    options = props.options,
+    _props$buttonStyle = props.buttonStyle,
+    buttonStyle = _props$buttonStyle === void 0 ? 'outline' : _props$buttonStyle,
+    disabled = props.disabled,
     children = props.children,
-    _props$trailColor = props.trailColor,
-    trailColor = _props$trailColor === void 0 ? null : _props$trailColor,
-    success = props.success;
-  var backgroundProps = strokeColor && typeof strokeColor !== 'string' ? handleGradient(strokeColor, directionConfig) : {
-    background: strokeColor
-  };
-  var borderRadius = strokeLinecap === 'square' || strokeLinecap === 'butt' ? 0 : undefined;
-  var trailStyle = {
-    backgroundColor: trailColor || undefined,
-    borderRadius: borderRadius
-  };
-  var percentStyle = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    width: "".concat((0,_utils__WEBPACK_IMPORTED_MODULE_3__.validProgress)(percent), "%"),
-    height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius: borderRadius
-  }, backgroundProps);
-  var successPercent = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.getSuccessPercent)(props);
-  var successPercentStyle = {
-    width: "".concat((0,_utils__WEBPACK_IMPORTED_MODULE_3__.validProgress)(successPercent), "%"),
-    height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius: borderRadius,
-    backgroundColor: success === null || success === void 0 ? void 0 : success.strokeColor
-  };
-  var successSegment = successPercent !== undefined ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", {
-    className: "".concat(prefixCls, "-success-bg"),
-    style: successPercentStyle
-  }) : null;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(react__WEBPACK_IMPORTED_MODULE_2__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", {
-    className: "".concat(prefixCls, "-outer")
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", {
-    className: "".concat(prefixCls, "-inner"),
-    style: trailStyle
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", {
-    className: "".concat(prefixCls, "-bg"),
-    style: percentStyle
-  }), successSegment)), children);
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Line);
-
-/***/ }),
-
-/***/ "./node_modules/antd/es/progress/Steps.js":
-/*!************************************************!*\
-  !*** ./node_modules/antd/es/progress/Steps.js ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-var Steps = function Steps(props) {
-  var size = props.size,
-    steps = props.steps,
-    _props$percent = props.percent,
-    percent = _props$percent === void 0 ? 0 : _props$percent,
-    _props$strokeWidth = props.strokeWidth,
-    strokeWidth = _props$strokeWidth === void 0 ? 8 : _props$strokeWidth,
-    strokeColor = props.strokeColor,
-    _props$trailColor = props.trailColor,
-    trailColor = _props$trailColor === void 0 ? null : _props$trailColor,
-    prefixCls = props.prefixCls,
-    children = props.children;
-  var current = Math.round(steps * (percent / 100));
-  var stepWidth = size === 'small' ? 2 : 14;
-  var styledSteps = new Array(steps);
-  for (var i = 0; i < steps; i++) {
-    var color = Array.isArray(strokeColor) ? strokeColor[i] : strokeColor;
-    styledSteps[i] = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", {
-      key: i,
-      className: classnames__WEBPACK_IMPORTED_MODULE_1___default()("".concat(prefixCls, "-steps-item"), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, "".concat(prefixCls, "-steps-item-active"), i <= current - 1)),
-      style: {
-        backgroundColor: i <= current - 1 ? color : trailColor,
-        width: stepWidth,
-        height: strokeWidth
+    customizeSize = props.size,
+    style = props.style,
+    id = props.id,
+    onMouseEnter = props.onMouseEnter,
+    onMouseLeave = props.onMouseLeave,
+    onFocus = props.onFocus,
+    onBlur = props.onBlur;
+  var prefixCls = getPrefixCls('radio', customizePrefixCls);
+  var groupPrefixCls = "".concat(prefixCls, "-group");
+  var childrenToRender = children;
+  // 如果存在 options, 优先使用
+  if (options && options.length > 0) {
+    childrenToRender = options.map(function (option) {
+      if (typeof option === 'string' || typeof option === 'number') {
+        // 此处类型自动推导为 string
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_radio__WEBPACK_IMPORTED_MODULE_8__["default"], {
+          key: option.toString(),
+          prefixCls: prefixCls,
+          disabled: disabled,
+          value: option,
+          checked: value === option
+        }, option);
       }
+      // 此处类型自动推导为 { label: string value: string }
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_radio__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        key: "radio-group-value-options-".concat(option.value),
+        prefixCls: prefixCls,
+        disabled: option.disabled || disabled,
+        value: option.value,
+        checked: value === option.value,
+        style: option.style
+      }, option.label);
     });
   }
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement("div", {
-    className: "".concat(prefixCls, "-steps-outer")
-  }, styledSteps, children);
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Steps);
+  var mergedSize = customizeSize || size;
+  var classString = classnames__WEBPACK_IMPORTED_MODULE_3___default()(groupPrefixCls, "".concat(groupPrefixCls, "-").concat(buttonStyle), (_classNames = {}, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames, "".concat(groupPrefixCls, "-").concat(mergedSize), mergedSize), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames, "".concat(groupPrefixCls, "-rtl"), direction === 'rtl'), _classNames), className);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (0,_util_getDataOrAriaProps__WEBPACK_IMPORTED_MODULE_9__["default"])(props), {
+    className: classString,
+    style: style,
+    onMouseEnter: onMouseEnter,
+    onMouseLeave: onMouseLeave,
+    onFocus: onFocus,
+    onBlur: onBlur,
+    id: id,
+    ref: ref
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_context__WEBPACK_IMPORTED_MODULE_10__.RadioGroupContextProvider, {
+    value: {
+      onChange: onRadioChange,
+      value: value,
+      disabled: props.disabled,
+      name: props.name,
+      optionType: props.optionType
+    }
+  }, childrenToRender));
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.memo(RadioGroup));
 
 /***/ }),
 
-/***/ "./node_modules/antd/es/progress/index.js":
-/*!************************************************!*\
-  !*** ./node_modules/antd/es/progress/index.js ***!
-  \************************************************/
+/***/ "./node_modules/antd/es/radio/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/antd/es/radio/index.js ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Button: () => (/* reexport safe */ _radioButton__WEBPACK_IMPORTED_MODULE_0__["default"]),
+/* harmony export */   Group: () => (/* reexport safe */ _group__WEBPACK_IMPORTED_MODULE_1__["default"]),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _progress__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./progress */ "./node_modules/antd/es/progress/progress.js");
+/* harmony import */ var _group__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./group */ "./node_modules/antd/es/radio/group.js");
+/* harmony import */ var _radio__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./radio */ "./node_modules/antd/es/radio/radio.js");
+/* harmony import */ var _radioButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./radioButton */ "./node_modules/antd/es/radio/radioButton.js");
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_progress__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+var Radio = _radio__WEBPACK_IMPORTED_MODULE_2__["default"];
+Radio.Button = _radioButton__WEBPACK_IMPORTED_MODULE_0__["default"];
+Radio.Group = _group__WEBPACK_IMPORTED_MODULE_1__["default"];
+Radio.__ANT_RADIO = true;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Radio);
 
 /***/ }),
 
-/***/ "./node_modules/antd/es/progress/progress.js":
-/*!***************************************************!*\
-  !*** ./node_modules/antd/es/progress/progress.js ***!
-  \***************************************************/
+/***/ "./node_modules/antd/es/radio/radio.js":
+/*!*********************************************!*\
+  !*** ./node_modules/antd/es/radio/radio.js ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -3630,22 +3273,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
 /* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _ant_design_icons_es_icons_CheckCircleFilled__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ant-design/icons/es/icons/CheckCircleFilled */ "./node_modules/@ant-design/icons/es/icons/CheckCircleFilled.js");
-/* harmony import */ var _ant_design_icons_es_icons_CheckOutlined__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ant-design/icons/es/icons/CheckOutlined */ "./node_modules/@ant-design/icons/es/icons/CheckOutlined.js");
-/* harmony import */ var _ant_design_icons_es_icons_CloseCircleFilled__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ant-design/icons/es/icons/CloseCircleFilled */ "./node_modules/@ant-design/icons/es/icons/CloseCircleFilled.js");
-/* harmony import */ var _ant_design_icons_es_icons_CloseOutlined__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ant-design/icons/es/icons/CloseOutlined */ "./node_modules/@ant-design/icons/es/icons/CloseOutlined.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
 /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var rc_util_es_omit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rc-util/es/omit */ "./node_modules/rc-util/es/omit.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _config_provider__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../config-provider */ "./node_modules/antd/es/config-provider/context.js");
-/* harmony import */ var _util_type__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../_util/type */ "./node_modules/antd/es/_util/type.js");
-/* harmony import */ var _util_warning__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../_util/warning */ "./node_modules/antd/es/_util/warning.js");
-/* harmony import */ var _Circle__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Circle */ "./node_modules/antd/es/progress/Circle.js");
-/* harmony import */ var _Line__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Line */ "./node_modules/antd/es/progress/Line.js");
-/* harmony import */ var _Steps__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Steps */ "./node_modules/antd/es/progress/Steps.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils */ "./node_modules/antd/es/progress/utils.js");
+/* harmony import */ var rc_checkbox__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rc-checkbox */ "./node_modules/rc-checkbox/es/index.js");
+/* harmony import */ var rc_util_es_ref__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rc-util/es/ref */ "./node_modules/rc-util/es/ref.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _config_provider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../config-provider */ "./node_modules/antd/es/config-provider/context.js");
+/* harmony import */ var _config_provider_DisabledContext__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../config-provider/DisabledContext */ "./node_modules/antd/es/config-provider/DisabledContext.js");
+/* harmony import */ var _form_context__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../form/context */ "./node_modules/antd/es/form/context.js");
+/* harmony import */ var _util_warning__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../_util/warning */ "./node_modules/antd/es/_util/warning.js");
+/* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./context */ "./node_modules/antd/es/radio/context.js");
 
 
 var __rest = undefined && undefined.__rest || function (s, e) {
@@ -3666,135 +3304,110 @@ var __rest = undefined && undefined.__rest || function (s, e) {
 
 
 
-
-
-
-
-var ProgressTypes = (0,_util_type__WEBPACK_IMPORTED_MODULE_5__.tuple)('line', 'circle', 'dashboard');
-var ProgressStatuses = (0,_util_type__WEBPACK_IMPORTED_MODULE_5__.tuple)('normal', 'exception', 'active', 'success');
-var Progress = function Progress(props) {
+var InternalRadio = function InternalRadio(props, ref) {
   var _classNames;
-  var customizePrefixCls = props.prefixCls,
-    className = props.className,
-    steps = props.steps,
-    strokeColor = props.strokeColor,
-    _props$percent = props.percent,
-    percent = _props$percent === void 0 ? 0 : _props$percent,
-    _props$size = props.size,
-    size = _props$size === void 0 ? 'default' : _props$size,
-    _props$showInfo = props.showInfo,
-    showInfo = _props$showInfo === void 0 ? true : _props$showInfo,
-    _props$type = props.type,
-    type = _props$type === void 0 ? 'line' : _props$type,
-    restProps = __rest(props, ["prefixCls", "className", "steps", "strokeColor", "percent", "size", "showInfo", "type"]);
-  function getPercentNumber() {
-    var successPercent = (0,_utils__WEBPACK_IMPORTED_MODULE_6__.getSuccessPercent)(props);
-    return parseInt(successPercent !== undefined ? successPercent.toString() : percent.toString(), 10);
-  }
-  function getProgressStatus() {
-    var status = props.status;
-    if (!ProgressStatuses.includes(status) && getPercentNumber() >= 100) {
-      return 'success';
-    }
-    return status || 'normal';
-  }
-  function renderProcessInfo(prefixCls, progressStatus) {
-    var format = props.format;
-    var successPercent = (0,_utils__WEBPACK_IMPORTED_MODULE_6__.getSuccessPercent)(props);
-    if (!showInfo) {
-      return null;
-    }
-    var text;
-    var textFormatter = format || function (percentNumber) {
-      return "".concat(percentNumber, "%");
-    };
-    var isLineType = type === 'line';
-    if (format || progressStatus !== 'exception' && progressStatus !== 'success') {
-      text = textFormatter((0,_utils__WEBPACK_IMPORTED_MODULE_6__.validProgress)(percent), (0,_utils__WEBPACK_IMPORTED_MODULE_6__.validProgress)(successPercent));
-    } else if (progressStatus === 'exception') {
-      text = isLineType ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(_ant_design_icons_es_icons_CloseCircleFilled__WEBPACK_IMPORTED_MODULE_7__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(_ant_design_icons_es_icons_CloseOutlined__WEBPACK_IMPORTED_MODULE_8__["default"], null);
-    } else if (progressStatus === 'success') {
-      text = isLineType ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(_ant_design_icons_es_icons_CheckCircleFilled__WEBPACK_IMPORTED_MODULE_9__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(_ant_design_icons_es_icons_CheckOutlined__WEBPACK_IMPORTED_MODULE_10__["default"], null);
-    }
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement("span", {
-      className: "".concat(prefixCls, "-text"),
-      title: typeof text === 'string' ? text : undefined
-    }, text);
-  }
-  var _React$useContext = react__WEBPACK_IMPORTED_MODULE_4__.useContext(_config_provider__WEBPACK_IMPORTED_MODULE_11__.ConfigContext),
+  var groupContext = react__WEBPACK_IMPORTED_MODULE_5__.useContext(_context__WEBPACK_IMPORTED_MODULE_6__["default"]);
+  var radioOptionTypeContext = react__WEBPACK_IMPORTED_MODULE_5__.useContext(_context__WEBPACK_IMPORTED_MODULE_6__.RadioOptionTypeContext);
+  var _React$useContext = react__WEBPACK_IMPORTED_MODULE_5__.useContext(_config_provider__WEBPACK_IMPORTED_MODULE_7__.ConfigContext),
     getPrefixCls = _React$useContext.getPrefixCls,
     direction = _React$useContext.direction;
-  var prefixCls = getPrefixCls('progress', customizePrefixCls);
-  var progressStatus = getProgressStatus();
-  var progressInfo = renderProcessInfo(prefixCls, progressStatus);
-   true ? (0,_util_warning__WEBPACK_IMPORTED_MODULE_12__["default"])(!('successPercent' in props), 'Progress', '`successPercent` is deprecated. Please use `success.percent` instead.') : 0;
-  var strokeColorNotArray = Array.isArray(strokeColor) ? strokeColor[0] : strokeColor;
-  var strokeColorNotGradient = typeof strokeColor === 'string' || Array.isArray(strokeColor) ? strokeColor : undefined;
-  var progress;
-  // Render progress shape
-  if (type === 'line') {
-    progress = steps ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(_Steps__WEBPACK_IMPORTED_MODULE_13__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, props, {
-      strokeColor: strokeColorNotGradient,
-      prefixCls: prefixCls,
-      steps: steps
-    }), progressInfo) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(_Line__WEBPACK_IMPORTED_MODULE_14__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, props, {
-      strokeColor: strokeColorNotArray,
-      prefixCls: prefixCls,
-      direction: direction
-    }), progressInfo);
-  } else if (type === 'circle' || type === 'dashboard') {
-    progress = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(_Circle__WEBPACK_IMPORTED_MODULE_15__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, props, {
-      strokeColor: strokeColorNotArray,
-      prefixCls: prefixCls,
-      progressStatus: progressStatus
-    }), progressInfo);
+  var innerRef = react__WEBPACK_IMPORTED_MODULE_5__.useRef();
+  var mergedRef = (0,rc_util_es_ref__WEBPACK_IMPORTED_MODULE_4__.composeRef)(ref, innerRef);
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_5__.useContext)(_form_context__WEBPACK_IMPORTED_MODULE_8__.FormItemInputContext),
+    isFormItemInput = _useContext.isFormItemInput;
+   true ? (0,_util_warning__WEBPACK_IMPORTED_MODULE_9__["default"])(!('optionType' in props), 'Radio', '`optionType` is only support in Radio.Group.') : 0;
+  var onChange = function onChange(e) {
+    var _a, _b;
+    (_a = props.onChange) === null || _a === void 0 ? void 0 : _a.call(props, e);
+    (_b = groupContext === null || groupContext === void 0 ? void 0 : groupContext.onChange) === null || _b === void 0 ? void 0 : _b.call(groupContext, e);
+  };
+  var customizePrefixCls = props.prefixCls,
+    className = props.className,
+    children = props.children,
+    style = props.style,
+    customDisabled = props.disabled,
+    restProps = __rest(props, ["prefixCls", "className", "children", "style", "disabled"]);
+  var radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
+  var prefixCls = ((groupContext === null || groupContext === void 0 ? void 0 : groupContext.optionType) || radioOptionTypeContext) === 'button' ? "".concat(radioPrefixCls, "-button") : radioPrefixCls;
+  var radioProps = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, restProps);
+  // ===================== Disabled =====================
+  var disabled = react__WEBPACK_IMPORTED_MODULE_5__.useContext(_config_provider_DisabledContext__WEBPACK_IMPORTED_MODULE_10__["default"]);
+  radioProps.disabled = customDisabled || disabled;
+  if (groupContext) {
+    radioProps.name = groupContext.name;
+    radioProps.onChange = onChange;
+    radioProps.checked = props.value === groupContext.value;
+    radioProps.disabled = radioProps.disabled || groupContext.disabled;
   }
-  var classString = classnames__WEBPACK_IMPORTED_MODULE_2___default()(prefixCls, (_classNames = {}, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames, "".concat(prefixCls, "-").concat(type === 'dashboard' && 'circle' || steps && 'steps' || type), true), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames, "".concat(prefixCls, "-status-").concat(progressStatus), true), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames, "".concat(prefixCls, "-show-info"), showInfo), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames, "".concat(prefixCls, "-").concat(size), size), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames, "".concat(prefixCls, "-rtl"), direction === 'rtl'), _classNames), className);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement("div", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, (0,rc_util_es_omit__WEBPACK_IMPORTED_MODULE_3__["default"])(restProps, ['status', 'format', 'trailColor', 'strokeWidth', 'width', 'gapDegree', 'gapPosition', 'strokeLinecap', 'success', 'successPercent']), {
-    className: classString,
-    role: "progressbar"
-  }), progress);
+  var wrapperClassString = classnames__WEBPACK_IMPORTED_MODULE_2___default()("".concat(prefixCls, "-wrapper"), (_classNames = {}, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames, "".concat(prefixCls, "-wrapper-checked"), radioProps.checked), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames, "".concat(prefixCls, "-wrapper-disabled"), radioProps.disabled), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames, "".concat(prefixCls, "-wrapper-rtl"), direction === 'rtl'), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames, "".concat(prefixCls, "-wrapper-in-form-item"), isFormItemInput), _classNames), className);
+  return (
+    /*#__PURE__*/
+    // eslint-disable-next-line jsx-a11y/label-has-associated-control
+    react__WEBPACK_IMPORTED_MODULE_5__.createElement("label", {
+      className: wrapperClassString,
+      style: style,
+      onMouseEnter: props.onMouseEnter,
+      onMouseLeave: props.onMouseLeave
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(rc_checkbox__WEBPACK_IMPORTED_MODULE_3__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, radioProps, {
+      type: "radio",
+      prefixCls: prefixCls,
+      ref: mergedRef
+    })), children !== undefined ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("span", null, children) : null)
+  );
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Progress);
+var Radio = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.forwardRef(InternalRadio);
+if (true) {
+  Radio.displayName = 'Radio';
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Radio);
 
 /***/ }),
 
-/***/ "./node_modules/antd/es/progress/utils.js":
-/*!************************************************!*\
-  !*** ./node_modules/antd/es/progress/utils.js ***!
-  \************************************************/
+/***/ "./node_modules/antd/es/radio/radioButton.js":
+/*!***************************************************!*\
+  !*** ./node_modules/antd/es/radio/radioButton.js ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   getSuccessPercent: () => (/* binding */ getSuccessPercent),
-/* harmony export */   validProgress: () => (/* binding */ validProgress)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _util_warning__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_util/warning */ "./node_modules/antd/es/_util/warning.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _config_provider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config-provider */ "./node_modules/antd/es/config-provider/context.js");
+/* harmony import */ var _context__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./context */ "./node_modules/antd/es/radio/context.js");
+/* harmony import */ var _radio__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./radio */ "./node_modules/antd/es/radio/radio.js");
 
-function validProgress(progress) {
-  if (!progress || progress < 0) {
-    return 0;
+var __rest = undefined && undefined.__rest || function (s, e) {
+  var t = {};
+  for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
   }
-  if (progress > 100) {
-    return 100;
-  }
-  return progress;
-}
-function getSuccessPercent(_ref) {
-  var success = _ref.success,
-    successPercent = _ref.successPercent;
-  var percent = successPercent;
-  /** @deprecated Use `percent` instead */
-  if (success && 'progress' in success) {
-     true ? (0,_util_warning__WEBPACK_IMPORTED_MODULE_0__["default"])(false, 'Progress', '`success.progress` is deprecated. Please use `success.percent` instead.') : 0;
-    percent = success.progress;
-  }
-  if (success && 'percent' in success) {
-    percent = success.percent;
-  }
-  return percent;
-}
+  return t;
+};
+
+
+
+
+var RadioButton = function RadioButton(props, ref) {
+  var _React$useContext = react__WEBPACK_IMPORTED_MODULE_1__.useContext(_config_provider__WEBPACK_IMPORTED_MODULE_2__.ConfigContext),
+    getPrefixCls = _React$useContext.getPrefixCls;
+  var customizePrefixCls = props.prefixCls,
+    radioProps = __rest(props, ["prefixCls"]);
+  var prefixCls = getPrefixCls('radio', customizePrefixCls);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_context__WEBPACK_IMPORTED_MODULE_3__.RadioOptionTypeContextProvider, {
+    value: "button"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_radio__WEBPACK_IMPORTED_MODULE_4__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    prefixCls: prefixCls
+  }, radioProps, {
+    type: "radio",
+    ref: ref
+  })));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(RadioButton));
 
 /***/ }),
 
@@ -3879,1166 +3492,6 @@ if (true) {
   Switch.displayName = 'Switch';
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Switch);
-
-/***/ }),
-
-/***/ "./node_modules/antd/es/upload/Dragger.js":
-/*!************************************************!*\
-  !*** ./node_modules/antd/es/upload/Dragger.js ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Upload__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Upload */ "./node_modules/antd/es/upload/Upload.js");
-
-var __rest = undefined && undefined.__rest || function (s, e) {
-  var t = {};
-  for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
-  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
-  }
-  return t;
-};
-
-
-var Dragger = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(function (_a, ref) {
-  var style = _a.style,
-    height = _a.height,
-    restProps = __rest(_a, ["style", "height"]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Upload__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    ref: ref
-  }, restProps, {
-    type: "drag",
-    style: (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, style), {
-      height: height
-    })
-  }));
-});
-if (true) {
-  Dragger.displayName = 'Dragger';
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dragger);
-
-/***/ }),
-
-/***/ "./node_modules/antd/es/upload/Upload.js":
-/*!***********************************************!*\
-  !*** ./node_modules/antd/es/upload/Upload.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   LIST_IGNORE: () => (/* binding */ LIST_IGNORE),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_regeneratorRuntime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/regeneratorRuntime */ "./node_modules/@babel/runtime/helpers/esm/regeneratorRuntime.js");
-/* harmony import */ var _babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
-/* harmony import */ var _babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
-/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var rc_upload__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! rc-upload */ "./node_modules/rc-upload/es/index.js");
-/* harmony import */ var rc_util_es_hooks_useMergedState__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rc-util/es/hooks/useMergedState */ "./node_modules/rc-util/es/hooks/useMergedState.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _util_warning__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../_util/warning */ "./node_modules/antd/es/_util/warning.js");
-/* harmony import */ var _config_provider__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../config-provider */ "./node_modules/antd/es/config-provider/context.js");
-/* harmony import */ var _config_provider_DisabledContext__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../config-provider/DisabledContext */ "./node_modules/antd/es/config-provider/DisabledContext.js");
-/* harmony import */ var _locale_provider_LocaleReceiver__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../locale-provider/LocaleReceiver */ "./node_modules/antd/es/locale-provider/LocaleReceiver.js");
-/* harmony import */ var _locale_default__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../locale/default */ "./node_modules/antd/es/locale/default.js");
-/* harmony import */ var _UploadList__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./UploadList */ "./node_modules/antd/es/upload/UploadList/index.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./utils */ "./node_modules/antd/es/upload/utils.js");
-
-
-
-
-
-
-var __awaiter = undefined && undefined.__awaiter || function (thisArg, _arguments, P, generator) {
-  function adopt(value) {
-    return value instanceof P ? value : new P(function (resolve) {
-      resolve(value);
-    });
-  }
-  return new (P || (P = Promise))(function (resolve, reject) {
-    function fulfilled(value) {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    }
-    function rejected(value) {
-      try {
-        step(generator["throw"](value));
-      } catch (e) {
-        reject(e);
-      }
-    }
-    function step(result) {
-      result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
-    }
-    step((generator = generator.apply(thisArg, _arguments || [])).next());
-  });
-};
-
-
-
-
-
-
-
-
-
-
-
-
-var LIST_IGNORE = "__LIST_IGNORE_".concat(Date.now(), "__");
-var InternalUpload = function InternalUpload(props, ref) {
-  var _classNames2;
-  var fileList = props.fileList,
-    defaultFileList = props.defaultFileList,
-    onRemove = props.onRemove,
-    _props$showUploadList = props.showUploadList,
-    showUploadList = _props$showUploadList === void 0 ? true : _props$showUploadList,
-    _props$listType = props.listType,
-    listType = _props$listType === void 0 ? 'text' : _props$listType,
-    onPreview = props.onPreview,
-    onDownload = props.onDownload,
-    onChange = props.onChange,
-    onDrop = props.onDrop,
-    previewFile = props.previewFile,
-    customDisabled = props.disabled,
-    propLocale = props.locale,
-    iconRender = props.iconRender,
-    isImageUrl = props.isImageUrl,
-    progress = props.progress,
-    customizePrefixCls = props.prefixCls,
-    className = props.className,
-    _props$type = props.type,
-    type = _props$type === void 0 ? 'select' : _props$type,
-    children = props.children,
-    style = props.style,
-    itemRender = props.itemRender,
-    maxCount = props.maxCount,
-    _props$data = props.data,
-    data = _props$data === void 0 ? {} : _props$data,
-    _props$multiple = props.multiple,
-    multiple = _props$multiple === void 0 ? false : _props$multiple,
-    _props$action = props.action,
-    action = _props$action === void 0 ? '' : _props$action,
-    _props$accept = props.accept,
-    accept = _props$accept === void 0 ? '' : _props$accept,
-    _props$supportServerR = props.supportServerRender,
-    supportServerRender = _props$supportServerR === void 0 ? true : _props$supportServerR;
-  // ===================== Disabled =====================
-  var disabled = react__WEBPACK_IMPORTED_MODULE_9__.useContext(_config_provider_DisabledContext__WEBPACK_IMPORTED_MODULE_11__["default"]);
-  var mergedDisabled = customDisabled !== null && customDisabled !== void 0 ? customDisabled : disabled;
-  var _useMergedState = (0,rc_util_es_hooks_useMergedState__WEBPACK_IMPORTED_MODULE_8__["default"])(defaultFileList || [], {
-      value: fileList,
-      postState: function postState(list) {
-        return list !== null && list !== void 0 ? list : [];
-      }
-    }),
-    _useMergedState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_5__["default"])(_useMergedState, 2),
-    mergedFileList = _useMergedState2[0],
-    setMergedFileList = _useMergedState2[1];
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_9__.useState('drop'),
-    _React$useState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_5__["default"])(_React$useState, 2),
-    dragState = _React$useState2[0],
-    setDragState = _React$useState2[1];
-  var upload = react__WEBPACK_IMPORTED_MODULE_9__.useRef(null);
-   true ? (0,_util_warning__WEBPACK_IMPORTED_MODULE_12__["default"])('fileList' in props || !('value' in props), 'Upload', '`value` is not a valid prop, do you mean `fileList`?') : 0;
-   true ? (0,_util_warning__WEBPACK_IMPORTED_MODULE_12__["default"])(!('transformFile' in props), 'Upload', '`transformFile` is deprecated. Please use `beforeUpload` directly.') : 0;
-  // Control mode will auto fill file uid if not provided
-  react__WEBPACK_IMPORTED_MODULE_9__.useMemo(function () {
-    var timestamp = Date.now();
-    (fileList || []).forEach(function (file, index) {
-      if (!file.uid && !Object.isFrozen(file)) {
-        file.uid = "__AUTO__".concat(timestamp, "_").concat(index, "__");
-      }
-    });
-  }, [fileList]);
-  var onInternalChange = function onInternalChange(file, changedFileList, event) {
-    var cloneList = (0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_4__["default"])(changedFileList);
-    // Cut to match count
-    if (maxCount === 1) {
-      cloneList = cloneList.slice(-1);
-    } else if (maxCount) {
-      cloneList = cloneList.slice(0, maxCount);
-    }
-    // Prevent React18 auto batch since input[upload] trigger process at same time
-    // which makes fileList closure problem
-    (0,react_dom__WEBPACK_IMPORTED_MODULE_10__.flushSync)(function () {
-      setMergedFileList(cloneList);
-    });
-    var changeInfo = {
-      file: file,
-      fileList: cloneList
-    };
-    if (event) {
-      changeInfo.event = event;
-    }
-    (0,react_dom__WEBPACK_IMPORTED_MODULE_10__.flushSync)(function () {
-      onChange === null || onChange === void 0 ? void 0 : onChange(changeInfo);
-    });
-  };
-  var mergedBeforeUpload = function mergedBeforeUpload(file, fileListArgs) {
-    return __awaiter(void 0, void 0, void 0, /*#__PURE__*/(0,_babel_runtime_helpers_esm_regeneratorRuntime__WEBPACK_IMPORTED_MODULE_2__["default"])().mark(function _callee() {
-      var beforeUpload, transformFile, parsedFile, result;
-      return (0,_babel_runtime_helpers_esm_regeneratorRuntime__WEBPACK_IMPORTED_MODULE_2__["default"])().wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            beforeUpload = props.beforeUpload, transformFile = props.transformFile;
-            parsedFile = file;
-            if (!beforeUpload) {
-              _context.next = 13;
-              break;
-            }
-            _context.next = 5;
-            return beforeUpload(file, fileListArgs);
-          case 5:
-            result = _context.sent;
-            if (!(result === false)) {
-              _context.next = 8;
-              break;
-            }
-            return _context.abrupt("return", false);
-          case 8:
-            // Hack for LIST_IGNORE, we add additional info to remove from the list
-            delete file[LIST_IGNORE];
-            if (!(result === LIST_IGNORE)) {
-              _context.next = 12;
-              break;
-            }
-            Object.defineProperty(file, LIST_IGNORE, {
-              value: true,
-              configurable: true
-            });
-            return _context.abrupt("return", false);
-          case 12:
-            if ((0,_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_3__["default"])(result) === 'object' && result) {
-              parsedFile = result;
-            }
-          case 13:
-            if (!transformFile) {
-              _context.next = 17;
-              break;
-            }
-            _context.next = 16;
-            return transformFile(parsedFile);
-          case 16:
-            parsedFile = _context.sent;
-          case 17:
-            return _context.abrupt("return", parsedFile);
-          case 18:
-          case "end":
-            return _context.stop();
-        }
-      }, _callee);
-    }));
-  };
-  var onBatchStart = function onBatchStart(batchFileInfoList) {
-    // Skip file which marked as `LIST_IGNORE`, these file will not add to file list
-    var filteredFileInfoList = batchFileInfoList.filter(function (info) {
-      return !info.file[LIST_IGNORE];
-    });
-    // Nothing to do since no file need upload
-    if (!filteredFileInfoList.length) {
-      return;
-    }
-    var objectFileList = filteredFileInfoList.map(function (info) {
-      return (0,_utils__WEBPACK_IMPORTED_MODULE_13__.file2Obj)(info.file);
-    });
-    // Concat new files with prev files
-    var newFileList = (0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_4__["default"])(mergedFileList);
-    objectFileList.forEach(function (fileObj) {
-      // Replace file if exist
-      newFileList = (0,_utils__WEBPACK_IMPORTED_MODULE_13__.updateFileList)(fileObj, newFileList);
-    });
-    objectFileList.forEach(function (fileObj, index) {
-      // Repeat trigger `onChange` event for compatible
-      var triggerFileObj = fileObj;
-      if (!filteredFileInfoList[index].parsedFile) {
-        // `beforeUpload` return false
-        var originFileObj = fileObj.originFileObj;
-        var clone;
-        try {
-          clone = new File([originFileObj], originFileObj.name, {
-            type: originFileObj.type
-          });
-        } catch (e) {
-          clone = new Blob([originFileObj], {
-            type: originFileObj.type
-          });
-          clone.name = originFileObj.name;
-          clone.lastModifiedDate = new Date();
-          clone.lastModified = new Date().getTime();
-        }
-        clone.uid = fileObj.uid;
-        triggerFileObj = clone;
-      } else {
-        // Inject `uploading` status
-        fileObj.status = 'uploading';
-      }
-      onInternalChange(triggerFileObj, newFileList);
-    });
-  };
-  var onSuccess = function onSuccess(response, file, xhr) {
-    try {
-      if (typeof response === 'string') {
-        response = JSON.parse(response);
-      }
-    } catch (e) {
-      /* do nothing */
-    }
-    // removed
-    if (!(0,_utils__WEBPACK_IMPORTED_MODULE_13__.getFileItem)(file, mergedFileList)) {
-      return;
-    }
-    var targetItem = (0,_utils__WEBPACK_IMPORTED_MODULE_13__.file2Obj)(file);
-    targetItem.status = 'done';
-    targetItem.percent = 100;
-    targetItem.response = response;
-    targetItem.xhr = xhr;
-    var nextFileList = (0,_utils__WEBPACK_IMPORTED_MODULE_13__.updateFileList)(targetItem, mergedFileList);
-    onInternalChange(targetItem, nextFileList);
-  };
-  var onProgress = function onProgress(e, file) {
-    // removed
-    if (!(0,_utils__WEBPACK_IMPORTED_MODULE_13__.getFileItem)(file, mergedFileList)) {
-      return;
-    }
-    var targetItem = (0,_utils__WEBPACK_IMPORTED_MODULE_13__.file2Obj)(file);
-    targetItem.status = 'uploading';
-    targetItem.percent = e.percent;
-    var nextFileList = (0,_utils__WEBPACK_IMPORTED_MODULE_13__.updateFileList)(targetItem, mergedFileList);
-    onInternalChange(targetItem, nextFileList, e);
-  };
-  var onError = function onError(error, response, file) {
-    // removed
-    if (!(0,_utils__WEBPACK_IMPORTED_MODULE_13__.getFileItem)(file, mergedFileList)) {
-      return;
-    }
-    var targetItem = (0,_utils__WEBPACK_IMPORTED_MODULE_13__.file2Obj)(file);
-    targetItem.error = error;
-    targetItem.response = response;
-    targetItem.status = 'error';
-    var nextFileList = (0,_utils__WEBPACK_IMPORTED_MODULE_13__.updateFileList)(targetItem, mergedFileList);
-    onInternalChange(targetItem, nextFileList);
-  };
-  var handleRemove = function handleRemove(file) {
-    var currentFile;
-    Promise.resolve(typeof onRemove === 'function' ? onRemove(file) : onRemove).then(function (ret) {
-      var _a;
-      // Prevent removing file
-      if (ret === false) {
-        return;
-      }
-      var removedFileList = (0,_utils__WEBPACK_IMPORTED_MODULE_13__.removeFileItem)(file, mergedFileList);
-      if (removedFileList) {
-        currentFile = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, file), {
-          status: 'removed'
-        });
-        mergedFileList === null || mergedFileList === void 0 ? void 0 : mergedFileList.forEach(function (item) {
-          var matchKey = currentFile.uid !== undefined ? 'uid' : 'name';
-          if (item[matchKey] === currentFile[matchKey] && !Object.isFrozen(item)) {
-            item.status = 'removed';
-          }
-        });
-        (_a = upload.current) === null || _a === void 0 ? void 0 : _a.abort(currentFile);
-        onInternalChange(currentFile, removedFileList);
-      }
-    });
-  };
-  var onFileDrop = function onFileDrop(e) {
-    setDragState(e.type);
-    if (e.type === 'drop') {
-      onDrop === null || onDrop === void 0 ? void 0 : onDrop(e);
-    }
-  };
-  // Test needs
-  react__WEBPACK_IMPORTED_MODULE_9__.useImperativeHandle(ref, function () {
-    return {
-      onBatchStart: onBatchStart,
-      onSuccess: onSuccess,
-      onProgress: onProgress,
-      onError: onError,
-      fileList: mergedFileList,
-      upload: upload.current
-    };
-  });
-  var _React$useContext = react__WEBPACK_IMPORTED_MODULE_9__.useContext(_config_provider__WEBPACK_IMPORTED_MODULE_14__.ConfigContext),
-    getPrefixCls = _React$useContext.getPrefixCls,
-    direction = _React$useContext.direction;
-  var prefixCls = getPrefixCls('upload', customizePrefixCls);
-  var rcUploadProps = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
-    onBatchStart: onBatchStart,
-    onError: onError,
-    onProgress: onProgress,
-    onSuccess: onSuccess
-  }, props), {
-    data: data,
-    multiple: multiple,
-    action: action,
-    accept: accept,
-    supportServerRender: supportServerRender,
-    prefixCls: prefixCls,
-    disabled: mergedDisabled,
-    beforeUpload: mergedBeforeUpload,
-    onChange: undefined
-  });
-  delete rcUploadProps.className;
-  delete rcUploadProps.style;
-  // Remove id to avoid open by label when trigger is hidden
-  // !children: https://github.com/ant-design/ant-design/issues/14298
-  // disabled: https://github.com/ant-design/ant-design/issues/16478
-  //           https://github.com/ant-design/ant-design/issues/24197
-  if (!children || mergedDisabled) {
-    delete rcUploadProps.id;
-  }
-  var renderUploadList = function renderUploadList(button, buttonVisible) {
-    return showUploadList ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9__.createElement(_locale_provider_LocaleReceiver__WEBPACK_IMPORTED_MODULE_15__["default"], {
-      componentName: 'Upload',
-      defaultLocale: _locale_default__WEBPACK_IMPORTED_MODULE_16__["default"].Upload
-    }, function (contextLocale) {
-      var _ref = typeof showUploadList === 'boolean' ? {} : showUploadList,
-        showRemoveIcon = _ref.showRemoveIcon,
-        showPreviewIcon = _ref.showPreviewIcon,
-        showDownloadIcon = _ref.showDownloadIcon,
-        removeIcon = _ref.removeIcon,
-        previewIcon = _ref.previewIcon,
-        downloadIcon = _ref.downloadIcon;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9__.createElement(_UploadList__WEBPACK_IMPORTED_MODULE_17__["default"], {
-        prefixCls: prefixCls,
-        listType: listType,
-        items: mergedFileList,
-        previewFile: previewFile,
-        onPreview: onPreview,
-        onDownload: onDownload,
-        onRemove: handleRemove,
-        showRemoveIcon: !mergedDisabled && showRemoveIcon,
-        showPreviewIcon: showPreviewIcon,
-        showDownloadIcon: showDownloadIcon,
-        removeIcon: removeIcon,
-        previewIcon: previewIcon,
-        downloadIcon: downloadIcon,
-        iconRender: iconRender,
-        locale: (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, contextLocale), propLocale),
-        isImageUrl: isImageUrl,
-        progress: progress,
-        appendAction: button,
-        appendActionVisible: buttonVisible,
-        itemRender: itemRender,
-        disabled: mergedDisabled
-      });
-    }) : button;
-  };
-  if (type === 'drag') {
-    var _classNames;
-    var dragCls = classnames__WEBPACK_IMPORTED_MODULE_6___default()(prefixCls, (_classNames = {}, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames, "".concat(prefixCls, "-drag"), true), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames, "".concat(prefixCls, "-drag-uploading"), mergedFileList.some(function (file) {
-      return file.status === 'uploading';
-    })), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames, "".concat(prefixCls, "-drag-hover"), dragState === 'dragover'), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames, "".concat(prefixCls, "-disabled"), mergedDisabled), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames, "".concat(prefixCls, "-rtl"), direction === 'rtl'), _classNames), className);
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9__.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9__.createElement("div", {
-      className: dragCls,
-      onDrop: onFileDrop,
-      onDragOver: onFileDrop,
-      onDragLeave: onFileDrop,
-      style: style
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9__.createElement(rc_upload__WEBPACK_IMPORTED_MODULE_7__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, rcUploadProps, {
-      ref: upload,
-      className: "".concat(prefixCls, "-btn")
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9__.createElement("div", {
-      className: "".concat(prefixCls, "-drag-container")
-    }, children))), renderUploadList());
-  }
-  var uploadButtonCls = classnames__WEBPACK_IMPORTED_MODULE_6___default()(prefixCls, (_classNames2 = {}, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames2, "".concat(prefixCls, "-select"), true), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames2, "".concat(prefixCls, "-select-").concat(listType), true), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames2, "".concat(prefixCls, "-disabled"), mergedDisabled), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classNames2, "".concat(prefixCls, "-rtl"), direction === 'rtl'), _classNames2));
-  var renderUploadButton = function renderUploadButton(uploadButtonStyle) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9__.createElement("div", {
-      className: uploadButtonCls,
-      style: uploadButtonStyle
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9__.createElement(rc_upload__WEBPACK_IMPORTED_MODULE_7__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, rcUploadProps, {
-      ref: upload
-    })));
-  };
-  var uploadButton = renderUploadButton(children ? undefined : {
-    display: 'none'
-  });
-  if (listType === 'picture-card') {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9__.createElement("span", {
-      className: classnames__WEBPACK_IMPORTED_MODULE_6___default()("".concat(prefixCls, "-picture-card-wrapper"), className)
-    }, renderUploadList(uploadButton, !!children));
-  }
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9__.createElement("span", {
-    className: className
-  }, uploadButton, renderUploadList());
-};
-var Upload = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9__.forwardRef(InternalUpload);
-if (true) {
-  Upload.displayName = 'Upload';
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Upload);
-
-/***/ }),
-
-/***/ "./node_modules/antd/es/upload/UploadList/ListItem.js":
-/*!************************************************************!*\
-  !*** ./node_modules/antd/es/upload/UploadList/ListItem.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var _ant_design_icons_es_icons_DeleteOutlined__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ant-design/icons/es/icons/DeleteOutlined */ "./node_modules/@ant-design/icons/es/icons/DeleteOutlined.js");
-/* harmony import */ var _ant_design_icons_es_icons_DownloadOutlined__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ant-design/icons/es/icons/DownloadOutlined */ "./node_modules/@ant-design/icons/es/icons/DownloadOutlined.js");
-/* harmony import */ var _ant_design_icons_es_icons_EyeOutlined__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ant-design/icons/es/icons/EyeOutlined */ "./node_modules/@ant-design/icons/es/icons/EyeOutlined.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var rc_motion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rc-motion */ "./node_modules/rc-motion/es/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _config_provider__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../config-provider */ "./node_modules/antd/es/config-provider/context.js");
-/* harmony import */ var _progress__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../progress */ "./node_modules/antd/es/progress/index.js");
-/* harmony import */ var _tooltip__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../tooltip */ "./node_modules/antd/es/tooltip/index.js");
-
-
-
-
-
-
-
-
-
-
-
-
-var ListItem = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.forwardRef(function (_ref, ref) {
-  var _classNames3;
-  var prefixCls = _ref.prefixCls,
-    className = _ref.className,
-    style = _ref.style,
-    locale = _ref.locale,
-    listType = _ref.listType,
-    file = _ref.file,
-    items = _ref.items,
-    progressProps = _ref.progress,
-    iconRender = _ref.iconRender,
-    actionIconRender = _ref.actionIconRender,
-    itemRender = _ref.itemRender,
-    isImgUrl = _ref.isImgUrl,
-    showPreviewIcon = _ref.showPreviewIcon,
-    showRemoveIcon = _ref.showRemoveIcon,
-    showDownloadIcon = _ref.showDownloadIcon,
-    customPreviewIcon = _ref.previewIcon,
-    customRemoveIcon = _ref.removeIcon,
-    customDownloadIcon = _ref.downloadIcon,
-    onPreview = _ref.onPreview,
-    onDownload = _ref.onDownload,
-    onClose = _ref.onClose;
-  var _a, _b;
-  // Status: which will ignore `removed` status
-  var status = file.status;
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_5__.useState(status),
-    _React$useState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_React$useState, 2),
-    mergedStatus = _React$useState2[0],
-    setMergedStatus = _React$useState2[1];
-  react__WEBPACK_IMPORTED_MODULE_5__.useEffect(function () {
-    if (status !== 'removed') {
-      setMergedStatus(status);
-    }
-  }, [status]);
-  // Delay to show the progress bar
-  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_5__.useState(false),
-    _React$useState4 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_React$useState3, 2),
-    showProgress = _React$useState4[0],
-    setShowProgress = _React$useState4[1];
-  var progressRafRef = react__WEBPACK_IMPORTED_MODULE_5__.useRef(null);
-  react__WEBPACK_IMPORTED_MODULE_5__.useEffect(function () {
-    progressRafRef.current = setTimeout(function () {
-      setShowProgress(true);
-    }, 300);
-    return function () {
-      if (progressRafRef.current) {
-        clearTimeout(progressRafRef.current);
-      }
-    };
-  }, []);
-  // This is used for legacy span make scrollHeight the wrong value.
-  // We will force these to be `display: block` with non `picture-card`
-  var spanClassName = "".concat(prefixCls, "-span");
-  var iconNode = iconRender(file);
-  var icon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
-    className: "".concat(prefixCls, "-text-icon")
-  }, iconNode);
-  if (listType === 'picture' || listType === 'picture-card') {
-    if (mergedStatus === 'uploading' || !file.thumbUrl && !file.url) {
-      var _classNames;
-      var uploadingClassName = classnames__WEBPACK_IMPORTED_MODULE_3___default()((_classNames = {}, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames, "".concat(prefixCls, "-list-item-thumbnail"), true), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames, "".concat(prefixCls, "-list-item-file"), mergedStatus !== 'uploading'), _classNames));
-      icon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
-        className: uploadingClassName
-      }, iconNode);
-    } else {
-      var _classNames2;
-      var thumbnail = (isImgUrl === null || isImgUrl === void 0 ? void 0 : isImgUrl(file)) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("img", {
-        src: file.thumbUrl || file.url,
-        alt: file.name,
-        className: "".concat(prefixCls, "-list-item-image"),
-        crossOrigin: file.crossOrigin
-      }) : iconNode;
-      var aClassName = classnames__WEBPACK_IMPORTED_MODULE_3___default()((_classNames2 = {}, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames2, "".concat(prefixCls, "-list-item-thumbnail"), true), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames2, "".concat(prefixCls, "-list-item-file"), isImgUrl && !isImgUrl(file)), _classNames2));
-      icon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("a", {
-        className: aClassName,
-        onClick: function onClick(e) {
-          return onPreview(file, e);
-        },
-        href: file.url || file.thumbUrl,
-        target: "_blank",
-        rel: "noopener noreferrer"
-      }, thumbnail);
-    }
-  }
-  var infoUploadingClass = classnames__WEBPACK_IMPORTED_MODULE_3___default()((_classNames3 = {}, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames3, "".concat(prefixCls, "-list-item"), true), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames3, "".concat(prefixCls, "-list-item-").concat(mergedStatus), true), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames3, "".concat(prefixCls, "-list-item-list-type-").concat(listType), true), _classNames3));
-  var linkProps = typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
-  var removeIcon = showRemoveIcon ? actionIconRender((typeof customRemoveIcon === 'function' ? customRemoveIcon(file) : customRemoveIcon) || /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_ant_design_icons_es_icons_DeleteOutlined__WEBPACK_IMPORTED_MODULE_6__["default"], null), function () {
-    return onClose(file);
-  }, prefixCls, locale.removeFile) : null;
-  var downloadIcon = showDownloadIcon && mergedStatus === 'done' ? actionIconRender((typeof customDownloadIcon === 'function' ? customDownloadIcon(file) : customDownloadIcon) || /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_ant_design_icons_es_icons_DownloadOutlined__WEBPACK_IMPORTED_MODULE_7__["default"], null), function () {
-    return onDownload(file);
-  }, prefixCls, locale.downloadFile) : null;
-  var downloadOrDelete = listType !== 'picture-card' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("span", {
-    key: "download-delete",
-    className: classnames__WEBPACK_IMPORTED_MODULE_3___default()("".concat(prefixCls, "-list-item-card-actions"), {
-      picture: listType === 'picture'
-    })
-  }, downloadIcon, removeIcon);
-  var listItemNameClass = classnames__WEBPACK_IMPORTED_MODULE_3___default()("".concat(prefixCls, "-list-item-name"));
-  var preview = file.url ? [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("a", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    key: "view",
-    target: "_blank",
-    rel: "noopener noreferrer",
-    className: listItemNameClass,
-    title: file.name
-  }, linkProps, {
-    href: file.url,
-    onClick: function onClick(e) {
-      return onPreview(file, e);
-    }
-  }), file.name), downloadOrDelete] : [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("span", {
-    key: "view",
-    className: listItemNameClass,
-    onClick: function onClick(e) {
-      return onPreview(file, e);
-    },
-    title: file.name
-  }, file.name), downloadOrDelete];
-  var previewStyle = {
-    pointerEvents: 'none',
-    opacity: 0.5
-  };
-  var previewIcon = showPreviewIcon ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("a", {
-    href: file.url || file.thumbUrl,
-    target: "_blank",
-    rel: "noopener noreferrer",
-    style: file.url || file.thumbUrl ? undefined : previewStyle,
-    onClick: function onClick(e) {
-      return onPreview(file, e);
-    },
-    title: locale.previewFile
-  }, typeof customPreviewIcon === 'function' ? customPreviewIcon(file) : customPreviewIcon || /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_ant_design_icons_es_icons_EyeOutlined__WEBPACK_IMPORTED_MODULE_8__["default"], null)) : null;
-  var actions = listType === 'picture-card' && mergedStatus !== 'uploading' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("span", {
-    className: "".concat(prefixCls, "-list-item-actions")
-  }, previewIcon, mergedStatus === 'done' && downloadIcon, removeIcon);
-  var message;
-  if (file.response && typeof file.response === 'string') {
-    message = file.response;
-  } else {
-    message = ((_a = file.error) === null || _a === void 0 ? void 0 : _a.statusText) || ((_b = file.error) === null || _b === void 0 ? void 0 : _b.message) || locale.uploadError;
-  }
-  var iconAndPreview = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("span", {
-    className: spanClassName
-  }, icon, preview);
-  var _React$useContext = react__WEBPACK_IMPORTED_MODULE_5__.useContext(_config_provider__WEBPACK_IMPORTED_MODULE_9__.ConfigContext),
-    getPrefixCls = _React$useContext.getPrefixCls;
-  var rootPrefixCls = getPrefixCls();
-  var dom = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
-    className: infoUploadingClass
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
-    className: "".concat(prefixCls, "-list-item-info")
-  }, iconAndPreview), actions, showProgress && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(rc_motion__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    motionName: "".concat(rootPrefixCls, "-fade"),
-    visible: mergedStatus === 'uploading',
-    motionDeadline: 2000
-  }, function (_ref2) {
-    var motionClassName = _ref2.className;
-    // show loading icon if upload progress listener is disabled
-    var loadingProgress = 'percent' in file ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_progress__WEBPACK_IMPORTED_MODULE_10__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, progressProps, {
-      type: "line",
-      percent: file.percent
-    })) : null;
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
-      className: classnames__WEBPACK_IMPORTED_MODULE_3___default()("".concat(prefixCls, "-list-item-progress"), motionClassName)
-    }, loadingProgress);
-  }));
-  var listContainerNameClass = classnames__WEBPACK_IMPORTED_MODULE_3___default()("".concat(prefixCls, "-list-").concat(listType, "-container"), className);
-  var item = mergedStatus === 'error' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_tooltip__WEBPACK_IMPORTED_MODULE_11__["default"], {
-    title: message,
-    getPopupContainer: function getPopupContainer(node) {
-      return node.parentNode;
-    }
-  }, dom) : dom;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement("div", {
-    className: listContainerNameClass,
-    style: style,
-    ref: ref
-  }, itemRender ? itemRender(item, file, items, {
-    download: onDownload.bind(null, file),
-    preview: onPreview.bind(null, file),
-    remove: onClose.bind(null, file)
-  }) : item);
-});
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ListItem);
-
-/***/ }),
-
-/***/ "./node_modules/antd/es/upload/UploadList/index.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/antd/es/upload/UploadList/index.js ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
-/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _ant_design_icons_es_icons_FileTwoTone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ant-design/icons/es/icons/FileTwoTone */ "./node_modules/@ant-design/icons/es/icons/FileTwoTone.js");
-/* harmony import */ var _ant_design_icons_es_icons_LoadingOutlined__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ant-design/icons/es/icons/LoadingOutlined */ "./node_modules/@ant-design/icons/es/icons/LoadingOutlined.js");
-/* harmony import */ var _ant_design_icons_es_icons_PaperClipOutlined__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ant-design/icons/es/icons/PaperClipOutlined */ "./node_modules/@ant-design/icons/es/icons/PaperClipOutlined.js");
-/* harmony import */ var _ant_design_icons_es_icons_PictureTwoTone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ant-design/icons/es/icons/PictureTwoTone */ "./node_modules/@ant-design/icons/es/icons/PictureTwoTone.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var rc_motion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rc-motion */ "./node_modules/rc-motion/es/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _button__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../button */ "./node_modules/antd/es/button/index.js");
-/* harmony import */ var _config_provider__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../config-provider */ "./node_modules/antd/es/config-provider/context.js");
-/* harmony import */ var _util_hooks_useForceUpdate__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../_util/hooks/useForceUpdate */ "./node_modules/antd/es/_util/hooks/useForceUpdate.js");
-/* harmony import */ var _util_motion__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../_util/motion */ "./node_modules/antd/es/_util/motion.js");
-/* harmony import */ var _util_reactNode__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../_util/reactNode */ "./node_modules/antd/es/_util/reactNode.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils */ "./node_modules/antd/es/upload/utils.js");
-/* harmony import */ var _ListItem__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./ListItem */ "./node_modules/antd/es/upload/UploadList/ListItem.js");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var listItemMotion = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({}, _util_motion__WEBPACK_IMPORTED_MODULE_7__["default"]);
-delete listItemMotion.onAppearEnd;
-delete listItemMotion.onEnterEnd;
-delete listItemMotion.onLeaveEnd;
-var InternalUploadList = function InternalUploadList(props, ref) {
-  var _classNames;
-  var _props$listType = props.listType,
-    listType = _props$listType === void 0 ? 'text' : _props$listType,
-    _props$previewFile = props.previewFile,
-    previewFile = _props$previewFile === void 0 ? _utils__WEBPACK_IMPORTED_MODULE_8__.previewImage : _props$previewFile,
-    onPreview = props.onPreview,
-    onDownload = props.onDownload,
-    onRemove = props.onRemove,
-    locale = props.locale,
-    iconRender = props.iconRender,
-    _props$isImageUrl = props.isImageUrl,
-    isImgUrl = _props$isImageUrl === void 0 ? _utils__WEBPACK_IMPORTED_MODULE_8__.isImageUrl : _props$isImageUrl,
-    customizePrefixCls = props.prefixCls,
-    _props$items = props.items,
-    items = _props$items === void 0 ? [] : _props$items,
-    _props$showPreviewIco = props.showPreviewIcon,
-    showPreviewIcon = _props$showPreviewIco === void 0 ? true : _props$showPreviewIco,
-    _props$showRemoveIcon = props.showRemoveIcon,
-    showRemoveIcon = _props$showRemoveIcon === void 0 ? true : _props$showRemoveIcon,
-    _props$showDownloadIc = props.showDownloadIcon,
-    showDownloadIcon = _props$showDownloadIc === void 0 ? false : _props$showDownloadIc,
-    removeIcon = props.removeIcon,
-    previewIcon = props.previewIcon,
-    downloadIcon = props.downloadIcon,
-    _props$progress = props.progress,
-    progress = _props$progress === void 0 ? {
-      strokeWidth: 2,
-      showInfo: false
-    } : _props$progress,
-    appendAction = props.appendAction,
-    _props$appendActionVi = props.appendActionVisible,
-    appendActionVisible = _props$appendActionVi === void 0 ? true : _props$appendActionVi,
-    itemRender = props.itemRender,
-    disabled = props.disabled;
-  var forceUpdate = (0,_util_hooks_useForceUpdate__WEBPACK_IMPORTED_MODULE_9__["default"])();
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_6__.useState(false),
-    _React$useState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_React$useState, 2),
-    motionAppear = _React$useState2[0],
-    setMotionAppear = _React$useState2[1];
-  // ============================= Effect =============================
-  react__WEBPACK_IMPORTED_MODULE_6__.useEffect(function () {
-    if (listType !== 'picture' && listType !== 'picture-card') {
-      return;
-    }
-    (items || []).forEach(function (file) {
-      if (typeof document === 'undefined' || typeof window === 'undefined' || !window.FileReader || !window.File || !(file.originFileObj instanceof File || file.originFileObj instanceof Blob) || file.thumbUrl !== undefined) {
-        return;
-      }
-      file.thumbUrl = '';
-      if (previewFile) {
-        previewFile(file.originFileObj).then(function (previewDataUrl) {
-          // Need append '' to avoid dead loop
-          file.thumbUrl = previewDataUrl || '';
-          forceUpdate();
-        });
-      }
-    });
-  }, [listType, items, previewFile]);
-  react__WEBPACK_IMPORTED_MODULE_6__.useEffect(function () {
-    setMotionAppear(true);
-  }, []);
-  // ============================= Events =============================
-  var onInternalPreview = function onInternalPreview(file, e) {
-    if (!onPreview) {
-      return;
-    }
-    e === null || e === void 0 ? void 0 : e.preventDefault();
-    return onPreview(file);
-  };
-  var onInternalDownload = function onInternalDownload(file) {
-    if (typeof onDownload === 'function') {
-      onDownload(file);
-    } else if (file.url) {
-      window.open(file.url);
-    }
-  };
-  var onInternalClose = function onInternalClose(file) {
-    onRemove === null || onRemove === void 0 ? void 0 : onRemove(file);
-  };
-  var internalIconRender = function internalIconRender(file) {
-    if (iconRender) {
-      return iconRender(file, listType);
-    }
-    var isLoading = file.status === 'uploading';
-    var fileIcon = isImgUrl && isImgUrl(file) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement(_ant_design_icons_es_icons_PictureTwoTone__WEBPACK_IMPORTED_MODULE_10__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement(_ant_design_icons_es_icons_FileTwoTone__WEBPACK_IMPORTED_MODULE_11__["default"], null);
-    var icon = isLoading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement(_ant_design_icons_es_icons_LoadingOutlined__WEBPACK_IMPORTED_MODULE_12__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement(_ant_design_icons_es_icons_PaperClipOutlined__WEBPACK_IMPORTED_MODULE_13__["default"], null);
-    if (listType === 'picture') {
-      icon = isLoading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement(_ant_design_icons_es_icons_LoadingOutlined__WEBPACK_IMPORTED_MODULE_12__["default"], null) : fileIcon;
-    } else if (listType === 'picture-card') {
-      icon = isLoading ? locale.uploading : fileIcon;
-    }
-    return icon;
-  };
-  var actionIconRender = function actionIconRender(customIcon, callback, prefixCls, title) {
-    var btnProps = {
-      type: 'text',
-      size: 'small',
-      title: title,
-      disabled: disabled,
-      onClick: function onClick(e) {
-        callback();
-        if ((0,_util_reactNode__WEBPACK_IMPORTED_MODULE_14__.isValidElement)(customIcon) && customIcon.props.onClick) {
-          customIcon.props.onClick(e);
-        }
-      },
-      className: "".concat(prefixCls, "-list-item-card-actions-btn")
-    };
-    if ((0,_util_reactNode__WEBPACK_IMPORTED_MODULE_14__.isValidElement)(customIcon)) {
-      var btnIcon = (0,_util_reactNode__WEBPACK_IMPORTED_MODULE_14__.cloneElement)(customIcon, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({}, customIcon.props), {
-        onClick: function onClick() {}
-      }));
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement(_button__WEBPACK_IMPORTED_MODULE_15__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({}, btnProps, {
-        icon: btnIcon
-      }));
-    }
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement(_button__WEBPACK_IMPORTED_MODULE_15__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({}, btnProps), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement("span", null, customIcon));
-  };
-  // ============================== Ref ===============================
-  // Test needs
-  react__WEBPACK_IMPORTED_MODULE_6__.useImperativeHandle(ref, function () {
-    return {
-      handlePreview: onInternalPreview,
-      handleDownload: onInternalDownload
-    };
-  });
-  var _React$useContext = react__WEBPACK_IMPORTED_MODULE_6__.useContext(_config_provider__WEBPACK_IMPORTED_MODULE_16__.ConfigContext),
-    getPrefixCls = _React$useContext.getPrefixCls,
-    direction = _React$useContext.direction;
-  // ============================= Render =============================
-  var prefixCls = getPrefixCls('upload', customizePrefixCls);
-  var listClassNames = classnames__WEBPACK_IMPORTED_MODULE_4___default()((_classNames = {}, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames, "".concat(prefixCls, "-list"), true), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames, "".concat(prefixCls, "-list-").concat(listType), true), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames, "".concat(prefixCls, "-list-rtl"), direction === 'rtl'), _classNames));
-  // >>> Motion config
-  var motionKeyList = (0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(items.map(function (file) {
-    return {
-      key: file.uid,
-      file: file
-    };
-  }));
-  var animationDirection = listType === 'picture-card' ? 'animate-inline' : 'animate';
-  // const transitionName = list.length === 0 ? '' : `${prefixCls}-${animationDirection}`;
-  var motionConfig = {
-    motionDeadline: 2000,
-    motionName: "".concat(prefixCls, "-").concat(animationDirection),
-    keys: motionKeyList,
-    motionAppear: motionAppear
-  };
-  if (listType !== 'picture-card') {
-    motionConfig = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({}, listItemMotion), motionConfig);
-  }
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement("div", {
-    className: listClassNames
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement(rc_motion__WEBPACK_IMPORTED_MODULE_5__.CSSMotionList, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({}, motionConfig, {
-    component: false
-  }), function (_ref) {
-    var key = _ref.key,
-      file = _ref.file,
-      motionClassName = _ref.className,
-      motionStyle = _ref.style;
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement(_ListItem__WEBPACK_IMPORTED_MODULE_17__["default"], {
-      key: key,
-      locale: locale,
-      prefixCls: prefixCls,
-      className: motionClassName,
-      style: motionStyle,
-      file: file,
-      items: items,
-      progress: progress,
-      listType: listType,
-      isImgUrl: isImgUrl,
-      showPreviewIcon: showPreviewIcon,
-      showRemoveIcon: showRemoveIcon,
-      showDownloadIcon: showDownloadIcon,
-      removeIcon: removeIcon,
-      previewIcon: previewIcon,
-      downloadIcon: downloadIcon,
-      iconRender: internalIconRender,
-      actionIconRender: actionIconRender,
-      itemRender: itemRender,
-      onPreview: onInternalPreview,
-      onDownload: onInternalDownload,
-      onClose: onInternalClose
-    });
-  }), appendAction && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement(rc_motion__WEBPACK_IMPORTED_MODULE_5__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({}, motionConfig, {
-    visible: appendActionVisible,
-    forceRender: true
-  }), function (_ref2) {
-    var motionClassName = _ref2.className,
-      motionStyle = _ref2.style;
-    return (0,_util_reactNode__WEBPACK_IMPORTED_MODULE_14__.cloneElement)(appendAction, function (oriProps) {
-      return {
-        className: classnames__WEBPACK_IMPORTED_MODULE_4___default()(oriProps.className, motionClassName),
-        style: (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__["default"])({}, motionStyle), {
-          // prevent the element has hover css pseudo-class that may cause animation to end prematurely.
-          pointerEvents: motionClassName ? 'none' : undefined
-        }), oriProps.style)
-      };
-    });
-  }));
-};
-var UploadList = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.forwardRef(InternalUploadList);
-if (true) {
-  UploadList.displayName = 'UploadList';
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UploadList);
-
-/***/ }),
-
-/***/ "./node_modules/antd/es/upload/index.js":
-/*!**********************************************!*\
-  !*** ./node_modules/antd/es/upload/index.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _Dragger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Dragger */ "./node_modules/antd/es/upload/Dragger.js");
-/* harmony import */ var _Upload__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Upload */ "./node_modules/antd/es/upload/Upload.js");
-
-
-var Upload = _Upload__WEBPACK_IMPORTED_MODULE_0__["default"];
-Upload.Dragger = _Dragger__WEBPACK_IMPORTED_MODULE_1__["default"];
-Upload.LIST_IGNORE = _Upload__WEBPACK_IMPORTED_MODULE_0__.LIST_IGNORE;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Upload);
-
-/***/ }),
-
-/***/ "./node_modules/antd/es/upload/utils.js":
-/*!**********************************************!*\
-  !*** ./node_modules/antd/es/upload/utils.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   file2Obj: () => (/* binding */ file2Obj),
-/* harmony export */   getFileItem: () => (/* binding */ getFileItem),
-/* harmony export */   isImageUrl: () => (/* binding */ isImageUrl),
-/* harmony export */   previewImage: () => (/* binding */ previewImage),
-/* harmony export */   removeFileItem: () => (/* binding */ removeFileItem),
-/* harmony export */   updateFileList: () => (/* binding */ updateFileList)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-
-
-function file2Obj(file) {
-  return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, file), {
-    lastModified: file.lastModified,
-    lastModifiedDate: file.lastModifiedDate,
-    name: file.name,
-    size: file.size,
-    type: file.type,
-    uid: file.uid,
-    percent: 0,
-    originFileObj: file
-  });
-}
-/** Upload fileList. Replace file if exist or just push into it. */
-function updateFileList(file, fileList) {
-  var nextFileList = (0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__["default"])(fileList);
-  var fileIndex = nextFileList.findIndex(function (_ref) {
-    var uid = _ref.uid;
-    return uid === file.uid;
-  });
-  if (fileIndex === -1) {
-    nextFileList.push(file);
-  } else {
-    nextFileList[fileIndex] = file;
-  }
-  return nextFileList;
-}
-function getFileItem(file, fileList) {
-  var matchKey = file.uid !== undefined ? 'uid' : 'name';
-  return fileList.filter(function (item) {
-    return item[matchKey] === file[matchKey];
-  })[0];
-}
-function removeFileItem(file, fileList) {
-  var matchKey = file.uid !== undefined ? 'uid' : 'name';
-  var removed = fileList.filter(function (item) {
-    return item[matchKey] !== file[matchKey];
-  });
-  if (removed.length === fileList.length) {
-    return null;
-  }
-  return removed;
-}
-// ==================== Default Image Preview ====================
-var extname = function extname() {
-  var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-  var temp = url.split('/');
-  var filename = temp[temp.length - 1];
-  var filenameWithoutSuffix = filename.split(/#|\?/)[0];
-  return (/\.[^./\\]*$/.exec(filenameWithoutSuffix) || [''])[0];
-};
-var isImageFileType = function isImageFileType(type) {
-  return type.indexOf('image/') === 0;
-};
-var isImageUrl = function isImageUrl(file) {
-  if (file.type && !file.thumbUrl) {
-    return isImageFileType(file.type);
-  }
-  var url = file.thumbUrl || file.url || '';
-  var extension = extname(url);
-  if (/^data:image\//.test(url) || /(webp|svg|png|gif|jpg|jpeg|jfif|bmp|dpg|ico|heic|heif)$/i.test(extension)) {
-    return true;
-  }
-  if (/^data:/.test(url)) {
-    // other file types of base64
-    return false;
-  }
-  if (extension) {
-    // other file types which have extension
-    return false;
-  }
-  return true;
-};
-var MEASURE_SIZE = 200;
-function previewImage(file) {
-  return new Promise(function (resolve) {
-    if (!file.type || !isImageFileType(file.type)) {
-      resolve('');
-      return;
-    }
-    var canvas = document.createElement('canvas');
-    canvas.width = MEASURE_SIZE;
-    canvas.height = MEASURE_SIZE;
-    canvas.style.cssText = "position: fixed; left: 0; top: 0; width: ".concat(MEASURE_SIZE, "px; height: ").concat(MEASURE_SIZE, "px; z-index: 9999; display: none;");
-    document.body.appendChild(canvas);
-    var ctx = canvas.getContext('2d');
-    var img = new Image();
-    img.onload = function () {
-      var width = img.width,
-        height = img.height;
-      var drawWidth = MEASURE_SIZE;
-      var drawHeight = MEASURE_SIZE;
-      var offsetX = 0;
-      var offsetY = 0;
-      if (width > height) {
-        drawHeight = height * (MEASURE_SIZE / width);
-        offsetY = -(drawHeight - drawWidth) / 2;
-      } else {
-        drawWidth = width * (MEASURE_SIZE / height);
-        offsetX = -(drawWidth - drawHeight) / 2;
-      }
-      ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
-      var dataURL = canvas.toDataURL();
-      document.body.removeChild(canvas);
-      window.URL.revokeObjectURL(img.src);
-      resolve(dataURL);
-    };
-    img.crossOrigin = 'anonymous';
-    if (file.type.startsWith('image/svg+xml')) {
-      var reader = new FileReader();
-      reader.onload = function () {
-        if (reader.result) img.src = reader.result;
-      };
-      reader.readAsDataURL(file);
-    } else if (file.type.startsWith('image/gif')) {
-      var _reader = new FileReader();
-      _reader.onload = function () {
-        if (_reader.result) resolve(_reader.result);
-      };
-      _reader.readAsDataURL(file);
-    } else {
-      img.src = window.URL.createObjectURL(file);
-    }
-  });
-}
 
 /***/ }),
 
@@ -6386,10 +4839,10 @@ Schema.validators = validators;
 
 /***/ }),
 
-/***/ "./resources/js/pages/Admin/MealPlan/create.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/pages/Admin/MealPlan/create.js ***!
-  \*****************************************************/
+/***/ "./resources/js/components/mealPlan/createMealPlanOptions.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/mealPlan/createMealPlanOptions.js ***!
+  \*******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -6398,19 +4851,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ant-design/icons */ "./node_modules/@ant-design/icons/es/icons/PlusOutlined.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ant-design/icons */ "./node_modules/@ant-design/icons/es/icons/MinusCircleOutlined.js");
+/* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @ant-design/icons */ "./node_modules/@ant-design/icons/es/icons/PlusOutlined.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/input/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/form/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/row/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/col/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/input-number/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/upload/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/switch/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/form/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/row/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/col/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/input/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/radio/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/space/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/input-number/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/button/index.js");
-/* harmony import */ var _redux_MealPlan_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../redux/MealPlan/actions */ "./resources/js/redux/MealPlan/actions.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/switch/index.js");
+/* harmony import */ var _redux_MealPlan_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../redux/MealPlan/actions */ "./resources/js/redux/MealPlan/actions.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+var _excluded = ["key", "name"];
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -6426,53 +4890,23 @@ function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("
 
 
 
-var TextArea = antd__WEBPACK_IMPORTED_MODULE_4__["default"].TextArea;
-var Create = function Create(_ref) {
+
+var CreateMealPlanOptions = function CreateMealPlanOptions(_ref) {
   _objectDestructuringEmpty(_ref);
-  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useHistory)();
+  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useHistory)();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState2 = _slicedToArray(_useState, 2),
     componentSize = _useState2[0],
     setComponentSize = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-    _useState4 = _slicedToArray(_useState3, 2),
-    previewVisible = _useState4[0],
-    setPreviewVisible = _useState4[1];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-    _useState6 = _slicedToArray(_useState5, 2),
-    previewImage = _useState6[0],
-    setPreviewImage = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
-    _useState8 = _slicedToArray(_useState7, 2),
-    fileList = _useState8[0],
-    setFileList = _useState8[1];
-  var handleCancel = function handleCancel() {
-    setPreviewVisible(false);
-  };
-  var handlePreview = function handlePreview(file) {
-    setPreviewImage(file.thumbUrl);
-    setPreviewVisible(true);
-  };
-  var handleUpload = function handleUpload(_ref2) {
-    var fileList = _ref2.fileList;
-    // this is equivalent to your "const img = event.target.files[0]"
-    // here, antd is giving you an array of files, just like event.target.files
-    // but the structure is a bit different that the original file
-    // the original file is located at the `originFileObj` key of each of this files
-    // so `event.target.files[0]` is actually fileList[0].originFileObj
-    console.log('fileList', fileList);
-    // you store them in state, so that you can make a http req with them later
-    setFileList(fileList);
-  };
   var errors = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.errors;
   });
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
-  var _Form$useForm = antd__WEBPACK_IMPORTED_MODULE_6__["default"].useForm(),
+  var _Form$useForm = antd__WEBPACK_IMPORTED_MODULE_5__["default"].useForm(),
     _Form$useForm2 = _slicedToArray(_Form$useForm, 1),
     form = _Form$useForm2[0];
-  var onFormLayoutChange = function onFormLayoutChange(_ref3) {
-    var first_name = _ref3.first_name;
+  var onFormLayoutChange = function onFormLayoutChange(_ref2) {
+    var first_name = _ref2.first_name;
     console.log(first_name);
     setComponentSize(first_name);
   };
@@ -6480,18 +4914,10 @@ var Create = function Create(_ref) {
     if (errors) {
       // errors.reset()
     }
-    // formData.append("file", this.state.fileList[0].originFileObj);
-    values.file = fileList[0].originFileObj;
     console.log(values);
-    dispatch((0,_redux_MealPlan_actions__WEBPACK_IMPORTED_MODULE_2__.createMealPlan)(values));
+    dispatch((0,_redux_MealPlan_actions__WEBPACK_IMPORTED_MODULE_2__.createMealPlanOption)(values));
   };
-  var uploadButton = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_7__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "ant-upload-text",
-      children: "Upload"
-    })]
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
     form: form,
     labelCol: {
       span: 4
@@ -6501,100 +4927,117 @@ var Create = function Create(_ref) {
     },
     layout: "horizontal",
     initialValues: {
-      price: 1.00,
-      discount: 0.00
+      display_type: 'radio',
+      optionValues: [{
+        value: " ",
+        price: 1.00
+      }]
     },
     onValuesChange: onFormLayoutChange,
     style: {},
     onFinish: onFormSubmit,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
-        span: 12,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        span: 24,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].Item, {
           label: "Name",
           name: "name",
           rules: [{
             required: true
           }],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
-          label: "Description",
-          name: "description",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].Item, {
+          label: "Display Type",
+          name: "display_type",
           rules: [{
             required: true
           }],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TextArea, {
-            rows: 2
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_9__["default"].Group, {
+            buttonStyle: "solid",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"].Button, {
+              value: "radio",
+              children: "radio"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"].Button, {
+              value: "select",
+              children: "select"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"].Button, {
+              value: "input",
+              children: "input"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"].Button, {
+              value: "checkbox",
+              children: "checkbox"
+            })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
-          label: "Short Description",
-          name: "short_description",
-          rules: [{
-            required: false
-          }],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(TextArea, {
-            rows: 2
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].Item, {
+          label: "Option Values",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].List, {
+            name: "optionValues",
+            children: function children(fields, _ref3) {
+              var add = _ref3.add,
+                remove = _ref3.remove;
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+                children: [fields.map(function (_ref4) {
+                  var key = _ref4.key,
+                    name = _ref4.name,
+                    restField = _objectWithoutProperties(_ref4, _excluded);
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
+                    style: {
+                      display: 'flex',
+                      marginBottom: 8
+                    },
+                    align: "baseline",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].Item, _objectSpread(_objectSpread({}, restField), {}, {
+                      name: [name, 'value'],
+                      rules: [{
+                        required: true,
+                        message: 'Missing Value Name'
+                      }],
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                        placeholder: "Value Name e.g 10 oz"
+                      })
+                    })), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].Item, _objectSpread(_objectSpread({}, restField), {}, {
+                      name: [name, 'price'],
+                      rules: [{
+                        required: true,
+                        message: 'Missing price'
+                      }],
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
+                        min: 1,
+                        precision: 2,
+                        step: 1.00,
+                        stringMode: true
+                      })
+                    })), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_12__["default"], {
+                      onClick: function onClick() {
+                        return remove(name);
+                      }
+                    })]
+                  }, key);
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].Item, {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_13__["default"], {
+                    type: "dashed",
+                    onClick: function onClick() {
+                      return add('asdf', 1.00);
+                    },
+                    block: true,
+                    icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_14__["default"], {}),
+                    children: "Add field"
+                  })
+                })]
+              });
+            }
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
-          name: ['price'],
-          label: "Price",
-          rules: [{
-            required: true
-          }],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
-            min: 1,
-            precision: 2,
-            step: 1.00,
-            stringMode: true
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
-          name: ['discount'],
-          label: "Discount",
-          rules: [{
-            required: false
-          }],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
-            min: 1,
-            precision: 2,
-            step: 1.00,
-            stringMode: true
-          })
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
-        span: 12,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
-          label: "duration",
-          name: "duration",
-          rules: [{
-            required: false
-          }],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
-          label: "Upload",
-          name: "image",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
-            disabled: fileList.length == 0 ? false : true,
-            listType: "picture-card",
-            fileList: fileList,
-            onPreview: handlePreview,
-            onChange: handleUpload,
-            beforeUpload: function beforeUpload() {
-              return false;
-            } // return false so that antd doesn't upload the picture right away
-            ,
-            children: uploadButton
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].Item, {
           label: "Status",
           name: "status",
           valuePropName: "checked",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_12__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_15__["default"], {})
         })]
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
         span: 12,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].Item, {
           wrapperCol: {
             offset: 8,
             span: 16
@@ -6609,7 +5052,112 @@ var Create = function Create(_ref) {
     })]
   });
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Create);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CreateMealPlanOptions);
+
+/***/ }),
+
+/***/ "./node_modules/rc-checkbox/es/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/rc-checkbox/es/index.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Checkbox: () => (/* binding */ Checkbox),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var rc_util_es_hooks_useMergedState__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rc-util/es/hooks/useMergedState */ "./node_modules/rc-util/es/hooks/useMergedState.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+
+
+
+
+
+var _excluded = ["prefixCls", "className", "style", "checked", "disabled", "defaultChecked", "type", "onChange"];
+
+
+
+
+var Checkbox = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_7__.forwardRef)(function (props, ref) {
+  var _classNames;
+  var _props$prefixCls = props.prefixCls,
+    prefixCls = _props$prefixCls === void 0 ? 'rc-checkbox' : _props$prefixCls,
+    className = props.className,
+    style = props.style,
+    checked = props.checked,
+    disabled = props.disabled,
+    _props$defaultChecked = props.defaultChecked,
+    defaultChecked = _props$defaultChecked === void 0 ? false : _props$defaultChecked,
+    _props$type = props.type,
+    type = _props$type === void 0 ? 'checkbox' : _props$type,
+    onChange = props.onChange,
+    inputProps = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_4__["default"])(props, _excluded);
+  var inputRef = (0,react__WEBPACK_IMPORTED_MODULE_7__.useRef)(null);
+  var _useMergedState = (0,rc_util_es_hooks_useMergedState__WEBPACK_IMPORTED_MODULE_6__["default"])(defaultChecked, {
+      value: checked
+    }),
+    _useMergedState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__["default"])(_useMergedState, 2),
+    rawValue = _useMergedState2[0],
+    setRawValue = _useMergedState2[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_7__.useImperativeHandle)(ref, function () {
+    return {
+      focus: function focus() {
+        var _inputRef$current;
+        (_inputRef$current = inputRef.current) === null || _inputRef$current === void 0 ? void 0 : _inputRef$current.focus();
+      },
+      blur: function blur() {
+        var _inputRef$current2;
+        (_inputRef$current2 = inputRef.current) === null || _inputRef$current2 === void 0 ? void 0 : _inputRef$current2.blur();
+      },
+      input: inputRef.current
+    };
+  });
+  var classString = classnames__WEBPACK_IMPORTED_MODULE_5___default()(prefixCls, className, (_classNames = {}, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])(_classNames, "".concat(prefixCls, "-checked"), rawValue), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])(_classNames, "".concat(prefixCls, "-disabled"), disabled), _classNames));
+  var handleChange = function handleChange(e) {
+    if (disabled) {
+      return;
+    }
+    if (!('checked' in props)) {
+      setRawValue(e.target.checked);
+    }
+    onChange === null || onChange === void 0 ? void 0 : onChange({
+      target: (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__["default"])({}, props), {}, {
+        type: type,
+        checked: e.target.checked
+      }),
+      stopPropagation: function stopPropagation() {
+        e.stopPropagation();
+      },
+      preventDefault: function preventDefault() {
+        e.preventDefault();
+      },
+      nativeEvent: e.nativeEvent
+    });
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("span", {
+    className: classString,
+    style: style
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("input", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, inputProps, {
+    className: "".concat(prefixCls, "-input"),
+    ref: inputRef,
+    onChange: handleChange,
+    disabled: disabled,
+    checked: !!rawValue,
+    type: type
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7__.createElement("span", {
+    className: "".concat(prefixCls, "-inner")
+  }));
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Checkbox);
 
 /***/ }),
 
@@ -10957,430 +9505,6 @@ function fixControlledValue(value) {
 
 /***/ }),
 
-/***/ "./node_modules/rc-progress/es/Circle.js":
-/*!***********************************************!*\
-  !*** ./node_modules/rc-progress/es/Circle.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./common */ "./node_modules/rc-progress/es/common.js");
-/* harmony import */ var _hooks_useId__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./hooks/useId */ "./node_modules/rc-progress/es/hooks/useId.js");
-
-
-
-
-var _excluded = ["id", "prefixCls", "steps", "strokeWidth", "trailWidth", "gapDegree", "gapPosition", "trailColor", "strokeLinecap", "style", "className", "strokeColor", "percent"];
-
-
-
-
-function stripPercentToNumber(percent) {
-  return +percent.replace('%', '');
-}
-function toArray(value) {
-  var mergedValue = value !== null && value !== void 0 ? value : [];
-  return Array.isArray(mergedValue) ? mergedValue : [mergedValue];
-}
-var VIEW_BOX_SIZE = 100;
-var getCircleStyle = function getCircleStyle(perimeter, perimeterWithoutGap, offset, percent, rotateDeg, gapDegree, gapPosition, strokeColor, strokeLinecap, strokeWidth) {
-  var stepSpace = arguments.length > 10 && arguments[10] !== undefined ? arguments[10] : 0;
-  var offsetDeg = offset / 100 * 360 * ((360 - gapDegree) / 360);
-  var positionDeg = gapDegree === 0 ? 0 : {
-    bottom: 0,
-    top: 180,
-    left: 90,
-    right: -90
-  }[gapPosition];
-  var strokeDashoffset = (100 - percent) / 100 * perimeterWithoutGap;
-  // Fix percent accuracy when strokeLinecap is round
-  // https://github.com/ant-design/ant-design/issues/35009
-  if (strokeLinecap === 'round' && percent !== 100) {
-    strokeDashoffset += strokeWidth / 2;
-    // when percent is small enough (<= 1%), keep smallest value to avoid it's disappearance
-    if (strokeDashoffset >= perimeterWithoutGap) {
-      strokeDashoffset = perimeterWithoutGap - 0.01;
-    }
-  }
-  return {
-    stroke: typeof strokeColor === 'string' ? strokeColor : undefined,
-    strokeDasharray: "".concat(perimeterWithoutGap, "px ").concat(perimeter),
-    strokeDashoffset: strokeDashoffset + stepSpace,
-    transform: "rotate(".concat(rotateDeg + offsetDeg + positionDeg, "deg)"),
-    transformOrigin: '0 0',
-    transition: 'stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s',
-    fillOpacity: 0
-  };
-};
-var Circle = function Circle(props) {
-  var _defaultProps$props = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_2__["default"])({}, _common__WEBPACK_IMPORTED_MODULE_6__.defaultProps), props),
-    id = _defaultProps$props.id,
-    prefixCls = _defaultProps$props.prefixCls,
-    steps = _defaultProps$props.steps,
-    strokeWidth = _defaultProps$props.strokeWidth,
-    trailWidth = _defaultProps$props.trailWidth,
-    _defaultProps$props$g = _defaultProps$props.gapDegree,
-    gapDegree = _defaultProps$props$g === void 0 ? 0 : _defaultProps$props$g,
-    gapPosition = _defaultProps$props.gapPosition,
-    trailColor = _defaultProps$props.trailColor,
-    strokeLinecap = _defaultProps$props.strokeLinecap,
-    style = _defaultProps$props.style,
-    className = _defaultProps$props.className,
-    strokeColor = _defaultProps$props.strokeColor,
-    percent = _defaultProps$props.percent,
-    restProps = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__["default"])(_defaultProps$props, _excluded);
-  var mergedId = (0,_hooks_useId__WEBPACK_IMPORTED_MODULE_7__["default"])(id);
-  var gradientId = "".concat(mergedId, "-gradient");
-  var radius = VIEW_BOX_SIZE / 2 - strokeWidth / 2;
-  var perimeter = Math.PI * 2 * radius;
-  var rotateDeg = gapDegree > 0 ? 90 + gapDegree / 2 : -90;
-  var perimeterWithoutGap = perimeter * ((360 - gapDegree) / 360);
-  var _ref = (0,_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_1__["default"])(steps) === 'object' ? steps : {
-      count: steps,
-      space: 2
-    },
-    stepCount = _ref.count,
-    stepSpace = _ref.space;
-  var circleStyle = getCircleStyle(perimeter, perimeterWithoutGap, 0, 100, rotateDeg, gapDegree, gapPosition, trailColor, strokeLinecap, strokeWidth);
-  var percentList = toArray(percent);
-  var strokeColorList = toArray(strokeColor);
-  var gradient = strokeColorList.find(function (color) {
-    return color && (0,_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_1__["default"])(color) === 'object';
-  });
-  var paths = (0,_common__WEBPACK_IMPORTED_MODULE_6__.useTransitionDuration)();
-  var getStokeList = function getStokeList() {
-    var stackPtg = 0;
-    return percentList.map(function (ptg, index) {
-      var color = strokeColorList[index] || strokeColorList[strokeColorList.length - 1];
-      var stroke = color && (0,_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_1__["default"])(color) === 'object' ? "url(#".concat(gradientId, ")") : undefined;
-      var circleStyleForStack = getCircleStyle(perimeter, perimeterWithoutGap, stackPtg, ptg, rotateDeg, gapDegree, gapPosition, color, strokeLinecap, strokeWidth);
-      stackPtg += ptg;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement("circle", {
-        key: index,
-        className: "".concat(prefixCls, "-circle-path"),
-        r: radius,
-        cx: 0,
-        cy: 0,
-        stroke: stroke,
-        strokeLinecap: strokeLinecap,
-        strokeWidth: strokeWidth,
-        opacity: ptg === 0 ? 0 : 1,
-        style: circleStyleForStack,
-        ref: function ref(elem) {
-          // https://reactjs.org/docs/refs-and-the-dom.html#callback-refs
-          // React will call the ref callback with the DOM element when the component mounts,
-          // and call it with `null` when it unmounts.
-          // Refs are guaranteed to be up-to-date before componentDidMount or componentDidUpdate fires.
-          paths[index] = elem;
-        }
-      });
-    }).reverse();
-  };
-  var getStepStokeList = function getStepStokeList() {
-    // only show the first percent when pass steps
-    var current = Math.round(stepCount * (percentList[0] / 100));
-    var stepPtg = 100 / stepCount;
-    var stackPtg = 0;
-    return new Array(stepCount).fill(null).map(function (_, index) {
-      var color = index <= current - 1 ? strokeColorList[0] : trailColor;
-      var stroke = color && (0,_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_1__["default"])(color) === 'object' ? "url(#".concat(gradientId, ")") : undefined;
-      var circleStyleForStack = getCircleStyle(perimeter, perimeterWithoutGap, stackPtg, stepPtg, rotateDeg, gapDegree, gapPosition, color, 'butt', strokeWidth, stepSpace);
-      stackPtg += (perimeterWithoutGap - circleStyleForStack.strokeDashoffset + stepSpace) * 100 / perimeterWithoutGap;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement("circle", {
-        key: index,
-        className: "".concat(prefixCls, "-circle-path"),
-        r: radius,
-        cx: 0,
-        cy: 0,
-        stroke: stroke
-        // strokeLinecap={strokeLinecap}
-        ,
-        strokeWidth: strokeWidth,
-        opacity: 1,
-        style: circleStyleForStack,
-        ref: function ref(elem) {
-          paths[index] = elem;
-        }
-      });
-    });
-  };
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement("svg", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    className: classnames__WEBPACK_IMPORTED_MODULE_5___default()("".concat(prefixCls, "-circle"), className),
-    viewBox: "".concat(-VIEW_BOX_SIZE / 2, " ").concat(-VIEW_BOX_SIZE / 2, " ").concat(VIEW_BOX_SIZE, " ").concat(VIEW_BOX_SIZE),
-    style: style,
-    id: id,
-    role: "presentation"
-  }, restProps), gradient && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement("defs", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement("linearGradient", {
-    id: gradientId,
-    x1: "100%",
-    y1: "0%",
-    x2: "0%",
-    y2: "0%"
-  }, Object.keys(gradient).sort(function (a, b) {
-    return stripPercentToNumber(a) - stripPercentToNumber(b);
-  }).map(function (key, index) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement("stop", {
-      key: index,
-      offset: key,
-      stopColor: gradient[key]
-    });
-  }))), !stepCount && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement("circle", {
-    className: "".concat(prefixCls, "-circle-trail"),
-    r: radius,
-    cx: 0,
-    cy: 0,
-    stroke: trailColor,
-    strokeLinecap: strokeLinecap,
-    strokeWidth: trailWidth || strokeWidth,
-    style: circleStyle
-  }), stepCount ? getStepStokeList() : getStokeList());
-};
-if (true) {
-  Circle.displayName = 'Circle';
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Circle);
-
-/***/ }),
-
-/***/ "./node_modules/rc-progress/es/Line.js":
-/*!*********************************************!*\
-  !*** ./node_modules/rc-progress/es/Line.js ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./common */ "./node_modules/rc-progress/es/common.js");
-
-
-
-var _excluded = ["className", "percent", "prefixCls", "strokeColor", "strokeLinecap", "strokeWidth", "style", "trailColor", "trailWidth", "transition"];
-
-
-
-var Line = function Line(props) {
-  var _defaultProps$props = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__["default"])({}, _common__WEBPACK_IMPORTED_MODULE_5__.defaultProps), props),
-    className = _defaultProps$props.className,
-    percent = _defaultProps$props.percent,
-    prefixCls = _defaultProps$props.prefixCls,
-    strokeColor = _defaultProps$props.strokeColor,
-    strokeLinecap = _defaultProps$props.strokeLinecap,
-    strokeWidth = _defaultProps$props.strokeWidth,
-    style = _defaultProps$props.style,
-    trailColor = _defaultProps$props.trailColor,
-    trailWidth = _defaultProps$props.trailWidth,
-    transition = _defaultProps$props.transition,
-    restProps = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__["default"])(_defaultProps$props, _excluded);
-  // eslint-disable-next-line no-param-reassign
-  delete restProps.gapPosition;
-  var percentList = Array.isArray(percent) ? percent : [percent];
-  var strokeColorList = Array.isArray(strokeColor) ? strokeColor : [strokeColor];
-  var paths = (0,_common__WEBPACK_IMPORTED_MODULE_5__.useTransitionDuration)();
-  var center = strokeWidth / 2;
-  var right = 100 - strokeWidth / 2;
-  var pathString = "M ".concat(strokeLinecap === 'round' ? center : 0, ",").concat(center, "\n         L ").concat(strokeLinecap === 'round' ? right : 100, ",").concat(center);
-  var viewBoxString = "0 0 100 ".concat(strokeWidth);
-  var stackPtg = 0;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("svg", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    className: classnames__WEBPACK_IMPORTED_MODULE_4___default()("".concat(prefixCls, "-line"), className),
-    viewBox: viewBoxString,
-    preserveAspectRatio: "none",
-    style: style
-  }, restProps), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("path", {
-    className: "".concat(prefixCls, "-line-trail"),
-    d: pathString,
-    strokeLinecap: strokeLinecap,
-    stroke: trailColor,
-    strokeWidth: trailWidth || strokeWidth,
-    fillOpacity: "0"
-  }), percentList.map(function (ptg, index) {
-    var dashPercent = 1;
-    switch (strokeLinecap) {
-      case 'round':
-        dashPercent = 1 - strokeWidth / 100;
-        break;
-      case 'square':
-        dashPercent = 1 - strokeWidth / 2 / 100;
-        break;
-      default:
-        dashPercent = 1;
-        break;
-    }
-    var pathStyle = {
-      strokeDasharray: "".concat(ptg * dashPercent, "px, 100px"),
-      strokeDashoffset: "-".concat(stackPtg, "px"),
-      transition: transition || 'stroke-dashoffset 0.3s ease 0s, stroke-dasharray .3s ease 0s, stroke 0.3s linear'
-    };
-    var color = strokeColorList[index] || strokeColorList[strokeColorList.length - 1];
-    stackPtg += ptg;
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("path", {
-      key: index,
-      className: "".concat(prefixCls, "-line-path"),
-      d: pathString,
-      strokeLinecap: strokeLinecap,
-      stroke: color,
-      strokeWidth: strokeWidth,
-      fillOpacity: "0",
-      ref: function ref(elem) {
-        // https://reactjs.org/docs/refs-and-the-dom.html#callback-refs
-        // React will call the ref callback with the DOM element when the component mounts,
-        // and call it with `null` when it unmounts.
-        // Refs are guaranteed to be up-to-date before componentDidMount or componentDidUpdate fires.
-        paths[index] = elem;
-      },
-      style: pathStyle
-    });
-  }));
-};
-if (true) {
-  Line.displayName = 'Line';
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Line);
-
-/***/ }),
-
-/***/ "./node_modules/rc-progress/es/common.js":
-/*!***********************************************!*\
-  !*** ./node_modules/rc-progress/es/common.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   defaultProps: () => (/* binding */ defaultProps),
-/* harmony export */   useTransitionDuration: () => (/* binding */ useTransitionDuration)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-var defaultProps = {
-  percent: 0,
-  prefixCls: 'rc-progress',
-  strokeColor: '#2db7f5',
-  strokeLinecap: 'round',
-  strokeWidth: 1,
-  trailColor: '#D9D9D9',
-  trailWidth: 1,
-  gapPosition: 'bottom'
-};
-var useTransitionDuration = function useTransitionDuration() {
-  var pathsRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)([]);
-  var prevTimeStamp = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var now = Date.now();
-    var updated = false;
-    pathsRef.current.forEach(function (path) {
-      if (!path) {
-        return;
-      }
-      updated = true;
-      var pathStyle = path.style;
-      pathStyle.transitionDuration = '.3s, .3s, .3s, .06s';
-      if (prevTimeStamp.current && now - prevTimeStamp.current < 100) {
-        pathStyle.transitionDuration = '0s, 0s';
-      }
-    });
-    if (updated) {
-      prevTimeStamp.current = Date.now();
-    }
-  });
-  return pathsRef.current;
-};
-
-/***/ }),
-
-/***/ "./node_modules/rc-progress/es/hooks/useId.js":
-/*!****************************************************!*\
-  !*** ./node_modules/rc-progress/es/hooks/useId.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   isBrowserClient: () => (/* binding */ isBrowserClient)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var rc_util_es_Dom_canUseDom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rc-util/es/Dom/canUseDom */ "./node_modules/rc-util/es/Dom/canUseDom.js");
-
-
-
-var uuid = 0;
-/** Is client side and not jsdom */
-var isBrowserClient =  true && (0,rc_util_es_Dom_canUseDom__WEBPACK_IMPORTED_MODULE_2__["default"])();
-/** Get unique id for accessibility usage */
-function getUUID() {
-  var retId;
-  // Test never reach
-  /* istanbul ignore if */
-  if (isBrowserClient) {
-    retId = uuid;
-    uuid += 1;
-  } else {
-    retId = 'TEST_OR_SSR';
-  }
-  return retId;
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (id) {
-  // Inner id for accessibility usage. Only work in client side
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1__.useState(),
-    _React$useState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_React$useState, 2),
-    innerId = _React$useState2[0],
-    setInnerId = _React$useState2[1];
-  react__WEBPACK_IMPORTED_MODULE_1__.useEffect(function () {
-    setInnerId("rc_progress_".concat(getUUID()));
-  }, []);
-  return id || innerId;
-});
-
-/***/ }),
-
-/***/ "./node_modules/rc-progress/es/index.js":
-/*!**********************************************!*\
-  !*** ./node_modules/rc-progress/es/index.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Circle: () => (/* reexport safe */ _Circle__WEBPACK_IMPORTED_MODULE_1__["default"]),
-/* harmony export */   Line: () => (/* reexport safe */ _Line__WEBPACK_IMPORTED_MODULE_0__["default"]),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _Line__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Line */ "./node_modules/rc-progress/es/Line.js");
-/* harmony import */ var _Circle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Circle */ "./node_modules/rc-progress/es/Circle.js");
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  Line: _Line__WEBPACK_IMPORTED_MODULE_0__["default"],
-  Circle: _Circle__WEBPACK_IMPORTED_MODULE_1__["default"]
-});
-
-/***/ }),
-
 /***/ "./node_modules/rc-switch/es/index.js":
 /*!********************************************!*\
   !*** ./node_modules/rc-switch/es/index.js ***!
@@ -11895,908 +10019,6 @@ var TextArea = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_5__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TextArea);
-
-/***/ }),
-
-/***/ "./node_modules/rc-upload/es/AjaxUploader.js":
-/*!***************************************************!*\
-  !*** ./node_modules/rc-upload/es/AjaxUploader.js ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
-/* harmony import */ var _babel_runtime_helpers_esm_regeneratorRuntime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/regeneratorRuntime */ "./node_modules/@babel/runtime/helpers/esm/regeneratorRuntime.js");
-/* harmony import */ var _babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
-/* harmony import */ var _babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
-/* harmony import */ var _babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
-/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
-/* harmony import */ var _babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createSuper */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var rc_util_es_pickAttrs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! rc-util/es/pickAttrs */ "./node_modules/rc-util/es/pickAttrs.js");
-/* harmony import */ var _request__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./request */ "./node_modules/rc-upload/es/request.js");
-/* harmony import */ var _uid__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./uid */ "./node_modules/rc-upload/es/uid.js");
-/* harmony import */ var _attr_accept__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./attr-accept */ "./node_modules/rc-upload/es/attr-accept.js");
-/* harmony import */ var _traverseFileTree__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./traverseFileTree */ "./node_modules/rc-upload/es/traverseFileTree.js");
-
-
-
-
-
-
-
-
-
-
-
-var _excluded = ["component", "prefixCls", "className", "disabled", "id", "style", "multiple", "accept", "capture", "children", "directory", "openFileDialogOnClick", "onMouseEnter", "onMouseLeave"];
-
-
-
-
-
-
-
-
-var AjaxUploader = /*#__PURE__*/function (_Component) {
-  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_9__["default"])(AjaxUploader, _Component);
-
-  var _super = (0,_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_10__["default"])(AjaxUploader);
-
-  function AjaxUploader() {
-    var _this;
-
-    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_7__["default"])(this, AjaxUploader);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-    _this.state = {
-      uid: (0,_uid__WEBPACK_IMPORTED_MODULE_15__["default"])()
-    };
-    _this.reqs = {};
-    _this.fileInput = void 0;
-    _this._isMounted = void 0;
-
-    _this.onChange = function (e) {
-      var _this$props = _this.props,
-          accept = _this$props.accept,
-          directory = _this$props.directory;
-      var files = e.target.files;
-
-      var acceptedFiles = (0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_6__["default"])(files).filter(function (file) {
-        return !directory || (0,_attr_accept__WEBPACK_IMPORTED_MODULE_16__["default"])(file, accept);
-      });
-
-      _this.uploadFiles(acceptedFiles);
-
-      _this.reset();
-    };
-
-    _this.onClick = function (e) {
-      var el = _this.fileInput;
-
-      if (!el) {
-        return;
-      }
-
-      var _this$props2 = _this.props,
-          children = _this$props2.children,
-          onClick = _this$props2.onClick;
-
-      if (children && children.type === 'button') {
-        var parent = el.parentNode;
-        parent.focus();
-        parent.querySelector('button').blur();
-      }
-
-      el.click();
-
-      if (onClick) {
-        onClick(e);
-      }
-    };
-
-    _this.onKeyDown = function (e) {
-      if (e.key === 'Enter') {
-        _this.onClick(e);
-      }
-    };
-
-    _this.onFileDrop = function (e) {
-      var multiple = _this.props.multiple;
-      e.preventDefault();
-
-      if (e.type === 'dragover') {
-        return;
-      }
-
-      if (_this.props.directory) {
-        (0,_traverseFileTree__WEBPACK_IMPORTED_MODULE_17__["default"])(Array.prototype.slice.call(e.dataTransfer.items), _this.uploadFiles, function (_file) {
-          return (0,_attr_accept__WEBPACK_IMPORTED_MODULE_16__["default"])(_file, _this.props.accept);
-        });
-      } else {
-        var files = (0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_6__["default"])(e.dataTransfer.files).filter(function (file) {
-          return (0,_attr_accept__WEBPACK_IMPORTED_MODULE_16__["default"])(file, _this.props.accept);
-        });
-
-        if (multiple === false) {
-          files = files.slice(0, 1);
-        }
-
-        _this.uploadFiles(files);
-      }
-    };
-
-    _this.uploadFiles = function (files) {
-      var originFiles = (0,_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_6__["default"])(files);
-
-      var postFiles = originFiles.map(function (file) {
-        // eslint-disable-next-line no-param-reassign
-        file.uid = (0,_uid__WEBPACK_IMPORTED_MODULE_15__["default"])();
-        return _this.processFile(file, originFiles);
-      }); // Batch upload files
-
-      Promise.all(postFiles).then(function (fileList) {
-        var onBatchStart = _this.props.onBatchStart;
-        onBatchStart === null || onBatchStart === void 0 ? void 0 : onBatchStart(fileList.map(function (_ref) {
-          var origin = _ref.origin,
-              parsedFile = _ref.parsedFile;
-          return {
-            file: origin,
-            parsedFile: parsedFile
-          };
-        }));
-        fileList.filter(function (file) {
-          return file.parsedFile !== null;
-        }).forEach(function (file) {
-          _this.post(file);
-        });
-      });
-    };
-
-    _this.processFile = /*#__PURE__*/function () {
-      var _ref2 = (0,_babel_runtime_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_5__["default"])( /*#__PURE__*/(0,_babel_runtime_helpers_esm_regeneratorRuntime__WEBPACK_IMPORTED_MODULE_3__["default"])().mark(function _callee(file, fileList) {
-        var beforeUpload, transformedFile, action, mergedAction, data, mergedData, parsedData, parsedFile, mergedParsedFile;
-        return (0,_babel_runtime_helpers_esm_regeneratorRuntime__WEBPACK_IMPORTED_MODULE_3__["default"])().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                beforeUpload = _this.props.beforeUpload;
-                transformedFile = file;
-
-                if (!beforeUpload) {
-                  _context.next = 14;
-                  break;
-                }
-
-                _context.prev = 3;
-                _context.next = 6;
-                return beforeUpload(file, fileList);
-
-              case 6:
-                transformedFile = _context.sent;
-                _context.next = 12;
-                break;
-
-              case 9:
-                _context.prev = 9;
-                _context.t0 = _context["catch"](3);
-                // Rejection will also trade as false
-                transformedFile = false;
-
-              case 12:
-                if (!(transformedFile === false)) {
-                  _context.next = 14;
-                  break;
-                }
-
-                return _context.abrupt("return", {
-                  origin: file,
-                  parsedFile: null,
-                  action: null,
-                  data: null
-                });
-
-              case 14:
-                // Get latest action
-                action = _this.props.action;
-
-                if (!(typeof action === 'function')) {
-                  _context.next = 21;
-                  break;
-                }
-
-                _context.next = 18;
-                return action(file);
-
-              case 18:
-                mergedAction = _context.sent;
-                _context.next = 22;
-                break;
-
-              case 21:
-                mergedAction = action;
-
-              case 22:
-                // Get latest data
-                data = _this.props.data;
-
-                if (!(typeof data === 'function')) {
-                  _context.next = 29;
-                  break;
-                }
-
-                _context.next = 26;
-                return data(file);
-
-              case 26:
-                mergedData = _context.sent;
-                _context.next = 30;
-                break;
-
-              case 29:
-                mergedData = data;
-
-              case 30:
-                parsedData = // string type is from legacy `transformFile`.
-                // Not sure if this will work since no related test case works with it
-                ((0,_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_4__["default"])(transformedFile) === 'object' || typeof transformedFile === 'string') && transformedFile ? transformedFile : file;
-
-                if (parsedData instanceof File) {
-                  parsedFile = parsedData;
-                } else {
-                  parsedFile = new File([parsedData], file.name, {
-                    type: file.type
-                  });
-                }
-
-                mergedParsedFile = parsedFile;
-                mergedParsedFile.uid = file.uid;
-                return _context.abrupt("return", {
-                  origin: file,
-                  data: mergedData,
-                  parsedFile: mergedParsedFile,
-                  action: mergedAction
-                });
-
-              case 35:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, null, [[3, 9]]);
-      }));
-
-      return function (_x, _x2) {
-        return _ref2.apply(this, arguments);
-      };
-    }();
-
-    _this.saveFileInput = function (node) {
-      _this.fileInput = node;
-    };
-
-    return _this;
-  }
-
-  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_8__["default"])(AjaxUploader, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this._isMounted = true;
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      this._isMounted = false;
-      this.abort();
-    }
-  }, {
-    key: "post",
-    value: function post(_ref3) {
-      var _this2 = this;
-
-      var data = _ref3.data,
-          origin = _ref3.origin,
-          action = _ref3.action,
-          parsedFile = _ref3.parsedFile;
-
-      if (!this._isMounted) {
-        return;
-      }
-
-      var _this$props3 = this.props,
-          onStart = _this$props3.onStart,
-          customRequest = _this$props3.customRequest,
-          name = _this$props3.name,
-          headers = _this$props3.headers,
-          withCredentials = _this$props3.withCredentials,
-          method = _this$props3.method;
-      var uid = origin.uid;
-      var request = customRequest || _request__WEBPACK_IMPORTED_MODULE_14__["default"];
-      var requestOption = {
-        action: action,
-        filename: name,
-        data: data,
-        file: parsedFile,
-        headers: headers,
-        withCredentials: withCredentials,
-        method: method || 'post',
-        onProgress: function onProgress(e) {
-          var onProgress = _this2.props.onProgress;
-          onProgress === null || onProgress === void 0 ? void 0 : onProgress(e, parsedFile);
-        },
-        onSuccess: function onSuccess(ret, xhr) {
-          var onSuccess = _this2.props.onSuccess;
-          onSuccess === null || onSuccess === void 0 ? void 0 : onSuccess(ret, parsedFile, xhr);
-          delete _this2.reqs[uid];
-        },
-        onError: function onError(err, ret) {
-          var onError = _this2.props.onError;
-          onError === null || onError === void 0 ? void 0 : onError(err, ret, parsedFile);
-          delete _this2.reqs[uid];
-        }
-      };
-      onStart(origin);
-      this.reqs[uid] = request(requestOption);
-    }
-  }, {
-    key: "reset",
-    value: function reset() {
-      this.setState({
-        uid: (0,_uid__WEBPACK_IMPORTED_MODULE_15__["default"])()
-      });
-    }
-  }, {
-    key: "abort",
-    value: function abort(file) {
-      var reqs = this.reqs;
-
-      if (file) {
-        var uid = file.uid ? file.uid : file;
-
-        if (reqs[uid] && reqs[uid].abort) {
-          reqs[uid].abort();
-        }
-
-        delete reqs[uid];
-      } else {
-        Object.keys(reqs).forEach(function (uid) {
-          if (reqs[uid] && reqs[uid].abort) {
-            reqs[uid].abort();
-          }
-
-          delete reqs[uid];
-        });
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _classNames;
-
-      var _this$props4 = this.props,
-          Tag = _this$props4.component,
-          prefixCls = _this$props4.prefixCls,
-          className = _this$props4.className,
-          disabled = _this$props4.disabled,
-          id = _this$props4.id,
-          style = _this$props4.style,
-          multiple = _this$props4.multiple,
-          accept = _this$props4.accept,
-          capture = _this$props4.capture,
-          children = _this$props4.children,
-          directory = _this$props4.directory,
-          openFileDialogOnClick = _this$props4.openFileDialogOnClick,
-          onMouseEnter = _this$props4.onMouseEnter,
-          onMouseLeave = _this$props4.onMouseLeave,
-          otherProps = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__["default"])(_this$props4, _excluded);
-
-      var cls = classnames__WEBPACK_IMPORTED_MODULE_12___default()((_classNames = {}, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames, prefixCls, true), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames, "".concat(prefixCls, "-disabled"), disabled), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_classNames, className, className), _classNames)); // because input don't have directory/webkitdirectory type declaration
-
-      var dirProps = directory ? {
-        directory: 'directory',
-        webkitdirectory: 'webkitdirectory'
-      } : {};
-      var events = disabled ? {} : {
-        onClick: openFileDialogOnClick ? this.onClick : function () {},
-        onKeyDown: openFileDialogOnClick ? this.onKeyDown : function () {},
-        onMouseEnter: onMouseEnter,
-        onMouseLeave: onMouseLeave,
-        onDrop: this.onFileDrop,
-        onDragOver: this.onFileDrop,
-        tabIndex: '0'
-      };
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default().createElement(Tag, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, events, {
-        className: cls,
-        role: "button",
-        style: style
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default().createElement("input", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (0,rc_util_es_pickAttrs__WEBPACK_IMPORTED_MODULE_13__["default"])(otherProps, {
-        aria: true,
-        data: true
-      }), {
-        id: id,
-        type: "file",
-        ref: this.saveFileInput,
-        onClick: function onClick(e) {
-          return e.stopPropagation();
-        } // https://github.com/ant-design/ant-design/issues/19948
-        ,
-        key: this.state.uid,
-        style: {
-          display: 'none'
-        },
-        accept: accept
-      }, dirProps, {
-        multiple: multiple,
-        onChange: this.onChange
-      }, capture != null ? {
-        capture: capture
-      } : {})), children);
-    }
-  }]);
-
-  return AjaxUploader;
-}(react__WEBPACK_IMPORTED_MODULE_11__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AjaxUploader);
-
-/***/ }),
-
-/***/ "./node_modules/rc-upload/es/Upload.js":
-/*!*********************************************!*\
-  !*** ./node_modules/rc-upload/es/Upload.js ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
-/* harmony import */ var _babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createSuper */ "./node_modules/@babel/runtime/helpers/esm/createSuper.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _AjaxUploader__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AjaxUploader */ "./node_modules/rc-upload/es/AjaxUploader.js");
-
-
-
-
-
-
-/* eslint react/prop-types:0 */
-
-
-
-function empty() {}
-
-var Upload = /*#__PURE__*/function (_Component) {
-  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__["default"])(Upload, _Component);
-
-  var _super = (0,_babel_runtime_helpers_esm_createSuper__WEBPACK_IMPORTED_MODULE_4__["default"])(Upload);
-
-  function Upload() {
-    var _this;
-
-    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, Upload);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-    _this.uploader = void 0;
-
-    _this.saveUploader = function (node) {
-      _this.uploader = node;
-    };
-
-    return _this;
-  }
-
-  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(Upload, [{
-    key: "abort",
-    value: function abort(file) {
-      this.uploader.abort(file);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_AjaxUploader__WEBPACK_IMPORTED_MODULE_6__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, this.props, {
-        ref: this.saveUploader
-      }));
-    }
-  }]);
-
-  return Upload;
-}(react__WEBPACK_IMPORTED_MODULE_5__.Component);
-
-Upload.defaultProps = {
-  component: 'span',
-  prefixCls: 'rc-upload',
-  data: {},
-  headers: {},
-  name: 'file',
-  multipart: false,
-  onStart: empty,
-  onError: empty,
-  onSuccess: empty,
-  multiple: false,
-  beforeUpload: null,
-  customRequest: null,
-  withCredentials: false,
-  openFileDialogOnClick: true
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Upload);
-
-/***/ }),
-
-/***/ "./node_modules/rc-upload/es/attr-accept.js":
-/*!**************************************************!*\
-  !*** ./node_modules/rc-upload/es/attr-accept.js ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var rc_util_es_warning__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rc-util/es/warning */ "./node_modules/rc-util/es/warning.js");
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (file, acceptedFiles) {
-  if (file && acceptedFiles) {
-    var acceptedFilesArray = Array.isArray(acceptedFiles) ? acceptedFiles : acceptedFiles.split(',');
-    var fileName = file.name || '';
-    var mimeType = file.type || '';
-    var baseMimeType = mimeType.replace(/\/.*$/, '');
-    return acceptedFilesArray.some(function (type) {
-      var validType = type.trim(); // This is something like */*,*  allow all files
-
-      if (/^\*(\/\*)?$/.test(type)) {
-        return true;
-      } // like .jpg, .png
-
-
-      if (validType.charAt(0) === '.') {
-        var lowerFileName = fileName.toLowerCase();
-        var lowerType = validType.toLowerCase();
-        var affixList = [lowerType];
-
-        if (lowerType === '.jpg' || lowerType === '.jpeg') {
-          affixList = ['.jpg', '.jpeg'];
-        }
-
-        return affixList.some(function (affix) {
-          return lowerFileName.endsWith(affix);
-        });
-      } // This is something like a image/* mime type
-
-
-      if (/\/\*$/.test(validType)) {
-        return baseMimeType === validType.replace(/\/.*$/, '');
-      } // Full match
-
-
-      if (mimeType === validType) {
-        return true;
-      } // Invalidate type should skip
-
-
-      if (/^\w+$/.test(validType)) {
-        (0,rc_util_es_warning__WEBPACK_IMPORTED_MODULE_0__["default"])(false, "Upload takes an invalidate 'accept' type '".concat(validType, "'.Skip for check."));
-        return true;
-      }
-
-      return false;
-    });
-  }
-
-  return true;
-});
-
-/***/ }),
-
-/***/ "./node_modules/rc-upload/es/index.js":
-/*!********************************************!*\
-  !*** ./node_modules/rc-upload/es/index.js ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _Upload__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Upload */ "./node_modules/rc-upload/es/Upload.js");
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_Upload__WEBPACK_IMPORTED_MODULE_0__["default"]);
-
-/***/ }),
-
-/***/ "./node_modules/rc-upload/es/request.js":
-/*!**********************************************!*\
-  !*** ./node_modules/rc-upload/es/request.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ upload)
-/* harmony export */ });
-function getError(option, xhr) {
-  var msg = "cannot ".concat(option.method, " ").concat(option.action, " ").concat(xhr.status, "'");
-  var err = new Error(msg);
-  err.status = xhr.status;
-  err.method = option.method;
-  err.url = option.action;
-  return err;
-}
-
-function getBody(xhr) {
-  var text = xhr.responseText || xhr.response;
-
-  if (!text) {
-    return text;
-  }
-
-  try {
-    return JSON.parse(text);
-  } catch (e) {
-    return text;
-  }
-}
-
-function upload(option) {
-  // eslint-disable-next-line no-undef
-  var xhr = new XMLHttpRequest();
-
-  if (option.onProgress && xhr.upload) {
-    xhr.upload.onprogress = function progress(e) {
-      if (e.total > 0) {
-        e.percent = e.loaded / e.total * 100;
-      }
-
-      option.onProgress(e);
-    };
-  } // eslint-disable-next-line no-undef
-
-
-  var formData = new FormData();
-
-  if (option.data) {
-    Object.keys(option.data).forEach(function (key) {
-      var value = option.data[key]; // support key-value array data
-
-      if (Array.isArray(value)) {
-        value.forEach(function (item) {
-          // { list: [ 11, 22 ] }
-          // formData.append('list[]', 11);
-          formData.append("".concat(key, "[]"), item);
-        });
-        return;
-      }
-
-      formData.append(key, value);
-    });
-  } // eslint-disable-next-line no-undef
-
-
-  if (option.file instanceof Blob) {
-    formData.append(option.filename, option.file, option.file.name);
-  } else {
-    formData.append(option.filename, option.file);
-  }
-
-  xhr.onerror = function error(e) {
-    option.onError(e);
-  };
-
-  xhr.onload = function onload() {
-    // allow success when 2xx status
-    // see https://github.com/react-component/upload/issues/34
-    if (xhr.status < 200 || xhr.status >= 300) {
-      return option.onError(getError(option, xhr), getBody(xhr));
-    }
-
-    return option.onSuccess(getBody(xhr), xhr);
-  };
-
-  xhr.open(option.method, option.action, true); // Has to be after `.open()`. See https://github.com/enyo/dropzone/issues/179
-
-  if (option.withCredentials && 'withCredentials' in xhr) {
-    xhr.withCredentials = true;
-  }
-
-  var headers = option.headers || {}; // when set headers['X-Requested-With'] = null , can close default XHR header
-  // see https://github.com/react-component/upload/issues/33
-
-  if (headers['X-Requested-With'] !== null) {
-    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-  }
-
-  Object.keys(headers).forEach(function (h) {
-    if (headers[h] !== null) {
-      xhr.setRequestHeader(h, headers[h]);
-    }
-  });
-  xhr.send(formData);
-  return {
-    abort: function abort() {
-      xhr.abort();
-    }
-  };
-}
-
-/***/ }),
-
-/***/ "./node_modules/rc-upload/es/traverseFileTree.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/rc-upload/es/traverseFileTree.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-function loopFiles(item, callback) {
-  var dirReader = item.createReader();
-  var fileList = [];
-
-  function sequence() {
-    dirReader.readEntries(function (entries) {
-      var entryList = Array.prototype.slice.apply(entries);
-      fileList = fileList.concat(entryList); // Check if all the file has been viewed
-
-      var isFinished = !entryList.length;
-
-      if (isFinished) {
-        callback(fileList);
-      } else {
-        sequence();
-      }
-    });
-  }
-
-  sequence();
-}
-
-var traverseFileTree = function traverseFileTree(files, callback, isAccepted) {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  var _traverseFileTree = function _traverseFileTree(item, path) {
-    // eslint-disable-next-line no-param-reassign
-    item.path = path || '';
-
-    if (item.isFile) {
-      item.file(function (file) {
-        if (isAccepted(file)) {
-          // https://github.com/ant-design/ant-design/issues/16426
-          if (item.fullPath && !file.webkitRelativePath) {
-            Object.defineProperties(file, {
-              webkitRelativePath: {
-                writable: true
-              }
-            }); // eslint-disable-next-line no-param-reassign
-
-            file.webkitRelativePath = item.fullPath.replace(/^\//, '');
-            Object.defineProperties(file, {
-              webkitRelativePath: {
-                writable: false
-              }
-            });
-          }
-
-          callback([file]);
-        }
-      });
-    } else if (item.isDirectory) {
-      loopFiles(item, function (entries) {
-        entries.forEach(function (entryItem) {
-          _traverseFileTree(entryItem, "".concat(path).concat(item.name, "/"));
-        });
-      });
-    }
-  };
-
-  files.forEach(function (file) {
-    _traverseFileTree(file.webkitGetAsEntry());
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (traverseFileTree);
-
-/***/ }),
-
-/***/ "./node_modules/rc-upload/es/uid.js":
-/*!******************************************!*\
-  !*** ./node_modules/rc-upload/es/uid.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ uid)
-/* harmony export */ });
-var now = +new Date();
-var index = 0;
-function uid() {
-  // eslint-disable-next-line no-plusplus
-  return "rc-upload-".concat(now, "-").concat(++index);
-}
-
-/***/ }),
-
-/***/ "./node_modules/rc-util/es/pickAttrs.js":
-/*!**********************************************!*\
-  !*** ./node_modules/rc-util/es/pickAttrs.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ pickAttrs)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-
-var attributes = "accept acceptCharset accessKey action allowFullScreen allowTransparency\n    alt async autoComplete autoFocus autoPlay capture cellPadding cellSpacing challenge\n    charSet checked classID className colSpan cols content contentEditable contextMenu\n    controls coords crossOrigin data dateTime default defer dir disabled download draggable\n    encType form formAction formEncType formMethod formNoValidate formTarget frameBorder\n    headers height hidden high href hrefLang htmlFor httpEquiv icon id inputMode integrity\n    is keyParams keyType kind label lang list loop low manifest marginHeight marginWidth max maxLength media\n    mediaGroup method min minLength multiple muted name noValidate nonce open\n    optimum pattern placeholder poster preload radioGroup readOnly rel required\n    reversed role rowSpan rows sandbox scope scoped scrolling seamless selected\n    shape size sizes span spellCheck src srcDoc srcLang srcSet start step style\n    summary tabIndex target title type useMap value width wmode wrap";
-var eventsName = "onCopy onCut onPaste onCompositionEnd onCompositionStart onCompositionUpdate onKeyDown\n    onKeyPress onKeyUp onFocus onBlur onChange onInput onSubmit onClick onContextMenu onDoubleClick\n    onDrag onDragEnd onDragEnter onDragExit onDragLeave onDragOver onDragStart onDrop onMouseDown\n    onMouseEnter onMouseLeave onMouseMove onMouseOut onMouseOver onMouseUp onSelect onTouchCancel\n    onTouchEnd onTouchMove onTouchStart onScroll onWheel onAbort onCanPlay onCanPlayThrough\n    onDurationChange onEmptied onEncrypted onEnded onError onLoadedData onLoadedMetadata\n    onLoadStart onPause onPlay onPlaying onProgress onRateChange onSeeked onSeeking onStalled onSuspend onTimeUpdate onVolumeChange onWaiting onLoad onError";
-var propList = "".concat(attributes, " ").concat(eventsName).split(/[\s\n]+/);
-
-/* eslint-enable max-len */
-var ariaPrefix = 'aria-';
-var dataPrefix = 'data-';
-function match(key, prefix) {
-  return key.indexOf(prefix) === 0;
-}
-/**
- * Picker props from exist props with filter
- * @param props Passed props
- * @param ariaOnly boolean | { aria?: boolean; data?: boolean; attr?: boolean; } filter config
- */
-function pickAttrs(props) {
-  var ariaOnly = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-  var mergedConfig;
-  if (ariaOnly === false) {
-    mergedConfig = {
-      aria: true,
-      data: true,
-      attr: true
-    };
-  } else if (ariaOnly === true) {
-    mergedConfig = {
-      aria: true
-    };
-  } else {
-    mergedConfig = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, ariaOnly);
-  }
-  var attrs = {};
-  Object.keys(props).forEach(function (key) {
-    if (
-    // Aria
-    mergedConfig.aria && (key === 'role' || match(key, ariaPrefix)) ||
-    // Data
-    mergedConfig.data && match(key, dataPrefix) ||
-    // Attr
-    mergedConfig.attr && propList.includes(key)) {
-      attrs[key] = props[key];
-    }
-  });
-  return attrs;
-}
 
 /***/ }),
 

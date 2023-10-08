@@ -23,7 +23,7 @@ Route::post('/customer/update', [App\Http\Controllers\Api\Admin\CustomerControll
 Route::delete('/customer/delete/{id}', [App\Http\Controllers\Api\Admin\CustomerController::class, 'delete']);
 
 Route::get('/mealplan', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'index']);
-Route::get('/mealplan/options', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'mealplanOptions']);
+Route::get('/mealplan/options/{mealplan_id}', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'mealplanOptions']);
 Route::post('/mealplan/create', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'create']);
 Route::post('/mealplan/create/option', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'createOption']);
 Route::post('/mealplan/create/addon', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'createAddon']);

@@ -9,7 +9,8 @@ import {
     Select,
     Input
 } from 'antd';
-import { getMealPlanOptions } from '../redux/MealPlan/actions';
+import { getMealPlanOptions, createMealPlanAddon } from '../../redux/MealPlan/actions';
+import { isEmpty } from 'lodash';
 
 const MealPlanAddonCreate = ({ }) => {
     const history = useHistory()
@@ -19,17 +20,13 @@ const MealPlanAddonCreate = ({ }) => {
 
     const [form] = Form.useForm()
 
-    const onFormLayoutChange = ({ first_name }) => {
-        console.log(first_name);
-    };
-
     const onFormSubmit = (values) => {
-        console.log(values);
-        // dispatch(createMealPlanOption(values));
+        dispatch(createMealPlanAddon(values));
+        dispatch(getMealPlanOptions(mealplan.id));
     }
 
     useEffect(() => {
-        dispatch(getMealPlanOptions());
+        dispatch(getMealPlanOptions(mealplan.id));
     }, [mealplan])
 
     if (!mealplanOptions) {
@@ -37,8 +34,15 @@ const MealPlanAddonCreate = ({ }) => {
     }
 
     useEffect(() => {
-        form.setFieldsValue({id:mealplan.id, mealplan_option_id:1})
+        form.setFieldsValue({meal_plan_id:mealplan.id})
     }, [form, mealplan])
+
+    const mealPlanDisplayOptions = () => {
+        return !isEmpty(mealplan.options) ?
+                mealplan.options.map((option, index)=> {                         
+                    return <span key={index}>  {option.name} </span>
+                }) : <span>No options</span>
+    }
 
     return (
         <Form
@@ -46,19 +50,19 @@ const MealPlanAddonCreate = ({ }) => {
             labelCol={{ span: 4, }}
             wrapperCol={{ span: 14, }}
             layout="horizontal"
-            onValuesChange={onFormLayoutChange}
             onFinish={onFormSubmit}
         >
 
-            <Form.Item name="id" hidden>
+            <Form.Item name="meal_plan_id" hidden>
                 <Input type="hidden" />
             </Form.Item>
             <Row>
                 <Col span={24}>
-                    <Form.Item label="options" name="mealplan_option_id">
+                    <Form.Item size={'large'} label="Options" name="meal_plan_option_id">
                         <Select
+                            placeholder={'Select options'}
                             style={{
-                                width: 120,
+                                width: 400,
                             }}
                             options={mealplanOptions}
                         />
@@ -72,13 +76,8 @@ const MealPlanAddonCreate = ({ }) => {
             </Row>
             <Row>
                 <Col span={12}>
-                    {
-                        mealplan.add_ons.map((value, index)=>{
-                            <span key={index}>
-                                {value.meal_plan_id}
-                            </span>
-                        })
-                    }
+                    Options - {mealplan.name}
+                    { mealPlanDisplayOptions() }
                 </Col>
             </Row>
 

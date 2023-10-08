@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { 
     Row, Col, Form, Button,
-    Input, Radio
+    Input, Radio, InputNumber
 } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
@@ -35,7 +35,6 @@ const CoreSettings = ({settings, getSettings, saveSettings}) => {
             form.setFieldsValue(initialValues);
         }
     },[settings])
-    
 
     return (
         <Form
@@ -49,16 +48,20 @@ const CoreSettings = ({settings, getSettings, saveSettings}) => {
                 onFinish={onFormSubmit}
             >
 
-                <Form.Item label="Order Type" name={['core', 'type']} >
-                    <Input/>
+                <Form.Item label="Delivery Charge per KM" name={['core', 'deliveryCharge']} >
+                    <InputNumber
+                        min={0}
+                    />
                 </Form.Item>
 
-                <Form.Item label="Tax" name={['core', 'tax']} >
-                    <Input/>
+                <Form.Item label="Tax in percentage" name={['core', 'tax']} >
+                    <InputNumber
+                        min={0}
+                    />
                 </Form.Item>
 
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                    <Button type="primary" htmlType="submit">Submit</Button>
+                    <Button type="primary" htmlType="submit">Save</Button>
                 </Form.Item>
         </Form>
     )

@@ -39,7 +39,7 @@ export const privateRouteList = [
     },
     {
         path: 'admin/order/view',
-        component: lazy(() => import('../pages/Admin/Order/index')),
+        component: lazy(() => import('../pages/Admin/Order/view')),
         exact: true,
     },
     {
@@ -68,11 +68,6 @@ export const privateRouteList = [
         exact: true,
     },
     {
-        path: 'admin/drivers',
-        component: lazy(() => import('../pages/Admin/Drivers/index')),
-        exact: true,
-    },
-    {
         path: 'admin/mealplan',
         component: lazy(() => import('../pages/Admin/MealPlan/index')),
         exact: true,
@@ -83,13 +78,13 @@ export const privateRouteList = [
         exact: true,
     },
     {
-        path: 'admin/mealplan/create/options',
-        component: lazy(() => import('../pages/Admin/MealPlan/createMealPlanOptions')),
+        path: 'admin/mealplan/edit/:id',
+        component: lazy(() => import('../pages/Admin/MealPlan/edit')),
         exact: true,
     },
     {
-        path: 'admin/mealplan/edit/:id',
-        component: lazy(() => import('../pages/Admin/MealPlan/edit')),
+        path: 'admin/drivers',
+        component: lazy(() => import('../pages/Admin/Drivers/index')),
         exact: true,
     },
     {

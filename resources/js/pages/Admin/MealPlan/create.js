@@ -9,10 +9,11 @@ import {
     Input,
     Switch,
     InputNumber,
-    Upload,
-    message
+    Upload
 } from 'antd';
 import { createMealPlan } from '../../../redux/MealPlan/actions';
+
+const { TextArea } = Input;
 
 const Create = ({ }) => {
     const history = useHistory()
@@ -95,7 +96,7 @@ const Create = ({ }) => {
                             },
                         ]}
                     >
-                        <Input />
+                        <TextArea rows={2} />
                     </Form.Item>
                     <Form.Item label="Short Description" name="short_description"
                         rules={[
@@ -104,7 +105,7 @@ const Create = ({ }) => {
                             },
                         ]}
                     >
-                        <Input />
+                        <TextArea rows={2} />
                     </Form.Item>
                     <Form.Item
                         name = {['price']}

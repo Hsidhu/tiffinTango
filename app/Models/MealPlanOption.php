@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+// meanu_options
 class MealPlanOption extends Model
 {
     use HasFactory;
@@ -22,13 +23,20 @@ class MealPlanOption extends Model
         return $this->belongsToMany(\App\Models\MealPlan::class, 'meal_plan_addons');
     }
 
-    public static function getDataForSelect()
+    // get data from admin meal side edit mealplan page
+    // if mealPlan already have option attached don't show that option in select
+    public static function getDataForSelect($mealplan_id)
     {
-        return static::all()->map(function ($item) {
-            return [
-                'value' => $item->id,
-                'label' => $item->name,
-            ];
-        });
+        $result = static::all()->map(function ($item) use ($mealplan_id) {
+            $optionAttachedTo = $item->mealplans->pluck('id')->toArray();
+            if(!in_array($mealplan_id, $optionAttachedTo)){
+                return [
+                    'value' => $item->id,
+                    'label' => $item->name,
+                ];
+            }
+            return;
+        })->filter();
+        return $result->values()->all();   
     }
 }

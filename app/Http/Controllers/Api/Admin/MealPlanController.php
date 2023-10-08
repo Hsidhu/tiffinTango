@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\MealPlan;
 use App\Models\MealPlanOption;
 use App\Models\MealPlanOptionValue;
-use App\Http\Resources\MealPlanResource;
+use App\Http\Resources\Admin\MealPlanResource;
 use App\Http\Resources\MealPlanOrderResource;
 use App\Models\MealPlanAddon;
 use Illuminate\Support\Facades\Storage;
@@ -20,9 +20,9 @@ class MealPlanController extends Controller
         return MealPlanResource::collection($mealPlans);
     }
 
-    public function mealplanOptions()
+    public function mealplanOptions($mealplan_id)
     {
-        $mealPlanOptions = MealPlanOption::getDataForSelect();
+        $mealPlanOptions = MealPlanOption::getDataForSelect($mealplan_id);
         return response()->json($mealPlanOptions);
     }
     /**
@@ -54,7 +54,9 @@ class MealPlanController extends Controller
         $this->validate($request, [
             'name' => ['required', 'between:1,64'],
             'display_type' => ['required', 'between:1,48'], // in:Business,Company,Personal,Online Shopping,Others
-            'optionValues' => ['required']
+            'optionValues' => ['required'],
+            'optionValues.*.value' => 'required|string',
+            'optionValues.*.price' => 'required|numeric'
         ]);
 
         // display type == radio, input, checkbox
@@ -73,17 +75,18 @@ class MealPlanController extends Controller
     public function createAddon(Request $request)
     {
         $this->validate($request, [
-            'mealplan_id' => ['required'],
-            'mealplan_option_id' => ['required', ]
+            'meal_plan_id' => ['required'],
+            'meal_plan_option_id' => ['required', ]
         ]);
-        $mealPlanOption = MealPlanAddon::create($request->only(['mealplan_id', 'mealplan_option_id']));
+        $mealPlanOption = MealPlanAddon::create($request->only(['meal_plan_id', 'meal_plan_option_id']));
         return response()->json($mealPlanOption);
     }
 
+    // Edit MealPlan Admin side
     public function edit($id)
     {
         $mealPlan = MealPlan::find($id);
-        return response()->json($mealPlan);
+        return new MealPlanResource($mealPlan);
     }
 
     public function options($id)

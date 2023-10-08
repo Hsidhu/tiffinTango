@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { Space, Table, Tag, Row, Col, Button } from 'antd';
+import { Space, Table, Tag, Row, Col, Button, Popconfirm } from 'antd';
 import { getMealPlans } from "../../../redux/MealPlan/actions"
 
 const MealPan = ({ }) => {
@@ -21,13 +21,22 @@ const MealPan = ({ }) => {
         history.push(`/admin/mealplan/edit/${id}`)
     }
 
+    const confirm = (e) => {
+        console.log(e);
+    };
+    const cancel = (e) => {
+        console.log(e);
+    };
+
     const columns = [
         {
             title: 'Name',
             dataIndex: 'name',
             key: 'name',
-            render: (text) => <a>{text}</a>,
-            sorter: (a, b) => a.name.length - b.name.length
+            sorter: (a, b) => a.name.length - b.name.length,
+            render: (_, record) => (
+                <a onClick={ () => handleEditClick(record.id)} >{record.name}</a>
+            ),
         },
         {
             title: 'description',
@@ -45,7 +54,15 @@ const MealPan = ({ }) => {
             render: (_, record) => (
                 <Space size="middle">
                     <a onClick={ () => handleEditClick(record.id)} >Edit</a>
-                    <a>Delete</a>
+                    <Popconfirm
+                        title="Are you sure to delete this task?"
+                        onConfirm={confirm}
+                        onCancel={cancel}
+                        okText="Yes"
+                        cancelText="No"
+                        >
+                        <a href="#">Delete</a>
+                    </Popconfirm>
                 </Space>
             ),
         },
@@ -60,7 +77,7 @@ const MealPan = ({ }) => {
                             display: "flex",
                             justifyContent: 'end',
                         }}>
-                        <Button type="link" onClick={() => history.push('/admin/customer/create')} >
+                        <Button type="link" onClick={() => history.push('/admin/mealplan/create')} >
                             Create
                         </Button>
                     </Space>

@@ -8,8 +8,9 @@ import {
     Form, Input, Switch, InputNumber,
     Upload
 } from 'antd';
-import { getMealPlan, updateMealPlan } from '../redux/MealPlan/actions';
+import { getMealPlan, updateMealPlan } from '../../redux/MealPlan/actions';
 
+const { TextArea } = Input;
 
 const MealPlanForm = ({ }) => {
     const history = useHistory()
@@ -85,7 +86,7 @@ const MealPlanForm = ({ }) => {
                             },
                         ]}
                     >
-                        <Input />
+                        <TextArea rows={2} />
                     </Form.Item>
                     <Form.Item label="Short Description" name="short_description"
                         rules={[
@@ -94,7 +95,7 @@ const MealPlanForm = ({ }) => {
                             },
                         ]}
                     >
-                        <Input />
+                        <TextArea rows={2} />
                     </Form.Item>
                     <Form.Item
                         name = {['price']}
@@ -131,7 +132,7 @@ const MealPlanForm = ({ }) => {
 
                 </Col>
                 <Col span={12}>
-                    <Form.Item label="duration" name="duration"
+                    <Form.Item label="Duration" name="duration"
                         rules={[{
                             required: false
                         }]}
