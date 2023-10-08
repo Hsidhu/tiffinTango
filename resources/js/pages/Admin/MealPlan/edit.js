@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
-    Row, Col, Tabs, Typography
+    Row, Col, Tabs, Typography,
+    Space, Button
 } from 'antd';
 import { getMealPlan } from '../../../redux/MealPlan/actions';
 

@@ -13,7 +13,7 @@ export const mealplans = (state = [], action) => {
     }
 }
 
-export const mealplan = (state = [], action) => {
+export const mealplan = (state = {}, action) => {
     switch (action.type) {
         case GET_MEALPLAN:
             return action.payload

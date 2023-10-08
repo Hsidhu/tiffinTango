@@ -38,7 +38,7 @@ export const privateRouteList = [
         exact: true,
     },
     {
-        path: 'admin/order/view',
+        path: 'admin/order/view/:id',
         component: lazy(() => import('../pages/Admin/Order/view')),
         exact: true,
     },

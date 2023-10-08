@@ -97,7 +97,7 @@ class OrderController extends Controller
         $orderTotalItems[3] =[
             "order_id" => $order->id,
             "code" => 'total',
-            "title" => 'total',
+            "title" => 'Total',
             "value" => $subTotal,
             "is_summable" => 0
         ];

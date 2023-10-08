@@ -18,6 +18,6 @@ class OrderController extends Controller
     public function view($id)
     {
         $order = MealPlanOrder::find($id);
-        return response()->json($order);
+        return new OrderResource($order);
     }
 }

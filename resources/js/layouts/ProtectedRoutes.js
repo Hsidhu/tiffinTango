@@ -1,8 +1,11 @@
 import React from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import { Layout, Menu, MenuProps, Col, Row, Space } from 'antd';
+import { 
+    Layout, Menu, MenuProps, Col, Row, Space,
+    Badge
+} from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { LoginOutlined } from '@ant-design/icons';
+import { BellOutlined } from '@ant-design/icons';
 
 import {privateRouteList} from '../routes/routes';
 
@@ -13,13 +16,6 @@ import HeaderProfileDorpdown from '../components/headerProfileDorpdown';
 import HeaderLogo from '../components/headerLogo';
 
 const { Header, Sider, Content, Footer } = Layout;
-
-const headerMenuItems = ['logout', '2'].map((name, index) => ({
-    key: `/${index}`,
-    label: `${name}`,
-    icon: <LoginOutlined />
-}));
-
 
 
 function ProtectedRoutes() {
@@ -44,16 +40,16 @@ function ProtectedRoutes() {
                     </Col>
                     <Col flex={3}>
                         <div style={{ display: 'flex', alignItems:'center', justifyContent:'end' }}>
-                            <Menu mode="horizontal"
-                                defaultSelectedKeys={['1']}
-                                // defaultSelectedKeys={[this.props.location.pathname]}
-                                style={{
-                                    height: '100%',
-                                    borderRight: 0,
-                                }}
-                                items={headerMenuItems} 
-                            />
-                            <HeaderProfileDorpdown />
+                            <Space size={"middle"}>
+                                <a href="#">
+                                    <Badge count={5}>
+                                        <BellOutlined />
+                                    </Badge>
+                                </a>
+                            </Space>
+                            <Space>
+                                <HeaderProfileDorpdown />
+                            </Space>
                         </div>
                     </Col>
                 </Row>
