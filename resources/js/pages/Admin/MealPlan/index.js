@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { Space, Table, Tag, Row, Col, Button, Popconfirm } from 'antd';
+import { 
+    Space, Table, Row, Divider,
+    Col, Button, Popconfirm 
+} from 'antd';
 import { getMealPlans } from "../../../redux/MealPlan/actions"
+import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const MealPan = ({ }) => {
     const history = useHistory();
@@ -70,19 +74,12 @@ const MealPan = ({ }) => {
 
     return (
         <>
-            <Row>
-                <Col flex={2}>MealPans</Col>
-                <Col flex={3}>
-                    <Space align='center' style={{
-                            display: "flex",
-                            justifyContent: 'end',
-                        }}>
-                        <Button type="link" onClick={() => history.push('/admin/mealplan/create')} >
-                            Create
-                        </Button>
-                    </Space>
-                </Col>
-            </Row>
+            <TableHeaderLink
+                name="MealPlans"
+                toUri="/admin/mealplan/create"
+                toText="Create"
+            />
+            <Divider />
             <Table rowKey="id" columns={columns} dataSource={mealplans.data} />
         </>
     );

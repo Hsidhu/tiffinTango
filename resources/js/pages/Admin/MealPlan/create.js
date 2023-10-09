@@ -3,15 +3,12 @@ import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
-    Row, Col,
-    Button,
-    Form,
-    Input,
-    Switch,
-    InputNumber,
-    Upload
+    Row, Col, Button, Divider,
+    Form, Input,
+    Switch, InputNumber, Upload
 } from 'antd';
 import { createMealPlan } from '../../../redux/MealPlan/actions';
+import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const { TextArea } = Input;
 
@@ -68,116 +65,124 @@ const Create = ({ }) => {
     );
 
     return (
-        <Form
-            form={form}
-            labelCol={{ span: 4, }}
-            wrapperCol={{ span: 14, }}
-            layout="horizontal"
-            initialValues={{ price: 1.00, discount: 0.00 }}
-            onValuesChange={onFormLayoutChange}
-            style={{}}
-            onFinish={onFormSubmit}
-        >
-            <Row>
-                <Col span={12}>
-                    <Form.Item label="Name" name="name"
-                        rules={[
-                            {
-                                required: true
-                            },
-                        ]}
-                    >
-                        <Input />
-                    </Form.Item>
-                    <Form.Item label="Description" name="description"
-                        rules={[
-                            {
-                                required: true
-                            },
-                        ]}
-                    >
-                        <TextArea rows={2} />
-                    </Form.Item>
-                    <Form.Item label="Short Description" name="short_description"
-                        rules={[
-                            {
-                                required: false
-                            },
-                        ]}
-                    >
-                        <TextArea rows={2} />
-                    </Form.Item>
-                    <Form.Item
-                        name = {['price']}
-                        label = "Price"
-                        rules={[
-                            {
-                                required: true
-                            },
-                        ]}
-                    >
-                        <InputNumber
-                            min={1}
-                            precision={2}
-                            step={1.00}
-                            stringMode
-                        />
-                    </Form.Item>
-                    <Form.Item
-                        name = {['discount']}
-                        label = "Discount"
-                        rules={[
-                            {
-                                required: false
-                            },
-                        ]}
-                    >
-                        <InputNumber
-                            min={1}
-                            precision={2}
-                            step={1.00}
-                            stringMode
-                        />
-                    </Form.Item>
+        <>
+            <TableHeaderLink
+                name="Create MealPlan"
+                backUri="/admin/mealplans"
+            />
+            <Divider/>
+            <Form
+                form={form}
+                labelCol={{ span: 4, }}
+                wrapperCol={{ span: 14, }}
+                layout="horizontal"
+                initialValues={{ price: 1.00, discount: 0.00 }}
+                onValuesChange={onFormLayoutChange}
+                style={{}}
+                onFinish={onFormSubmit}
+            >
+                <Row>
+                    <Col span={12}>
+                        <Form.Item label="Name" name="name"
+                            rules={[
+                                {
+                                    required: true
+                                },
+                            ]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item label="Description" name="description"
+                            rules={[
+                                {
+                                    required: true
+                                },
+                            ]}
+                        >
+                            <TextArea rows={2} />
+                        </Form.Item>
+                        <Form.Item label="Short Description" name="short_description"
+                            rules={[
+                                {
+                                    required: false
+                                },
+                            ]}
+                        >
+                            <TextArea rows={2} />
+                        </Form.Item>
+                        <Form.Item
+                            name={['price']}
+                            label="Price"
+                            rules={[
+                                {
+                                    required: true
+                                },
+                            ]}
+                        >
+                            <InputNumber
+                                min={1}
+                                precision={2}
+                                step={1.00}
+                                stringMode
+                            />
+                        </Form.Item>
+                        <Form.Item
+                            name={['discount']}
+                            label="Discount"
+                            rules={[
+                                {
+                                    required: false
+                                },
+                            ]}
+                        >
+                            <InputNumber
+                                min={1}
+                                precision={2}
+                                step={1.00}
+                                stringMode
+                            />
+                        </Form.Item>
 
-                </Col>
-                <Col span={12}>
-                    <Form.Item label="duration" name="duration"
-                        rules={[{
-                            required: false
-                        }]}
-                    >
-                        <Input />
-                    </Form.Item>
+                    </Col>
+                    <Col span={12}>
+                        <Form.Item label="duration" name="duration"
+                            rules={[{
+                                required: false
+                            }]}
+                        >
+                            <Input />
+                        </Form.Item>
 
-                    <Form.Item label="Upload" name='image'>
-                        <Upload
-                            disabled={fileList.length == 0 ? false : true}
-                            listType="picture-card"
-                            fileList={fileList}
-                            onPreview={handlePreview}
-                            onChange={handleUpload}
-                            beforeUpload={() => false} // return false so that antd doesn't upload the picture right away
+                        <Form.Item label="Upload" name='image'>
+                            <Upload
+                                disabled={fileList.length == 0 ? false : true}
+                                listType="picture-card"
+                                fileList={fileList}
+                                onPreview={handlePreview}
+                                onChange={handleUpload}
+                                beforeUpload={() => false} // return false so that antd doesn't upload the picture right away
                             >
-                            {uploadButton}
-                        </Upload>
-                    </Form.Item>
-                    
-                    <Form.Item label="Status" name="status" valuePropName="checked">
-                        <Switch />
-                    </Form.Item>
-                    
-                </Col>
-            </Row>
-            <Row>
-                <Col span={12}>
-                    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                        <Button type="primary" htmlType="submit">Submit</Button>
-                    </Form.Item>
-                </Col>
-            </Row>
+                                {uploadButton}
+                            </Upload>
+                        </Form.Item>
 
-        </Form>
+                        <Form.Item label="Status" name="status" valuePropName="checked">
+                            <Switch />
+                        </Form.Item>
+
+                    </Col>
+                </Row>
+                <Row>
+                    <Col span={12}>
+                        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                            <Button type="primary" htmlType="submit">Submit</Button>
+                        </Form.Item>
+                    </Col>
+                </Row>
+
+            </Form>
+        </>
+
     );
 }
 

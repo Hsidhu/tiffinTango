@@ -69,7 +69,7 @@ export const privateRouteList = [
         exact: true,
     },
     {
-        path: 'admin/mealplan',
+        path: 'admin/mealplans',
         component: lazy(() => import('../pages/Admin/MealPlan/index')),
         exact: true,
     },
