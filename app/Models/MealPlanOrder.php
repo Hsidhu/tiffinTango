@@ -11,10 +11,15 @@ class MealPlanOrder extends Model
 {
     use HasFactory;
 
+    const DELIVERY = 'delivery';
+
+    const COLLECTION = 'collection';
+
     protected $guarded = [];
 
     protected $casts = [
-        "total_price" => 'float'
+        "total_price" => 'float',
+        // 'invoice_date' => 'dateTime'
     ];
 
     public function customer()
@@ -30,6 +35,16 @@ class MealPlanOrder extends Model
     public function totals()
     {
         return $this->hasMany(\App\Models\MealPlanOrderTotal::class, 'order_id');
+    }
+
+    public function isDeliveryType()
+    {
+        return $this->order_type == static::DELIVERY;
+    }
+
+    public function isCollectionType()
+    {
+        return $this->order_type == static::COLLECTION;
     }
 
     /**

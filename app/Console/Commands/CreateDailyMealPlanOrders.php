@@ -29,6 +29,9 @@ class CreateDailyMealPlanOrders extends Command
      */
     public function handle()
     {
+        // create table to added all the daily meal plans and log
+        // create table to log all the cron job logs
+        
         $today = Carbon::now();
         $orders = MealPlanOrder::whereDate('start_date', '<=', $today)
             ->whereDate('end_date', '>=', $today)

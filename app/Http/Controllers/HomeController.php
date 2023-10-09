@@ -27,9 +27,10 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function invoice($id)
+    public function invoice($hash)
     {
-        $order = MealPlanOrder::find($id);
+        dd($hash);
+        $order = MealPlanOrder::where('hash',$hash)->first();
         return view('order.invoice',[
             'model' => $order
         ]);

@@ -47,34 +47,34 @@
     <div class="row">
         <div class="col-6">
             <p>
-                <strong>@lang('admin::lang.orders.text_customer')</strong><br>
-                {{ $model->first_name.' '.$model->last_name.' ('.$model->email.')' }}
+                <strong>Customer:</strong><br>
+                {{ $model->customer->full_name.' ('.$model->customer->email.')' }}
             </p>
-            @if($model->isDeliveryType())
+            @if($model->order_type == 'delivery')
                 <div>
-                    <strong>@lang('admin::lang.orders.text_deliver_to')</strong><br>
-                    <address>{{ $model->formatted_address }}</address>
+                    <strong>Address</strong><br>
+                    <address>Address full formatted</address>
                 </div>
             @endif
         </div>
         <div class="col-3 text-left">
             <p>
-                <strong>@lang('admin::lang.orders.text_invoice_no')</strong><br>
-                {{ $model->invoice_number }}
+                <strong>Invoice #</strong><br>
+                {{ $model->invoice_no }}
             </p>
             <p>
-                <strong>@lang('admin::lang.orders.text_invoice_date')</strong><br>
-                {{ $model->invoice_date->format(lang('system::lang.php.date_format')) }}<br><br>
+                <strong>Invoice Date</strong><br>
+                {{ $model->created_at->format('d M Y') }}<br><br>
             </p>
         </div>
         <div class="col-3 text-right">
             <p>
-                <strong>@lang('admin::lang.orders.text_payment')</strong><br>
-                {{ $model->payment_method ? $model->payment_method->name : '' }}
+                <strong>Payment</strong><br>
+                $model->payment_type ? $model->payment_method->name
             </p>
             <p>
-                <strong>@lang('admin::lang.orders.text_order_date')</strong><br>
-                {{ $model->order_date->setTimeFromTimeString($model->order_time)->format(lang('system::lang.php.date_time_format')) }}
+                <strong>Order Date</strong><br>
+                {{ $model->created_at }}
             </p>
         </div>
     </div>
@@ -85,20 +85,18 @@
                 <table class="table table-bordered">
                     <thead>
                     <tr>
-                        <th width="2%"></th>
                         <th class="text-left" width="65%">
-                            <b>@lang('admin::lang.orders.column_name_option')</b>
+                            <b>NAME/OPTIONS</b>
                         </th>
-                        <th class="text-left"><b>@lang('admin::lang.orders.column_price')</b></th>
-                        <th class="text-right"><b>@lang('admin::lang.orders.column_total')</b></th>
+                        <th class="text-left"><b>PRICE</b></th>
+                        <th class="text-right"><b>TOTAL</b></th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($model->getOrderMenusWithOptions() as $menuItem)
+                    @foreach($model->items() as $menuItem)
                         <tr>
-                            <td>{{ $menuItem->quantity }}x</td>
-                            <td class="text-left"><b>{{ $menuItem->name }}</b><br />
-                                @php $menuItemOptionGroup = $menuItem->menu_options->groupBy('order_option_category') @endphp
+                            <td class="text-left"><b>{{ $menuItem->meal_plan_name }}</b><br />
+                                @php $menuItemOptionGroup = $menuItem->options @endphp
                                 @if($menuItemOptionGroup->isNotEmpty())
                                     <ul class="list-unstyled">
                                         @foreach($menuItemOptionGroup as $menuItemOptionGroupName => $menuItemOptions)
@@ -107,9 +105,6 @@
                                                 <ul class="list-unstyled">
                                                     @foreach($menuItemOptions as $menuItemOption)
                                                         <li>
-                                                            @if ($menuItemOption->quantity > 1)
-                                                                {{ $menuItemOption->quantity }}&nbsp;&times;
-                                                            @endif
                                                             {{ $menuItemOption->order_option_name }}&nbsp;
                                                             @if ($menuItemOption->order_option_price > 0)
                                                                 ({{ currency_format($menuItemOption->quantity * $menuItemOption->order_option_price) }})
@@ -121,9 +116,9 @@
                                         @endforeach
                                     </ul>
                                 @endif
-                                @if(!empty($menuItem->comment))
+                                @if(!empty($model->comment))
                                     <div>
-                                        <small><b>{{ $menuItem->comment }}</b></small>
+                                        <small><b>{{ $model->comment }}</b></small>
                                     </div>
                                 @endif
                             </td>
@@ -133,7 +128,7 @@
                     @endforeach
                     </tbody>
                     <tfoot>
-                    @foreach($model->getOrderTotals() as $total)
+                    @foreach($model->totals as $total)
                         @continue($model->isCollectionType() && $total->code == 'delivery')
                         @php $thickLine = ($total->code == 'order_total' || $total->code == 'total') @endphp
                         <tr>
@@ -151,7 +146,7 @@
 
     <div class="row">
         <div class="col">
-            <p class="text-center">@lang('admin::lang.orders.text_invoice_thank_you')</p>
+            <p class="text-center">Thank you for your order</p>
         </div>
     </div>
 </div>

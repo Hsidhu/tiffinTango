@@ -7,6 +7,10 @@
 // AntD
 @import '~antd/dist/antd.css';
 
+body{
+    height: auto!important;
+}
+
 #app, section, section > div {
     height: 100%;
 }

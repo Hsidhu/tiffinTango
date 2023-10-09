@@ -12,7 +12,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// blocked by Authenticate middlware
+Route::get('/invoice/{hash}', [App\Http\Controllers\HomeController::class, 'invoice'])->name('viewInvoice');
+
 Route::get('/{any}', function () {
     return view('index');
 })->where('any', '.*')->name('clientApp');
+
+
 

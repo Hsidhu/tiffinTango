@@ -157,11 +157,11 @@ const View = ({ }) => {
                 </Col>
             </Row>
 
-            <Row gutter={16}>
+            <Row gutter={12}>
                 <Col span={18}>
                     <Card
                         title="Order Detail"
-                        extra={<a href="#">More</a>}
+                        extra={<a href="#">Invoice</a>}
                     >
                         <br />
                         <Table

@@ -1,20 +1,26 @@
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
 import { Layout, Row, Col, Menu, Space } from 'antd';
 import {publicRouteList} from '../routes/routes';
 import {  publicTopMenu } from '../routes/menu'
 import HeaderLogo from '../components/headerLogo';
+import CarouselSlider from '../components/CarouselSlider';
 
 const { Header, Sider, Content, Footer } = Layout;
 
 // Layout for public pages
 const PublicRoutes = () => {
-
     const history = useHistory();
+    const location = useLocation();
+    console.log(location);
+
     const handleMenuClick = ({key}) => {
         if (key) {
           history.push(key)
         }
     };
+    const renderSlider = () => {
+        return location.pathname === '/' ? <CarouselSlider/> : null;
+    }
 
     return (
         <Layout>
@@ -29,21 +35,24 @@ const PublicRoutes = () => {
                     <Col span={8}>
                         <Menu
                             mode="horizontal"
+                            style={{ display: 'flex', justifyContent: 'flex-end' }}
                             defaultSelectedKeys={['home']}
                             items={publicTopMenu}
                             onClick={handleMenuClick}
                         />
                     </Col>
                 </Row>
-                
             </Header>
+            
+            {renderSlider()}
+
             <Content style={{ padding: '0 50px' }}>
                 <Space
                     direction="vertical"
-                    size="middle"
+                    size="large"
                     style={{
                         display: 'flex',
-                        margin: '14px 14px'
+                        margin: '18px 14px'
                     }}
                 >
                     <Switch>

@@ -40,14 +40,14 @@ function ProtectedRoutes() {
                     </Col>
                     <Col flex={3}>
                         <div style={{ display: 'flex', alignItems:'center', justifyContent:'end' }}>
-                            <Space size={"middle"}>
-                                <a href="#">
-                                    <Badge count={5}>
-                                        <BellOutlined />
-                                    </Badge>
-                                </a>
-                            </Space>
-                            <Space>
+                            <Space size={"large"}>
+                                <div>
+                                    <a href="#" style={{display:"flex"}}>
+                                        <Badge count={5}>
+                                            <BellOutlined style={{ fontSize: '24px' }}/>
+                                        </Badge>
+                                    </a>
+                                </div>
                                 <HeaderProfileDorpdown />
                             </Space>
                         </div>

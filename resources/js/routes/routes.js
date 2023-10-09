@@ -3,7 +3,8 @@ import { lazy } from 'react';
 export const publicRouteList = [
     {
         path: '',
-        component: lazy(() => import('../pages/Welcome')),
+        name:'home',
+        component: lazy(() => import('../pages/home')),
         exact: true,
     },
     {

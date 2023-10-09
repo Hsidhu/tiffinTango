@@ -26882,6 +26882,10 @@ div.ant-typography-edit-content.ant-typography-rtl {
   margin: 8px 0 0;
   padding: 0;
 }
+body {
+  height: auto !important;
+}
+
 #app, section, section > div {
   height: 100%;
 }

@@ -5,20 +5,22 @@ import {
     Image
 } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
-import { axiosConfig } from '../config/constants';
+import { imageUrl } from '../config/helpers';
 
 const { Meta } = Card;
 
 const ContentCards = () => (
     <Row gutter={16} style={{display:'flex'}}>
         <Col span={8}>
-            <Card title="Tiffin" bordered={false}>
-                <img src={`${axiosConfig.HOST_URL}/images/site/tiffin_shape.jpeg`} />
+            <Card title="Tiffin"
+                bordered={false}
+                >
+                <img src={imageUrl('/images/site/tiffin_shape.jpeg')} />
             </Card>
         </Col>
         <Col span={8}>
             <Card title="Take Away" bordered={false}>
-                <img src={`${axiosConfig.HOST_URL}/images/site/take_away_shape.jpeg`} />
+                <img src={imageUrl('/images/site/take_away_shape.jpeg')} />
             </Card>
         </Col>
         <Col span={8}>
@@ -30,7 +32,7 @@ const ContentCards = () => (
                     <EditOutlined key="edit" />
                 ]}
                 >
-                    <img src={`${axiosConfig.HOST_URL}/images/site/catering_shape.jpeg`} />
+                    <img src={imageUrl('/images/site/catering_shape.jpeg')} />
                 {/* <Meta
                     avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
                     title="Card title"
