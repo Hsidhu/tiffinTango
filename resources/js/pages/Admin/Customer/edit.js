@@ -2,19 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
-    Row, Col,
-    Button,
-    Form,
-    Input,
-    Radio,
-    Switch,
-    AutoComplete
+    Row, Col, Button, Divider,
+    Form, Input, Switch
 } from 'antd';
 
 import Autocomplete, { usePlacesWidget } from "react-google-autocomplete";
 import { GOOGLE_API_KEY } from '../../../config/constants';
 import { updateCustomer, getCustomer } from '../../../redux/Customer/actions'
 import { phonePattern } from '../../../validationHelper'
+import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const Edit = ({ }) => {
     const history = useHistory()
@@ -28,7 +24,7 @@ const Edit = ({ }) => {
         dispatch(getCustomer(id))
     }, [])
 
-    if(!customer){
+    if (!customer) {
         return null;
     }
     const [form] = Form.useForm()
@@ -104,138 +100,146 @@ const Edit = ({ }) => {
 
     const onFormSubmit = (values) => {
         dispatch(updateCustomer(values));
-        history.push('/admin/customer')
+        history.push('/admin/customers')
     }
 
     useEffect(() => {
-        form.setFieldsValue({...customer, ...customer.address})
+        form.setFieldsValue({ ...customer, ...customer.address })
     }, [form, customer])
-    
+
     return (
-        <Form
-            form={form}
-            onFinish={onFormSubmit}
-            onValuesChange={onFormLayoutChange}
-            labelCol={{ span: 4, }}
-            wrapperCol={{ span: 14, }}
-            layout="horizontal"
-            style={{}}
-        >
-            <Row>
-                <Col span={12}>
-                    <Form.Item label="First Name" name="first_name"
-                        rules={[
-                            {
-                                required: true
-                            },
-                        ]}
-                    >
-                        <Input />
-                    </Form.Item>
-                    <Form.Item label="Last Name" name="last_name"
-                        rules={[
-                            {
-                                required: true
-                            },
-                        ]}
-                    >
-                        <Input />
-                    </Form.Item>
-                    <Form.Item
-                        name={['email']}
-                        label="Email"
-                        rules={[
-                            {
-                                required: true,
-                                type: 'email',
-                            },
-                        ]}
-                    >
-                        <Input />
-                    </Form.Item>
-                    <Form.Item name="phone" label="Phone"
-                        rules={[
-                            {
+        <>
+            <TableHeaderLink
+                name="Edit Customer"
+                backUri="/admin/customers"
+            />
+            <Divider />
+            <Form
+                form={form}
+                onFinish={onFormSubmit}
+                onValuesChange={onFormLayoutChange}
+                labelCol={{ span: 4, }}
+                wrapperCol={{ span: 14, }}
+                layout="horizontal"
+                style={{}}
+            >
+                <Row>
+                    <Col span={12}>
+                        <Form.Item label="First Name" name="first_name"
+                            rules={[
+                                {
+                                    required: true
+                                },
+                            ]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item label="Last Name" name="last_name"
+                            rules={[
+                                {
+                                    required: true
+                                },
+                            ]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item
+                            name={['email']}
+                            label="Email"
+                            rules={[
+                                {
+                                    required: true,
+                                    type: 'email',
+                                },
+                            ]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item name="phone" label="Phone"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Please input your phone number!',
+                                },
+                                { phonePattern, message: 'Phone must be in the right format' }
+                            ]}
+                        >
+                            <Input style={{ width: '100%' }} />
+                        </Form.Item>
+                        <Form.Item label="Status" name="status" valuePropName="checked">
+                            <Switch />
+                        </Form.Item>
+
+                    </Col>
+                    <Col span={12}>
+
+                        <Form.Item label="Search Address" name="search_address" labelWrap>
+                            <Input
+                                ref={(c) => {
+                                    antInputRef.current = c;
+                                    if (c)
+                                        antRef.current = c.input;
+                                }}
+                            />
+                        </Form.Item>
+
+                        <Form.Item label="Address" name="address"
+                            rules={[{ required: true }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item label="City" name="city"
+                            rules={[{ required: true },]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item label="State" name="state"
+                            rules={[{ required: true },]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item
+                            name={['postal_code']}
+                            label="Postal Code"
+                            rules={[{ required: true, }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item name="country" label="Country"
+                            rules={[{
                                 required: true,
                                 message: 'Please input your phone number!',
-                            },
-                            { phonePattern, message: 'Phone must be in the right format' }
-                        ]}
-                    >
-                        <Input style={{ width: '100%' }} />
-                    </Form.Item>
-                    <Form.Item label="Status" name="status" valuePropName="checked">
-                        <Switch />
-                    </Form.Item>
+                            }
+                            ]}
+                        >
+                            <Input style={{ width: '100%' }} />
+                        </Form.Item>
+                        <Form.Item name="lat" hidden>
+                            <Input type="hidden" />
+                        </Form.Item>
+                        <Form.Item name="lng" hidden>
+                            <Input type="hidden" />
+                        </Form.Item>
+                        <Form.Item name="id" hidden>
+                            <Input type="hidden" />
+                        </Form.Item>
+                        <Form.Item name="address_id" hidden>
+                            <Input type="hidden" />
+                        </Form.Item>
+                    </Col>
+                </Row>
 
-                </Col>
-                <Col span={12}>
+                <Row>
+                    <Col span={12}>
+                        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                            <Button type="primary" htmlType="submit">Submit</Button>
+                        </Form.Item>
+                    </Col>
+                </Row>
 
-                    <Form.Item label="Search Address" name="search_address" labelWrap>
-                        <Input
-                            ref={(c) => {
-                                antInputRef.current = c;
-                                if (c)
-                                    antRef.current = c.input;
-                            }}
-                        />
-                    </Form.Item>
+            </Form>
+        </>
 
-                    <Form.Item label="Address" name="address"
-                        rules={[{ required: true }]}
-                    >
-                        <Input />
-                    </Form.Item>
-                    <Form.Item label="City" name="city"
-                        rules={[{ required: true },]}
-                    >
-                        <Input />
-                    </Form.Item>
-                    <Form.Item label="State" name="state"
-                        rules={[{ required: true },]}
-                    >
-                        <Input />
-                    </Form.Item>
-                    <Form.Item
-                        name={['postal_code']}
-                        label="Postal Code"
-                        rules={[{ required: true, }]}
-                    >
-                        <Input />
-                    </Form.Item>
-                    <Form.Item name="country" label="Country"
-                        rules={[{
-                            required: true,
-                            message: 'Please input your phone number!',
-                        }
-                        ]}
-                    >
-                        <Input style={{ width: '100%' }} />
-                    </Form.Item>
-                    <Form.Item name="lat" hidden>
-                        <Input type="hidden" />
-                    </Form.Item>
-                    <Form.Item name="lng" hidden>
-                        <Input type="hidden" />
-                    </Form.Item>
-                    <Form.Item name="id" hidden>
-                        <Input type="hidden" />
-                    </Form.Item>
-                    <Form.Item name="address_id" hidden>
-                        <Input type="hidden" />
-                    </Form.Item>
-                </Col>
-            </Row>
-
-            <Row>
-                <Col span={12}>
-                    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                        <Button type="primary" htmlType="submit">Submit</Button>
-                    </Form.Item>
-                </Col>
-            </Row>
-
-        </Form>
     );
 }
 

@@ -32,7 +32,7 @@ export const protectedSideMenu = [
     getItem('/admin/orders', 'Orders', <DesktopOutlined />),
     getItem('/admin/locations', 'Locations', <PushpinFilled />),
     getItem('/admin/mealplans', 'MealPlan', <CopyFilled />),
-    getItem('/admin/customer', 'Customers', <CarFilled />),
+    getItem('/admin/customers', 'Customers', <CarFilled />),
     getItem('/admin/drivers', 'Drivers', <CarFilled />),
     getItem('/admin/settings', 'Settings', <SettingFilled />),
     getItem('User', 'sub1', <UserOutlined />, [

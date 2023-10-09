@@ -54,7 +54,7 @@ export const privateRouteList = [
         exact: true,
     },
     {
-        path: 'admin/customer',
+        path: 'admin/customers',
         component: lazy(() => import('../pages/Admin/Customer/index')),
         exact: true,
     },

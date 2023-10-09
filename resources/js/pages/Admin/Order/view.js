@@ -10,6 +10,7 @@ import {
 
 import { getOrder } from "../../../redux/Order/actions"
 import { isEmpty } from 'lodash';
+import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const { Title } = Typography;
 
@@ -114,23 +115,11 @@ const View = ({ }) => {
 
     return (
         <>
-            <Row>
-                <Col flex={2}>
-                    <Title level={3}>
-                        Order Edit - #{id}
-                    </Title>
-                </Col>
-                <Col flex={3}>
-                    <Space align='center' style={{
-                        display: "flex",
-                        justifyContent: 'end',
-                    }}>
-                        <Button type="primary" onClick={() => history.push('/admin/orders')} >
-                            Back
-                        </Button>
-                    </Space>
-                </Col>
-            </Row>
+            <TableHeaderLink
+                name="View Order"
+                backUri="/admin/orders"
+            />
+            <Divider />
             <Row>
                 <Col span={24}>
                     <Descriptions title="" bordered layout="vertical"

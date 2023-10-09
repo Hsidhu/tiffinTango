@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { Space, Table, Tag, Row, Col, Button } from 'antd';
+import { Space, Table, Divider } from 'antd';
 import { getOrders } from "../../../redux/Order/actions"
+import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const Order = ({ }) => {
     const history = useHistory();
@@ -26,8 +27,10 @@ const Order = ({ }) => {
             key: 'customer_name',
             title: 'Full Name',
             dataIndex: 'customer_name',
-            render: (text) => <a>{text}</a>,
-            sorter: (a, b) => a.customer_name.length - b.customer_name.length
+            sorter: (a, b) => a.customer_name.length - b.customer_name.length,
+            render: (_, record) => (
+                <a onClick={ () => handleEditClick(record.id)} >{record.customer_name}</a>
+            )
         },
         {
             key: 'order_type',
@@ -53,19 +56,10 @@ const Order = ({ }) => {
 
     return (
         <>
-            <Row>
-                <Col flex={2}>Orders</Col>
-                <Col flex={3}>
-                    <Space align='center' style={{
-                            display: "flex",
-                            justifyContent: 'end',
-                        }}>
-                        <Button type="primary" onClick={() => history.push('/admin/customer/create')} >
-                            Create
-                        </Button>
-                    </Space>
-                </Col>
-            </Row>
+            <TableHeaderLink
+                name="Orders"
+            />
+            <Divider />
             <Table rowKey="id" columns={columns} dataSource={orders.data} />
         </>
     );

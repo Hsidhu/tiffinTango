@@ -20162,9 +20162,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   updateCustomer: () => (/* binding */ updateCustomer)
 /* harmony export */ });
 /* harmony import */ var _config_axiosClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config/axiosClient */ "./resources/js/config/axiosClient.js");
-/* harmony import */ var _services_errors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/errors */ "./resources/js/services/errors.js");
-/* harmony import */ var _Common_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Common/actions */ "./resources/js/redux/Common/actions.js");
-
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
 
 
 var GET_CUSTOMERS = "GET_CUSTOMERS";
@@ -20185,7 +20183,6 @@ var getCustomers = function getCustomers() {
 };
 var createCustomers = function createCustomers(data) {
   return function (dispatch) {
-    var errs = _services_errors__WEBPACK_IMPORTED_MODULE_1__["default"];
     var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.postRequest)('customer/create', data).then(function (response) {
       console.log(response.data);
       dispatch({
@@ -20193,11 +20190,7 @@ var createCustomers = function createCustomers(data) {
         payload: response.data
       });
     })["catch"](function (error) {
-      errs.setErrors(error.response);
-      dispatch({
-        type: _Common_actions__WEBPACK_IMPORTED_MODULE_2__.SET_ERRORS,
-        payload: errs
-      });
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('something wrong');
     });
   };
 };
@@ -20213,35 +20206,25 @@ var getCustomer = function getCustomer(id) {
 };
 var updateCustomer = function updateCustomer(data) {
   return function (dispatch) {
-    var errs = _services_errors__WEBPACK_IMPORTED_MODULE_1__["default"];
     var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.postRequest)('customer/update', data).then(function (response) {
       // dispatch({
       //     type: GET_CUSTOMERS,
       //     payload: response.data
       // });
     })["catch"](function (error) {
-      errs.setErrors(error.response);
-      dispatch({
-        type: _Common_actions__WEBPACK_IMPORTED_MODULE_2__.SET_ERRORS,
-        payload: errs
-      });
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('something wrong');
     });
   };
 };
 var deleteCustomer = function deleteCustomer(id) {
   return function (dispatch) {
-    var errs = _services_errors__WEBPACK_IMPORTED_MODULE_1__["default"];
     var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.deleteRequest)("customer/delete/".concat(id)).then(function (response) {
       // dispatch({
       //     type: GET_CUSTOMERS,
       //     payload: response.data
       // });
     })["catch"](function (error) {
-      errs.setErrors(error.response);
-      dispatch({
-        type: _Common_actions__WEBPACK_IMPORTED_MODULE_2__.SET_ERRORS,
-        payload: errs
-      });
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('something wrong');
     });
   };
 };
@@ -20935,7 +20918,7 @@ function getItem(key, label, icon, children) {
   };
 }
 var publicTopMenu = [getItem('/', 'Home', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_1__["default"], {})), getItem('/order/mealplan', 'MealPlan', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_2__["default"], {})), getItem('/login', 'login', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_2__["default"], {}))];
-var protectedSideMenu = [getItem('/admin/dashboard', 'Dashboard', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_1__["default"], {})), getItem('/admin/orders', 'Orders', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_2__["default"], {})), getItem('/admin/locations', 'Locations', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_3__["default"], {})), getItem('/admin/mealplans', 'MealPlan', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {})), getItem('/admin/customer', 'Customers', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {})), getItem('/admin/drivers', 'Drivers', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {})), getItem('/admin/settings', 'Settings', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_6__["default"], {})), getItem('User', 'sub1', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_7__["default"], {}), [getItem('Tom', '3'), getItem('Bill', '4')])];
+var protectedSideMenu = [getItem('/admin/dashboard', 'Dashboard', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_1__["default"], {})), getItem('/admin/orders', 'Orders', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_2__["default"], {})), getItem('/admin/locations', 'Locations', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_3__["default"], {})), getItem('/admin/mealplans', 'MealPlan', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {})), getItem('/admin/customers', 'Customers', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {})), getItem('/admin/drivers', 'Drivers', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {})), getItem('/admin/settings', 'Settings', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_6__["default"], {})), getItem('User', 'sub1', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_7__["default"], {}), [getItem('Tom', '3'), getItem('Bill', '4')])];
 
 /***/ }),
 
@@ -21013,7 +20996,7 @@ var privateRouteList = [{
   }),
   exact: true
 }, {
-  path: 'admin/customer',
+  path: 'admin/customers',
   component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
     return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_Customer_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/Customer/index */ "./resources/js/pages/Admin/Customer/index.js"));
   }),
