@@ -70,9 +70,9 @@ class DriverController extends Controller
         return response()->json($driver);
     }
 
-    public function delete(Request $request)
+    public function delete($id)
     {
-        $driver = Driver::find($request->id);
+        $driver = Driver::find($id);
         Address::find($driver->address_id)->delete();
 
         return response()->json($driver);

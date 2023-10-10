@@ -89,6 +89,16 @@ export const privateRouteList = [
         exact: true,
     },
     {
+        path: 'admin/driver/create',
+        component: lazy(() => import('../pages/Admin/Driver/create')),
+        exact: true,
+    },
+    {
+        path: 'admin/driver/edit/:id',
+        component: lazy(() => import('../pages/Admin/Driver/edit')),
+        exact: true,
+    },
+    {
         path: 'admin/settings',
         component: lazy(() => import('../pages/Admin/settings')),
         exact: true,

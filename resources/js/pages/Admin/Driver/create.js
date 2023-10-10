@@ -5,10 +5,9 @@ import {
     Row, Col, Button, Divider,
     Form, Input, Switch
 } from 'antd';
-
 import { usePlacesWidget } from "react-google-autocomplete";
 import { GOOGLE_API_KEY } from '../../../config/constants';
-import { createCustomers } from '../../../redux/Customer/actions'
+import { createDriver } from '../../../redux/Driver/actions'
 import { phonePattern } from '../../../validationHelper'
 import TableHeaderLink from '../../../components/tableHeaderLink';
 
@@ -77,13 +76,6 @@ const Create = ({ }) => {
         }
     });
 
-    const formValueChange = (value, key) => {
-        const fields = form.getFieldsValue()
-        const { projects } = fields
-        Object.assign(projects[key], { type: value })
-        form.setFieldsValue({ projects })
-    }
-
     const onFormLayoutChange = ({ first_name }) => {
         console.log(first_name);
         setComponentSize(first_name);
@@ -91,14 +83,14 @@ const Create = ({ }) => {
 
     const onFormSubmit = (values) => {
         dispatch(createCustomers(values));
-        history.push('/admin/customers')
+        history.push('/admin/drivers')
     }
 
     return (
         <>
             <TableHeaderLink
-                name="Create Customer"
-                backUri="/admin/customers"
+                name="Create Driver"
+                backUri="/admin/drivers"
             />
             <Divider />
             <Form
@@ -153,6 +145,15 @@ const Create = ({ }) => {
                             ]}
                         >
                             <Input style={{ width: '100%' }} />
+                        </Form.Item>
+                        <Form.Item name="license" label="license"
+                            rules={[
+                                {
+                                    required: true
+                                }
+                            ]}
+                        >
+                            <Input />
                         </Form.Item>
                         <Form.Item label="Status" name="status" valuePropName="checked">
                             <Switch />

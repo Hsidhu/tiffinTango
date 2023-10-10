@@ -20294,7 +20294,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   deleteCustomer: () => (/* binding */ deleteCustomer),
 /* harmony export */   getDriver: () => (/* binding */ getDriver),
 /* harmony export */   getDrivers: () => (/* binding */ getDrivers),
-/* harmony export */   updateCustomer: () => (/* binding */ updateCustomer)
+/* harmony export */   updateDriver: () => (/* binding */ updateDriver)
 /* harmony export */ });
 /* harmony import */ var _config_axiosClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config/axiosClient */ "./resources/js/config/axiosClient.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
@@ -20331,7 +20331,7 @@ var createDriver = function createDriver(data) {
 };
 var getDriver = function getDriver(id) {
   return function (dispatch) {
-    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.getRequest)("customer/edit/".concat(id)).then(function (response) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.getRequest)("driver/edit/".concat(id)).then(function (response) {
       dispatch({
         type: GET_DRIVER,
         payload: response.data
@@ -20339,7 +20339,7 @@ var getDriver = function getDriver(id) {
     });
   };
 };
-var updateCustomer = function updateCustomer(data) {
+var updateDriver = function updateDriver(data) {
   return function (dispatch) {
     var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.postRequest)('driver/update', data).then(function (response) {
       dispatch({
@@ -21174,6 +21174,18 @@ var privateRouteList = [{
   path: 'admin/drivers',
   component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
     return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_Driver_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/Driver/index */ "./resources/js/pages/Admin/Driver/index.js"));
+  }),
+  exact: true
+}, {
+  path: 'admin/driver/create',
+  component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_Driver_create_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/Driver/create */ "./resources/js/pages/Admin/Driver/create.js"));
+  }),
+  exact: true
+}, {
+  path: 'admin/driver/edit/:id',
+  component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_Driver_edit_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/Driver/edit */ "./resources/js/pages/Admin/Driver/edit.js"));
   }),
   exact: true
 }, {
@@ -95768,7 +95780,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_noPageFound_js":1,"resources_js_pages_home_js":1,"resources_js_pages_orderMealPlan_js":1,"resources_js_pages_Auth_Login_js":1,"resources_js_pages_Auth_Registration_js":1,"resources_js_pages_Admin_Dashboard_js":1,"resources_js_pages_Admin_Order_index_js":1,"resources_js_pages_Admin_Order_view_js":1,"resources_js_pages_Admin_Locations_index_js":1,"resources_js_pages_Admin_Locations_create_js":1,"resources_js_pages_Admin_Customer_index_js":1,"resources_js_pages_Admin_Customer_create_js":1,"resources_js_pages_Admin_Customer_edit_js":1,"resources_js_pages_Admin_MealPlan_index_js":1,"resources_js_pages_Admin_MealPlan_create_js":1,"resources_js_pages_Admin_MealPlan_edit_js":1,"resources_js_pages_Admin_Driver_index_js":1,"resources_js_pages_Admin_settings_js":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_noPageFound_js":1,"resources_js_pages_home_js":1,"resources_js_pages_orderMealPlan_js":1,"resources_js_pages_Auth_Login_js":1,"resources_js_pages_Auth_Registration_js":1,"resources_js_pages_Admin_Dashboard_js":1,"resources_js_pages_Admin_Order_index_js":1,"resources_js_pages_Admin_Order_view_js":1,"resources_js_pages_Admin_Locations_index_js":1,"resources_js_pages_Admin_Locations_create_js":1,"resources_js_pages_Admin_Customer_index_js":1,"resources_js_pages_Admin_Customer_create_js":1,"resources_js_pages_Admin_Customer_edit_js":1,"resources_js_pages_Admin_MealPlan_index_js":1,"resources_js_pages_Admin_MealPlan_create_js":1,"resources_js_pages_Admin_MealPlan_edit_js":1,"resources_js_pages_Admin_Driver_index_js":1,"resources_js_pages_Admin_Driver_create_js":1,"resources_js_pages_Admin_Driver_edit_js":1,"resources_js_pages_Admin_settings_js":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

@@ -152,6 +152,15 @@ const Edit = ({ }) => {
                         >
                             <Input style={{ width: '100%' }} />
                         </Form.Item>
+                        <Form.Item name="license" label="license"
+                            rules={[
+                                {
+                                    required: true
+                                }
+                            ]}
+                        >
+                            <Input />
+                        </Form.Item>
                         <Form.Item label="Status" name="status" valuePropName="checked">
                             <Switch />
                         </Form.Item>

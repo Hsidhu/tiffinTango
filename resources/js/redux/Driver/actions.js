@@ -30,7 +30,7 @@ export const createDriver = (data) => (dispatch) => {
 }
 
 export const getDriver = (id) => (dispatch) => {
-    const res = getRequest(`customer/edit/${id}`).then(response => {
+    const res = getRequest(`driver/edit/${id}`).then(response => {
         dispatch({
             type: GET_DRIVER,
             payload: response.data
@@ -38,7 +38,7 @@ export const getDriver = (id) => (dispatch) => {
     });
 }
 
-export const updateCustomer = (data) => (dispatch) => {
+export const updateDriver = (data) => (dispatch) => {
     const res = postRequest('driver/update', data).then(response => {
         dispatch({
             type: UPDATE_DRIVER,
