@@ -5978,7 +5978,7 @@ var Create = function Create(_ref) {
     setComponentSize(first_name);
   };
   var onFormSubmit = function onFormSubmit(values) {
-    dispatch(createCustomers(values));
+    dispatch((0,_redux_Driver_actions__WEBPACK_IMPORTED_MODULE_4__.createDriver)(values));
     history.push('/admin/drivers');
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {

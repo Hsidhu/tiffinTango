@@ -31,7 +31,7 @@ class CustomerController extends Controller
         ]);
         
         $address = Address::create($request->only(['address', 'city', 'state', 'postal_code', 'country', 'lat', 'lng']));
-        $customerData = array_merge(['address_id' => $address->id, 'password' => config('app.CUSTOMER_DEFAULT_PWD')],
+        $customerData = array_merge(['address_id' => $address->id, 'password' => config('app.customer_default')],
             $request->only(['first_name','last_name','email', 'phone'])
         );
         $customer = Customer::create($customerData);

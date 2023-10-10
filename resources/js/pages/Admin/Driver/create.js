@@ -82,7 +82,7 @@ const Create = ({ }) => {
     };
 
     const onFormSubmit = (values) => {
-        dispatch(createCustomers(values));
+        dispatch(createDriver(values));
         history.push('/admin/drivers')
     }
 
