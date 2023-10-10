@@ -85,7 +85,7 @@ export const privateRouteList = [
     },
     {
         path: 'admin/drivers',
-        component: lazy(() => import('../pages/Admin/Drivers/index')),
+        component: lazy(() => import('../pages/Admin/Driver/index')),
         exact: true,
     },
     {

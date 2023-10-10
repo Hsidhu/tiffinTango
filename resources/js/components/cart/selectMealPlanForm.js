@@ -60,6 +60,9 @@ const SelectMealPlanForm = ({ nextForm, orderData, cart, getMealPlanForOrder, ad
             
             <div>
                 {
+                    !isEmpty(selectedMealPlan) ? <MealPlanOptions mealPlanID={selectedMealPlan.meal_id} /> : null
+                }
+                {
                     !isEmpty(selectedMealPlan) ? <Descriptions title="Selected Meal Plan Description" bordered layout="vertical">
                             <Descriptions.Item label="Name">{selectedMealPlan.name}</Descriptions.Item>
                             <Descriptions.Item label="Description">{selectedMealPlan.description}</Descriptions.Item>
@@ -74,12 +77,8 @@ const SelectMealPlanForm = ({ nextForm, orderData, cart, getMealPlanForOrder, ad
                                 src={`${axiosConfig.HOST_URL}/${selectedMealPlan.image}`}
                             /> : null
                 }
-                <br/>
-                {
-                    !isEmpty(selectedMealPlan) ? <MealPlanOptions mealPlanID={selectedMealPlan.meal_id} /> : null
-                }
-                
-                <Button type="primary" onClick={nextForm}>
+
+                <Button block disabled={isEmpty(selectedMealPlan) ? true : false} size={'large'} type="primary" onClick={nextForm}>
                     Next
                 </Button>
             </div>

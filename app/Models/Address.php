@@ -9,13 +9,21 @@ class Address extends Model
 {
     use HasFactory;
 
-    public $relation = [
-        'belongsTo' => [
-            'customer' => 'App\Models\Customer',
-        ],
+    protected $guarded = [];
+
+    protected $defaultFormat = [
+        "{address_1}\n{address_2}\n{city} {postcode}\n{state}\n{country}",
     ];
 
-    protected $guarded = [];
+    public function customer()
+    {
+        return $this->hasOne(\App\Models\Customer::class);
+    }
+
+    public function driver()
+    {
+        return $this->hasOne(\App\Models\Driver::class);
+    }
 
     //
     // Accessors & Mutators
@@ -23,6 +31,30 @@ class Address extends Model
 
     public function getFormattedAddressAttribute($value)
     {
-        return format_address($this->toArray(), false);
+        return $this->addressFormat($this->toArray(), false);
+    }
+
+    private function addressFormat($address, $useLineBreaks = true)
+    {
+        $format = $this->getDefaultFormat();
+
+        $address = $this->evalAddress($address);
+
+        // Override format if present in address array
+        if (!empty($address['format']))
+            $format = $address['format'];
+
+        $formattedAddress = str_replace(['\r\n', '\r', '\n'], '<br />',
+            preg_replace(['/\s\s+/', '/\r\r+/', '/\n\n+/'], '<br />',
+                trim(str_replace([
+                    '{address_1}', '{address_2}', '{city}', '{postcode}', '{state}', '{country}',
+                ], array_except($address, 'format'), $format))
+            )
+        );
+
+        if (!$useLineBreaks)
+            $formattedAddress = str_replace('<br />', ', ', $formattedAddress);
+
+        return strip_tags($formattedAddress);
     }
 }

@@ -33,20 +33,6 @@ return new class extends Migration
         ");
 
         DB::statement("
-            CREATE TABLE `location_areas` (
-                `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-                `location_id` int(11) NOT NULL,
-                `name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
-                `type` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
-                `boundaries` json NOT NULL,
-                `conditions` json NOT NULL,
-                `is_default` tinyint(1) NOT NULL DEFAULT '0',
-                `priority` int(11) NOT NULL DEFAULT '0',
-                PRIMARY KEY (`id`)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-        ");
-
-        DB::statement("
             CREATE TABLE `categories` (
                 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
                 `name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -64,7 +50,7 @@ return new class extends Migration
         DB::statement("
             CREATE TABLE `customers` (
                 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-                `address_id` int(11) DEFAULT NULL,
+                `address_id` int(11) unsigned DEFAULT NULL,
                 `first_name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
                 `last_name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
                 `email` varchar(96) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -86,8 +72,41 @@ return new class extends Migration
         ");
 
         DB::statement("
+            CREATE TABLE `drivers` (
+                `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                `address_id` int(11) unsigned DEFAULT NULL,
+                `first_name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+                `last_name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+                `email` varchar(96) COLLATE utf8mb4_unicode_ci NOT NULL,
+                `license` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+                `phone` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                `password` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+                `remember_token` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                `ip_address` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                `status` tinyint(1) NOT NULL DEFAULT '1',
+                `last_login` datetime DEFAULT NULL,
+                `last_seen` datetime DEFAULT NULL,
+                `created_at` datetime NOT NULL,
+                `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                PRIMARY KEY (`id`),
+                UNIQUE KEY `drivers_email_unique` (`email`)
+            ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+        ");
+
+        // we can use location area zones
+        Schema::create('driver_zones', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->id();
+            $table->integer('driver_id');
+            $table->integer('zone_id');
+            $table->integer('status');
+            $table->timestamps();
+        });
+
+        DB::statement("
             CREATE TABLE `addresses` (
                 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                `zone_id` int(11) unsigned DEFAULT NULL,
                 `address` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
                 `city` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
                 `state` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -166,18 +185,18 @@ return new class extends Migration
             $table->timestamps();
         });
 
-
         Schema::create('meal_plan_orders', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
             $table->string('hash', 40)->nullable()->index();
             $table->integer('customer_id')->nullable();
             $table->string('order_type', 32);
+            $table->string('delivery_window', 32)->nullable();
             $table->dateTime('start_date');
             $table->dateTime('end_date')->nullable();
             $table->text('cart')->nullable();
             $table->integer('total_items');
-            $table->decimal('total_price', 15, 4)->nullable();
+            $table->decimal('total_price', 15, 2)->nullable();
             $table->string('ip_address', 40);
             $table->string('user_agent');
             $table->string('invoice_no');
@@ -241,24 +260,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        // we can use location area zones
-        Schema::create('driver_zones', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->id();
-            $table->integer('staff_id');
-            $table->integer('area_id');
-            $table->integer('status');
-            $table->timestamps();
-        });
-
-        Schema::create('customer_zones', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->id();
-            $table->integer('customer_id');
-            $table->integer('area_id');
-            $table->integer('status');
-            $table->timestamps();
-        });
 
         Schema::create('meal_plan_payment_logs', function (Blueprint $table) {
             $table->engine = 'InnoDB';
@@ -302,6 +303,10 @@ return new class extends Migration
 
     public function down()
     {
+        Schema::dropIfExists('locations');
+        Schema::dropIfExists('categories');
+        Schema::dropIfExists('media_attachments');
+
         Schema::dropIfExists('meal_plans');
         Schema::dropIfExists('meal_plan_options');
         Schema::dropIfExists('meal_plan_option_values');
@@ -313,10 +318,12 @@ return new class extends Migration
         Schema::dropIfExists('meal_plan_order_totals');
 
         Schema::dropIfExists('meal_plan_order_transactions');
-        Schema::dropIfExists('driver_zones');
-        Schema::dropIfExists('customer_zones');
         Schema::dropIfExists('meal_plan_payment_logs');
 
+        Schema::dropIfExists('customers');
+        Schema::dropIfExists('drivers');
+        Schema::dropIfExists('addresses');
+        Schema::dropIfExists('driver_zones');
         Schema::dropIfExists('delivery_zones');
         Schema::dropIfExists('settings');
         
@@ -333,7 +340,6 @@ return new class extends Migration
             'meal_plan_orders',
             'meal_plan_order_options',
             'meal_plan_order_transection',
-            'delivery_zones',
             'driver_zones'
         ];
 

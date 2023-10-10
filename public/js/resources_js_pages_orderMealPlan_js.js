@@ -15605,7 +15605,9 @@ var SelectMealPlanForm = function SelectMealPlanForm(_ref) {
         })
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      children: [!(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(selectedMealPlan) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      children: [!(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(selectedMealPlan) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_containers_cart_mealPlanOptions__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        mealPlanID: selectedMealPlan.meal_id
+      }) : null, !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(selectedMealPlan) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
         title: "Selected Meal Plan Description",
         bordered: true,
         layout: "vertical",
@@ -15625,9 +15627,10 @@ var SelectMealPlanForm = function SelectMealPlanForm(_ref) {
       }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(selectedMealPlan) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
         width: 200,
         src: "".concat(_config_constants__WEBPACK_IMPORTED_MODULE_3__.axiosConfig.HOST_URL, "/").concat(selectedMealPlan.image)
-      }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), !(0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(selectedMealPlan) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_containers_cart_mealPlanOptions__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        mealPlanID: selectedMealPlan.meal_id
       }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_12__["default"], {
+        block: true,
+        disabled: (0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(selectedMealPlan) ? true : false,
+        size: 'large',
         type: "primary",
         onClick: nextForm,
         children: "Next"
@@ -15839,6 +15842,10 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
     _useState2 = _slicedToArray(_useState, 2),
     orderType = _useState2[0],
     setOrderType = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState4 = _slicedToArray(_useState3, 2),
+    deliveryWindowShow = _useState4[0],
+    setDeliveryWindowShow = _useState4[1];
   var antInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var _usePlacesWidget = (0,react_google_autocomplete__WEBPACK_IMPORTED_MODULE_2__.usePlacesWidget)({
       apiKey: _config_constants__WEBPACK_IMPORTED_MODULE_3__.GOOGLE_API_KEY,
@@ -15850,7 +15857,6 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
         types: ["address"]
       },
       onPlaceSelected: function onPlaceSelected(place) {
-        console.log(place);
         var address = place.address_components;
         var _street1$city$zip$sta = {
             street1: '',
@@ -15930,7 +15936,7 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
   var onFormLayoutChange = function onFormLayoutChange(_ref2) {
     var order_type = _ref2.order_type;
     console.log(order_type);
-    setOrderType(order_type);
+    order_type == 'delivery' ? setDeliveryWindowShow(true) : setDeliveryWindowShow(false);
   };
   var onDateChange = function onDateChange(date, dateString) {
     console.log(date, dateString);
@@ -15959,6 +15965,14 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
         size: "large",
         optionType: "button",
         options: _config_constants__WEBPACK_IMPORTED_MODULE_3__.orderTypeOptions
+      })
+    }), deliveryWindowShow && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
+      label: "Delivery Window",
+      name: "delivery_window",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"].Group, {
+        size: "large",
+        optionType: "button",
+        options: _config_constants__WEBPACK_IMPORTED_MODULE_3__.deliveryWindow
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
       label: "Start Date",
@@ -16131,6 +16145,28 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
       hidden: true,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
         type: "hidden"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        span: 24,
+        children: deliveryWindowShow && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
+          label: "Delivery Comment",
+          name: "delivery_comment",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"].TextArea, {
+            rows: 2
+          })
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        span: 24,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
+          label: "General Comment",
+          name: "comment",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"].TextArea, {
+            rows: 2
+          })
+        })
       })
     })]
   });

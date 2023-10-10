@@ -5,29 +5,27 @@ import {
     Row, Col, Button, Divider,
     Form, Input, Switch
 } from 'antd';
-
-import Autocomplete, { usePlacesWidget } from "react-google-autocomplete";
+import { usePlacesWidget } from "react-google-autocomplete";
 import { GOOGLE_API_KEY } from '../../../config/constants';
-import { updateCustomer, getCustomer } from '../../../redux/Customer/actions'
+import { getDriver, updateDriver } from '../../../redux/Driver/actions'
 import { phonePattern } from '../../../validationHelper'
 import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const Edit = ({ }) => {
-    const history = useHistory()
+    const history = useHistory();
     let { id } = useParams();
+    const [form] = Form.useForm();
     const [componentSize, setComponentSize] = useState();
-    const errors = useSelector(state => state.errors)
-    const customer = useSelector(state => state.customer)
+    const driver = useSelector(state => state.driver)
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getCustomer(id))
+        dispatch(getDriver(id))
     }, [])
 
-    if (!customer) {
+    if (!driver) {
         return null;
     }
-    const [form] = Form.useForm()
 
     const antInputRef = useRef(null);
     const { ref: antRef } = usePlacesWidget({
@@ -92,19 +90,19 @@ const Edit = ({ }) => {
     };
 
     const onFormSubmit = (values) => {
-        dispatch(updateCustomer(values));
-        history.push('/admin/customers')
+        dispatch(updateDriver(values));
+        history.push('/admin/drivers')
     }
 
     useEffect(() => {
-        form.setFieldsValue({ ...customer, ...customer.address })
+        form.setFieldsValue({ ...driver, ...driver.address })
     }, [form, customer])
 
     return (
         <>
             <TableHeaderLink
-                name="Edit Customer"
-                backUri="/admin/customers"
+                name="Edit Driver"
+                backUri="/admin/drivers"
             />
             <Divider />
             <Form
@@ -114,24 +112,19 @@ const Edit = ({ }) => {
                 labelCol={{ span: 4, }}
                 wrapperCol={{ span: 14, }}
                 layout="horizontal"
-                style={{}}
             >
                 <Row>
                     <Col span={12}>
                         <Form.Item label="First Name" name="first_name"
                             rules={[
-                                {
-                                    required: true
-                                },
+                                { required: true },
                             ]}
                         >
                             <Input />
                         </Form.Item>
                         <Form.Item label="Last Name" name="last_name"
                             rules={[
-                                {
-                                    required: true
-                                },
+                                { required: true },
                             ]}
                         >
                             <Input />
@@ -202,21 +195,21 @@ const Edit = ({ }) => {
                             rules={[{
                                 required: true,
                                 message: 'Please input your phone number!',
-                            }
-                            ]}
+                            }]}
                         >
-                            <Input style={{ width: '100%' }} />
+                            <Input />
+                        </Form.Item>
+
+                        <Form.Item name="id" hidden>
+                            <Input type="hidden" />
+                        </Form.Item>
+                        <Form.Item name="address_id" hidden>
+                            <Input type="hidden" />
                         </Form.Item>
                         <Form.Item name="lat" hidden>
                             <Input type="hidden" />
                         </Form.Item>
                         <Form.Item name="lng" hidden>
-                            <Input type="hidden" />
-                        </Form.Item>
-                        <Form.Item name="id" hidden>
-                            <Input type="hidden" />
-                        </Form.Item>
-                        <Form.Item name="address_id" hidden>
                             <Input type="hidden" />
                         </Form.Item>
                     </Col>

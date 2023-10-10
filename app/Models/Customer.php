@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Request;
 use Exception;
 // use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Sanctum\HasApiTokens;
 
 class Customer extends Model
 {
-    use HasFactory;
+    use HasFactory, HasApiTokens;
 
     private $send_invite = false;
 

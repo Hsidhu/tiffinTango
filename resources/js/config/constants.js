@@ -15,3 +15,8 @@ export const orderTypeOptions = [
     { label: 'Pickup', value: 'pickup' }
 ];
 
+export const deliveryWindow = [
+    { label: 'Morning', value: 'morning' },
+    { label: 'Evening', value: 'evening' }
+];
+

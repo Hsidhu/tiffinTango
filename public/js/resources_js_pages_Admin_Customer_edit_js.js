@@ -5991,16 +5991,6 @@ var Edit = function Edit(_ref) {
       }
     }),
     antRef = _usePlacesWidget.ref;
-  var formValueChange = function formValueChange(value, key) {
-    var fields = form.getFieldsValue();
-    var projects = fields.projects;
-    Object.assign(projects[key], {
-      type: value
-    });
-    form.setFieldsValue({
-      projects: projects
-    });
-  };
   var onFormLayoutChange = function onFormLayoutChange(_ref2) {
     var first_name = _ref2.first_name;
     console.log(first_name);

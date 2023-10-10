@@ -39,6 +39,14 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
 
     Route::get('/customer', [App\Http\Controllers\Api\Admin\CustomerController::class, 'index']);
     Route::post('/customer/create', [App\Http\Controllers\Api\Admin\CustomerController::class, 'create']);
+
+    // Admin Driver Routes
+    Route::get('/drivers', [App\Http\Controllers\Api\Admin\DriverController::class, 'index']);
+    Route::post('/driver/create', [App\Http\Controllers\Api\Admin\DriverController::class, 'create']);
+    Route::get('/driver/edit/{id}', [App\Http\Controllers\Api\Admin\DriverController::class, 'edit']);
+    Route::post('/driver/update', [App\Http\Controllers\Api\Admin\DriverController::class, 'update']);
+    Route::delete('/driver/delete', [App\Http\Controllers\Api\Admin\DriverController::class, 'delete']);
+
 });
 
 Route::get('images/{folder}/{filename}', [App\Http\Controllers\Api\FileController::class, 'images'])

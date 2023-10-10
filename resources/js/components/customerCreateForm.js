@@ -7,11 +7,12 @@ import {
 import moment from "moment";
 
 import { usePlacesWidget } from "react-google-autocomplete";
-import { GOOGLE_API_KEY, orderTypeOptions } from '../config/constants';
+import { GOOGLE_API_KEY, orderTypeOptions, deliveryWindow } from '../config/constants';
 import { phonePattern } from '../validationHelper'
 
 const CustomerCreateForm = ({ form, orderData, getDeliveryCharge, placeOrder }) => {
     const [orderType, setOrderType] = useState('pickup');
+    const [deliveryWindowShow, setDeliveryWindowShow] = useState(false);
     const antInputRef = useRef(null);
 
     const { ref: antRef } = usePlacesWidget({
@@ -22,7 +23,6 @@ const CustomerCreateForm = ({ form, orderData, getDeliveryCharge, placeOrder }) 
             types: ["address"]
         },
         onPlaceSelected: (place) => {
-            console.log(place)
             const address = place.address_components;
             let { street1, city, state, zip, country } = {
                 street1: '',
@@ -78,7 +78,7 @@ const CustomerCreateForm = ({ form, orderData, getDeliveryCharge, placeOrder }) 
 
     const onFormLayoutChange = ({ order_type }) => {
         console.log(order_type);
-        setOrderType(order_type);
+        order_type == 'delivery' ? setDeliveryWindowShow(true) : setDeliveryWindowShow(false)
     };
 
     const onDateChange = (date, dateString) => {
@@ -99,8 +99,16 @@ const CustomerCreateForm = ({ form, orderData, getDeliveryCharge, placeOrder }) 
         >
 
             <Form.Item label="Order Type" name="order_type" >
-                    <Radio.Group size="large" optionType="button" options={orderTypeOptions}  />
+                <Radio.Group size="large" optionType="button" options={orderTypeOptions}  />
             </Form.Item>
+
+            {
+                deliveryWindowShow && 
+                <Form.Item label="Delivery Window" name="delivery_window">
+                    <Radio.Group size="large" optionType="button" options={deliveryWindow}  />
+                </Form.Item>
+            }
+            
 
             <Form.Item label="Start Date" name="start_date" 
                 rules={[{ required: true, message: 'Please select Start Date!' }]}
@@ -227,6 +235,24 @@ const CustomerCreateForm = ({ form, orderData, getDeliveryCharge, placeOrder }) 
             <Form.Item name="lng" hidden>
                 <Input type="hidden" />
             </Form.Item>
+
+            <Row>
+                <Col span={24}>
+                    {
+                        deliveryWindowShow && 
+                        <Form.Item label="Delivery Comment" name="delivery_comment">
+                            <Input.TextArea rows={2} />
+                        </Form.Item>
+                    }
+                </Col>
+            </Row>
+            <Row>
+                <Col span={24}>
+                    <Form.Item label="General Comment" name="comment">
+                        <Input.TextArea rows={2} />
+                    </Form.Item>
+                </Col>
+            </Row>
 
         </Form>
     );

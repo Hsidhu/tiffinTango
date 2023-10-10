@@ -4,16 +4,16 @@ namespace App\Http\Controllers\Api\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Customer;
+use App\Models\Driver;
 use App\Models\Address;
-use App\Http\Resources\CustomerResource;
+use App\Http\Resources\Admin\DriverResource;
 
-class CustomerController extends Controller
+class DriverController extends Controller
 {
     public function index()
     {
-        $customers = Customer::get();
-        return CustomerResource::collection($customers);
+        $drivers = Driver::get();
+        return DriverResource::collection($drivers);
     }
 
     public function create(Request $request)
@@ -21,37 +21,38 @@ class CustomerController extends Controller
         $this->validate($request, [
             'first_name' => ['required', 'between:4,48'],
             'last_name' => ['required', 'between:4,48'],
-            'email' => ['required', 'email:filter', 'min:4', 'max:96', 'unique:customers,email'],
+            'email' => ['required', 'email:filter', 'min:4', 'max:96', 'unique:drivers,email'],
             'phone' => ['sometimes'],
+            'license' => ['required', 'between:4,48'],
             'address' => ['required', 'min:4', 'max:128'],
-            'city' => ['required', 'min:4', 'max:128'],
+            'city' => ['required', 'min:2', 'max:128'],
             'state' => ['max:64'],
             'postal_code' => ['required'],
             'country' => ['required'],
         ]);
         
         $address = Address::create($request->only(['address', 'city', 'state', 'postal_code', 'country', 'lat', 'lng']));
-        $customerData = array_merge(['address_id' => $address->id, 'password' => config('app.CUSTOMER_DEFAULT_PWD')],
-            $request->only(['first_name','last_name','email', 'phone'])
+        $driverData = array_merge(['address_id' => $address->id, 'password' => config('app.CUSTOMER_DEFAULT_PWD')],
+            $request->only(['first_name','last_name','email', 'phone', 'license'])
         );
-        $customer = Customer::create($customerData);
-        return response()->json($customer);
+        $driver = Driver::create($driverData);
+        return response()->json($driver);
     }
 
     public function edit($id)
     {
-        $customer = Customer::with('address')->find($id);
-        return response()->json($customer);
+        $driver = Driver::with('address')->find($id);
+        return response()->json($driver);
     }
     
     public function update(Request $request)
     {
-        $customer = Customer::find($request->id);
+        $driver = Driver::find($request->id);
         $address = Address::find($request->address_id);
         $this->validate($request, [
             'first_name' => ['required', 'between:1,48'],
             'last_name' => ['required', 'between:1,48'],
-            'email' => ['required', 'email:filter', 'max:96', 'unique:customers,email,'.$customer->id],
+            'email' => ['required', 'email:filter', 'max:96', 'unique:customers,email,'.$driver->id],
             'phone' => ['sometimes'],
             'address' => ['required', 'min:3', 'max:128'],
             'city' => ['required', 'min:2', 'max:128'],
@@ -59,13 +60,26 @@ class CustomerController extends Controller
             'postal_code' => ['required'],
             'country' => ['required'],
         ]);
-        $customer->update(
+        $driver->update(
             $request->only(['first_name','last_name','email', 'phone'])
         );
         $address->update(
             $request->only(['address', 'city', 'state', 'postal_code', 'country', 'lat', 'lng'])
         );
 
-        return $customer;
+        return response()->json($driver);
+    }
+
+    public function delete(Request $request)
+    {
+        $driver = Driver::find($request->id);
+        Address::find($driver->address_id)->delete();
+
+        return response()->json($driver);
+    }
+
+    public function driverZone()
+    {
+
     }
 }

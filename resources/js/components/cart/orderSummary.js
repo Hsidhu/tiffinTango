@@ -74,7 +74,6 @@ const OrderSummary = ({ cart }) => {
                     let totalPrice = 0;
                     pageData.forEach((currentData) => {
                         if(currentData.key === 'tax') {
-                            
                             totalPrice = totalPrice + (totalPrice * currentData.price);
                         }
                         else {

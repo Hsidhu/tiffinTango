@@ -19243,6 +19243,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   GOOGLE_API_KEY: () => (/* binding */ GOOGLE_API_KEY),
 /* harmony export */   axiosConfig: () => (/* binding */ axiosConfig),
+/* harmony export */   deliveryWindow: () => (/* binding */ deliveryWindow),
 /* harmony export */   orderTypeOptions: () => (/* binding */ orderTypeOptions)
 /* harmony export */ });
 var axiosConfig = {
@@ -19260,6 +19261,13 @@ var orderTypeOptions = [{
 }, {
   label: 'Pickup',
   value: 'pickup'
+}];
+var deliveryWindow = [{
+  label: 'Morning',
+  value: 'morning'
+}, {
+  label: 'Evening',
+  value: 'evening'
 }];
 
 /***/ }),
@@ -20268,6 +20276,133 @@ var customer = function customer() {
 
 /***/ }),
 
+/***/ "./resources/js/redux/Driver/actions.js":
+/*!**********************************************!*\
+  !*** ./resources/js/redux/Driver/actions.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CREATE_DRIVER: () => (/* binding */ CREATE_DRIVER),
+/* harmony export */   DELETE_DRIVER: () => (/* binding */ DELETE_DRIVER),
+/* harmony export */   GET_DRIVER: () => (/* binding */ GET_DRIVER),
+/* harmony export */   GET_DRIVERS: () => (/* binding */ GET_DRIVERS),
+/* harmony export */   UPDATE_DRIVER: () => (/* binding */ UPDATE_DRIVER),
+/* harmony export */   createDriver: () => (/* binding */ createDriver),
+/* harmony export */   deleteCustomer: () => (/* binding */ deleteCustomer),
+/* harmony export */   getDriver: () => (/* binding */ getDriver),
+/* harmony export */   getDrivers: () => (/* binding */ getDrivers),
+/* harmony export */   updateCustomer: () => (/* binding */ updateCustomer)
+/* harmony export */ });
+/* harmony import */ var _config_axiosClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config/axiosClient */ "./resources/js/config/axiosClient.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
+
+
+var GET_DRIVERS = "GET_DRIVERS";
+var CREATE_DRIVER = "CREATE_DRIVER";
+var GET_DRIVER = "GET_DRIVER";
+var UPDATE_DRIVER = "UPDATE_DRIVER";
+var DELETE_DRIVER = "DELETE_DRIVER";
+var getDrivers = function getDrivers() {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.getRequest)('drivers').then(function (response) {
+      dispatch({
+        type: GET_DRIVERS,
+        payload: response.data
+      });
+    })["catch"](function (error) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Couldn't get Drivers!");
+    });
+  };
+};
+var createDriver = function createDriver(data) {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.postRequest)('driver/create', data).then(function (response) {
+      dispatch({
+        type: CREATE_DRIVER,
+        payload: response.data
+      });
+    })["catch"](function (error) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Create Driver: Something went wrong!');
+    });
+  };
+};
+var getDriver = function getDriver(id) {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.getRequest)("customer/edit/".concat(id)).then(function (response) {
+      dispatch({
+        type: GET_DRIVER,
+        payload: response.data
+      });
+    });
+  };
+};
+var updateCustomer = function updateCustomer(data) {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.postRequest)('driver/update', data).then(function (response) {
+      dispatch({
+        type: UPDATE_DRIVER,
+        payload: response.data
+      });
+    })["catch"](function (error) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Driver update: something went wrong!');
+    });
+  };
+};
+var deleteCustomer = function deleteCustomer(id) {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.deleteRequest)("driver/delete/".concat(id)).then(function (response) {
+      dispatch({
+        type: DELETE_DRIVER,
+        payload: response.data
+      });
+    })["catch"](function (error) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Driver Delete: Something went wrong!');
+    });
+  };
+};
+
+/***/ }),
+
+/***/ "./resources/js/redux/Driver/reducer.js":
+/*!**********************************************!*\
+  !*** ./resources/js/redux/Driver/reducer.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   driver: () => (/* binding */ driver),
+/* harmony export */   drivers: () => (/* binding */ drivers)
+/* harmony export */ });
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions */ "./resources/js/redux/Driver/actions.js");
+
+var drivers = function drivers() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.GET_DRIVERS:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+var driver = function driver() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.GET_DRIVER:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+/***/ }),
+
 /***/ "./resources/js/redux/MealPlan/actions.js":
 /*!************************************************!*\
   !*** ./resources/js/redux/MealPlan/actions.js ***!
@@ -20629,10 +20764,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Authenticate_reducer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Authenticate/reducer */ "./resources/js/redux/Authenticate/reducer.js");
 /* harmony import */ var _Common_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Common/reducer */ "./resources/js/redux/Common/reducer.js");
 /* harmony import */ var _Customer_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Customer/reducer */ "./resources/js/redux/Customer/reducer.js");
-/* harmony import */ var _MealPlan_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MealPlan/redux */ "./resources/js/redux/MealPlan/redux.js");
-/* harmony import */ var _Cart_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Cart/redux */ "./resources/js/redux/Cart/redux.js");
-/* harmony import */ var _Order_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Order/redux */ "./resources/js/redux/Order/redux.js");
-/* harmony import */ var _Settings_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Settings/redux */ "./resources/js/redux/Settings/redux.js");
+/* harmony import */ var _Driver_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Driver/reducer */ "./resources/js/redux/Driver/reducer.js");
+/* harmony import */ var _MealPlan_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MealPlan/redux */ "./resources/js/redux/MealPlan/redux.js");
+/* harmony import */ var _Cart_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Cart/redux */ "./resources/js/redux/Cart/redux.js");
+/* harmony import */ var _Order_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Order/redux */ "./resources/js/redux/Order/redux.js");
+/* harmony import */ var _Settings_redux__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Settings/redux */ "./resources/js/redux/Settings/redux.js");
+
 
 
 
@@ -20644,18 +20781,20 @@ __webpack_require__.r(__webpack_exports__);
 //Include all the reducer to combine and provide to configure store.
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   authenticateReducer: _Authenticate_reducer__WEBPACK_IMPORTED_MODULE_0__["default"],
-  settings: _Settings_redux__WEBPACK_IMPORTED_MODULE_6__.settings,
+  settings: _Settings_redux__WEBPACK_IMPORTED_MODULE_7__.settings,
   errors: _Common_reducer__WEBPACK_IMPORTED_MODULE_1__.errors,
   customers: _Customer_reducer__WEBPACK_IMPORTED_MODULE_2__.customers,
   customer: _Customer_reducer__WEBPACK_IMPORTED_MODULE_2__.customer,
-  mealplans: _MealPlan_redux__WEBPACK_IMPORTED_MODULE_3__.mealplans,
-  mealplan: _MealPlan_redux__WEBPACK_IMPORTED_MODULE_3__.mealplan,
-  mealplanOptions: _MealPlan_redux__WEBPACK_IMPORTED_MODULE_3__.mealplanOptions,
-  orderData: _Cart_redux__WEBPACK_IMPORTED_MODULE_4__.orderData,
-  cart: _Cart_redux__WEBPACK_IMPORTED_MODULE_4__.cart,
-  orderSummary: _Cart_redux__WEBPACK_IMPORTED_MODULE_4__.orderSummary,
-  orders: _Order_redux__WEBPACK_IMPORTED_MODULE_5__.orders,
-  order: _Order_redux__WEBPACK_IMPORTED_MODULE_5__.order
+  drivers: _Driver_reducer__WEBPACK_IMPORTED_MODULE_3__.drivers,
+  driver: _Driver_reducer__WEBPACK_IMPORTED_MODULE_3__.driver,
+  mealplans: _MealPlan_redux__WEBPACK_IMPORTED_MODULE_4__.mealplans,
+  mealplan: _MealPlan_redux__WEBPACK_IMPORTED_MODULE_4__.mealplan,
+  mealplanOptions: _MealPlan_redux__WEBPACK_IMPORTED_MODULE_4__.mealplanOptions,
+  orderData: _Cart_redux__WEBPACK_IMPORTED_MODULE_5__.orderData,
+  cart: _Cart_redux__WEBPACK_IMPORTED_MODULE_5__.cart,
+  orderSummary: _Cart_redux__WEBPACK_IMPORTED_MODULE_5__.orderSummary,
+  orders: _Order_redux__WEBPACK_IMPORTED_MODULE_6__.orders,
+  order: _Order_redux__WEBPACK_IMPORTED_MODULE_6__.order
 });
 
 /***/ }),
@@ -21034,7 +21173,7 @@ var privateRouteList = [{
 }, {
   path: 'admin/drivers',
   component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
-    return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_Drivers_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/Drivers/index */ "./resources/js/pages/Admin/Drivers/index.js"));
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_Driver_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/Driver/index */ "./resources/js/pages/Admin/Driver/index.js"));
   }),
   exact: true
 }, {
@@ -95629,7 +95768,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_noPageFound_js":1,"resources_js_pages_home_js":1,"resources_js_pages_orderMealPlan_js":1,"resources_js_pages_Auth_Login_js":1,"resources_js_pages_Auth_Registration_js":1,"resources_js_pages_Admin_Dashboard_js":1,"resources_js_pages_Admin_Order_index_js":1,"resources_js_pages_Admin_Order_view_js":1,"resources_js_pages_Admin_Locations_index_js":1,"resources_js_pages_Admin_Locations_create_js":1,"resources_js_pages_Admin_Customer_index_js":1,"resources_js_pages_Admin_Customer_create_js":1,"resources_js_pages_Admin_Customer_edit_js":1,"resources_js_pages_Admin_MealPlan_index_js":1,"resources_js_pages_Admin_MealPlan_create_js":1,"resources_js_pages_Admin_MealPlan_edit_js":1,"resources_js_pages_Admin_Drivers_index_js":1,"resources_js_pages_Admin_settings_js":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_noPageFound_js":1,"resources_js_pages_home_js":1,"resources_js_pages_orderMealPlan_js":1,"resources_js_pages_Auth_Login_js":1,"resources_js_pages_Auth_Registration_js":1,"resources_js_pages_Admin_Dashboard_js":1,"resources_js_pages_Admin_Order_index_js":1,"resources_js_pages_Admin_Order_view_js":1,"resources_js_pages_Admin_Locations_index_js":1,"resources_js_pages_Admin_Locations_create_js":1,"resources_js_pages_Admin_Customer_index_js":1,"resources_js_pages_Admin_Customer_create_js":1,"resources_js_pages_Admin_Customer_edit_js":1,"resources_js_pages_Admin_MealPlan_index_js":1,"resources_js_pages_Admin_MealPlan_create_js":1,"resources_js_pages_Admin_MealPlan_edit_js":1,"resources_js_pages_Admin_Driver_index_js":1,"resources_js_pages_Admin_settings_js":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

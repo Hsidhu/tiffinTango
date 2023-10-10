@@ -229,4 +229,6 @@ return [
 
     ],
 
+    'customer_default' => env('CUSTOMER_DEFAULT_PWD', 'customer_default'),
+
 ];

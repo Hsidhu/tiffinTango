@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_pages_Admin_Order_index_js"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_pages_Admin_Driver_index_js"],{
 
 /***/ "./node_modules/@ant-design/icons-svg/es/asn/ArrowLeftOutlined.js":
 /*!************************************************************************!*\
@@ -9567,10 +9567,10 @@ var TableHeaderLink = function TableHeaderLink(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/pages/Admin/Order/index.js":
-/*!*************************************************!*\
-  !*** ./resources/js/pages/Admin/Order/index.js ***!
-  \*************************************************/
+/***/ "./resources/js/pages/Admin/Driver/index.js":
+/*!**************************************************!*\
+  !*** ./resources/js/pages/Admin/Driver/index.js ***!
+  \**************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -9585,7 +9585,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/space/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/divider/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/table/index.js");
-/* harmony import */ var _redux_Order_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../redux/Order/actions */ "./resources/js/redux/Order/actions.js");
+/* harmony import */ var _redux_Driver_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../redux/Driver/actions */ "./resources/js/redux/Driver/actions.js");
 /* harmony import */ var _components_tableHeaderLink__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/tableHeaderLink */ "./resources/js/components/tableHeaderLink.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure " + obj); }
@@ -9598,48 +9598,48 @@ function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("
 
 
 
-var Order = function Order(_ref) {
+var Driver = function Driver(_ref) {
   _objectDestructuringEmpty(_ref);
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useHistory)();
-  var orders = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
-    return state.orders;
+  var drivers = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
+    return state.drivers;
   });
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    dispatch((0,_redux_Order_actions__WEBPACK_IMPORTED_MODULE_2__.getOrders)());
+    dispatch((0,_redux_Driver_actions__WEBPACK_IMPORTED_MODULE_2__.getDrivers)());
   }, []);
-  if (!orders) {
+  if (!drivers) {
     return null;
   }
   var handleEditClick = function handleEditClick(id) {
-    history.push("/admin/order/view/".concat(id));
+    history.push("/admin/driver/edit/".concat(id));
   };
   var columns = [{
-    key: 'customer_name',
-    title: 'Customer Name',
-    dataIndex: 'customer_name',
+    title: 'Full Name',
+    dataIndex: 'full_name',
+    key: 'full_name',
     sorter: function sorter(a, b) {
-      return a.customer_name.length - b.customer_name.length;
+      return a.full_name.length - b.full_name.length;
     },
     render: function render(_, record) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
         onClick: function onClick() {
           return handleEditClick(record.id);
         },
-        children: record.customer_name
+        children: record.full_name
       });
     }
   }, {
-    key: 'order_type',
-    title: 'Order Type',
-    dataIndex: 'order_type'
+    title: 'email',
+    dataIndex: 'email',
+    key: 'email'
   }, {
-    key: 'start_date',
-    title: 'Start Date',
-    dataIndex: 'start_date'
+    title: 'Phone',
+    dataIndex: 'phone',
+    key: 'phone'
   }, {
-    key: 'action',
     title: 'Action',
+    key: 'action',
     render: function render(_, record) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
         size: "middle",
@@ -9647,8 +9647,11 @@ var Order = function Order(_ref) {
           onClick: function onClick() {
             return handleEditClick(record.id);
           },
-          children: "View"
+          children: "Edit"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+          onClick: function onClick() {
+            return handleEditClick(record.id);
+          },
           children: "Delete"
         })]
       });
@@ -9656,15 +9659,17 @@ var Order = function Order(_ref) {
   }];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_tableHeaderLink__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      name: "Orders"
+      name: "Drivers",
+      toUri: "/admin/driver/create",
+      toText: "Create"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
       rowKey: "id",
       columns: columns,
-      dataSource: orders.data
+      dataSource: drivers.data
     })]
   });
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Order);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Driver);
 
 /***/ }),
 

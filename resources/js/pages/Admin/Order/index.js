@@ -25,7 +25,7 @@ const Order = ({ }) => {
     const columns = [
         {
             key: 'customer_name',
-            title: 'Full Name',
+            title: 'Customer Name',
             dataIndex: 'customer_name',
             sorter: (a, b) => a.customer_name.length - b.customer_name.length,
             render: (_, record) => (

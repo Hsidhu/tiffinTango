@@ -34,6 +34,7 @@ class OrderController extends Controller
         // create customer and address
         $customer = $this->createCustomer($request);
 
+        // add delivery order period
         $orderData = [
             'customer_id' => $customer->id,
             'order_type' => $request->get('order_type'),
@@ -108,7 +109,7 @@ class OrderController extends Controller
     private function createCustomer(Request $request)
     {
         $address = Address::create($request->only(['address', 'city', 'state', 'postal_code', 'country', 'lat', 'lng']));
-        $customerData = array_merge(['address_id' => $address->id, 'password' => '123456'],
+        $customerData = array_merge(['address_id' => $address->id, 'password' => config('app.CUSTOMER_DEFAULT_PWD')],
             $request->only(['first_name','last_name','email', 'phone'])
         );
         return Customer::create($customerData);
