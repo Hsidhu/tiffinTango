@@ -19293,6 +19293,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// https://reactnavigation.org/docs/navigating-without-navigation-prop/
+// https://medium.com/@dariaruckaolszaska/navigate-from-your-redux-actions-with-react-navigation-in-your-react-native-app-d3bf1fbd4c08
+
 var container = document.getElementById('app');
 var root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(container);
 root.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_3__.Provider, {

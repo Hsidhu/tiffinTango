@@ -7203,8 +7203,10 @@ var Zone = function Zone() {
   var handleApiLoaded = function handleApiLoaded(map, maps) {
     var from = new maps.LatLng(39.46, -0.36);
     var to = new maps.LatLng(40.40, -3.68);
-    var distance = maps.geometry.spherical.computeDistanceBetween(from, to);
-    console.log(Math.ceil(distance / 1000) + ' km');
+
+    // const distance = maps.geometry.spherical.computeDistanceBetween(from, to);
+    // console.log(Math.ceil(distance / 1000) + ' km')
+
     var drawingManager = new maps.drawing.DrawingManager({
       drawingMode: maps.drawing.OverlayType.MARKER,
       drawingControl: true,
@@ -7217,22 +7219,35 @@ var Zone = function Zone() {
       },
       circleOptions: {
         fillColor: "#ffff00",
-        fillOpacity: 1,
-        strokeWeight: 5,
+        fillOpacity: 0.5,
+        strokeWeight: 3,
         clickable: false,
         editable: true,
+        zIndex: 1
+      },
+      polygonOptions: {
+        fillColor: "#ffffff",
+        strokeWeight: 2,
+        clickable: true,
+        editable: true,
+        draggable: true,
         zIndex: 1
       }
     });
     drawingManager.setMap(map);
+    window.google.maps.event.addListener(drawingManager, 'overlaycomplete', function (event) {
+      if (event.type === window.google.maps.drawing.OverlayType.POLYGON) {
+        var polygon = event.overlay;
+        var path = polygon.getPath().getArray();
+        console.log('Polygon path:', path);
+        // You can save or manipulate the polygon path here.
+      }
+    });
+
     maps.event.addListener(drawingManager, 'polygoncomplete', function (polygon) {
       var area = null;
       var polygonPaths = polygon.getPath();
       area = maps.geometry.spherical.computeArea(polygonPaths);
-      console.log({
-        area: area,
-        polygon: polygon
-      }, polygon.getPath().getArray());
 
       // adding events to each polygon vertex
       polygon.getPaths().forEach(function (path) {
@@ -7258,6 +7273,10 @@ var Zone = function Zone() {
           });
         });
       });
+      console.log({
+        area: area,
+        polygon: polygon
+      }, polygon.getPath().getArray());
     });
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(google_map_react__WEBPACK_IMPORTED_MODULE_0__["default"], {
