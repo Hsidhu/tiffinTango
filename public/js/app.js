@@ -20276,6 +20276,148 @@ var customer = function customer() {
 
 /***/ }),
 
+/***/ "./resources/js/redux/DeliveryZone/actions.js":
+/*!****************************************************!*\
+  !*** ./resources/js/redux/DeliveryZone/actions.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ASSIGN_DRIVER_TO_ZONE: () => (/* binding */ ASSIGN_DRIVER_TO_ZONE),
+/* harmony export */   CREATE_DELIVERY_ZONE: () => (/* binding */ CREATE_DELIVERY_ZONE),
+/* harmony export */   DELETE_DELIVERY_ZONE: () => (/* binding */ DELETE_DELIVERY_ZONE),
+/* harmony export */   GET_DELIVERY_ZONE: () => (/* binding */ GET_DELIVERY_ZONE),
+/* harmony export */   GET_DELIVERY_ZONES: () => (/* binding */ GET_DELIVERY_ZONES),
+/* harmony export */   UPDATE_DELIVERY_ZONE: () => (/* binding */ UPDATE_DELIVERY_ZONE),
+/* harmony export */   assignDriverToZone: () => (/* binding */ assignDriverToZone),
+/* harmony export */   createDeliveryZone: () => (/* binding */ createDeliveryZone),
+/* harmony export */   deleteDeliveryZone: () => (/* binding */ deleteDeliveryZone),
+/* harmony export */   getDeliveryZone: () => (/* binding */ getDeliveryZone),
+/* harmony export */   getDeliveryZones: () => (/* binding */ getDeliveryZones),
+/* harmony export */   updateDeliveryZone: () => (/* binding */ updateDeliveryZone)
+/* harmony export */ });
+/* harmony import */ var _config_axiosClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config/axiosClient */ "./resources/js/config/axiosClient.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
+
+
+var GET_DELIVERY_ZONES = "GET_DELIVERY_ZONES";
+var CREATE_DELIVERY_ZONE = "CREATE_DELIVERY_ZONE";
+var GET_DELIVERY_ZONE = "GET_DELIVERY_ZONE";
+var UPDATE_DELIVERY_ZONE = "UPDATE_DELIVERY_ZONE";
+var DELETE_DELIVERY_ZONE = "DELETE_DELIVERY_ZONE";
+var ASSIGN_DRIVER_TO_ZONE = "ASSIGN_DRIVER_TO_ZONE";
+var getDeliveryZones = function getDeliveryZones() {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.getRequest)('delivery_zones').then(function (response) {
+      dispatch({
+        type: GET_DELIVERY_ZONES,
+        payload: response.data
+      });
+    })["catch"](function (error) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Couldn't get DeliveryZone!");
+    });
+  };
+};
+var createDeliveryZone = function createDeliveryZone(data) {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.postRequest)('delivery_zone/create', data).then(function (response) {
+      dispatch({
+        type: CREATE_DELIVERY_ZONE,
+        payload: response.data
+      });
+    })["catch"](function (error) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Create DeliveryZone: Something went wrong!');
+    });
+  };
+};
+var getDeliveryZone = function getDeliveryZone(id) {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.getRequest)("delivery_zone/edit/".concat(id)).then(function (response) {
+      dispatch({
+        type: GET_DELIVERY_ZONE,
+        payload: response.data
+      });
+    });
+  };
+};
+var updateDeliveryZone = function updateDeliveryZone(data) {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.postRequest)('delivery_zone/update', data).then(function (response) {
+      dispatch({
+        type: UPDATE_DELIVERY_ZONE,
+        payload: response.data
+      });
+    })["catch"](function (error) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('DeliveryZone update: something went wrong!');
+    });
+  };
+};
+var deleteDeliveryZone = function deleteDeliveryZone(id) {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.deleteRequest)("delivery_zone/delete/".concat(id)).then(function (response) {
+      dispatch({
+        type: DELETE_DELIVERY_ZONE,
+        payload: response.data
+      });
+    })["catch"](function (error) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Driver Delete: Something went wrong!');
+    });
+  };
+};
+var assignDriverToZone = function assignDriverToZone(data) {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.postRequest)("delivery_zone/assign_zone", data).then(function (response) {
+      dispatch({
+        type: ASSIGN_DRIVER_TO_ZONE,
+        payload: response.data
+      });
+    })["catch"](function (error) {
+      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('assign_zone : Something went wrong!');
+    });
+  };
+};
+
+/***/ }),
+
+/***/ "./resources/js/redux/DeliveryZone/reducer.js":
+/*!****************************************************!*\
+  !*** ./resources/js/redux/DeliveryZone/reducer.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   deliveryZone: () => (/* binding */ deliveryZone),
+/* harmony export */   deliveryZones: () => (/* binding */ deliveryZones)
+/* harmony export */ });
+/* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions */ "./resources/js/redux/DeliveryZone/actions.js");
+
+var deliveryZones = function deliveryZones() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.GET_DELIVERY_ZONES:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+var deliveryZone = function deliveryZone() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.GET_DELIVERY_ZONE:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+/***/ }),
+
 /***/ "./resources/js/redux/Driver/actions.js":
 /*!**********************************************!*\
   !*** ./resources/js/redux/Driver/actions.js ***!
@@ -20289,10 +20431,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   DELETE_DRIVER: () => (/* binding */ DELETE_DRIVER),
 /* harmony export */   GET_DRIVER: () => (/* binding */ GET_DRIVER),
 /* harmony export */   GET_DRIVERS: () => (/* binding */ GET_DRIVERS),
+/* harmony export */   GET_DRIVER_SELECT: () => (/* binding */ GET_DRIVER_SELECT),
 /* harmony export */   UPDATE_DRIVER: () => (/* binding */ UPDATE_DRIVER),
 /* harmony export */   createDriver: () => (/* binding */ createDriver),
-/* harmony export */   deleteCustomer: () => (/* binding */ deleteCustomer),
+/* harmony export */   deleteDriver: () => (/* binding */ deleteDriver),
 /* harmony export */   getDriver: () => (/* binding */ getDriver),
+/* harmony export */   getDriverSelect: () => (/* binding */ getDriverSelect),
 /* harmony export */   getDrivers: () => (/* binding */ getDrivers),
 /* harmony export */   updateDriver: () => (/* binding */ updateDriver)
 /* harmony export */ });
@@ -20305,6 +20449,7 @@ var CREATE_DRIVER = "CREATE_DRIVER";
 var GET_DRIVER = "GET_DRIVER";
 var UPDATE_DRIVER = "UPDATE_DRIVER";
 var DELETE_DRIVER = "DELETE_DRIVER";
+var GET_DRIVER_SELECT = "GET_DRIVER_SELECT";
 var getDrivers = function getDrivers() {
   return function (dispatch) {
     var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.getRequest)('drivers').then(function (response) {
@@ -20351,7 +20496,7 @@ var updateDriver = function updateDriver(data) {
     });
   };
 };
-var deleteCustomer = function deleteCustomer(id) {
+var deleteDriver = function deleteDriver(id) {
   return function (dispatch) {
     var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.deleteRequest)("driver/delete/".concat(id)).then(function (response) {
       dispatch({
@@ -20360,6 +20505,16 @@ var deleteCustomer = function deleteCustomer(id) {
       });
     })["catch"](function (error) {
       antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Driver Delete: Something went wrong!');
+    });
+  };
+};
+var getDriverSelect = function getDriverSelect() {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.getRequest)("driver/select").then(function (response) {
+      dispatch({
+        type: GET_DRIVER_SELECT,
+        payload: response.data
+      });
     });
   };
 };
@@ -20376,6 +20531,7 @@ var deleteCustomer = function deleteCustomer(id) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   driver: () => (/* binding */ driver),
+/* harmony export */   driverSelect: () => (/* binding */ driverSelect),
 /* harmony export */   drivers: () => (/* binding */ drivers)
 /* harmony export */ });
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions */ "./resources/js/redux/Driver/actions.js");
@@ -20395,6 +20551,16 @@ var driver = function driver() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
   switch (action.type) {
     case _actions__WEBPACK_IMPORTED_MODULE_0__.GET_DRIVER:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+var driverSelect = function driverSelect() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.GET_DRIVER_SELECT:
       return action.payload;
     default:
       return state;
@@ -20768,7 +20934,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MealPlan_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MealPlan/redux */ "./resources/js/redux/MealPlan/redux.js");
 /* harmony import */ var _Cart_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Cart/redux */ "./resources/js/redux/Cart/redux.js");
 /* harmony import */ var _Order_redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Order/redux */ "./resources/js/redux/Order/redux.js");
-/* harmony import */ var _Settings_redux__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Settings/redux */ "./resources/js/redux/Settings/redux.js");
+/* harmony import */ var _DeliveryZone_reducer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./DeliveryZone/reducer */ "./resources/js/redux/DeliveryZone/reducer.js");
+/* harmony import */ var _Settings_redux__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Settings/redux */ "./resources/js/redux/Settings/redux.js");
+
 
 
 
@@ -20781,12 +20949,13 @@ __webpack_require__.r(__webpack_exports__);
 //Include all the reducer to combine and provide to configure store.
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   authenticateReducer: _Authenticate_reducer__WEBPACK_IMPORTED_MODULE_0__["default"],
-  settings: _Settings_redux__WEBPACK_IMPORTED_MODULE_7__.settings,
+  settings: _Settings_redux__WEBPACK_IMPORTED_MODULE_8__.settings,
   errors: _Common_reducer__WEBPACK_IMPORTED_MODULE_1__.errors,
   customers: _Customer_reducer__WEBPACK_IMPORTED_MODULE_2__.customers,
   customer: _Customer_reducer__WEBPACK_IMPORTED_MODULE_2__.customer,
   drivers: _Driver_reducer__WEBPACK_IMPORTED_MODULE_3__.drivers,
   driver: _Driver_reducer__WEBPACK_IMPORTED_MODULE_3__.driver,
+  driverSelect: _Driver_reducer__WEBPACK_IMPORTED_MODULE_3__.driverSelect,
   mealplans: _MealPlan_redux__WEBPACK_IMPORTED_MODULE_4__.mealplans,
   mealplan: _MealPlan_redux__WEBPACK_IMPORTED_MODULE_4__.mealplan,
   mealplanOptions: _MealPlan_redux__WEBPACK_IMPORTED_MODULE_4__.mealplanOptions,
@@ -20794,7 +20963,9 @@ __webpack_require__.r(__webpack_exports__);
   cart: _Cart_redux__WEBPACK_IMPORTED_MODULE_5__.cart,
   orderSummary: _Cart_redux__WEBPACK_IMPORTED_MODULE_5__.orderSummary,
   orders: _Order_redux__WEBPACK_IMPORTED_MODULE_6__.orders,
-  order: _Order_redux__WEBPACK_IMPORTED_MODULE_6__.order
+  order: _Order_redux__WEBPACK_IMPORTED_MODULE_6__.order,
+  deliveryZones: _DeliveryZone_reducer__WEBPACK_IMPORTED_MODULE_7__.deliveryZones,
+  deliveryZone: _DeliveryZone_reducer__WEBPACK_IMPORTED_MODULE_7__.deliveryZone
 });
 
 /***/ }),
@@ -21057,7 +21228,7 @@ function getItem(key, label, icon, children) {
   };
 }
 var publicTopMenu = [getItem('/', 'Home', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_1__["default"], {})), getItem('/order/mealplan', 'MealPlan', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_2__["default"], {})), getItem('/login', 'login', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_2__["default"], {}))];
-var protectedSideMenu = [getItem('/admin/dashboard', 'Dashboard', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_1__["default"], {})), getItem('/admin/orders', 'Orders', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_2__["default"], {})), getItem('/admin/locations', 'Locations', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_3__["default"], {})), getItem('/admin/mealplans', 'MealPlan', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {})), getItem('/admin/customers', 'Customers', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {})), getItem('/admin/drivers', 'Drivers', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {})), getItem('/admin/settings', 'Settings', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_6__["default"], {})), getItem('User', 'sub1', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_7__["default"], {}), [getItem('Tom', '3'), getItem('Bill', '4')])];
+var protectedSideMenu = [getItem('/admin/dashboard', 'Dashboard', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_1__["default"], {})), getItem('/admin/orders', 'Orders', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_2__["default"], {})), getItem('/admin/locations', 'Locations', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_3__["default"], {})), getItem('/admin/mealplans', 'MealPlan', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_4__["default"], {})), getItem('/admin/customers', 'Customers', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {})), getItem('/admin/drivers', 'Drivers', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {})), getItem('/admin/delivery_zones', 'Delivery Zone', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_5__["default"], {})), getItem('/admin/settings', 'Settings', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_6__["default"], {})), getItem('User', 'sub1', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_7__["default"], {}), [getItem('Tom', '3'), getItem('Bill', '4')])];
 
 /***/ }),
 
@@ -21186,6 +21357,24 @@ var privateRouteList = [{
   path: 'admin/driver/edit/:id',
   component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
     return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_Driver_edit_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/Driver/edit */ "./resources/js/pages/Admin/Driver/edit.js"));
+  }),
+  exact: true
+}, {
+  path: 'admin/delivery_zones',
+  component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_DeliveryZone_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/DeliveryZone/index */ "./resources/js/pages/Admin/DeliveryZone/index.js"));
+  }),
+  exact: true
+}, {
+  path: 'admin/delivery_zone/create',
+  component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_DeliveryZone_create_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/DeliveryZone/create */ "./resources/js/pages/Admin/DeliveryZone/create.js"));
+  }),
+  exact: true
+}, {
+  path: 'admin/delivery_zone/edit/:id',
+  component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_DeliveryZone_edit_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/DeliveryZone/edit */ "./resources/js/pages/Admin/DeliveryZone/edit.js"));
   }),
   exact: true
 }, {
@@ -95780,7 +95969,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_noPageFound_js":1,"resources_js_pages_home_js":1,"resources_js_pages_orderMealPlan_js":1,"resources_js_pages_Auth_Login_js":1,"resources_js_pages_Auth_Registration_js":1,"resources_js_pages_Admin_Dashboard_js":1,"resources_js_pages_Admin_Order_index_js":1,"resources_js_pages_Admin_Order_view_js":1,"resources_js_pages_Admin_Locations_index_js":1,"resources_js_pages_Admin_Locations_create_js":1,"resources_js_pages_Admin_Customer_index_js":1,"resources_js_pages_Admin_Customer_create_js":1,"resources_js_pages_Admin_Customer_edit_js":1,"resources_js_pages_Admin_MealPlan_index_js":1,"resources_js_pages_Admin_MealPlan_create_js":1,"resources_js_pages_Admin_MealPlan_edit_js":1,"resources_js_pages_Admin_Driver_index_js":1,"resources_js_pages_Admin_Driver_create_js":1,"resources_js_pages_Admin_Driver_edit_js":1,"resources_js_pages_Admin_settings_js":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_noPageFound_js":1,"resources_js_pages_home_js":1,"resources_js_pages_orderMealPlan_js":1,"resources_js_pages_Auth_Login_js":1,"resources_js_pages_Auth_Registration_js":1,"resources_js_pages_Admin_Dashboard_js":1,"resources_js_pages_Admin_Order_index_js":1,"resources_js_pages_Admin_Order_view_js":1,"resources_js_pages_Admin_Locations_index_js":1,"resources_js_pages_Admin_Locations_create_js":1,"resources_js_pages_Admin_Customer_index_js":1,"resources_js_pages_Admin_Customer_create_js":1,"resources_js_pages_Admin_Customer_edit_js":1,"resources_js_pages_Admin_MealPlan_index_js":1,"resources_js_pages_Admin_MealPlan_create_js":1,"resources_js_pages_Admin_MealPlan_edit_js":1,"resources_js_pages_Admin_Driver_index_js":1,"resources_js_pages_Admin_Driver_create_js":1,"resources_js_pages_Admin_Driver_edit_js":1,"resources_js_pages_Admin_DeliveryZone_index_js":1,"resources_js_pages_Admin_DeliveryZone_create_js":1,"resources_js_pages_Admin_DeliveryZone_edit_js":1,"resources_js_pages_Admin_settings_js":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

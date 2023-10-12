@@ -42,7 +42,7 @@ const Zone = () => {
             let area = null
             const polygonPaths = polygon.getPath()
             area = maps.geometry.spherical.computeArea(polygonPaths)
-            console.log({ area, polygon })
+            console.log({ area, polygon }, polygon.getPath().getArray())
 
             // adding events to each polygon vertex
             polygon.getPaths().forEach(path => {

@@ -11,4 +11,7 @@ class DeliveryZone extends Model
 
     protected $guarded = [];
     
+    protected $casts = [
+        'boundaries' => 'array'
+    ];
 }

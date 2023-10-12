@@ -5889,9 +5889,6 @@ var Edit = function Edit(_ref) {
     _useState2 = _slicedToArray(_useState, 2),
     componentSize = _useState2[0],
     setComponentSize = _useState2[1];
-  var errors = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
-    return state.errors;
-  });
   var customer = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
     return state.customer;
   });

@@ -99,6 +99,21 @@ export const privateRouteList = [
         exact: true,
     },
     {
+        path: 'admin/delivery_zones',
+        component: lazy(() => import('../pages/Admin/DeliveryZone/index')),
+        exact: true,
+    },
+    {
+        path: 'admin/delivery_zone/create',
+        component: lazy(() => import('../pages/Admin/DeliveryZone/create')),
+        exact: true,
+    },
+    {
+        path: 'admin/delivery_zone/edit/:id',
+        component: lazy(() => import('../pages/Admin/DeliveryZone/edit')),
+        exact: true,
+    },
+    {
         path: 'admin/settings',
         component: lazy(() => import('../pages/Admin/settings')),
         exact: true,

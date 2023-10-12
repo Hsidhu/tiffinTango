@@ -34,6 +34,7 @@ export const protectedSideMenu = [
     getItem('/admin/mealplans', 'MealPlan', <CopyFilled />),
     getItem('/admin/customers', 'Customers', <CarFilled />),
     getItem('/admin/drivers', 'Drivers', <CarFilled />),
+    getItem('/admin/delivery_zones', 'Delivery Zone', <CarFilled />),
     getItem('/admin/settings', 'Settings', <SettingFilled />),
     getItem('User', 'sub1', <UserOutlined />, [
         getItem('Tom', '3'),

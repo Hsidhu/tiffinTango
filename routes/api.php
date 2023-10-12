@@ -47,6 +47,17 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::post('/driver/update', [App\Http\Controllers\Api\Admin\DriverController::class, 'update']);
     Route::delete('/driver/delete/{id}', [App\Http\Controllers\Api\Admin\DriverController::class, 'delete']);
 
+    Route::get('/driver/select', [App\Http\Controllers\Api\Admin\DriverController::class, 'getDriversSelect']);
+
+    
+
+    Route::get('/delivery_zones', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'index']);
+    Route::post('/delivery_zone/create', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'create']);
+    Route::get('/delivery_zone/edit/{id}', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'edit']);
+    Route::post('/delivery_zone/update', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'update']);
+    Route::delete('/delivery_zone/delete/{id}', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'delete']);
+    Route::post('/delivery_zone/assign_zone', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'assignZoneToDriver']);
+
 });
 
 Route::get('images/{folder}/{filename}', [App\Http\Controllers\Api\FileController::class, 'images'])

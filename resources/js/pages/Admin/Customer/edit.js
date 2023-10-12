@@ -16,7 +16,6 @@ const Edit = ({ }) => {
     const history = useHistory()
     let { id } = useParams();
     const [componentSize, setComponentSize] = useState();
-    const errors = useSelector(state => state.errors)
     const customer = useSelector(state => state.customer)
     const dispatch = useDispatch();
 

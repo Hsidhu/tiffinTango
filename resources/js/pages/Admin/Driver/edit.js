@@ -96,7 +96,7 @@ const Edit = ({ }) => {
 
     useEffect(() => {
         form.setFieldsValue({ ...driver, ...driver.address })
-    }, [form, customer])
+    }, [form, driver])
 
     return (
         <>

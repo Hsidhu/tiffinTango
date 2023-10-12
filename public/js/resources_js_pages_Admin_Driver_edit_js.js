@@ -5999,7 +5999,7 @@ var Edit = function Edit(_ref) {
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     form.setFieldsValue(_objectSpread(_objectSpread({}, driver), driver.address));
-  }, [form, customer]);
+  }, [form, driver]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_tableHeaderLink__WEBPACK_IMPORTED_MODULE_6__["default"], {
       name: "Edit Driver",

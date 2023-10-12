@@ -78,8 +78,10 @@ class DriverController extends Controller
         return response()->json($driver);
     }
 
-    public function driverZone()
+    public function getDriversSelect()
     {
-
+        $drivers = Driver::getDataForSelect();
+        return response()->json($drivers);
     }
+
 }

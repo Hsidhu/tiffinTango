@@ -6,6 +6,7 @@ export const CREATE_DRIVER = "CREATE_DRIVER"
 export const GET_DRIVER = "GET_DRIVER"
 export const UPDATE_DRIVER = "UPDATE_DRIVER"
 export const DELETE_DRIVER = "DELETE_DRIVER"
+export const GET_DRIVER_SELECT = "GET_DRIVER_SELECT"
 
 export const getDrivers = () => (dispatch) => {
     const res = getRequest('drivers').then(response => {
@@ -49,7 +50,7 @@ export const updateDriver = (data) => (dispatch) => {
     });
 }
 
-export const deleteCustomer = (id) => (dispatch) => {
+export const deleteDriver = (id) => (dispatch) => {
 
     const res = deleteRequest(`driver/delete/${id}`).then(response => {
         dispatch({
@@ -61,3 +62,12 @@ export const deleteCustomer = (id) => (dispatch) => {
     });
 }
 
+
+export const getDriverSelect = () => (dispatch) => {
+    const res = getRequest(`driver/select`).then(response => {
+        dispatch({
+            type: GET_DRIVER_SELECT,
+            payload: response.data
+        });
+    });
+}
