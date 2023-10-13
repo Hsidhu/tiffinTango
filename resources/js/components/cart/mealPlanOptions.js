@@ -72,13 +72,16 @@ const MealPlanOptions = ({mealPlanID, orderData, cart, selectMealPlanOption}) =>
     const optionView = options.map((option, index ) =>
         <Space key={option.meal_plan_option_id} direction="vertical" size="middle" style={{ display: 'flex', margin: "12px 0px" }}>
             <Row>
-                <Col span={3}>
+                <Col span={4}>
                     <Text>{option.name}: </Text>
                 </Col>
 
-                <Col span={8}>
-                    {option.display == 'select' ? buildSelectOptions(option.values) : null}
-                    {option.display == 'radio' ? buildRadioOptions(option.values) : null}
+                <Col span={12}>
+                    <Space>
+                        {option.display == 'select' ? buildSelectOptions(option.values) : null}
+                        {option.display == 'radio' ? buildRadioOptions(option.values) : null}
+                    </Space>
+                    
                 </Col>
             </Row>
         </Space>

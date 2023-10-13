@@ -15356,13 +15356,15 @@ var MealPlanOptions = function MealPlanOptions(_ref) {
       },
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
-          span: 3,
+          span: 4,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(Text, {
             children: [option.name, ": "]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
-          span: 8,
-          children: [option.display == 'select' ? buildSelectOptions(option.values) : null, option.display == 'radio' ? buildRadioOptions(option.values) : null]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
+          span: 12,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            children: [option.display == 'select' ? buildSelectOptions(option.values) : null, option.display == 'radio' ? buildRadioOptions(option.values) : null]
+          })
         })]
       })
     }, option.meal_plan_option_id);
@@ -15587,12 +15589,12 @@ var SelectMealPlanForm = function SelectMealPlanForm(_ref) {
     title: "Select Mealpan",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        span: 3,
+        span: 4,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Text, {
           children: "Select your Plan:"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        span: 8,
+        span: 18,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
           size: "large",
           placeholder: "Select MealPlan",
@@ -16066,7 +16068,6 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
           name: "search_address",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
             ref: function ref(c) {
-              console.log(c);
               antInputRef.current = c;
               if (c) antRef.current = c.input;
             }
@@ -16226,7 +16227,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var contentStyle = {
   color: '#000000',
   borderRadius: '8px',
-  border: "1px dashed #494848",
   marginTop: 16
 };
 var OrderMealPlan = function OrderMealPlan() {

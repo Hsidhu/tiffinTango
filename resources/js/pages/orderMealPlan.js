@@ -11,7 +11,6 @@ import OrderSummary from '../components/containers/cart/orderSummary';
 const contentStyle = {
     color: '#000000',
     borderRadius: '8px',
-    border: `1px dashed #494848`,
     marginTop: 16
 };
 

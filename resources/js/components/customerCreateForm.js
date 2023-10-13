@@ -144,8 +144,7 @@ const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindo
             <Row gutter={16}>
                 <Col span={12}>
                     <Form.Item name={['email']} label="Email"
-                        rules={[
-                            {
+                        rules={[{
                                 required: true,
                                 type: 'email',
                             },
@@ -174,7 +173,6 @@ const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindo
                     <Form.Item label="Search Address" name="search_address" >
                         <Input
                             ref={(c) => {
-                                console.log(c)
                                 antInputRef.current = c;
                                 if (c)
                                     antRef.current = c.input;

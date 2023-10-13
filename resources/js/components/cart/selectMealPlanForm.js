@@ -44,10 +44,10 @@ const SelectMealPlanForm = ({ nextForm, orderData, cart, getMealPlanForOrder, ad
         <Card title="Select Mealpan"  >
 
             <Row>
-                <Col span={3}>
+                <Col span={4}>
                     <Text>Select your Plan:</Text>
                 </Col>
-                <Col span={8}>
+                <Col span={18}>
                     <Select size="large"
                         placeholder = "Select MealPlan"
                         defaultValue={selectedMealPlan?.meal_id}
