@@ -41,7 +41,7 @@ const Zone = () => {
                 strokeWeight: 2,
                 clickable: true,
                 editable: true,
-                draggable: true,
+                draggable: true, // bounds_changed
                 zIndex: 1,
 
             },

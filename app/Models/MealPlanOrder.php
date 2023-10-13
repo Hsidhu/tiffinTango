@@ -47,6 +47,15 @@ class MealPlanOrder extends Model
         return $this->order_type == static::COLLECTION;
     }
 
+    public function status()
+    {
+        return $this->hasOne(\App\Models\OrderStatus::class);
+    }
+
+    public function deliveryWindow()
+    {
+        return $this->hasOne(\App\Models\DeliveryWindow::class);
+    }
     /**
      * Return the order data to build mail template
      *

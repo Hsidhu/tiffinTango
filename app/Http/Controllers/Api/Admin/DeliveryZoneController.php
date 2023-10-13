@@ -35,7 +35,7 @@ class DeliveryZoneController extends Controller
                     'location_id' => $location->id ?? 1,
                     'name' => $row['name'],
                     'type' => $boundaries['type'],
-                    'boundaries' => json_encode($boundaries['coordinates'])
+                    'boundaries' => $boundaries['coordinates']
                 ];
                 DeliveryZone::create($deliveryZone);
             }

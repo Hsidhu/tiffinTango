@@ -146,7 +146,7 @@ const Create = ({ }) => {
                         >
                             <Input style={{ width: '100%' }} />
                         </Form.Item>
-                        <Form.Item name="license" label="license"
+                        <Form.Item name="license" label="License"
                             rules={[
                                 {
                                     required: true

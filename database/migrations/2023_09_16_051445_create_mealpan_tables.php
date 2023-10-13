@@ -54,7 +54,7 @@ return new class extends Migration
                 `first_name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
                 `last_name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
                 `email` varchar(96) COLLATE utf8mb4_unicode_ci NOT NULL,
-                `password` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+                `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
                 `phone` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
                 `ip_address` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
                 `status` tinyint(1) NOT NULL DEFAULT '1',
@@ -80,17 +80,43 @@ return new class extends Migration
                 `email` varchar(96) COLLATE utf8mb4_unicode_ci NOT NULL,
                 `license` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
                 `phone` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-                `password` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+                `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                `delivery_window_id` int(11) NOT NULL DEFAULT '1',
                 `remember_token` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
                 `ip_address` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
                 `status` tinyint(1) NOT NULL DEFAULT '1',
                 `last_login` datetime DEFAULT NULL,
                 `last_seen` datetime DEFAULT NULL,
+                `device_id` varchar(164) DEFAULT NULL,
                 `created_at` datetime NOT NULL,
                 `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                 PRIMARY KEY (`id`),
                 UNIQUE KEY `drivers_email_unique` (`email`)
             ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+        ");
+
+        DB::statement("
+            CREATE TABLE `delivery_windows` (
+                `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                `name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+                `description` varchar(164) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                `status` tinyint(1) NOT NULL DEFAULT '1',
+                `created_at` timestamp NULL DEFAULT NULL,
+                `updated_at` timestamp NULL DEFAULT NULL,
+            PRIMARY KEY (`id`)
+          ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+        ");
+
+        DB::statement("
+            CREATE TABLE `order_statuses` (
+                `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                `name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+                `description` varchar(164) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+                `status` tinyint(1) NOT NULL DEFAULT '1',
+                `created_at` timestamp NULL DEFAULT NULL,
+                `updated_at` timestamp NULL DEFAULT NULL,
+            PRIMARY KEY (`id`)
+          ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
         ");
 
         // we can use location area zones
@@ -191,7 +217,7 @@ return new class extends Migration
             $table->string('hash', 40)->nullable()->index();
             $table->integer('customer_id')->nullable();
             $table->string('order_type', 32);
-            $table->string('delivery_window', 32)->nullable();
+            $table->int('delivery_window_id', 11)->default(1);
             $table->dateTime('start_date');
             $table->dateTime('end_date')->nullable();
             $table->text('cart')->nullable();
@@ -316,6 +342,7 @@ return new class extends Migration
         Schema::dropIfExists('meal_plan_order_items');
         Schema::dropIfExists('meal_plan_order_item_options');
         Schema::dropIfExists('meal_plan_order_totals');
+        Schema::dropIfExists('order_statuses');
 
         Schema::dropIfExists('meal_plan_order_transactions');
         Schema::dropIfExists('meal_plan_payment_logs');
@@ -325,6 +352,7 @@ return new class extends Migration
         Schema::dropIfExists('addresses');
         Schema::dropIfExists('driver_zones');
         Schema::dropIfExists('delivery_zones');
+        Schema::dropIfExists('delivery_windows');
         Schema::dropIfExists('settings');
         
     }

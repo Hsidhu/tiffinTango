@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
     Row, Col, Button,
     Form,
@@ -10,10 +10,14 @@ import { usePlacesWidget } from "react-google-autocomplete";
 import { GOOGLE_API_KEY, orderTypeOptions, deliveryWindow } from '../config/constants';
 import { phonePattern } from '../validationHelper'
 
-const CustomerCreateForm = ({ form, orderData, getDeliveryCharge, placeOrder }) => {
+const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindows, getDeliveryCharge, placeOrder }) => {
     const [orderType, setOrderType] = useState('pickup');
     const [deliveryWindowShow, setDeliveryWindowShow] = useState(false);
     const antInputRef = useRef(null);
+
+    useEffect(()=>{
+        getDeliveryWindows()
+    }, []);
 
     const { ref: antRef } = usePlacesWidget({
         apiKey: GOOGLE_API_KEY,
@@ -77,8 +81,9 @@ const CustomerCreateForm = ({ form, orderData, getDeliveryCharge, placeOrder }) 
     });
 
     const onFormLayoutChange = ({ order_type }) => {
-        console.log(order_type);
-        order_type == 'delivery' ? setDeliveryWindowShow(true) : setDeliveryWindowShow(false)
+        if(order_type){
+            order_type == 'delivery' ? setDeliveryWindowShow(true) : setDeliveryWindowShow(false)
+        }
     };
 
     const onDateChange = (date, dateString) => {
@@ -105,11 +110,10 @@ const CustomerCreateForm = ({ form, orderData, getDeliveryCharge, placeOrder }) 
             {
                 deliveryWindowShow && 
                 <Form.Item label="Delivery Window" name="delivery_window">
-                    <Radio.Group size="large" optionType="button" options={deliveryWindow}  />
+                    <Radio.Group size="large" optionType="button" options={deliveryWindows}  />
                 </Form.Item>
             }
             
-
             <Form.Item label="Start Date" name="start_date" 
                 rules={[{ required: true, message: 'Please select Start Date!' }]}
                 >

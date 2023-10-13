@@ -58,6 +58,12 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::delete('/delivery_zone/delete/{id}', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'delete']);
     Route::post('/delivery_zone/assign_zone', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'assignZoneToDriver']);
 
+
+    Route::get('/orders', [App\Http\Controllers\Api\Admin\OrderController::class, 'index']);
+    Route::get('/order/view/{id}', [App\Http\Controllers\Api\Admin\OrderController::class, 'view']);
+    Route::get('/order/statuses', [App\Http\Controllers\Api\Admin\OrderStatusController::class, 'getOrderStatuses']);
+    Route::post('/order/status/update', [App\Http\Controllers\Api\Admin\OrderStatusController::class, 'updateOrderStatus']);
+
 });
 
 Route::get('images/{folder}/{filename}', [App\Http\Controllers\Api\FileController::class, 'images'])
@@ -67,9 +73,10 @@ Route::get('/mealplanorder/data', [App\Http\Controllers\Api\OrderController::cla
 Route::post('/mealplanorder/create', [App\Http\Controllers\Api\OrderController::class, 'createOrder']);
 Route::get('/mealplanorder/deliveryCharge', [App\Http\Controllers\Api\OrderController::class, 'getDeliveryCharges']);
 
+Route::get('/delivery_windows', [App\Http\Controllers\Api\OrderController::class, 'getDeliveryWindows']);
 
-Route::get('/orders', [App\Http\Controllers\Api\Admin\OrderController::class, 'index']);
-Route::get('/order/view/{id}', [App\Http\Controllers\Api\Admin\OrderController::class, 'view']);
+
+
 
 Route::get('/settings/{code}', [App\Http\Controllers\Api\Admin\SettingController::class, 'index']);
 Route::post('/settings/save', [App\Http\Controllers\Api\Admin\SettingController::class, 'save']);

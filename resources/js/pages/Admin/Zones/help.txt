@@ -1,0 +1,68 @@
+
+    // Default shape options when creating map objects
+    // Can be overridden within shapes array 'options' index
+    MapViewShape.DRAWING_DEFAULTS = {
+        map: undefined,
+        editable: false,
+        visible: false,
+        draggable: true,
+        strokeColor: '#F16745',
+        fillColor: '#F16745',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillOpacity: 0.15,
+        zIndex: 2,
+    }
+
+    MapViewShape.DEFAULTS = {
+        id: undefined,
+        default: null,
+        options: {},
+        circle: null,
+        polygon: null,
+        vertices: null,
+        serialized: false,
+        editable: false, // turn on or off
+    }
+
+    // handle events
+    MapViewShape.prototype.onEventTriggered = function (event) {
+        var visibleMapObject = this.getVisibleMapObject()
+
+        if (!visibleMapObject)
+            return
+
+        switch (event) {
+            case 'set_at':
+            case 'insert_at':
+            case 'radius_changed':
+            case 'center_changed':
+                this.$mapView.trigger('changed.shape.ti.mapview', [event, visibleMapObject, this])
+                break
+            case 'click':
+                this.$mapView.trigger('click.shape.ti.mapview', [visibleMapObject, this])
+                break
+            case 'mouseover':
+                if (!visibleMapObject.editable)
+                    visibleMapObject.setOptions({fillOpacity: this.drawOptions.fillOpacity * 3})
+                this.$mapView.trigger('mouseover.shape.ti.mapview', [visibleMapObject, this])
+                break
+            case 'mouseout':
+                if (!visibleMapObject.editable)
+                    visibleMapObject.setOptions({fillOpacity: this.drawOptions.fillOpacity})
+                this.$mapView.trigger('mouseout.shape.ti.mapview', [visibleMapObject, this])
+                break
+            case 'dragstart':
+                this.$mapView.trigger('drag.shape.ti.mapview', [visibleMapObject, this])
+                break
+            case 'drag':
+                this.$mapView.trigger('dragging.shape.ti.mapview', [visibleMapObject, this])
+                break
+            case 'dragend':
+                this.$mapView.trigger('dragged.shape.ti.mapview', [visibleMapObject, this])
+                break
+        }
+    }
+
+
+

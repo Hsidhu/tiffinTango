@@ -6042,7 +6042,7 @@ var Create = function Create(_ref) {
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"].Item, {
             name: "license",
-            label: "license",
+            label: "License",
             rules: [{
               required: true
             }],

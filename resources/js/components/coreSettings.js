@@ -47,6 +47,8 @@ const CoreSettings = ({settings, getSettings, saveSettings}) => {
                 style={{}}
                 onFinish={onFormSubmit}
             >
+                // enable or disable tax
+                // enable or disable Delivery charge
 
                 <Form.Item label="Delivery Charge per KM" name={['core', 'deliveryCharge']} >
                     <InputNumber

@@ -7150,7 +7150,7 @@ var CoreSettings = function CoreSettings(_ref) {
     onValuesChange: onFormLayoutChange,
     style: {},
     onFinish: onFormSubmit,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"].Item, {
+    children: ["// enable or disable tax // enable or disable Delivery charge", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"].Item, {
       label: "Delivery Charge per KM",
       name: ['core', 'deliveryCharge'],
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -7231,6 +7231,7 @@ var Zone = function Zone() {
         clickable: true,
         editable: true,
         draggable: true,
+        // bounds_changed
         zIndex: 1
       }
     });

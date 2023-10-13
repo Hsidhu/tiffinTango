@@ -14,6 +14,7 @@ use App\Models\MealPlanOrderItemOption;
 use App\Models\MealPlanOrderTotal;
 use App\Models\Customer;
 use App\Models\Address;
+use App\Models\DeliveryWindow;
 
 class OrderController extends Controller
 {
@@ -141,5 +142,11 @@ class OrderController extends Controller
             'options' => $optionItems,
             'subTotal' => $totalPrice
         ];
+    }
+
+    public function getDeliveryWindows()
+    {
+        $deliveryWindows = DeliveryWindow::getDataForSelect();
+        return response()->json($deliveryWindows);
     }
 }

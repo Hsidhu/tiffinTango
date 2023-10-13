@@ -1,5 +1,6 @@
 import { getRequest, postRequest, deleteRequest } from "../../config/axiosClient"
 import { message } from "antd"
+import { redirect } from "../Common/actions"
 
 export const GET_DELIVERY_ZONES = "GET_DELIVERY_ZONES"
 export const CREATE_DELIVERY_ZONE = "CREATE_DELIVERY_ZONE"
@@ -45,6 +46,8 @@ export const updateDeliveryZone = (data) => (dispatch) => {
             type: UPDATE_DELIVERY_ZONE,
             payload: response.data
         });
+        dispatch(redirect('/admin/delivery_zones'));
+        
     }).catch(error => {
         message.error('DeliveryZone update: something went wrong!')
     });

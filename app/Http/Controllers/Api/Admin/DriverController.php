@@ -54,6 +54,7 @@ class DriverController extends Controller
             'last_name' => ['required', 'between:1,48'],
             'email' => ['required', 'email:filter', 'max:96', 'unique:customers,email,'.$driver->id],
             'phone' => ['sometimes'],
+            'license' => ['required', 'between:4,48'],
             'address' => ['required', 'min:3', 'max:128'],
             'city' => ['required', 'min:2', 'max:128'],
             'state' => ['max:128'],

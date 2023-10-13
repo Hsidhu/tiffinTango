@@ -14,4 +14,9 @@ class DeliveryZone extends Model
     protected $casts = [
         'boundaries' => 'array'
     ];
+
+    public function getBoundariessAttribute($value)
+    {
+        return json_decode($this->boundaries);
+    }
 }

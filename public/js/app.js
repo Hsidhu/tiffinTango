@@ -20120,9 +20120,63 @@ var cartTotal = function cartTotal() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   SET_ERRORS: () => (/* binding */ SET_ERRORS)
+/* harmony export */   DELIVERY_WINDOWS: () => (/* binding */ DELIVERY_WINDOWS),
+/* harmony export */   ORDER_STATUSES: () => (/* binding */ ORDER_STATUSES),
+/* harmony export */   REDIRECT_TO: () => (/* binding */ REDIRECT_TO),
+/* harmony export */   SET_ERRORS: () => (/* binding */ SET_ERRORS),
+/* harmony export */   UPDATE_ORDER_STATUS: () => (/* binding */ UPDATE_ORDER_STATUS),
+/* harmony export */   getDeliveryWindows: () => (/* binding */ getDeliveryWindows),
+/* harmony export */   getOrderStatuses: () => (/* binding */ getOrderStatuses),
+/* harmony export */   redirect: () => (/* binding */ redirect),
+/* harmony export */   updateOrderStatus: () => (/* binding */ updateOrderStatus)
 /* harmony export */ });
+/* harmony import */ var _config_axiosClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config/axiosClient */ "./resources/js/config/axiosClient.js");
+
 var SET_ERRORS = "SET_ERRORS";
+var REDIRECT_TO = "REDIRECT_TO";
+var ORDER_STATUSES = "ORDER_STATUSES";
+var UPDATE_ORDER_STATUS = "UPDATE_ORDER_STATUS";
+var DELIVERY_WINDOWS = "DELIVERY_WINDOWS";
+
+// action creators
+var redirect = function redirect(link) {
+  return {
+    type: REDIRECT_TO,
+    payload: link
+  };
+};
+var getOrderStatuses = function getOrderStatuses() {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.getRequest)('order/statuses').then(function (response) {
+      dispatch({
+        type: ORDER_STATUSES,
+        payload: response.data
+      });
+    });
+  };
+};
+var updateOrderStatus = function updateOrderStatus(data) {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.postRequest)('order/status/update', data).then(function (response) {
+      dispatch({
+        type: ORDER_PLACED,
+        payload: response.data
+      });
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  };
+};
+var getDeliveryWindows = function getDeliveryWindows() {
+  return function (dispatch) {
+    var res = (0,_config_axiosClient__WEBPACK_IMPORTED_MODULE_0__.getRequest)('delivery_windows').then(function (response) {
+      dispatch({
+        type: DELIVERY_WINDOWS,
+        payload: response.data
+      });
+    });
+  };
+};
 
 /***/ }),
 
@@ -20135,7 +20189,10 @@ var SET_ERRORS = "SET_ERRORS";
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   errors: () => (/* binding */ errors)
+/* harmony export */   deliveryWindows: () => (/* binding */ deliveryWindows),
+/* harmony export */   errors: () => (/* binding */ errors),
+/* harmony export */   orderStatuses: () => (/* binding */ orderStatuses),
+/* harmony export */   redirectTo: () => (/* binding */ redirectTo)
 /* harmony export */ });
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actions */ "./resources/js/redux/Common/actions.js");
 
@@ -20144,6 +20201,36 @@ var errors = function errors() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
   switch (action.type) {
     case _actions__WEBPACK_IMPORTED_MODULE_0__.SET_ERRORS:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+var redirectTo = function redirectTo() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.REDIRECT_TO:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+var orderStatuses = function orderStatuses() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.ORDER_STATUSES:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+var deliveryWindows = function deliveryWindows() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  switch (action.type) {
+    case _actions__WEBPACK_IMPORTED_MODULE_0__.DELIVERY_WINDOWS:
       return action.payload;
     default:
       return state;
@@ -20302,7 +20389,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   updateDeliveryZone: () => (/* binding */ updateDeliveryZone)
 /* harmony export */ });
 /* harmony import */ var _config_axiosClient__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config/axiosClient */ "./resources/js/config/axiosClient.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/message/index.js");
+/* harmony import */ var _Common_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Common/actions */ "./resources/js/redux/Common/actions.js");
+
 
 
 var GET_DELIVERY_ZONES = "GET_DELIVERY_ZONES";
@@ -20319,7 +20408,7 @@ var getDeliveryZones = function getDeliveryZones() {
         payload: response.data
       });
     })["catch"](function (error) {
-      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error("Couldn't get DeliveryZone!");
+      antd__WEBPACK_IMPORTED_MODULE_2__["default"].error("Couldn't get DeliveryZone!");
     });
   };
 };
@@ -20331,7 +20420,7 @@ var createDeliveryZone = function createDeliveryZone(data) {
         payload: response.data
       });
     })["catch"](function (error) {
-      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Create DeliveryZone: Something went wrong!');
+      antd__WEBPACK_IMPORTED_MODULE_2__["default"].error('Create DeliveryZone: Something went wrong!');
     });
   };
 };
@@ -20352,8 +20441,9 @@ var updateDeliveryZone = function updateDeliveryZone(data) {
         type: UPDATE_DELIVERY_ZONE,
         payload: response.data
       });
+      dispatch((0,_Common_actions__WEBPACK_IMPORTED_MODULE_1__.redirect)('/admin/delivery_zones'));
     })["catch"](function (error) {
-      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('DeliveryZone update: something went wrong!');
+      antd__WEBPACK_IMPORTED_MODULE_2__["default"].error('DeliveryZone update: something went wrong!');
     });
   };
 };
@@ -20365,7 +20455,7 @@ var deleteDeliveryZone = function deleteDeliveryZone(id) {
         payload: response.data
       });
     })["catch"](function (error) {
-      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('Driver Delete: Something went wrong!');
+      antd__WEBPACK_IMPORTED_MODULE_2__["default"].error('Driver Delete: Something went wrong!');
     });
   };
 };
@@ -20377,7 +20467,7 @@ var assignDriverToZone = function assignDriverToZone(data) {
         payload: response.data
       });
     })["catch"](function (error) {
-      antd__WEBPACK_IMPORTED_MODULE_1__["default"].error('assign_zone : Something went wrong!');
+      antd__WEBPACK_IMPORTED_MODULE_2__["default"].error('assign_zone : Something went wrong!');
     });
   };
 };
@@ -20949,11 +21039,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-//Include all the reducer to combine and provide to configure store.
+// Include all the reducer to combine and provide to configure store.
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   authenticateReducer: _Authenticate_reducer__WEBPACK_IMPORTED_MODULE_0__["default"],
   settings: _Settings_redux__WEBPACK_IMPORTED_MODULE_8__.settings,
-  errors: _Common_reducer__WEBPACK_IMPORTED_MODULE_1__.errors,
+  redirectTo: _Common_reducer__WEBPACK_IMPORTED_MODULE_1__.redirectTo,
+  orderStatuses: _Common_reducer__WEBPACK_IMPORTED_MODULE_1__.orderStatuses,
+  deliveryWindows: _Common_reducer__WEBPACK_IMPORTED_MODULE_1__.deliveryWindows,
   customers: _Customer_reducer__WEBPACK_IMPORTED_MODULE_2__.customers,
   customer: _Customer_reducer__WEBPACK_IMPORTED_MODULE_2__.customer,
   drivers: _Driver_reducer__WEBPACK_IMPORTED_MODULE_3__.drivers,

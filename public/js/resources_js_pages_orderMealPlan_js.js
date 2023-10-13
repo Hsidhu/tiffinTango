@@ -15776,17 +15776,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _customerCreateForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../customerCreateForm */ "./resources/js/components/customerCreateForm.js");
 /* harmony import */ var _redux_Cart_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../redux/Cart/actions */ "./resources/js/redux/Cart/actions.js");
+/* harmony import */ var _redux_Common_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../redux/Common/actions */ "./resources/js/redux/Common/actions.js");
+
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(function (_ref) {
   var orderData = _ref.orderData,
-    cart = _ref.cart;
+    cart = _ref.cart,
+    deliveryWindows = _ref.deliveryWindows;
   return {
     orderData: orderData,
-    cart: cart
+    cart: cart,
+    deliveryWindows: deliveryWindows
   };
 }, {
+  getDeliveryWindows: _redux_Common_actions__WEBPACK_IMPORTED_MODULE_3__.getDeliveryWindows,
   getDeliveryCharge: _redux_Cart_actions__WEBPACK_IMPORTED_MODULE_2__.getDeliveryCharge,
   placeOrder: _redux_Cart_actions__WEBPACK_IMPORTED_MODULE_2__.placeOrder
 })(_customerCreateForm__WEBPACK_IMPORTED_MODULE_1__["default"]));
@@ -15836,6 +15841,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var CustomerCreateForm = function CustomerCreateForm(_ref) {
   var form = _ref.form,
     orderData = _ref.orderData,
+    deliveryWindows = _ref.deliveryWindows,
+    getDeliveryWindows = _ref.getDeliveryWindows,
     getDeliveryCharge = _ref.getDeliveryCharge,
     placeOrder = _ref.placeOrder;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('pickup'),
@@ -15847,6 +15854,9 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
     deliveryWindowShow = _useState4[0],
     setDeliveryWindowShow = _useState4[1];
   var antInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    getDeliveryWindows();
+  }, []);
   var _usePlacesWidget = (0,react_google_autocomplete__WEBPACK_IMPORTED_MODULE_2__.usePlacesWidget)({
       apiKey: _config_constants__WEBPACK_IMPORTED_MODULE_3__.GOOGLE_API_KEY,
       options: {
@@ -15935,8 +15945,9 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
     antRef = _usePlacesWidget.ref;
   var onFormLayoutChange = function onFormLayoutChange(_ref2) {
     var order_type = _ref2.order_type;
-    console.log(order_type);
-    order_type == 'delivery' ? setDeliveryWindowShow(true) : setDeliveryWindowShow(false);
+    if (order_type) {
+      order_type == 'delivery' ? setDeliveryWindowShow(true) : setDeliveryWindowShow(false);
+    }
   };
   var onDateChange = function onDateChange(date, dateString) {
     console.log(date, dateString);
@@ -15972,7 +15983,7 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"].Group, {
         size: "large",
         optionType: "button",
-        options: _config_constants__WEBPACK_IMPORTED_MODULE_3__.deliveryWindow
+        options: deliveryWindows
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
       label: "Start Date",

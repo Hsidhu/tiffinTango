@@ -22,6 +22,11 @@ class Driver extends Model
         return $this->hasMany(\App\Models\DriverZone::class);
     }
 
+    public function shift()
+    {
+        return $this->hasOne(\App\Models\DeliveryWindow::class);
+    }
+
     public function getFullNameAttribute($value)
     {
         return $this->first_name.' '.$this->last_name;
