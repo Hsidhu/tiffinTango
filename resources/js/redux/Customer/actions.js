@@ -9,7 +9,6 @@ export const GET_DELETE_CUSTOMER = "GET_DELETE_CUSTOMER"
 
 export const getCustomers = () => (dispatch) => {
     const res = getRequest('customer').then(response => {
-        console.log(response.data)
         dispatch({
             type: GET_CUSTOMERS,
             payload: response.data

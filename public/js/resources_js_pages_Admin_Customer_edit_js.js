@@ -3122,16 +3122,16 @@ var Edit = function Edit(_ref) {
     return state.customer;
   });
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
+  var _Form$useForm = antd__WEBPACK_IMPORTED_MODULE_9__["default"].useForm(),
+    _Form$useForm2 = _slicedToArray(_Form$useForm, 1),
+    form = _Form$useForm2[0];
+  var antInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_redux_Customer_actions__WEBPACK_IMPORTED_MODULE_4__.getCustomer)(id));
   }, []);
   if (!customer) {
     return null;
   }
-  var _Form$useForm = antd__WEBPACK_IMPORTED_MODULE_9__["default"].useForm(),
-    _Form$useForm2 = _slicedToArray(_Form$useForm, 1),
-    form = _Form$useForm2[0];
-  var antInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var _usePlacesWidget = (0,react_google_autocomplete__WEBPACK_IMPORTED_MODULE_2__.usePlacesWidget)({
       apiKey: _config_constants__WEBPACK_IMPORTED_MODULE_3__.GOOGLE_API_KEY,
       options: {

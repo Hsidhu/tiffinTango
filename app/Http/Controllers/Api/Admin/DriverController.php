@@ -75,7 +75,8 @@ class DriverController extends Controller
     {
         $driver = Driver::find($id);
         Address::find($driver->address_id)->delete();
-
+        $driver->delete();
+        
         return response()->json($driver);
     }
 

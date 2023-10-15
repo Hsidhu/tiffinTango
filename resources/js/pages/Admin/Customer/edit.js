@@ -18,6 +18,9 @@ const Edit = ({ }) => {
     const [componentSize, setComponentSize] = useState();
     const customer = useSelector(state => state.customer)
     const dispatch = useDispatch();
+    const [form] = Form.useForm();
+
+    const antInputRef = useRef(null);
 
     useEffect(() => {
         dispatch(getCustomer(id))
@@ -26,9 +29,9 @@ const Edit = ({ }) => {
     if (!customer) {
         return null;
     }
-    const [form] = Form.useForm()
+    
 
-    const antInputRef = useRef(null);
+    
     const { ref: antRef } = usePlacesWidget({
         apiKey: GOOGLE_API_KEY,
         options: {

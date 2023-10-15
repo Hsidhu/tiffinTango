@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_pages_Admin_Locations_index_js"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_pages_Admin_Location_index_js"],{
 
 /***/ "./node_modules/@ant-design/icons-svg/es/asn/ArrowLeftOutlined.js":
 /*!************************************************************************!*\
@@ -6670,10 +6670,10 @@ var TableHeaderLink = function TableHeaderLink(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/pages/Admin/Locations/index.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/pages/Admin/Locations/index.js ***!
-  \*****************************************************/
+/***/ "./resources/js/pages/Admin/Location/index.js":
+/*!****************************************************!*\
+  !*** ./resources/js/pages/Admin/Location/index.js ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";

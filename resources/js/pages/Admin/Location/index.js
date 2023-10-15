@@ -2,23 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { Space, Table, Tag, Row, Col, Button } from 'antd';
-import { getCustomers } from "../../../redux/Customer/actions"
+import { getLocations } from "../../../redux/Location/actions";
+import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const Locations = ({ }) => {
     const history = useHistory();
-    const customers = useSelector(state => state.customers)
+    const {locations} = useSelector(state => state)
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getCustomers())
+        dispatch(getLocations())
     }, [])
 
-    if(!customers){
+    if(!locations){
         return null;
     }
 
     const handleEditClick = (id) => {
-        history.push(`/admin/customer/edit/${id}`)
+        history.push(`/admin/location/edit/${id}`)
     }
 
     const columns = [
@@ -26,8 +27,10 @@ const Locations = ({ }) => {
             title: 'Name',
             dataIndex: 'name',
             key: 'name',
-            render: (text) => <a>{text}</a>,
-            sorter: (a, b) => a.full_name.length - b.full_name.length
+            sorter: (a, b) => a.name.length - b.name.length,
+            render: (_, record) => (
+                <a onClick={ () => handleEditClick(record.id)} >{record.name}</a>
+            ),
         },
         {
             title: 'Phone',
@@ -48,20 +51,12 @@ const Locations = ({ }) => {
 
     return (
         <>
-            <Row>
-                <Col flex={2}>Customers</Col>
-                <Col flex={3}>
-                    <Space align='center' style={{
-                            display: "flex",
-                            justifyContent: 'end',
-                        }}>
-                        <Button type="primary" onClick={() => history.push('/admin/location/create')} >
-                            Create
-                        </Button>
-                    </Space>
-                </Col>
-            </Row>
-            <Table rowKey="id" columns={columns} dataSource={customers.data} />
+            <TableHeaderLink
+                name="Locations"
+                toUri="/admin/location/create"
+                toText="Create"
+            />
+            <Table rowKey="id" columns={columns} dataSource={locations.data} />
         </>
     );
 }

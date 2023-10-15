@@ -36,7 +36,7 @@ function ProtectedRoutes() {
             <Header>
                 <Row justify="space-between" align="center">
                     <Col flex={2}>
-                        <HeaderLogo />
+                        <HeaderLogo uri="/admin/dashboard" />
                     </Col>
                     <Col flex={3}>
                         <div style={{ display: 'flex', alignItems:'center', justifyContent:'end' }}>

@@ -18,8 +18,8 @@ const styles = {
 
 };
 
-const HeaderLogo = ({}) => (
-    <Link to="/" style={styles.logoLink}>
+const HeaderLogo = ({uri}) => (
+    <Link to={uri} style={styles.logoLink}>
         <img alt="logo" style={styles.logo} src={`${axiosConfig.HOST_URL}/images/site/ab_catering_logo.png`} />
     </Link>
 );

@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_pages_Admin_Locations_create_js"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_pages_Admin_Location_create_js"],{
 
 /***/ "./node_modules/@ant-design/icons-svg/es/asn/DownOutlined.js":
 /*!*******************************************************************!*\
@@ -2200,10 +2200,10 @@ Input.Password = _Password__WEBPACK_IMPORTED_MODULE_4__["default"];
 
 /***/ }),
 
-/***/ "./resources/js/pages/Admin/Locations/LocationForm.js":
-/*!************************************************************!*\
-  !*** ./resources/js/pages/Admin/Locations/LocationForm.js ***!
-  \************************************************************/
+/***/ "./resources/js/pages/Admin/Location/LocationForm.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/pages/Admin/Location/LocationForm.js ***!
+  \***********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -2479,10 +2479,10 @@ var LocationForm = function LocationForm(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/pages/Admin/Locations/create.js":
-/*!******************************************************!*\
-  !*** ./resources/js/pages/Admin/Locations/create.js ***!
-  \******************************************************/
+/***/ "./resources/js/pages/Admin/Location/create.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/pages/Admin/Location/create.js ***!
+  \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -2494,7 +2494,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/form/index.js");
-/* harmony import */ var _LocationForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LocationForm */ "./resources/js/pages/Admin/Locations/LocationForm.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/divider/index.js");
+/* harmony import */ var _LocationForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LocationForm */ "./resources/js/pages/Admin/Location/LocationForm.js");
 /* harmony import */ var _redux_Location_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../redux/Location/actions */ "./resources/js/redux/Location/actions.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -2536,7 +2537,7 @@ var Create = function Create(_ref) {
       name: "Create Location",
       toUri: "/admin/locations",
       toText: "Back"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LocationForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LocationForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
       form: form,
       onFormChange: onFormChange,
       onFormSubmit: onFormSubmit

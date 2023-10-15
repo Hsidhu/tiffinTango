@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Api\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Location;
-use App\Http\Resources\CustomerResource;
+use App\Http\Resources\Admin\LocationResource;
 
 class LocationController extends Controller
 {
     public function index()
     {
-        $customers = Location::get();
-        return CustomerResource::collection($customers);
+        $locations = Location::get();
+        return LocationResource::collection($locations);
     }
 
     public function create(Request $request)
@@ -28,42 +28,45 @@ class LocationController extends Controller
             'radius' => ['required'],
         ]);
         
-        $address = Address::create($request->only(['address', 'city', 'state', 'postal_code', 'country', 'lat', 'lng']));
-        $customerData = array_merge(['address_id' => $address->id, 'password' => '123456'],
-            $request->only(['first_name','last_name','email', 'phone'])
-        );
-        $customer = Customer::create($customerData);
-        return response()->json($customer);
+        $location = Location::create($request->only(
+            ['name', 'description', 'phone', 'address', 'city', 'state', 'postal_code', 'country', 'radius', 'lat', 'lng']
+        ));
+        return response()->json($location);
     }
 
     public function edit($id)
     {
-        $customer = Customer::with('address')->find($id);
-        return response()->json($customer);
+        $location = Location::find($id);
+        return new LocationResource($location);
     }
     
     public function update(Request $request)
     {
-        $customer = Customer::find($request->id);
-        $address = Address::find($request->address_id);
+        $location = Location::find($request->id);
+        
         $this->validate($request, [
-            'first_name' => ['required', 'between:1,48'],
-            'last_name' => ['required', 'between:1,48'],
-            'email' => ['required', 'email:filter', 'max:96', 'unique:customers,email,'.$customer->id],
+            'name' => ['required', 'between:1,48'],
             'phone' => ['sometimes'],
             'address' => ['required', 'min:3', 'max:128'],
             'city' => ['required', 'min:2', 'max:128'],
             'state' => ['max:128'],
             'postal_code' => ['required'],
             'country' => ['required'],
+            'radius' => ['required'],
         ]);
-        $customer->update(
-            $request->only(['first_name','last_name','email', 'phone'])
-        );
-        $address->update(
-            $request->only(['address', 'city', 'state', 'postal_code', 'country', 'lat', 'lng'])
-        );
 
-        return $customer;
+        $location->update($request->only(
+            ['name', 'description', 'phone', 'address', 'city', 'state', 'postal_code', 'country', 'radius', 'lat', 'lng']
+        ));
+
+        return $location;
+    }
+
+    public function delete($id)
+    {
+        $location = Location::find($id);
+        $location->delete();
+        
+        return response()->json($location);
     }
 }

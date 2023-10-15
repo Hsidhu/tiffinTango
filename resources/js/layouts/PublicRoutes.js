@@ -31,7 +31,7 @@ const PublicRoutes = () => {
             <Header>
                 <Row>
                     <Col span={8}>
-                        <HeaderLogo />
+                        <HeaderLogo  uri="/" />
                     </Col>
                     <Col span={6}>
 

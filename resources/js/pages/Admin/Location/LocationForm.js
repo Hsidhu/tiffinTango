@@ -9,20 +9,15 @@ import {
     InputNumber
 } from 'antd';
 
-import Autocomplete, { usePlacesWidget } from "react-google-autocomplete";
+import { usePlacesWidget } from "react-google-autocomplete";
 import { GOOGLE_API_KEY } from '../../../config/constants';
-import { createCustomers } from '../../../redux/Customer/actions'
 import { phonePattern } from '../../../validationHelper'
 
-const Create = ({ }) => {
+const LocationForm = ({form, onFormChange, onFormSubmit }) => {
     const history = useHistory()
-    const [componentSize, setComponentSize] = useState();
     const errors = useSelector(state => state.errors)
-    const dispatch = useDispatch();
-
-    const [form] = Form.useForm()
-
     const antInputRef = useRef(null);
+
     const { ref: antRef } = usePlacesWidget({
         apiKey: GOOGLE_API_KEY,
         options: {
@@ -80,49 +75,20 @@ const Create = ({ }) => {
         }
     });
 
-    const formValueChange = (value, key) => {
-        const fields = form.getFieldsValue()
-        const { projects } = fields
-        Object.assign(projects[key], { type: value })
-        form.setFieldsValue({ projects })
-    }
-
-    const onFormLayoutChange = ({ first_name }) => {
-        console.log(first_name);
-        setComponentSize(first_name);
-    };
-
-    const onFormSubmit = (values) => {
-        if (errors) {
-            // errors.reset()
-        }
-        console.log(values)
-        dispatch(createCustomers(values));
-    }
-
     return (
         <Form
             form={form}
             labelCol={{ span: 4, }}
             wrapperCol={{ span: 14, }}
             layout="horizontal"
-            initialValues={{ size: componentSize, }}
-            onValuesChange={onFormLayoutChange}
+            initialValues={{}}
+            onValuesChange={onFormChange}
             style={{}}
             onFinish={onFormSubmit}
         >
             <Row>
                 <Col span={12}>
                     <Form.Item label="Name" name="name"
-                        rules={[
-                            {
-                                required: true
-                            },
-                        ]}
-                    >
-                        <Input />
-                    </Form.Item>
-                    <Form.Item label="Description" name="description"
                         rules={[
                             {
                                 required: true
@@ -143,12 +109,26 @@ const Create = ({ }) => {
                         <Input style={{ width: '100%' }} />
                     </Form.Item>
 
+                    <Form.Item label="Description" name="description"
+                            rules={[
+                                {
+                                    required: true
+                                },
+                            ]}
+                        >
+                            <Input.TextArea rows={2} />
+                    </Form.Item>
+
                     <Form.Item
                         name={['radius']}
                         label="Radius"
                         rules={[{ required: true, }]}
                     >
-                        <InputNumber />
+                        <InputNumber
+                            min={1}
+                            step={5}
+                            stringMode
+                        />
                     </Form.Item>
 
                 </Col>
@@ -207,7 +187,7 @@ const Create = ({ }) => {
 
             <Row>
                 <Col span={12}>
-                    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                    <Form.Item wrapperCol={{ offset: 4, span: 18 }}>
                         <Button type="primary" htmlType="submit">Submit</Button>
                     </Form.Item>
                 </Col>
@@ -217,4 +197,4 @@ const Create = ({ }) => {
     );
 }
 
-export default Create;
+export default LocationForm;

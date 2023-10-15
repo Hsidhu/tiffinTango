@@ -45,12 +45,17 @@ export const privateRouteList = [
     },
     {
         path: 'admin/locations',
-        component: lazy(() => import('../pages/Admin/Locations/index')),
+        component: lazy(() => import('../pages/Admin/Location/index')),
         exact: true,
     },
     {
         path: 'admin/location/create',
-        component: lazy(() => import('../pages/Admin/Locations/create')),
+        component: lazy(() => import('../pages/Admin/Location/create')),
+        exact: true,
+    },
+    {
+        path: 'admin/location/edit/:id',
+        component: lazy(() => import('../pages/Admin/Location/edit')),
         exact: true,
     },
     {

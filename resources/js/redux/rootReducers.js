@@ -1,5 +1,6 @@
 import authenticateReducer from './Authenticate/reducer';
 import {redirectTo, orderStatuses, deliveryWindows} from './Common/reducer'
+import { locations, location } from './Location/reducer';
 import { customers, customer } from './Customer/reducer';
 import { drivers, driver, driverSelect } from './Driver/reducer';
 import { mealplans, mealplan, mealplanOptions } from './MealPlan/redux';
@@ -13,6 +14,7 @@ export default {
     authenticateReducer,
     settings,
     redirectTo, orderStatuses, deliveryWindows,
+    locations, location,
     customers, customer,
     drivers, driver, driverSelect,
     mealplans, mealplan, mealplanOptions,
