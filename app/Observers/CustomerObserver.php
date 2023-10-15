@@ -4,9 +4,11 @@ namespace App\Observers;
 
 use App\Models\Customer;
 use Illuminate\Support\Facades\Request;
+use App\Traits\SearchesNearby;
 
 class CustomerObserver
 {
+    use SearchesNearby;
     /**
      * Handle the Customer "created" event.
      *
@@ -16,7 +18,13 @@ class CustomerObserver
     public function created(Customer $customer)
     {
         $customer->ip_address = Request::getClientIp();
+        // $deliveryZone = $this->onSearchNearby([$customer->address->lat, $customer->address->lng]);
+        // $customer->zone_id = 
+
         $customer->save();
+
+        // get use lat and long
+        // get closest lat and long and get all the delivery zones and search for the zone user belong to
     }
 
     /**

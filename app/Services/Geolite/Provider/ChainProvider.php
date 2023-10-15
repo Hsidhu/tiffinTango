@@ -2,13 +2,13 @@
 
 namespace App\Services\Geolite\Provider;
 
-use App\Services\Geolite\Contracts;
+use App\Services\Geolite\Contracts\AbstractProvider;
 use App\Services\Geolite\Contracts\DistanceInterface;
 use App\Services\Geolite\Contracts\GeoQueryInterface;
 use App\Services\Geolite\Model\Distance;
 use Illuminate\Support\Collection;
 
-class ChainProvider extends Contracts\AbstractProvider
+class ChainProvider extends AbstractProvider
 {
     /**
      * @var \Igniter\Flame\Geolite\Contracts\GeocoderInterface

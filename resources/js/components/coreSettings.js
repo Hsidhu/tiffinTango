@@ -50,6 +50,11 @@ const CoreSettings = ({settings, getSettings, saveSettings}) => {
                 // enable or disable tax
                 // enable or disable Delivery charge
 
+                <Form.Item label="distance_unit" name={['core', 'distance_unit']} >
+                    <Input
+                    />
+                </Form.Item>
+                
                 <Form.Item label="Delivery Charge per KM" name={['core', 'deliveryCharge']} >
                     <InputNumber
                         min={0}
@@ -60,6 +65,11 @@ const CoreSettings = ({settings, getSettings, saveSettings}) => {
                     <InputNumber
                         min={0}
                     />
+                </Form.Item>
+
+
+                <Form.Item label="maps_api_key" name={['core', 'maps_api_key']} >
+                    <Input />
                 </Form.Item>
 
                 <Form.Item wrapperCol={{ offset: 8, span: 16 }}>

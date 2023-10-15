@@ -175,8 +175,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // functions for now
+        App\Providers\CustomServiceProvider::class,
+
         // GeoLite
         App\Services\Geolite\GeoliteServiceProvider::class,
+
 
     ],
 

@@ -3333,11 +3333,16 @@ var LocationForm = function LocationForm(_ref) {
     }),
     antRef = _usePlacesWidget.ref;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var scriptTags = document.querySelectorAll('script[src*="maps.googleapis.com/maps/api/js"]');
     // __REACT_GOOGLE_AUTOCOMPLETE_CALLBACK__
+    var mainScriptTags = document.querySelectorAll('script[src*="maps.googleapis.com/maps"]');
     return function () {
-      scriptTags.forEach(function (scriptTag) {
+      mainScriptTags.forEach(function (scriptTag) {
         scriptTag.remove();
+      });
+      var helperHeadScriptTags = document.head.querySelectorAll('script[src*="maps.googleapis.com/maps-api"]');
+      helperHeadScriptTags.forEach(function (headScriptTag) {
+        console.log(headScriptTag);
+        headScriptTag.remove();
       });
     };
   }, []);

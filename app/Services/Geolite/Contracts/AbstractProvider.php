@@ -3,7 +3,7 @@
 namespace App\Services\Geolite\Contracts;
 
 use GuzzleHttp\Client;
-use Igniter\Flame\Geolite\Model\Distance;
+use App\Services\Geolite\Model\Distance;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 
@@ -35,7 +35,7 @@ abstract class AbstractProvider
     /**
      * Handle the geocoder request.
      *
-     * @param \Igniter\Flame\Geolite\Contracts\GeoQueryInterface $query
+     * @param \App\Services\Geolite\Contracts\GeoQueryInterface $query
      * @return \Illuminate\Support\Collection
      */
     abstract public function geocodeQuery(GeoQueryInterface $query): Collection;
@@ -43,7 +43,7 @@ abstract class AbstractProvider
     /**
      * Handle the reverse geocoding request.
      *
-     * @param \Igniter\Flame\Geolite\Contracts\GeoQueryInterface $query
+     * @param \App\Services\Geolite\Contracts\GeoQueryInterface $query
      * @return \Illuminate\Support\Collection
      */
     abstract public function reverseQuery(GeoQueryInterface $query): Collection;
@@ -136,7 +136,7 @@ abstract class AbstractProvider
     }
 
     /**
-     * @return \Igniter\Flame\Geolite\Contracts\AbstractProvider $this
+     * @return \App\Services\Geolite\Contracts\AbstractProvider $this
      */
     public function resetLogs()
     {

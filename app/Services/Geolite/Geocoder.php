@@ -9,6 +9,8 @@ use App\Services\Geolite\Contracts\GeoQueryInterface;
 use Illuminate\Support\Manager;
 use InvalidArgumentException;
 
+use App\Helpers\Str;
+
 class Geocoder extends Manager implements Contracts\GeocoderInterface
 {
     public function geocode($address)
@@ -86,7 +88,7 @@ class Geocoder extends Manager implements Contracts\GeocoderInterface
             return $this->callCustomCreator($name);
         }
 
-        $method = 'create'.studly_case($name).'Provider';
+        $method = 'create'.Str::studly($name).'Provider';
         if (method_exists($this, $method)) {
             return $this->$method();
         }

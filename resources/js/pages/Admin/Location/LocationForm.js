@@ -75,11 +75,17 @@ const LocationForm = ({form, onFormChange, hasId, onFormSubmit }) => {
     });
 
     useEffect(() => {
-        const scriptTags = document.querySelectorAll('script[src*="maps.googleapis.com/maps/api/js"]');
         // __REACT_GOOGLE_AUTOCOMPLETE_CALLBACK__
+        const mainScriptTags = document.querySelectorAll('script[src*="maps.googleapis.com/maps"]');
+        
         return () => {
-            scriptTags.forEach((scriptTag) => {
+            mainScriptTags.forEach((scriptTag) => {
                 scriptTag.remove();
+            });
+            const helperHeadScriptTags = document.head.querySelectorAll('script[src*="maps.googleapis.com/maps-api"]');
+            helperHeadScriptTags.forEach((headScriptTag) => {
+                console.log(headScriptTag);
+                headScriptTag.remove();
             });
     }}, []);
 
