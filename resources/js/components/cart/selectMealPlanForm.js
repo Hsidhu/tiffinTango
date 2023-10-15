@@ -12,6 +12,7 @@ const { Text } = Typography;
 
 import { axiosConfig } from '../../config/constants';
 import MealPlanOptions from "../containers/cart/mealPlanOptions"
+import { imageUrl } from '../../config/helpers';
 
 const SelectMealPlanForm = ({ nextForm, orderData, cart, getMealPlanForOrder, addToCartselectMealPlan }) => {
 
@@ -67,14 +68,13 @@ const SelectMealPlanForm = ({ nextForm, orderData, cart, getMealPlanForOrder, ad
                             <Descriptions.Item label="Name">{selectedMealPlan.name}</Descriptions.Item>
                             <Descriptions.Item label="Description">{selectedMealPlan.description}</Descriptions.Item>
                             <Descriptions.Item label="Billing">Monthly</Descriptions.Item>
-                            <Descriptions.Item label="Price">${selectedMealPlan.price}</Descriptions.Item>
                     </Descriptions>: null
                 }
                 <br/>
                 {
                     !isEmpty(selectedMealPlan) ? <Image
                                 width={200}
-                                src={`${axiosConfig.HOST_URL}/${selectedMealPlan.image}`}
+                                src={imageUrl(`/images/${selectedMealPlan.image}`)}
                             /> : null
                 }
 

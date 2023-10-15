@@ -21,6 +21,7 @@ export const cart = (state = {}, action) => {
                 deliveryCharges:0,
                 tax:0.13,
                 items: [action.payload],
+                
             };
         case SELECT_MEALPLAN_OPTIONS:
             let newState = _.cloneDeep(state);

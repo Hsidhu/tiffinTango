@@ -6,6 +6,7 @@ import {
     Row, Col, Button, Select, Card,
     Radio, DatePicker, Form
 } from 'antd';
+import { ArrowLeftOutlined } from '@ant-design/icons';
 import { axiosConfig } from '../../config/constants';
 import CustomerCreateForm from '../containers/customerCreateForm';
 
@@ -34,12 +35,12 @@ const CustomerDetailForm = ({prevForm, cart, placeOrder }) => {
 
             <Row>
                 <Col span={24}>
+                    <Button onClick={prevForm}>
+                        <ArrowLeftOutlined />
+                    </Button>
                     <CustomerCreateForm form={form} />
                     <Button type="primary" onClick={triggerSubmit}>Submit</Button>
                     <br/>
-                    <Button type="primary" onClick={prevForm}>
-                        prevForm
-                    </Button>
                 </Col>
             </Row>
 

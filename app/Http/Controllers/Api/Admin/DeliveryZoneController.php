@@ -22,7 +22,6 @@ class DeliveryZoneController extends Controller
 
     public function create(Request $request)
     {
-        $header = ['WKT', 'name'];
         $this->validate($request, [
             'csvData' => ['required']
         ]);
@@ -31,13 +30,15 @@ class DeliveryZoneController extends Controller
         foreach ($csvRows as $key => $row) {
             if(!empty($row['WKT'])){
                 $boundaries = $this->extractDataFromCSV($row['WKT']);
-                $deliveryZone = [
+                $deliveryZone = DeliveryZone::updateOrCreate([
+                    'name' => $row['name'],
+                    'type' => $boundaries['type']
+                ],[
                     'location_id' => $location->id ?? 1,
                     'name' => $row['name'],
                     'type' => $boundaries['type'],
                     'boundaries' => $boundaries['coordinates']
-                ];
-                DeliveryZone::create($deliveryZone);
+                ]);
             }
             
         }

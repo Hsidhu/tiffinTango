@@ -46,7 +46,9 @@ class OrderController extends Controller
             "payment_type" => 'cash',
             'payment_processed' => 1,
             'status_id' => 1,
-            'comment'=>''
+            'delivery_comment' => $request->get('delivery_comment'),
+            'comment' => $request->get('comment'),
+            'delivery_window_id' => $request->get('delivery_window_id')
         ];
         $order = MealPlanOrder::create($orderData);
         $orderItem = [

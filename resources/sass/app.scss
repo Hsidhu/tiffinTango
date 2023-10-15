@@ -20,7 +20,9 @@ body{
 }
 
 .ant-layout-header {
-    background: #0c6fce;
+    background: #fff;
+    border-bottom: 1px solid #ebebeb;
+    box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, .06);
 }
 
 .header-info {

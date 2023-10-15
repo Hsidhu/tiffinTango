@@ -1,9 +1,10 @@
-import { Navigate } from "react-router-dom";
-
+import { useHistory } from 'react-router-dom';
 
 const RedirectTo = ({redirectTo}) => {
+    const navigate = useHistory();
+    navigate(redirectTo)
     return (
-        <Navigate to={redirectTo} replace={false} />
+        null
     );
 }
 

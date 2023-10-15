@@ -7,7 +7,8 @@ import {
     Button,
     Form,
     Select,
-    Input
+    Input,
+    List, Typography
 } from 'antd';
 import { getMealPlanOptions, createMealPlanAddon } from '../../redux/MealPlan/actions';
 import { isEmpty } from 'lodash';
@@ -36,13 +37,6 @@ const MealPlanAddonCreate = ({ }) => {
     useEffect(() => {
         form.setFieldsValue({meal_plan_id:mealplan.id})
     }, [form, mealplan])
-
-    const mealPlanDisplayOptions = () => {
-        return !isEmpty(mealplan.options) ?
-                mealplan.options.map((option, index)=> {                         
-                    return <span key={index}>  {option.name} </span>
-                }) : <span>No options</span>
-    }
 
     return (
         <Form
@@ -76,8 +70,25 @@ const MealPlanAddonCreate = ({ }) => {
             </Row>
             <Row>
                 <Col span={12}>
-                    Options - {mealplan.name}
-                    { mealPlanDisplayOptions() }
+                    {mealplan.name} - Options:
+                    <br/>
+                    <List
+                        bordered
+                        dataSource={mealplan.options}
+                        renderItem={item => (
+                            <List.Item>
+                              <Typography.Text mark>{item.name} - {item.display_type}</Typography.Text>
+                              <List
+                                dataSource={item.values}
+                                renderItem={value => (
+                                    <List.Item>
+                                        <Typography.Text mark>{value.value} - ${value.price.toFixed(2)}</Typography.Text>
+                                    </List.Item>
+                                )}
+                              />
+                            </List.Item>
+                        )}
+                    />
                 </Col>
             </Row>
 

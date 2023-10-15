@@ -12,7 +12,7 @@ const headerWrapper = {
     backgroundColor: "#f5f5f5"
 }
 
-const TableHeaderLink = ({ name, backUri, toUri, toText }) => {
+const TableHeaderLink = ({ name, backUri, toUri, toText, children }) => {
     const history = useHistory();
     const navTo = (uri) => {
         history.push(uri)
@@ -34,6 +34,7 @@ const TableHeaderLink = ({ name, backUri, toUri, toText }) => {
                         </Button>,
                 ]}
             >
+                { children ?? null}
                 <Descriptions size="small" column={3}>
                     <Descriptions.Item label="Created">Lili Qu</Descriptions.Item>
                     <Descriptions.Item label="Creation Time">2017-01-10</Descriptions.Item>

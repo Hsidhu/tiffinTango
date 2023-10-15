@@ -35,7 +35,7 @@ const Edit = ({ }) => {
 
 
     const onFormSubmit = (values) => {
-        dispatch(updateDeliveryZone(values));
+        dispatch(updateDeliveryZone(values, history));
         // history.push('/admin/delivery_zones')
     }
     console.log(typeof deliveryZone.boundaries)

@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Admin;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Admin\MealPlanOptionResource;
 
 class MealPlanResource extends JsonResource
 {
@@ -24,9 +25,8 @@ class MealPlanResource extends JsonResource
             'discount' => $this->discount,
             'duration' => $this->duration,
             'status'=> $this->status,
-            'options' => $this->options
+            'options' => MealPlanOptionResource::collection($this->options)
         ];
 
-        return parent::toArray($request);
     }
 }

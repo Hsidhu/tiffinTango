@@ -43,7 +43,7 @@ class MealPlanController extends Controller
         if($request->hasFile('file')) {
             $fileName = $this->fileStoreName($request->file('file'));
             $request->file('file')->storeAs('public/mealplan', $fileName);
-            $request->merge(['image' => $fileName]);
+            $request->merge(['image' => 'mealplan/'.$fileName]);
         }
         $mealPlan = MealPlan::create($$request->only(['name','description','short_description', 'price', 'discount', 'duration', 'image']));
         return response()->json($mealPlan);
@@ -78,7 +78,12 @@ class MealPlanController extends Controller
             'meal_plan_id' => ['required'],
             'meal_plan_option_id' => ['required', ]
         ]);
-        $mealPlanOption = MealPlanAddon::create($request->only(['meal_plan_id', 'meal_plan_option_id']));
+        $addOn = $request->only(['meal_plan_id', 'meal_plan_option_id']);
+
+        $mealPlanOption = MealPlanAddon::updateOrCreate(
+            $addOn,
+            $addOn
+        );
         return response()->json($mealPlanOption);
     }
 
@@ -112,10 +117,10 @@ class MealPlanController extends Controller
 
         $fileName = $mealPlan->image;
         if(!empty($request->file('file'))) {
-            unlink(storage_path('app/public/mealplan/'.$fileName));
+            unlink(storage_path('app/public/'.$fileName));
             $fileName = $this->fileStoreName($request->file('file'));
             $request->file('file')->storeAs('public/mealplan', $fileName);
-            $request->merge(['image' => $fileName]);
+            $request->merge(['image' => 'mealplan/'.$fileName]);
         }
         $mealPlan->update($request->only([
                 'name','description','short_description', 

@@ -32,7 +32,7 @@ function ProtectedRoutes() {
 
     return (
         <Layout style={{ minHeight: "100vh" }}>
-
+            
             <Header>
                 <Row justify="space-between" align="center">
                     <Col flex={2}>
@@ -56,6 +56,7 @@ function ProtectedRoutes() {
                 
             </Header>
             <Layout hasSider>
+                
                 <Sider width={200}>
                     <Menu
                         mode="inline"
@@ -66,6 +67,7 @@ function ProtectedRoutes() {
                         onClick={sidebarOnClickHandler}
                     />
                 </Sider>
+
                 <Layout style={{ padding: '0 24px 24px' }}>
                     <Content style={{ padding: 24, margin: 0, minHeight: 280}}>
                         <Switch>

@@ -3,23 +3,25 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
     Row, Col, Button, Divider,
-    Form, Input, Switch
+    Form, Input, Switch, Radio
 } from 'antd';
 import { usePlacesWidget } from "react-google-autocomplete";
 import { GOOGLE_API_KEY } from '../../../config/constants';
 import { getDriver, updateDriver } from '../../../redux/Driver/actions'
 import { phonePattern } from '../../../validationHelper'
 import TableHeaderLink from '../../../components/tableHeaderLink';
+import { getDeliveryWindows } from '../../../redux/Common/actions';
 
 const Edit = ({ }) => {
     const history = useHistory();
     let { id } = useParams();
     const [form] = Form.useForm();
     const [componentSize, setComponentSize] = useState();
-    const driver = useSelector(state => state.driver)
+    const {driver, deliveryWindows} = useSelector(state => state)
     const dispatch = useDispatch();
 
     useEffect(() => {
+        dispatch(getDeliveryWindows());
         dispatch(getDriver(id))
     }, [])
 
@@ -161,6 +163,11 @@ const Edit = ({ }) => {
                         >
                             <Input />
                         </Form.Item>
+
+                        <Form.Item label="Shift" name="delivery_window_id">
+                            <Radio.Group size="large" optionType="button" options={deliveryWindows}  />
+                        </Form.Item>
+
                         <Form.Item label="Status" name="status" valuePropName="checked">
                             <Switch />
                         </Form.Item>

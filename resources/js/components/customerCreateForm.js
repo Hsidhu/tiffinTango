@@ -103,13 +103,17 @@ const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindo
             // onFinish={onFormSubmit}
         >
 
+            
+
             <Form.Item label="Order Type" name="order_type" >
                 <Radio.Group size="large" optionType="button" options={orderTypeOptions}  />
             </Form.Item>
 
             {
                 deliveryWindowShow && 
-                <Form.Item label="Delivery Window" name="delivery_window">
+                <Form.Item label="Delivery Window" name="delivery_window"
+                    rules={[{ required: true}]}
+                    >
                     <Radio.Group size="large" optionType="button" options={deliveryWindows}  />
                 </Form.Item>
             }
@@ -242,7 +246,8 @@ const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindo
                 <Col span={24}>
                     {
                         deliveryWindowShow && 
-                        <Form.Item label="Delivery Comment" name="delivery_comment">
+                        <Form.Item label="Delivery Comment" name="delivery_comment" 
+                        rules={[{ required: true}]}>
                             <Input.TextArea rows={2} />
                         </Form.Item>
                     }
@@ -253,6 +258,26 @@ const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindo
                     <Form.Item label="General Comment" name="comment">
                         <Input.TextArea rows={2} />
                     </Form.Item>
+
+                    <Form.Item
+                        name="termsAndConditions"
+                        valuePropName="checked"
+                        rules={[
+                        {
+                            validator: (rule, value) => {
+                            if (!value) {
+                                return Promise.reject('Please accept the Terms & Conditions');
+                            }
+                            return Promise.resolve();
+                            },
+                        },
+                        ]}
+                    >
+                    <Radio>
+                        I accept the <a href="/terms-and-conditions" target="_blank">Terms & Conditions</a>
+                    </Radio>
+                </Form.Item>
+
                 </Col>
             </Row>
 

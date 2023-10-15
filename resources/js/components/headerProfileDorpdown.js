@@ -1,10 +1,13 @@
 import React from 'react';
-import { Avatar, Menu, Spin, Dropdown, Button } from 'antd';
+import { Avatar, Menu, Typography, Dropdown, Button } from 'antd';
 import { UserOutlined, LogoutOutlined, SettingOutlined } from '@ant-design/icons';
-import { useHistory } from 'react-router-dom';
+
+import { Link } from "react-router-dom";
 import actions from '../redux/Authenticate/actions';
 
 import { useDispatch, useSelector } from 'react-redux';
+
+const { Text } = Typography;
 
 const contentStyle = {
     margin: 0,
@@ -27,13 +30,13 @@ const styles = {
             verticalAlign: 'middle'
         }
     },
-    menu:{
-        marginRight: '8px' 
+    menu: {
+        marginRight: '8px'
     }
 }
 
 const HeaderProfileDorpdown = () => {
-    
+
     const dispatch = useDispatch();
     const { name, logOutLoader } = useSelector(state => state.authenticateReducer)
 
@@ -49,30 +52,30 @@ const HeaderProfileDorpdown = () => {
 
     const items = [
         {
-          key: '1',
-          label: (
-            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-              1st menu item
-            </a>
-          ),
+            key: 'profile',
+            label: (
+                <Link to='/admin/locations'>
+                    Profile
+                </Link>
+            ),
         },
         {
-          key: '2asdf',
-          label: (
-            <Button
-                danger
-                type="primary"
-                loading={logOutLoader}
-                onClick={onLogout}
-            >Logout</Button>
-          ),
+            key: 'logout',
+            label: (
+                <Button
+                    danger
+                    type="link"
+                    loading={logOutLoader}
+                    onClick={onLogout}
+                >Logout</Button>
+            ),
         }
-      ];
+    ];
 
     return (
         <div>
-            <Dropdown menu={{items}} placement="bottom">
-                <Avatar icon={<UserOutlined />}  />
+            <Dropdown menu={{ items }} placement="bottom">
+                <Avatar icon={<UserOutlined />} />
             </Dropdown>
         </div>
     );

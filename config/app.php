@@ -175,6 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // GeoLite
+        App\Services\Geolite\GeoliteServiceProvider::class,
+
     ],
 
     /*
@@ -230,5 +233,6 @@ return [
     ],
 
     'customer_default' => env('CUSTOMER_DEFAULT_PWD', 'customer_default_password'),
+    'CLIENT_TIMEZONE' => env('CLIENT_TIMEZONE', 'America/Toronto'),
 
 ];
