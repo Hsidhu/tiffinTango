@@ -35,7 +35,7 @@ const Create = ({ }) => {
                 toText="Back"
             />
             <Divider/>
-            <LocationForm form={form} onFormChange={onFormChange}  onFormSubmit={onFormSubmit}  />
+            <LocationForm form={form} onFormChange={onFormChange}  onFormSubmit={onFormSubmit} hasId={false}  />
         </>
     );
 }

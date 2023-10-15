@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -13,9 +13,8 @@ import { usePlacesWidget } from "react-google-autocomplete";
 import { GOOGLE_API_KEY } from '../../../config/constants';
 import { phonePattern } from '../../../validationHelper'
 
-const LocationForm = ({form, onFormChange, onFormSubmit }) => {
+const LocationForm = ({form, onFormChange, hasId, onFormSubmit }) => {
     const history = useHistory()
-    const errors = useSelector(state => state.errors)
     const antInputRef = useRef(null);
 
     const { ref: antRef } = usePlacesWidget({
@@ -74,6 +73,15 @@ const LocationForm = ({form, onFormChange, onFormSubmit }) => {
             }
         }
     });
+
+    useEffect(() => {
+        const scriptTags = document.querySelectorAll('script[src*="maps.googleapis.com/maps/api/js"]');
+        // __REACT_GOOGLE_AUTOCOMPLETE_CALLBACK__
+        return () => {
+            scriptTags.forEach((scriptTag) => {
+                scriptTag.remove();
+            });
+    }}, []);
 
     return (
         <Form
@@ -176,6 +184,13 @@ const LocationForm = ({form, onFormChange, onFormSubmit }) => {
                     >
                         <Input style={{ width: '100%' }} />
                     </Form.Item>
+
+                    {
+                        hasId && 
+                        <Form.Item name="id" hidden>
+                            <Input type="hidden" />
+                        </Form.Item>
+                    }
                     <Form.Item name="lat" hidden>
                         <Input type="hidden" />
                     </Form.Item>

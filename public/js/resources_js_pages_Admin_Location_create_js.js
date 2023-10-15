@@ -2239,11 +2239,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 var LocationForm = function LocationForm(_ref) {
   var form = _ref.form,
     onFormChange = _ref.onFormChange,
+    hasId = _ref.hasId,
     onFormSubmit = _ref.onFormSubmit;
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_6__.useHistory)();
-  var errors = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
-    return state.errors;
-  });
   var antInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   var _usePlacesWidget = (0,react_google_autocomplete__WEBPACK_IMPORTED_MODULE_2__.usePlacesWidget)({
       apiKey: _config_constants__WEBPACK_IMPORTED_MODULE_3__.GOOGLE_API_KEY,
@@ -2331,6 +2329,15 @@ var LocationForm = function LocationForm(_ref) {
       }
     }),
     antRef = _usePlacesWidget.ref;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var scriptTags = document.querySelectorAll('script[src*="maps.googleapis.com/maps/api/js"]');
+    // __REACT_GOOGLE_AUTOCOMPLETE_CALLBACK__
+    return function () {
+      scriptTags.forEach(function (scriptTag) {
+        scriptTag.remove();
+      });
+    };
+  }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
     form: form,
     labelCol: {
@@ -2443,6 +2450,12 @@ var LocationForm = function LocationForm(_ref) {
               width: '100%'
             }
           })
+        }), hasId && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"].Item, {
+          name: "id",
+          hidden: true,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
+            type: "hidden"
+          })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"].Item, {
           name: "lat",
           hidden: true,
@@ -2540,7 +2553,8 @@ var Create = function Create(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LocationForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
       form: form,
       onFormChange: onFormChange,
-      onFormSubmit: onFormSubmit
+      onFormSubmit: onFormSubmit,
+      hasId: false
     })]
   });
 };

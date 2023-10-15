@@ -24,7 +24,7 @@ return new class extends Migration
                 `lat` double DEFAULT NULL,
                 `lng` double DEFAULT NULL,
                 `radius` int(11) DEFAULT NULL,
-                `status` tinyint(1) DEFAULT NULL,
+                `status` tinyint(1) NOT NULL DEFAULT '1',
                 `permalink_slug` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
                 `created_at` timestamp NULL DEFAULT NULL,
                 `updated_at` timestamp NULL DEFAULT NULL,
