@@ -20,9 +20,9 @@ class Address extends Model
         return $this->hasOne(\App\Models\Customer::class);
     }
 
-    public function driver()
+    public function deliveryZone()
     {
-        return $this->hasOne(\App\Models\Driver::class);
+        return $this->belongsTo(\App\Models\deliveryZone::class);
     }
 
     //

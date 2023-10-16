@@ -14,7 +14,6 @@ import { createLocation } from '../../../redux/Location/actions'
 
 const Create = ({ }) => {
     const history = useHistory()
-    const {location} = useSelector(state => state)
     const dispatch = useDispatch();
 
     const [form] = Form.useForm()

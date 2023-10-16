@@ -84,7 +84,6 @@ const LocationForm = ({form, onFormChange, hasId, onFormSubmit }) => {
             });
             const helperHeadScriptTags = document.head.querySelectorAll('script[src*="maps.googleapis.com/maps-api"]');
             helperHeadScriptTags.forEach((headScriptTag) => {
-                console.log(headScriptTag);
                 headScriptTag.remove();
             });
     }}, []);

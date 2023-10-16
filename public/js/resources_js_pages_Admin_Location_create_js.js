@@ -2338,7 +2338,6 @@ var LocationForm = function LocationForm(_ref) {
       });
       var helperHeadScriptTags = document.head.querySelectorAll('script[src*="maps.googleapis.com/maps-api"]');
       helperHeadScriptTags.forEach(function (headScriptTag) {
-        console.log(headScriptTag);
         headScriptTag.remove();
       });
     };
@@ -2535,10 +2534,6 @@ function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("
 var Create = function Create(_ref) {
   _objectDestructuringEmpty(_ref);
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useHistory)();
-  var _useSelector = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
-      return state;
-    }),
-    location = _useSelector.location;
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   var _Form$useForm = antd__WEBPACK_IMPORTED_MODULE_6__["default"].useForm(),
     _Form$useForm2 = _slicedToArray(_Form$useForm, 1),

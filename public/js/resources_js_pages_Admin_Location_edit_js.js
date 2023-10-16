@@ -3341,7 +3341,6 @@ var LocationForm = function LocationForm(_ref) {
       });
       var helperHeadScriptTags = document.head.querySelectorAll('script[src*="maps.googleapis.com/maps-api"]');
       helperHeadScriptTags.forEach(function (headScriptTag) {
-        console.log(headScriptTag);
         headScriptTag.remove();
       });
     };

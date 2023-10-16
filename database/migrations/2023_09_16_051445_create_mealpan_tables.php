@@ -124,7 +124,7 @@ return new class extends Migration
             $table->engine = 'InnoDB';
             $table->id();
             $table->integer('driver_id');
-            $table->integer('zone_id');
+            $table->integer('delivery_zone_id');
             $table->integer('status');
             $table->timestamps();
         });
@@ -132,7 +132,7 @@ return new class extends Migration
         DB::statement("
             CREATE TABLE `addresses` (
                 `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-                `zone_id` int(11) unsigned DEFAULT NULL,
+                `delivery_zone_id` int(11) unsigned DEFAULT NULL,
                 `address` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
                 `city` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
                 `state` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,

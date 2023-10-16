@@ -11,18 +11,27 @@ import {
 import { getOrder } from "../../../redux/Order/actions"
 import { isEmpty } from 'lodash';
 import TableHeaderLink from '../../../components/tableHeaderLink';
+import GoogleMapReact from 'google-map-react';
+import { GOOGLE_API_KEY } from '../../../config/constants';
 
 const { Title } = Typography;
 
 const View = ({ }) => {
     const history = useHistory()
     const { id } = useParams();
-    const order = useSelector(state => state.order)
+    const {order} = useSelector(state => state)
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getOrder(id))
+        return () => {
+            const helperHeadScriptTags = document.head.querySelectorAll('script[src*="maps.googleapis.com/maps"]');
+            helperHeadScriptTags.forEach((headScriptTag) => {
+                headScriptTag.remove();
+            })
+        }
     }, [])
+
 
     if (isEmpty(order)) {
         return null;
@@ -45,6 +54,36 @@ const View = ({ }) => {
         return {};
     };
 
+    const handleApiLoaded = (map, maps) => {
+
+        const bermudaTriangle = new maps.Polygon({
+            paths: order.customer_delivery_zone?.boundaries,
+            strokeColor: "#FF0000",
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: "#FF0000",
+            fillOpacity: 0.35,
+        });
+        bermudaTriangle.setMap(map);
+    }
+
+    const renderMarkers = (map, maps) => {
+        const myLatlng = new maps.LatLng(order.customer_lat, order.customer_lng);
+        const customerLocation = new maps.Marker({
+            position: myLatlng,
+            title: order.customer_address
+        });
+        customerLocation.setMap(map);
+
+        let infoWindow = new maps.InfoWindow({
+            content: order.customer_address
+        });
+
+        customerLocation.addListener("click", ({domEvent, latLng})=>{
+            console.log(domEvent, latLng);
+            infoWindow.open(map, customerLocation);
+        });
+    };
     const columns2 = [
         {
             title: 'Name/Options',
@@ -174,6 +213,26 @@ const View = ({ }) => {
                         <p>End Date: {moment(order.end_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
                         <p>Created Date: {moment(order.created_at, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
                     </Card>
+                </Col>
+            </Row>
+            <Divider />
+            <Row gutter={6}>
+                <Col span={16}>
+                    <GoogleMapReact
+                        style={{ height: '500px' }}
+                        bootstrapURLKeys={{ libraries: ['geometry'], key: GOOGLE_API_KEY }}
+                        defaultCenter={{ lat: order.customer_lat, lng: order.customer_lng }}
+                        defaultZoom={12}
+                        yesIWantToUseGoogleMapApiInternals={true}
+                        onGoogleApiLoaded={({ map, maps }) => {
+                            renderMarkers(map, maps)
+                            handleApiLoaded(map, maps)
+                        }}
+                    >
+                    </GoogleMapReact>
+                </Col>
+                <Col span={6}>
+                    Update zone
                 </Col>
             </Row>
         </>
