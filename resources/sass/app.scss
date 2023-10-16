@@ -7,11 +7,13 @@
 // AntD
 @import '~antd/dist/antd.css';
 
-body{
-    height: auto!important;
+body {
+    height: auto !important;
 }
 
-#app, section, section > div {
+#app,
+section,
+section>div {
     height: 100%;
 }
 
@@ -53,7 +55,8 @@ body{
 
     .ant-form-item-label {
         padding: 0 !important;
-        label{
+
+        label {
             height: 30px;
         }
     }
@@ -74,3 +77,40 @@ body{
     justify-content: center;
     height: 100%;
 }
+
+
+/* styles.css */
+.sticker-sheet {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+    grid-template-rows: repeat(4, 1fr); /* 4 rows */
+    grid-gap: 5px; /* Adjust this for spacing between stickers */
+    width: 210mm; /* A4 paper width */
+    height: 297mm; /* A4 paper height */
+    padding: 8mm 2mm; /* Adjust this for page margins */
+  }
+  
+  /* Sticker styling */
+  .sticker {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+    width: 80mm; /* Adjust this for label width */
+    height: 34mm; /* Adjust this for label height */
+    /* Add more styling as needed */
+  }
+
+/* Print-specific styles */
+@media print {
+    body {
+        visibility: hidden !important;
+    }
+
+    header.ant-layout-header, aside.ant-layout-sider {
+        display: none;
+    }
+  
+    .print-section {
+        visibility: visible;
+    }
+  }

@@ -44,6 +44,11 @@ export const privateRouteList = [
         exact: true,
     },
     {
+        path: 'admin/order/sticker_view',
+        component: lazy(() => import('../pages/Admin/Order/StickerView')),
+        exact: true,
+    },
+    {
         path: 'admin/locations',
         component: lazy(() => import('../pages/Admin/Location/index')),
         exact: true,

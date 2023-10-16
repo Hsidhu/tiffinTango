@@ -25829,6 +25829,12 @@ var privateRouteList = [{
   }),
   exact: true
 }, {
+  path: 'admin/order/sticker_view',
+  component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+    return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_Order_StickerView_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/Order/StickerView */ "./resources/js/pages/Admin/Order/StickerView.js"));
+  }),
+  exact: true
+}, {
   path: 'admin/locations',
   component: /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
     return __webpack_require__.e(/*! import() */ "resources_js_pages_Admin_Location_index_js").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Admin/Location/index */ "./resources/js/pages/Admin/Location/index.js"));
@@ -104335,7 +104341,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_pages_noPageFound_js":1,"resources_js_pages_home_js":1,"resources_js_pages_orderMealPlan_js":1,"resources_js_pages_Auth_Login_js":1,"resources_js_pages_Auth_Registration_js":1,"resources_js_pages_Admin_Dashboard_js":1,"resources_js_pages_Admin_Order_index_js":1,"resources_js_pages_Admin_Order_view_js":1,"resources_js_pages_Admin_Location_index_js":1,"resources_js_pages_Admin_Location_create_js":1,"resources_js_pages_Admin_Location_edit_js":1,"resources_js_pages_Admin_Customer_index_js":1,"resources_js_pages_Admin_Customer_create_js":1,"resources_js_pages_Admin_Customer_edit_js":1,"resources_js_pages_Admin_MealPlan_index_js":1,"resources_js_pages_Admin_MealPlan_create_js":1,"resources_js_pages_Admin_MealPlan_edit_js":1,"resources_js_pages_Admin_Driver_index_js":1,"resources_js_pages_Admin_Driver_create_js":1,"resources_js_pages_Admin_Driver_edit_js":1,"resources_js_pages_Admin_DeliveryZone_index_js":1,"resources_js_pages_Admin_DeliveryZone_create_js":1,"resources_js_pages_Admin_DeliveryZone_edit_js":1,"resources_js_pages_Admin_settings_js":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_pages_noPageFound_js":1,"resources_js_pages_home_js":1,"resources_js_pages_orderMealPlan_js":1,"resources_js_pages_Auth_Login_js":1,"resources_js_pages_Auth_Registration_js":1,"resources_js_pages_Admin_Dashboard_js":1,"resources_js_pages_Admin_Order_index_js":1,"resources_js_pages_Admin_Order_view_js":1,"resources_js_pages_Admin_Order_StickerView_js":1,"resources_js_pages_Admin_Location_index_js":1,"resources_js_pages_Admin_Location_create_js":1,"resources_js_pages_Admin_Location_edit_js":1,"resources_js_pages_Admin_Customer_index_js":1,"resources_js_pages_Admin_Customer_create_js":1,"resources_js_pages_Admin_Customer_edit_js":1,"resources_js_pages_Admin_MealPlan_index_js":1,"resources_js_pages_Admin_MealPlan_create_js":1,"resources_js_pages_Admin_MealPlan_edit_js":1,"resources_js_pages_Admin_Driver_index_js":1,"resources_js_pages_Admin_Driver_create_js":1,"resources_js_pages_Admin_Driver_edit_js":1,"resources_js_pages_Admin_DeliveryZone_index_js":1,"resources_js_pages_Admin_DeliveryZone_create_js":1,"resources_js_pages_Admin_DeliveryZone_edit_js":1,"resources_js_pages_Admin_settings_js":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

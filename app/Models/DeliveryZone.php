@@ -4,12 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\SetClientTimeZone;
 
 use App\Services\Geolite\Contracts\CoordinatesInterface;
 use App\Services\Geolite\Contracts\LocationInterface;
 use App\Services\Geolite\Facades\Geocoder;
-use App\Services\AreaInterface;
 use InvalidArgumentException;
 
 class DeliveryZone extends Model
@@ -17,7 +15,6 @@ class DeliveryZone extends Model
     use HasFactory ;
 
     protected $guarded = [];
-
 
     public $relation = [
         'belongsTo' => [
@@ -29,11 +26,20 @@ class DeliveryZone extends Model
         'boundaries' => 'array'
     ];
 
+    public static function getDataForSelect()
+    {
+        return static::all()->map(function ($item) {
+            return [
+                'value' => $item->id,
+                'label' => $item->name,
+            ];
+        });  
+    }
+
     public function getLocationId()
     {
         return $this->attributes['location_id'];
     }
-
 
     public function getVerticesAttribute()
     {

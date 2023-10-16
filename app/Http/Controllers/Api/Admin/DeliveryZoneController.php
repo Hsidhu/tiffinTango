@@ -9,7 +9,6 @@ use App\Models\DeliveryZone;
 use App\Models\Driver;
 use App\Models\DriverZone;
 
-
 // https://mapsengine.google.com/map/ 
 
 class DeliveryZoneController extends Controller
@@ -113,5 +112,11 @@ class DeliveryZoneController extends Controller
         } else {
             return null; // Not a valid WKT
         }
+    }
+
+    public function getDeliveryZonesSelect()
+    {
+        $deliveryZones =  DeliveryZone::getDataForSelect();
+        return response()->json($deliveryZones);
     }
 }

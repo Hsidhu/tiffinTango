@@ -7,7 +7,6 @@ import ProtectedRoutes from '../layouts/ProtectedRoutes';
 
 const NoPageFound = lazy(() => import('../pages/noPageFound'));
 
-
 export function AppRoutes({ isAuthenticated }) {
 
     return (
