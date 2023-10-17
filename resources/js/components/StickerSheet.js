@@ -5,9 +5,9 @@ import React from 'react';
 const StickerSheet = ({pages}) => {
     
     return (
-        <div>
+        <div className='print-section'>
         {pages.map((page, pageIndex) => (
-            <div key={pageIndex} className="sticker-sheet print-section">
+            <div key={pageIndex} className="sticker-sheet">
             {page.map((label, labelIndex) => (
                 <div key={labelIndex} className="sticker">
                 {label}
