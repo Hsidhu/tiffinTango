@@ -1,6 +1,6 @@
 import React from 'react';
 import StickerSheet from '../../../components/StickerSheet';
-
+import { Button, Table, Divider } from 'antd';
 
 const StickerView = () => {
 
@@ -16,7 +16,7 @@ const StickerView = () => {
 
         'NEXT 1', 'NEXT 2', 'NEXT 3', 'NEXT 4','NEXT 5', 'NEXT 6', 'NEXT 7', 'NEXT 8'
     ];
-    const labelsPerPage = 32;
+    const labelsPerPage = 30;
     const splitStickerDataIntoPages = (stickerData, labelsPerPage) => {
         const pages = [];
         for (let i = 0; i < stickerData.length; i += labelsPerPage) {
@@ -38,7 +38,7 @@ const StickerView = () => {
     console.log(pages);
     return (
         <>
-            <button onClick={printStickerSheet}>Print</button>
+            <Button onClick={printStickerSheet}>Print</Button>
             <StickerSheet pages={pages} />
         </>
     );

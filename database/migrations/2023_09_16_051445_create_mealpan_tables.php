@@ -187,6 +187,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('display_type');
+            $table->tinyInteger('required')->default(0);
+            $table->integer('priority')->default(0);
             $table->boolean('status')->default(1);
             $table->timestamps();
         });
