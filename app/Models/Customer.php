@@ -23,7 +23,7 @@ class Customer extends Model
     
     public function mealplanorders()
     {
-        return $this->hasMany(App\Models\MealPlanOrder::class);
+        return $this->hasMany(\App\Models\MealPlanOrder::class);
     }
     
     public function address()

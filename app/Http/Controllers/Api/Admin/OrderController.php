@@ -21,10 +21,14 @@ class OrderController extends Controller
         return new OrderResource($order);
     }
 
+    /**
+     * Update order fields
+     */
     public function orderUpdates(Request $request)
     {
         $order = MealPlanOrder::find($request->id);
-        $order->update($request->all());
+        $newRequest = $request->except('id');
+        $order->update($newRequest);
         
         return new OrderResource($order);
     }

@@ -81,23 +81,29 @@ class OrderController extends Controller
             "value" => $subTotal,
             "is_summable" => 1
         ];
-        $orderTotalItems[1] = [
-            "order_id" => $order->id,
-            "code" => 'delivery',
-            "title" => 'Delivery',
-            "value" => $request->get('deliveryCharges'),
-            "is_summable" => 1
-        ];
-        $subTotal += $request->get('deliveryCharges');
-        $taxAmount = $subTotal * 0.13;
-        $orderTotalItems[2] = [
-            "order_id" => $order->id,
-            "code" => 'tax',
-            "title" => 'Tax[13%]',
-            "value" => $taxAmount,
-            "is_summable" => 1
-        ];
-        $subTotal += $taxAmount;
+        if(setting('core.include_delivery_charge')){
+            $orderTotalItems[1] = [
+                "order_id" => $order->id,
+                "code" => 'delivery',
+                "title" => 'Delivery',
+                "value" => $request->get('deliveryCharges'),
+                "is_summable" => 1
+            ];
+            $subTotal += $request->get('deliveryCharges');
+        }
+
+        if(setting('core.include_tax')){
+            $taxAmount = $subTotal * setting('core.tax');
+            $orderTotalItems[2] = [
+                "order_id" => $order->id,
+                "code" => 'tax',
+                "title" => 'Tax[13%]',
+                "value" => $taxAmount,
+                "is_summable" => 1
+            ];
+            $subTotal += $taxAmount;
+        }
+        
         $orderTotalItems[3] =[
             "order_id" => $order->id,
             "code" => 'total',

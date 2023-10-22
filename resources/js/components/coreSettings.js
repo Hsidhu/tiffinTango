@@ -30,15 +30,6 @@ const CoreSettings = ({settings, getSettings, saveSettings}) => {
         if(settings){
             settings.forEach((setting, index) => {
                 let item = setting;
-                // switch (item.key) {
-                //     case 'include_tax':
-                //         item.value = (item.value != 0);
-                //         break;
-                //     case 'include_delivery_charge':
-                //         item.value = (item.value != 0)
-                //         break;
-                // }
-                // Map each object's properties to form fields
                 initialValues.core[`${item.key}`] = item.value || '';
             });
             console.log(initialValues)
@@ -58,6 +49,10 @@ const CoreSettings = ({settings, getSettings, saveSettings}) => {
                 style={{}}
                 onFinish={onFormSubmit}
             >
+
+                <Form.Item label="Site Name" name={['core', 'site_name']} wrapperCol={{ span: 6 }}>
+                    <Input />
+                </Form.Item>
 
                 <Form.Item label="Tax Included" name={['core', 'include_tax']} valuePropName="checked" >
                     <Switch />

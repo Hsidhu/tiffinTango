@@ -1,10 +1,20 @@
-import { 
+import {
+    GET_SITE_SETTINGS,
     SET_ERRORS,
     REDIRECT_TO,
     ORDER_STATUSES,
     DELIVERY_WINDOWS,
     COOKIE_CONSENT
 } from "./actions"
+
+export const siteSettings = (state = {}, action) => {
+    switch (action.type) {
+        case GET_SITE_SETTINGS:
+            return action.payload
+        default:
+            return state
+    }
+}
 
 export const errors = (state = {}, action) => {
     switch (action.type) {

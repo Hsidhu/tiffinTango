@@ -82,12 +82,12 @@ class Setting extends Model
         return $this->getSettingItem('core.'.$code);
     }
 
-    public function getSettingItem($code)
+    public function getSettingItem($code, $default = null)
     {
         if (!$this->allItems)
             $this->loadSettingItems();
 
-        return $this->allItems[$code] ?? null;
+        return $this->allItems[$code] ?? $default;
     }
 
     public function listSettingItems()
@@ -100,17 +100,12 @@ class Setting extends Model
 
     public function loadSettingItems()
     {
-        foreach (self::$callbacks as $callback) {
-            $callback($this);
-        }
-
+        $allSettings = self::all();
         $allItems = [];
         $catItems = ['core' => []];
-        foreach ($this->items as $item) {
-            $category = ($item->owner != 'core') ? 'extensions' : $item->owner;
-            $catItems[$category][] = $item;
-
-            $allItems[$item->owner.'.'.$item->code] = $item;
+        foreach ($allSettings as $setting) {
+            $allItems[$setting->code.'.'.$setting->key] = $setting->value;
+            $catItems[$setting->code][$setting->key] = $setting->value;
         }
 
         $this->allItems = $allItems;

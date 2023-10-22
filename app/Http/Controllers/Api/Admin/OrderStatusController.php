@@ -9,15 +9,6 @@ use App\Models\MealPlanOrder;
 
 class OrderStatusController extends Controller
 {
-    
-    public function updateOrderStatus(Request $request)
-    {
-        $order = MealPlanOrder::where('id', $request->get('order_id'))
-        ->update([
-            'status' => $request->get('status_id')
-        ]);
-        return response()->json($order);
-    }
 
     public function getOrderStatuses()
     {

@@ -20,3 +20,24 @@ export const getOrder = (id) => (dispatch) => {
         });
     });
 }
+
+
+// any key pair can be updated
+export const updateOrderStatus = (data) => (dispatch) => {
+
+    const res = postRequest('order/updates', data).then(response => {
+        dispatch({
+            type: ORDER_PLACED,
+            payload: response.data
+        });
+        message.success({
+            content: 'Order Updated',
+            style: {
+                padding:'20px',
+                marginTop: '5vh',
+            }
+        });
+    }).catch(error => {
+        console.log(error);
+    });
+}

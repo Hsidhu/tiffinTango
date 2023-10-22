@@ -31,6 +31,7 @@ class OrderResource extends JsonResource
             'created_at' => $this->created_at,
             'end_date' => $this->end_date,
             'total_price' => $this->total_price,
+            'order_status_id' => $this->order_status_id,
             'items' => OrderItemResource::collection($this->items),
             'totals' => OrderTotalResource::collection($this->totals)
         ];

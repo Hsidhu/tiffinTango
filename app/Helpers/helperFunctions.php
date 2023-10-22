@@ -14,7 +14,7 @@ if (!function_exists('setting')) {
         if (is_null($key))
             return $settingConfig;
 
-        return $settingConfig->get($key, $default);
+        return $settingConfig->getSettingItem($key, $default);
     }
 }
 

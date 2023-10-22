@@ -230,7 +230,7 @@ return new class extends Migration
             $table->string('invoice_no');
             $table->string('payment_type', 35);
             $table->boolean('payment_processed')->nullable();
-            $table->integer('status_id');
+            $table->integer('order_status_id');
             $table->text('comment')->nullable();
             $table->text('delivery_comment')->nullable();
             $table->timestamps();

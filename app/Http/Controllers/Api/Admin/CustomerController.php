@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\Address;
-use App\Http\Resources\CustomerResource;
+use App\Http\Resources\Admin\CustomerResource;
 
 class CustomerController extends Controller
 {
@@ -41,7 +41,7 @@ class CustomerController extends Controller
     public function edit($id)
     {
         $customer = Customer::with('address')->find($id);
-        return response()->json($customer);
+        return new CustomerResource($customer);
     }
     
     public function update(Request $request)

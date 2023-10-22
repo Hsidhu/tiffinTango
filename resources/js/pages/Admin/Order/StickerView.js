@@ -33,9 +33,7 @@ const StickerView = () => {
         return pages;
     }
     
-
     const pages = splitStickerDataIntoPages(stickerData, labelsPerPage)
-    console.log(pages);
     return (
         <>
             <Button onClick={printStickerSheet}>Print</Button>

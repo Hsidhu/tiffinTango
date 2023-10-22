@@ -3,12 +3,25 @@ import { message } from "antd"
 
 export const SET_ERRORS = "SET_ERRORS"
 export const REDIRECT_TO = "REDIRECT_TO";
+export const GET_SITE_SETTINGS = "GET_SITE_SETTINGS";
 
 export const COOKIE_CONSENT = "COOKIE_CONSENT";
 
 export const ORDER_STATUSES = "ORDER_STATUSES";
 export const UPDATE_ORDER_STATUS = "UPDATE_ORDER_STATUS";
 export const DELIVERY_WINDOWS = "DELIVERY_WINDOWS";
+
+
+export const getSiteSettings = () => (dispatch) => {
+    const res = getRequest('site/settings').then(response => {
+        dispatch({
+            type: GET_SITE_SETTINGS,
+            payload: response.data
+        });
+    });
+}
+
+
 
 // action creators
 export const redirect = link => {
@@ -21,25 +34,6 @@ export const getOrderStatuses = () => (dispatch) => {
             type: ORDER_STATUSES,
             payload: response.data
         });
-    });
-}
-
-export const updateOrderStatus = (data) => (dispatch) => {
-
-    const res = postRequest('order/updates', data).then(response => {
-        dispatch({
-            type: ORDER_PLACED,
-            payload: response.data
-        });
-        message.success({
-            content: 'Order Updated',
-            style: {
-                padding:'20px',
-                marginTop: '5vh',
-            }
-        });
-    }).catch(error => {
-        console.log(error);
     });
 }
 

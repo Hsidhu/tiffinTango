@@ -1,4 +1,5 @@
 import { Menu } from 'antd';
+import { Link } from 'react-router-dom';
 import {
     DashboardOutlined,
     HomeFilled,
@@ -9,10 +10,7 @@ import {
     UserOutlined,
     CarFilled,
     PushpinFilled,
-    TeamOutlined,
-    FileTextFilled,
-    DesktopOutlined,
-    FileOutlined
+    TeamOutlined
 } from '@ant-design/icons';
 
 function getItem(key, label, icon, children) {
@@ -26,7 +24,7 @@ function getItem(key, label, icon, children) {
 
 export const publicTopMenu = [
     getItem('/', 'Home', <HomeFilled />),
-    getItem('/order/mealplan', 'MealPlan', <UnorderedListOutlined />),
+    getItem('/order/mealplan',  <Link to="/order/mealplan" >MealPlan</Link>, <UnorderedListOutlined />),
     getItem('/order/catering', 'Catering', <UnorderedListOutlined />),
     getItem('/order/takeway', 'Takeway', <UnorderedListOutlined />),
     getItem('/login', 'login', <LoginOutlined />)

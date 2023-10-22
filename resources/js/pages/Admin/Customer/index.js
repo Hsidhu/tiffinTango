@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { Space, Table, Tag, Row, Col, Button, Divider } from 'antd';
 import { getCustomers } from "../../../redux/Customer/actions"
@@ -54,6 +54,33 @@ const Customer = ({ }) => {
         },
     ];
 
+    const expandedRowRender = (record) =>{
+        const columns = [
+            {
+                key: 'order_type',
+                title: 'Order Type',
+                dataIndex: 'order_type',
+            },
+            {
+                key: 'start_date',
+                title: 'Start Date',
+                dataIndex: 'start_date'
+            },
+            {
+                title: 'Action',
+                key: 'action',
+                render: (_, record) => (
+                    <Space size="middle">
+                        <Link to={`/admin/order/view/${record.id}`}>View order</Link>
+                    </Space>
+                ),
+            },
+        ];
+
+        const data = record.mealplanorders;
+        return <Table rowKey="id" columns={columns} dataSource={data} pagination={false} />;
+    }
+
     return (
         <>
             <TableHeaderLink
@@ -62,7 +89,11 @@ const Customer = ({ }) => {
                 toText="Create"
             />
             <Divider />
-            <Table rowKey="id" columns={columns} dataSource={customers.data} />
+            <Table rowKey="id" 
+                columns={columns} 
+                dataSource={customers.data} 
+                expandable={{ expandedRowRender }}
+            />
         </>
     );
 }

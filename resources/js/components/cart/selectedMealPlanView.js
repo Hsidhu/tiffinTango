@@ -12,11 +12,13 @@ const SelectedMealPlanView = ({selectedMealPlan}) => {
             {
                 !isEmpty(selectedMealPlan) ? 
                     <Image
-                            width={200}
-                            src={imageUrl(`/images/${selectedMealPlan.image}`)}
+                        preview={false}
+                        width={200}
+                        src={imageUrl(`/images/${selectedMealPlan.image}`)}
                     /> 
                     : 
                     <Image
+                        preview={false}
                         width={200}
                         src={imageUrl(`/images/site/tiffin_shape.jpeg`)}
                     /> 

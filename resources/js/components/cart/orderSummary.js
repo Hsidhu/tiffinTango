@@ -9,7 +9,7 @@ import {
 
 const { Text } = Typography;
 
-const OrderSummary = ({ cart }) => {
+const OrderSummary = ({ cart, siteSettings }) => {
 
     const [selectedMealPlan, setSelectedMealPlan] = useState();
 
@@ -48,17 +48,22 @@ const OrderSummary = ({ cart }) => {
     }))
     data.push(...options)
 
-    data.push({
-        key: 'delivery',
-        name: 'Delivery',
-        price: cart.deliveryCharges
-    })
-    data.push({
-        key: 'tax',
-        name: 'HST[13%]',
-        price: cart.tax
-    })
+    if(siteSettings.core.include_delivery_charge){
+        data.push({
+            key: 'delivery',
+            name: 'Delivery',
+            price: cart.deliveryCharges
+        })
+    }
 
+    if(siteSettings.core.include_tax){
+        data.push({
+            key: 'tax',
+            name: 'HST[13%]',
+            price: cart.tax
+        })
+    }
+    
     return (
         <Card title="Selected MealPlan" style={{ width: 400 }}>
 

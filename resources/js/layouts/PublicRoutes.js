@@ -1,3 +1,5 @@
+import React, {useEffect} from 'react';
+import { useDispatch } from 'react-redux'
 import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
 import {
     Layout, Row, Col, Menu, Space,
@@ -10,6 +12,7 @@ import CarouselSlider from '../components/CarouselSlider';
 import { ArrowUpOutlined } from '@ant-design/icons';
 
 import CookieConsent from '../components/cookieConsent';
+import { getSiteSettings } from '../redux/Common/actions';
 
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -17,7 +20,12 @@ const { Header, Sider, Content, Footer } = Layout;
 const PublicRoutes = () => {
     const history = useHistory();
     const location = useLocation();
-    console.log(location);
+    const dispatch = useDispatch()
+
+    useEffect(()=>{
+        dispatch(getSiteSettings())
+    },[]);
+
 
     const handleMenuClick = ({ key }) => {
         if (key) {

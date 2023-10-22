@@ -83,7 +83,6 @@ var StickerView = function StickerView() {
     return pages;
   };
   var pages = splitStickerDataIntoPages(stickerData, labelsPerPage);
-  console.log(pages);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
       onClick: printStickerSheet,

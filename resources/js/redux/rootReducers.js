@@ -1,5 +1,5 @@
 import authenticateReducer from './Authenticate/reducer';
-import {redirectTo, cookieConsent, orderStatuses, deliveryWindows} from './Common/reducer'
+import {siteSettings, redirectTo, cookieConsent, orderStatuses, deliveryWindows} from './Common/reducer'
 import { locations, location } from './Location/reducer';
 import { customers, customer } from './Customer/reducer';
 import { drivers, driver, driverSelect } from './Driver/reducer';
@@ -12,7 +12,7 @@ import { settings } from './Settings/redux'
 // Include all the reducer to combine and provide to configure store.
 export default {
     authenticateReducer,
-    settings,
+    siteSettings, settings,
     redirectTo, orderStatuses, deliveryWindows, cookieConsent,
     locations, location,
     customers, customer,

@@ -11322,7 +11322,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var Text = antd__WEBPACK_IMPORTED_MODULE_3__["default"].Text;
 var OrderSummary = function OrderSummary(_ref) {
   var _cart$items$;
-  var cart = _ref.cart;
+  var cart = _ref.cart,
+    siteSettings = _ref.siteSettings;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(),
     _useState2 = _slicedToArray(_useState, 2),
     selectedMealPlan = _useState2[0],
@@ -11360,16 +11361,20 @@ var OrderSummary = function OrderSummary(_ref) {
     };
   });
   data.push.apply(data, _toConsumableArray(options));
-  data.push({
-    key: 'delivery',
-    name: 'Delivery',
-    price: cart.deliveryCharges
-  });
-  data.push({
-    key: 'tax',
-    name: 'HST[13%]',
-    price: cart.tax
-  });
+  if (siteSettings.core.include_delivery_charge) {
+    data.push({
+      key: 'delivery',
+      name: 'Delivery',
+      price: cart.deliveryCharges
+    });
+  }
+  if (siteSettings.core.include_tax) {
+    data.push({
+      key: 'tax',
+      name: 'HST[13%]',
+      price: cart.tax
+    });
+  }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
     title: "Selected MealPlan",
     style: {
@@ -11545,9 +11550,11 @@ var SelectedMealPlanView = function SelectedMealPlanView(_ref) {
   var selectedMealPlan = _ref.selectedMealPlan;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [!(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(selectedMealPlan) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      preview: false,
       width: 200,
       src: (0,_config_helpers__WEBPACK_IMPORTED_MODULE_1__.imageUrl)("/images/".concat(selectedMealPlan.image))
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      preview: false,
       width: 200,
       src: (0,_config_helpers__WEBPACK_IMPORTED_MODULE_1__.imageUrl)("/images/site/tiffin_shape.jpeg")
     }), !(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(selectedMealPlan) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -11666,10 +11673,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(function (_ref) {
   var orderData = _ref.orderData,
-    cart = _ref.cart;
+    cart = _ref.cart,
+    siteSettings = _ref.siteSettings;
   return {
     orderData: orderData,
-    cart: cart
+    cart: cart,
+    siteSettings: siteSettings
   };
 }, {})(_cart_orderSummary__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
@@ -11968,7 +11977,7 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
         },
         format: 'DD-MM-YYYY',
         disabledDate: function disabledDate(current) {
-          return current && current < moment__WEBPACK_IMPORTED_MODULE_1___default()().add(1, "day") && current.day() === 0;
+          return current && (current < moment__WEBPACK_IMPORTED_MODULE_1___default()().add(1, "day") || current.day() === 0);
         }
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -12282,10 +12291,24 @@ var MealPlan = function MealPlan(_ref) {
     justify: 'center',
     align: 'center',
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      span: 14,
+      xs: {
+        span: 24,
+        order: 2
+      },
+      md: {
+        span: 14,
+        order: 1
+      },
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_containers_cart_selectedMealPlanView__WEBPACK_IMPORTED_MODULE_2__["default"], {})
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      span: 10,
+      xs: {
+        span: 24,
+        order: 1
+      },
+      md: {
+        span: 8,
+        order: 1
+      },
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_containers_cart_selectMealPlanForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
         nextForm: nextForm
       })

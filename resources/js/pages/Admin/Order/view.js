@@ -14,6 +14,10 @@ import TableHeaderLink from '../../../components/tableHeaderLink';
 import GoogleMapReact from 'google-map-react';
 import { GOOGLE_API_KEY } from '../../../config/constants';
 
+import OrderStatus from '../../../components/containers/orderStatus';
+
+import PickupOrder from './PickupOrder';
+
 const { Title } = Typography;
 
 const View = ({ }) => {
@@ -178,29 +182,9 @@ const View = ({ }) => {
                         <Descriptions.Item
                             label="Start Date">{moment(order.start_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}
                         </Descriptions.Item>
-                        <Descriptions.Item
-                            label="Status">{order?.status}
-                            <Select
-                                defaultValue="lucy"
-                                style={{
-                                    width: 120,
-                                }}
-                                bordered={false}
-                                options={[
-                                    {
-                                    value: 'jack',
-                                    label: 'Jack',
-                                    },
-                                    {
-                                    value: 'lucy',
-                                    label: 'Lucy',
-                                    },
-                                    {
-                                    value: 'Yiminghe',
-                                    label: 'yiminghe',
-                                    },
-                                ]}
-                                />
+                        <Descriptions.Item label="Status">
+                            <OrderStatus order_id={order.id} statusID={order?.order_status_id} />
+                            
                         </Descriptions.Item>
                     </Descriptions>
                 </Col>
@@ -256,6 +240,7 @@ const View = ({ }) => {
                     Update zone
                 </Col>
             </Row>
+            <PickupOrder/>
         </>
     );
 }

@@ -22,6 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->setConfiguration();
+        $this->resolveSetting();
     }
 
     /**
@@ -60,5 +61,12 @@ class AppServiceProvider extends ServiceProvider
            // $app['config']->set('geocoder.precision', setting('geocoder_boundary_precision', 8));
         });
 
+    }
+
+    protected function resolveSetting()
+    {
+        $this->app->singleton('App\Models\Setting', function ($app) {
+            return new \App\Models\Setting;
+        });
     }
 }
