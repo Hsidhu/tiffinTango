@@ -35,9 +35,15 @@ const OrderSummary = ({ cart }) => {
 
     let data = [];
 
-    const options = cart.items.map((item) =>({
-        key: item?.meal_id ?? `${item.meal_plan_option_id}-${item.value_id}`,
-        name: item?.name ?? item.meal_plan_option_name,
+    const mealPlan = cart.items.map((item) => ({
+        key: `mealplan-${item.meal_id}`,
+        name: item.name,
+        price: item.price
+    }))
+    data.push(...mealPlan)
+    const options = cart.items[0]?.selectedOptions.map((item) => ({
+        key: `${item.meal_plan_option_id}-${item.value_id}`,
+        name: item.meal_plan_option_name,
         price: item.price
     }))
     data.push(...options)

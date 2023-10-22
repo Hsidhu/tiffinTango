@@ -3,6 +3,6 @@ import SelectMealPlanForm from "../../cart/selectMealPlanForm";
 import { getMealPlanForOrder, addToCartselectMealPlan, selectMealPlanOption } from '../../../redux/Cart/actions';
 
 export default connect(
-    ({orderData, cart}) => ({orderData, cart}),
+    ({orderData, selectedMealPlan, cart}) => ({orderData, selectedMealPlan, cart}),
     { getMealPlanForOrder, addToCartselectMealPlan, selectMealPlanOption }
 )(SelectMealPlanForm)

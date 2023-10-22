@@ -133,9 +133,14 @@ class OrderController extends Controller
                 $mealId = $item['meal_id'];
                 unset($item['mealPlanOptions']);
                 $mealItems[$mealId] = $item;
-            } elseif (isset($item['meal_plan_option_id'])) {
-                $optionId = $item['meal_plan_option_id'];
-                $optionItems[$optionId] = $item;
+                if(!empty($item['selectedOptions']))
+                {
+                    foreach($item['selectedOptions'] as $selectedOption){
+                        $optionId = $selectedOption['meal_plan_option_id'];
+                        $optionItems[$optionId] = $selectedOption;
+                        $totalPrice += $selectedOption['price'];
+                    }
+                }
             }
             $totalPrice += $item['price'];
         }

@@ -78,30 +78,38 @@ section>div {
     height: 100%;
 }
 
+.ant-table-summary{
+    z-index: auto;
+}
+
 
 @page {
-    size: 8.5in 11in;
-    margin: 0.5in 0.1875; /* Reduce margins to minimize extra space */
+    size: 215.9mm 279.4mm;
+    margin: 0; /* Reduce margins to minimize extra space */
+}
+.print-section{
+    width: 215.9mm;
 }
 
 .label-sheet {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 8.5in; /* Set the sheet width to 8.5 inches */
-    height: 11in; /* Set the sheet height to 11 inches */
-    padding: 0.1in;
+    width: 215.9mm; /* Set the sheet width to 8.5 inches */
+    height: 279.4mm; /* Set the sheet height to 11 inches */
+    align-items: center;
+    justify-content: center;
 }
 
 /* Sticker styling */
 .label {
     border: 1px dashed #000;
     border-radius: 5px;
-    width: 2.625in; /* Set label width to 2-5/8 inches */
-    height: 1in; /* Set label height to 1 inch */
+    width: 66.675mm; /* Set label width to 2-5/8 inches */
+    height: 26mm; /* Set label height to 1 inch */
     padding: 0.1in; /* Adjust this for spacing inside each label */
     margin: 0in 0in 0.008in 0in;
-    
+
     display: flex;
     align-items: center;
 }

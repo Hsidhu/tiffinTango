@@ -12,7 +12,8 @@ class MealPlan extends Model
     protected $guarded = [];
 
     protected $casts = [
-        "price" => 'float'
+        "price" => 'float',
+        
     ];
     
     public function addOns()

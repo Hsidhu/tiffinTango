@@ -7,6 +7,8 @@ use App\Models\MealPlan;
 use App\Models\MealPlanAddon;
 use App\Models\MealPlanOption;
 use App\Models\MealPlanOptionValue;
+use App\Models\OrderStatus;
+use App\Models\DeliveryWindow;
 
 class MealPlanSeeder extends Seeder
 {
@@ -44,6 +46,38 @@ class MealPlanSeeder extends Seeder
         ]);
 
 
-        $mealPlanAddon = MealPlanAddon::create([]);
+        /** Order status */
+        OrderStatus::create([
+            'name' => 'Received',
+            'description' => 'customer order Received'
+        ]);
+        OrderStatus::create([
+            'name' => 'Pending',
+            'description' => 'customer order Pending'
+        ]);
+        OrderStatus::create([
+            'name' => 'Scheduled',
+            'description' => 'Ready to be shipped Scheduled'
+        ]);
+        OrderStatus::create([
+            'name' => 'Canceled',
+            'description' => 'customer order Canceled'
+        ]);
+
+        /** Delivery Windows */
+        DeliveryWindow::create([
+            'name' => 'Morning',
+            'description' => 'Morning deliveries and driver shifts'
+        ]);
+        DeliveryWindow::create([
+            'name' => 'Afternoon',
+            'description' => 'Afternoon deliveries',
+            'status' => 0
+        ]);
+
+        DeliveryWindow::create([
+            'name' => 'Evening',
+            'description' => 'Evening deliveries',
+        ]);
     }
 }

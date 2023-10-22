@@ -6,6 +6,7 @@ use App\Models\Customer;
 use Illuminate\Support\Facades\Request;
 use App\Traits\SearchesNearby;
 
+
 class CustomerObserver
 {
     use SearchesNearby;
@@ -18,13 +19,18 @@ class CustomerObserver
     public function created(Customer $customer)
     {
         $customer->ip_address = Request::getClientIp();
-        // $deliveryZone = $this->onSearchNearby([$customer->address->lat, $customer->address->lng]);
-        // $customer->zone_id = 
-
-        $customer->save();
 
         // get use lat and long
         // get closest lat and long and get all the delivery zones and search for the zone user belong to
+        // $deliveryZone = $this->onSearchNearby([$customer->address->lat, $customer->address->lng]);
+        // $customer->address->zone_id = $deliveryZone;
+        // $customer->address->save();
+
+
+        $customer->save();
+
+        // Send email to customer
+
     }
 
     /**
@@ -70,4 +76,5 @@ class CustomerObserver
     {
         //
     }
+
 }

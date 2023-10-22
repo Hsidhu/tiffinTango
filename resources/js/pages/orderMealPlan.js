@@ -4,9 +4,8 @@ import {
     Layout, Divider, Row, Col
 } from 'antd';
 
-import SelectMealPlanForm from '../components/containers/cart/selectMealPlanForm';
-import CustomerDetailForm from '../components/containers/cart/customerDetailForm';
-import OrderSummary from '../components/containers/cart/orderSummary';
+import MealPlan from './_cart/mealPlan';
+import Customer from './_cart/customer';
 
 const contentStyle = {
     color: '#000000',
@@ -28,12 +27,12 @@ const OrderMealPlan = () => {
         {
             title: 'MealPlans',
             description: "Select your mealplan",
-            content: <SelectMealPlanForm nextForm={next} />,
+            content: <MealPlan nextForm={next} />,
         },
         {
             title: 'Details',
             description: "Customer Detail",
-            content: <CustomerDetailForm prevForm={prev} />,
+            content: <Customer prevForm={prev} />,
         }
     ];
     const items = steps.map((item) => ({
@@ -45,37 +44,14 @@ const OrderMealPlan = () => {
     return (
         <>
             <Row gutter={16}>
-
-                <Col span={16}>
+                <Col span={24}>
                     <Steps current={current} items={items} />
                     <Divider />
                     <div style={contentStyle}>
 
                         {steps[current].content}
 
-                        <div>
-                            {current === steps.length - 1 && (
-                                <Button type="primary" onClick={() => message.success('Processing complete!')}>
-                                    Done
-                                </Button>
-                            )}
-                            {current > 0 && (
-                                <Button
-                                    style={{
-                                        margin: '0 8px',
-                                    }}
-                                    onClick={() => prev()}
-                                >
-                                    Previous
-                                </Button>
-                            )}
-                        </div>
-
                     </div>
-                </Col>
-
-                <Col span={8} >
-                    <OrderSummary />
                 </Col>
 
             </Row>

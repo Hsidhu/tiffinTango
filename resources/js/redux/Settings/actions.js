@@ -20,6 +20,13 @@ export const saveSettings = (data) => (dispatch) => {
             type: SAVE_SETTINGS,
             payload: response.data
         });
+        message.success({
+            content: 'This is a prompt message with custom className and style',
+            style: {
+                padding:'20px',
+                marginTop: '5vh',
+            }
+        });
     }).catch(error => {
         message.error('something is wrong')
     });;

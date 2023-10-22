@@ -68,7 +68,8 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::get('/orders', [App\Http\Controllers\Api\Admin\OrderController::class, 'index']);
     Route::get('/order/view/{id}', [App\Http\Controllers\Api\Admin\OrderController::class, 'view']);
     Route::get('/order/statuses', [App\Http\Controllers\Api\Admin\OrderStatusController::class, 'getOrderStatuses']);
-    Route::post('/order/status/update', [App\Http\Controllers\Api\Admin\OrderStatusController::class, 'updateOrderStatus']);
+    Route::post('/order/updates', [App\Http\Controllers\Api\Admin\OrderStatusController::class, 'orderUpdates']);
+
 
 });
 

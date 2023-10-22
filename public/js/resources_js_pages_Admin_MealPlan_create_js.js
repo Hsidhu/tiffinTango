@@ -5311,9 +5311,10 @@ var Create = function Create(_ref) {
     // you store them in state, so that you can make a http req with them later
     setFileList(fileList);
   };
-  var errors = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
-    return state.errors;
-  });
+  var _useSelector = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
+      return state;
+    }),
+    errors = _useSelector.errors;
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   var _Form$useForm = antd__WEBPACK_IMPORTED_MODULE_7__["default"].useForm(),
     _Form$useForm2 = _slicedToArray(_Form$useForm, 1),
@@ -5323,13 +5324,14 @@ var Create = function Create(_ref) {
     console.log(first_name);
     setComponentSize(first_name);
   };
+  var mapSwitchValue = function mapSwitchValue(value) {
+    return value ? 1 : 0;
+  };
   var onFormSubmit = function onFormSubmit(values) {
-    if (errors) {
-      // errors.reset()
-    }
     // formData.append("file", this.state.fileList[0].originFileObj);
     values.file = fileList[0].originFileObj;
-    console.log(values);
+    // Map the "status" value before submission
+    values.status = mapSwitchValue(values.status);
     dispatch((0,_redux_MealPlan_actions__WEBPACK_IMPORTED_MODULE_2__.createMealPlan)(values));
   };
   var uploadButton = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -7960,66 +7962,6 @@ var index = 0;
 function uid() {
   // eslint-disable-next-line no-plusplus
   return "rc-upload-".concat(now, "-").concat(++index);
-}
-
-/***/ }),
-
-/***/ "./node_modules/rc-util/es/pickAttrs.js":
-/*!**********************************************!*\
-  !*** ./node_modules/rc-util/es/pickAttrs.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ pickAttrs)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-
-var attributes = "accept acceptCharset accessKey action allowFullScreen allowTransparency\n    alt async autoComplete autoFocus autoPlay capture cellPadding cellSpacing challenge\n    charSet checked classID className colSpan cols content contentEditable contextMenu\n    controls coords crossOrigin data dateTime default defer dir disabled download draggable\n    encType form formAction formEncType formMethod formNoValidate formTarget frameBorder\n    headers height hidden high href hrefLang htmlFor httpEquiv icon id inputMode integrity\n    is keyParams keyType kind label lang list loop low manifest marginHeight marginWidth max maxLength media\n    mediaGroup method min minLength multiple muted name noValidate nonce open\n    optimum pattern placeholder poster preload radioGroup readOnly rel required\n    reversed role rowSpan rows sandbox scope scoped scrolling seamless selected\n    shape size sizes span spellCheck src srcDoc srcLang srcSet start step style\n    summary tabIndex target title type useMap value width wmode wrap";
-var eventsName = "onCopy onCut onPaste onCompositionEnd onCompositionStart onCompositionUpdate onKeyDown\n    onKeyPress onKeyUp onFocus onBlur onChange onInput onSubmit onClick onContextMenu onDoubleClick\n    onDrag onDragEnd onDragEnter onDragExit onDragLeave onDragOver onDragStart onDrop onMouseDown\n    onMouseEnter onMouseLeave onMouseMove onMouseOut onMouseOver onMouseUp onSelect onTouchCancel\n    onTouchEnd onTouchMove onTouchStart onScroll onWheel onAbort onCanPlay onCanPlayThrough\n    onDurationChange onEmptied onEncrypted onEnded onError onLoadedData onLoadedMetadata\n    onLoadStart onPause onPlay onPlaying onProgress onRateChange onSeeked onSeeking onStalled onSuspend onTimeUpdate onVolumeChange onWaiting onLoad onError";
-var propList = "".concat(attributes, " ").concat(eventsName).split(/[\s\n]+/);
-
-/* eslint-enable max-len */
-var ariaPrefix = 'aria-';
-var dataPrefix = 'data-';
-function match(key, prefix) {
-  return key.indexOf(prefix) === 0;
-}
-/**
- * Picker props from exist props with filter
- * @param props Passed props
- * @param ariaOnly boolean | { aria?: boolean; data?: boolean; attr?: boolean; } filter config
- */
-function pickAttrs(props) {
-  var ariaOnly = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-  var mergedConfig;
-  if (ariaOnly === false) {
-    mergedConfig = {
-      aria: true,
-      data: true,
-      attr: true
-    };
-  } else if (ariaOnly === true) {
-    mergedConfig = {
-      aria: true
-    };
-  } else {
-    mergedConfig = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, ariaOnly);
-  }
-  var attrs = {};
-  Object.keys(props).forEach(function (key) {
-    if (
-    // Aria
-    mergedConfig.aria && (key === 'role' || match(key, ariaPrefix)) ||
-    // Data
-    mergedConfig.data && match(key, dataPrefix) ||
-    // Attr
-    mergedConfig.attr && propList.includes(key)) {
-      attrs[key] = props[key];
-    }
-  });
-  return attrs;
 }
 
 /***/ }),

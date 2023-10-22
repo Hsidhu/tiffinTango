@@ -24,14 +24,14 @@ class DriverController extends Controller
             'email' => ['required', 'email:filter', 'min:4', 'max:96', 'unique:drivers,email'],
             'phone' => ['sometimes'],
             'license' => ['required', 'between:4,48'],
-            'address' => ['required', 'min:4', 'max:128'],
-            'city' => ['required', 'min:2', 'max:128'],
-            'state' => ['max:64'],
-            'postal_code' => ['required'],
-            'country' => ['required'],
+            'address.address' => ['required', 'min:4', 'max:128'],
+            'address.city' => ['required', 'min:2', 'max:128'],
+            'address.state' => ['max:64'],
+            'address.postal_code' => ['required'],
+            'address.country' => ['required'],
         ]);
         
-        $address = Address::create($request->only(['address', 'city', 'state', 'postal_code', 'country', 'lat', 'lng']));
+        $address = Address::create($request->address);
         $driverData = array_merge(['address_id' => $address->id, 'password' => config('app.customer_default')],
             $request->only(['first_name','last_name','email', 'phone', 'license', 'delivery_window_id'])
         );
@@ -52,20 +52,20 @@ class DriverController extends Controller
         $this->validate($request, [
             'first_name' => ['required', 'between:1,48'],
             'last_name' => ['required', 'between:1,48'],
-            'email' => ['required', 'email:filter', 'max:96', 'unique:customers,email,'.$driver->id],
+            'email' => ['required', 'email:filter', 'max:96', 'unique:drivers,email,'.$driver->id],
             'phone' => ['sometimes'],
             'license' => ['required', 'between:4,48'],
-            'address' => ['required', 'min:3', 'max:128'],
-            'city' => ['required', 'min:2', 'max:128'],
-            'state' => ['max:128'],
-            'postal_code' => ['required'],
-            'country' => ['required'],
+            'address.address' => ['required', 'min:3', 'max:128'],
+            'address.city' => ['required', 'min:2', 'max:128'],
+            'address.state' => ['max:128'],
+            'address.postal_code' => ['required'],
+            'address.country' => ['required'],
         ]);
         $driver->update(
-            $request->only(['first_name','last_name','email', 'phone', 'delivery_window_id', 'license'])
+            $request->only(['first_name', 'last_name', 'email', 'phone', 'delivery_window_id', 'license'])
         );
         $address->update(
-            $request->only(['address', 'city', 'state', 'postal_code', 'country', 'lat', 'lng'])
+            $request->address
         );
 
         return response()->json($driver);

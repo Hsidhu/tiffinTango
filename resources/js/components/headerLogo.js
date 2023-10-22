@@ -11,7 +11,7 @@ const styles = {
         height: '100%'
     },
     logo: {
-        height: "44px",
+        height: "50px",
         marginRight: "16px",
         verticalAlign: "top"
     }

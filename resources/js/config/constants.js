@@ -15,8 +15,18 @@ export const orderTypeOptions = [
     { label: 'Pickup', value: 'pickup' }
 ];
 
-export const deliveryWindow = [
-    { label: 'Morning', value: 'morning' },
-    { label: 'Evening', value: 'evening' }
-];
 
+export const autocompleteOptions = {
+    // bounds: {
+    //     // Define the bounds here
+    //     north: 40.7128, // North latitude
+    //     south: 34.0522, // South latitude
+    //     east: -74.0060, // East longitude
+    //     west: -118.2437, // West longitude
+    // },
+    componentRestrictions: { 
+        country: ["ca"]
+    },
+    fields: ["address_components", "geometry"],
+    types: ["address"]
+}

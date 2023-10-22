@@ -18,6 +18,10 @@ const Create = ({ }) => {
 
     const [form] = Form.useForm()
 
+    const onFormChange = ({ name }) => {
+        console.log(name);
+    };
+    
     const onFormSubmit = (values) => {
         dispatch(createCustomers(values));
         history.push('/admin/customers')

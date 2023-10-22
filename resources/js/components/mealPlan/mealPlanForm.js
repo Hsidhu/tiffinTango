@@ -40,15 +40,19 @@ const MealPlanForm = ({ }) => {
 
     const [form] = Form.useForm()
 
+    
+
     const onFormLayoutChange = ({ first_name }) => {
         console.log(first_name);
         setComponentSize(first_name);
     };
 
+    const mapSwitchValue = (value) => (value ? 1 : 0);
     const onFormSubmit = (values) => {
         // formData.append("file", this.state.fileList[0].originFileObj);
         values.file = isEmpty(fileList) ? null : fileList[0].originFileObj;
-        console.log(values)
+        values.status = mapSwitchValue(values.status);
+        
         dispatch(updateMealPlan(values));
     }
 

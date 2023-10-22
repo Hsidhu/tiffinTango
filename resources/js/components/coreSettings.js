@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { 
     Row, Col, Form, Button,
-    Input, Radio, InputNumber
+    Input, Radio, InputNumber,
+    Select, Switch
 } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
@@ -18,7 +19,6 @@ const CoreSettings = ({settings, getSettings, saveSettings}) => {
     };
 
     const onFormSubmit = (values) => {
-        console.log(values);
         saveSettings(values)
     };
 
@@ -27,17 +27,28 @@ const CoreSettings = ({settings, getSettings, saveSettings}) => {
     };
 
     useEffect(() => {
-        if(settings.data){
-            settings.data.forEach((item, index) => {
+        if(settings){
+            settings.forEach((setting, index) => {
+                let item = setting;
+                // switch (item.key) {
+                //     case 'include_tax':
+                //         item.value = (item.value != 0);
+                //         break;
+                //     case 'include_delivery_charge':
+                //         item.value = (item.value != 0)
+                //         break;
+                // }
                 // Map each object's properties to form fields
                 initialValues.core[`${item.key}`] = item.value || '';
             });
+            console.log(initialValues)
             form.setFieldsValue(initialValues);
         }
     },[settings])
 
     return (
-        <Form
+        <>
+            <Form
                 form={form}
                 labelCol={{ span: 6, }}
                 wrapperCol={{ span: 16, }}
@@ -47,11 +58,22 @@ const CoreSettings = ({settings, getSettings, saveSettings}) => {
                 style={{}}
                 onFinish={onFormSubmit}
             >
-                // enable or disable tax
-                // enable or disable Delivery charge
 
-                <Form.Item label="distance_unit" name={['core', 'distance_unit']} >
-                    <Input
+                <Form.Item label="Tax Included" name={['core', 'include_tax']} valuePropName="checked" >
+                    <Switch />
+                </Form.Item>
+
+                <Form.Item label="Delivery charge included" name={['core', 'include_delivery_charge']} valuePropName="checked">
+                    <Switch />
+                </Form.Item>
+
+                <Form.Item label="distance_unit" name={['core', 'distance_unit']} wrapperCol={{ span: 4 }} >
+                    <Select
+                        options={[
+                            { value:"km",  label:"KM" },
+                            { value:"m",  label:"Miles" }
+                        ]}
+                        placeholder = "Select Extra Options"
                     />
                 </Form.Item>
                 
@@ -68,7 +90,7 @@ const CoreSettings = ({settings, getSettings, saveSettings}) => {
                 </Form.Item>
 
 
-                <Form.Item label="maps_api_key" name={['core', 'maps_api_key']} >
+                <Form.Item label="maps_api_key" name={['core', 'maps_api_key']} wrapperCol={{ span: 8 }}>
                     <Input />
                 </Form.Item>
 
@@ -76,6 +98,8 @@ const CoreSettings = ({settings, getSettings, saveSettings}) => {
                     <Button type="primary" htmlType="submit">Save</Button>
                 </Form.Item>
         </Form>
+        </>
+        
     )
 };
 

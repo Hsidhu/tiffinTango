@@ -23,14 +23,14 @@ class CustomerController extends Controller
             'last_name' => ['required', 'between:4,48'],
             'email' => ['required', 'email:filter', 'min:4', 'max:96', 'unique:customers,email'],
             'phone' => ['sometimes'],
-            'address' => ['required', 'min:4', 'max:128'],
-            'city' => ['required', 'min:4', 'max:128'],
-            'state' => ['max:64'],
-            'postal_code' => ['required'],
-            'country' => ['required'],
+            'address.address' => ['required', 'min:4', 'max:128'],
+            'address.city' => ['required', 'min:4', 'max:128'],
+            'address.state' => ['max:64'],
+            'address.postal_code' => ['required'],
+            'address.country' => ['required'],
         ]);
         
-        $address = Address::create($request->only(['address', 'city', 'state', 'postal_code', 'country', 'lat', 'lng']));
+        $address = Address::create($request->address);
         $customerData = array_merge(['address_id' => $address->id, 'password' => config('app.customer_default')],
             $request->only(['first_name','last_name','email', 'phone'])
         );
@@ -53,17 +53,17 @@ class CustomerController extends Controller
             'last_name' => ['required', 'between:1,48'],
             'email' => ['required', 'email:filter', 'max:96', 'unique:customers,email,'.$customer->id],
             'phone' => ['sometimes'],
-            'address' => ['required', 'min:3', 'max:128'],
-            'city' => ['required', 'min:2', 'max:128'],
-            'state' => ['max:128'],
-            'postal_code' => ['required'],
-            'country' => ['required'],
+            'address.address' => ['required', 'min:3', 'max:128'],
+            'address.city' => ['required', 'min:2', 'max:128'],
+            'address.state' => ['max:128'],
+            'address.postal_code' => ['required'],
+            'address.country' => ['required'],
         ]);
         $customer->update(
             $request->only(['first_name','last_name','email', 'phone'])
         );
         $address->update(
-            $request->only(['address', 'city', 'state', 'postal_code', 'country', 'lat', 'lng'])
+            $request->address
         );
 
         return $customer;

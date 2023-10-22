@@ -9,6 +9,8 @@ import HeaderLogo from '../components/headerLogo';
 import CarouselSlider from '../components/CarouselSlider';
 import { ArrowUpOutlined } from '@ant-design/icons';
 
+import CookieConsent from '../components/cookieConsent';
+
 const { Header, Sider, Content, Footer } = Layout;
 
 // Layout for public pages
@@ -28,15 +30,21 @@ const PublicRoutes = () => {
 
     return (
         <Layout>
-            <Header>
+            <Header style={{
+                        position: 'sticky',
+                        top: 0,
+                        zIndex: 1,
+                        width: '100%',
+                    }}
+                >
                 <Row>
                     <Col span={8}>
                         <HeaderLogo  uri="/" />
                     </Col>
-                    <Col span={6}>
+                    <Col span={4}>
 
                     </Col>
-                    <Col span={10}>
+                    <Col span={12}>
                         <Menu
                             mode="horizontal"
                             style={{ 
@@ -90,9 +98,9 @@ const PublicRoutes = () => {
                     
                     <Col span={6}>
                         <h2>Opening time</h2>
-                        <p class="text-white fs-12"> Tuesday - Wednesday 11pm - 10pm </p>
-                        <p class="text-white fs-12"> Thursday  - Saturday 11pm - 11pm </p>
-                        <p class="text-white fs-12"> Sunday - Monday 11pm - 10pm</p>
+                        <p> Tuesday - Wednesday 11pm - 10pm </p>
+                        <p> Thursday  - Saturday 11pm - 11pm </p>
+                        <p> Sunday - Monday 11pm - 10pm</p>
                     </Col>
                     <Col span={6}>
                         <h2>Follow Us</h2>
@@ -103,6 +111,8 @@ const PublicRoutes = () => {
                 </BackTop>
                 <Divider/>
                 AB Catering ©2024 Created by FirstWish.ca
+
+                <CookieConsent/>
             </Footer>
         </Layout>
     );

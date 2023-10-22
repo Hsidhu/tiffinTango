@@ -219,7 +219,7 @@ return new class extends Migration
             $table->string('hash', 40)->nullable()->index();
             $table->integer('customer_id')->nullable();
             $table->string('order_type', 32);
-            $table->int('delivery_window_id', 11)->default(1);
+            $table->integer('delivery_window_id')->default(1);
             $table->dateTime('start_date');
             $table->dateTime('end_date')->nullable();
             $table->text('cart')->nullable();
@@ -242,6 +242,7 @@ return new class extends Migration
             $table->integer('order_id');
             $table->integer('meal_plan_id');
             $table->string('name');
+            $table->integer('quantity')->default('1');
             $table->decimal('price', 15)->nullable();
             $table->decimal('subtotal', 15)->nullable();
             $table->text('option_values')->nullable();

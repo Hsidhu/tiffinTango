@@ -37,7 +37,7 @@ const Create = ({ }) => {
         setFileList(fileList)
     };
 
-    const errors = useSelector(state => state.errors)
+    const {errors} = useSelector(state => state)
     const dispatch = useDispatch();
 
     const [form] = Form.useForm()
@@ -47,13 +47,13 @@ const Create = ({ }) => {
         setComponentSize(first_name);
     };
 
+    const mapSwitchValue = (value) => (value ? 1 : 0);
+
     const onFormSubmit = (values) => {
-        if (errors) {
-            // errors.reset()
-        }
         // formData.append("file", this.state.fileList[0].originFileObj);
         values.file = fileList[0].originFileObj;
-        console.log(values)
+        // Map the "status" value before submission
+        values.status = mapSwitchValue(values.status);
         dispatch(createMealPlan(values));
     }
 

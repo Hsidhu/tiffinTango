@@ -3102,7 +3102,7 @@ var CustomerForm = function CustomerForm(_ref) {
       apiKey: _config_constants__WEBPACK_IMPORTED_MODULE_2__.GOOGLE_API_KEY,
       options: {
         componentRestrictions: {
-          country: ["us", "ca"]
+          country: ["ca"]
         },
         fields: ["address_components", "geometry"],
         types: ["address"]
@@ -3136,31 +3136,41 @@ var CustomerForm = function CustomerForm(_ref) {
                   street1 += component.short_name;
                   var value = form.getFieldValue("address");
                   form.setFieldsValue({
-                    address: street1
+                    address: {
+                      address: street1
+                    }
                   });
                   break;
                 case "postal_code":
                   zip = "".concat(component.long_name).concat(zip);
                   form.setFieldsValue({
-                    postal_code: zip
+                    address: {
+                      postal_code: zip
+                    }
                   });
                   break;
                 case "locality":
                   city = "".concat(component.long_name).concat(city);
                   form.setFieldsValue({
-                    city: city
+                    address: {
+                      city: city
+                    }
                   });
                   break;
                 case "administrative_area_level_1":
                   state = "".concat(component.short_name).concat(state);
                   form.setFieldsValue({
-                    state: state
+                    address: {
+                      state: state
+                    }
                   });
                   break;
                 case "country":
                   country = "".concat(component.short_name).concat(country);
                   form.setFieldsValue({
-                    country: country
+                    address: {
+                      country: country
+                    }
                   });
                   break;
                 default:
@@ -3173,12 +3183,15 @@ var CustomerForm = function CustomerForm(_ref) {
             _iterator.f();
           }
           form.setFieldsValue({
-            lat: place.geometry.location.lat()
+            address: {
+              lat: place.geometry.location.lat()
+            }
           });
           form.setFieldsValue({
-            lng: place.geometry.location.lng()
+            address: {
+              lng: place.geometry.location.lng()
+            }
           });
-          //antInputRef.current.setValue(place?.formatted_address);
         }
       }
     }),
@@ -3269,38 +3282,38 @@ var CustomerForm = function CustomerForm(_ref) {
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
             label: "Address",
-            name: "address",
+            name: ["address", "address"],
             rules: [{
               required: true
             }],
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {})
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
             label: "City",
-            name: "city",
+            name: ["address", "city"],
             rules: [{
               required: true
             }],
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {})
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
             label: "State",
-            name: "state",
+            name: ["address", "state"],
             rules: [{
               required: true
             }],
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {})
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
-            name: ['postal_code'],
+            name: ["address", 'postal_code'],
             label: "Postal Code",
             rules: [{
               required: true
             }],
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {})
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
-            name: "country",
             label: "Country",
+            name: ["address", "country"],
             rules: [{
               required: true,
-              message: 'Please input your phone number!'
+              message: 'Please input your Country!'
             }],
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
               style: {
@@ -3308,13 +3321,13 @@ var CustomerForm = function CustomerForm(_ref) {
               }
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
-            name: "lat",
+            name: ["address", "lat"],
             hidden: true,
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
               type: "hidden"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
-            name: "lng",
+            name: ["address", "lng"],
             hidden: true,
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
               type: "hidden"
@@ -3338,7 +3351,7 @@ var CustomerForm = function CustomerForm(_ref) {
           span: 12,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
             wrapperCol: {
-              offset: 8,
+              offset: 4,
               span: 16
             },
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -3402,6 +3415,10 @@ var Create = function Create(_ref) {
   var _Form$useForm = antd__WEBPACK_IMPORTED_MODULE_8__["default"].useForm(),
     _Form$useForm2 = _slicedToArray(_Form$useForm, 1),
     form = _Form$useForm2[0];
+  var onFormChange = function onFormChange(_ref2) {
+    var name = _ref2.name;
+    console.log(name);
+  };
   var onFormSubmit = function onFormSubmit(values) {
     dispatch((0,_redux_Customer_actions__WEBPACK_IMPORTED_MODULE_2__.createCustomers)(values));
     history.push('/admin/customers');

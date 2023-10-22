@@ -27,7 +27,7 @@ const MealPlanOptions = ({mealPlanID, orderData, cart, selectMealPlanOption}) =>
             label: `${item.value} - $${item.price}`
         }))
 
-        const defaultValue = cart.items.find((selectedOption) =>
+        const defaultValue = cart.items[0].selectedOptions.find((selectedOption) =>
             values.some((option) => option.value_id === selectedOption.value_id)
         );
 
@@ -49,7 +49,7 @@ const MealPlanOptions = ({mealPlanID, orderData, cart, selectMealPlanOption}) =>
             label: `${item.value} - $${item.price}`
         }))
         
-        const defaultValue = cart.items.find((cartItem) =>
+        const defaultValue = cart.items[0].selectedOptions.find((cartItem) =>
             values.some((option) => option.value_id === cartItem.value_id)
         );
 

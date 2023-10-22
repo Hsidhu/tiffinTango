@@ -5,7 +5,7 @@ import moment from "moment";
 import {
     Row, Col, Typography,
     Space, Button, Descriptions,
-    Card, Table, Divider
+    Card, Table, Divider, Select
 } from 'antd';
 
 import { getOrder } from "../../../redux/Order/actions"
@@ -180,6 +180,27 @@ const View = ({ }) => {
                         </Descriptions.Item>
                         <Descriptions.Item
                             label="Status">{order?.status}
+                            <Select
+                                defaultValue="lucy"
+                                style={{
+                                    width: 120,
+                                }}
+                                bordered={false}
+                                options={[
+                                    {
+                                    value: 'jack',
+                                    label: 'Jack',
+                                    },
+                                    {
+                                    value: 'lucy',
+                                    label: 'Lucy',
+                                    },
+                                    {
+                                    value: 'Yiminghe',
+                                    label: 'yiminghe',
+                                    },
+                                ]}
+                                />
                         </Descriptions.Item>
                     </Descriptions>
                 </Col>

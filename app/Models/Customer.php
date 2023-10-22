@@ -8,10 +8,12 @@ use Illuminate\Support\Facades\Request;
 use Exception;
 // use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+use App\Notifications\NewCustomerNotification;
 
 class Customer extends Model
 {
-    use HasFactory, HasApiTokens;
+    use HasFactory, HasApiTokens, Notifiable;
 
     private $send_invite = false;
 
@@ -56,40 +58,6 @@ class Customer extends Model
         ));
     }
 
-    protected function afterCreate()
-    {
-        if ($this->send_invite) {
-            $this->sendInvite();
-        }
-
-        $this->ip_address = Request::getClientIp();
-    }
-
-    protected function afterSave()
-    {
-
-        if (!$this->exists)
-            return;
-
-        if (array_key_exists('addresses', $this->attributes))
-            $this->saveAddresses($this->attributes['addresses']);
-    }
-
-    protected function sendInvite()
-    {
-        $this->bindEventOnce('model.mailGetData', function ($view, $recipientType) {
-            if ($view === 'admin::_mail.invite_customer') {
-                $this->reset_code = $inviteCode = $this->generateResetCode();
-                $this->reset_time = now();
-                $this->save();
-
-                return ['invite_code' => $inviteCode];
-            }
-        });
-
-        $this->mailSend('admin::_mail.invite_customer');
-    }
-
     public function saveAddresses($addresses)
     {
         $customerId = $this->getKey();
@@ -107,6 +75,17 @@ class Customer extends Model
         }
 
         $this->addresses()->whereNotIn('address_id', $idsToKeep)->delete();
+    }
+    
+    //
+    // Mail settings
+    //
+
+    public function sendWelcomeNotification()
+    {
+        // template mails.invite_customer
+        // $notifiable have the data from this model
+        $this->notify(new NewCustomerNotification);
     }
 
 }

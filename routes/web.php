@@ -11,6 +11,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Models\Customer;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\NewCustomerNotification;
+
+Route::get('/test-view', function () {
+    $cu = Customer::first();
+    $cu->sendWelcomeNotification();
+    return 'sent';
+});
+
+Route::get('/test-mail', function (){
+    Notification::route('mail', 'yourMail@Email.Address')->notify(new NewCustomerNotification());
+    return 'Sent';
+});
 
 // blocked by Authenticate middlware
 Route::get('/invoice/{hash}', [App\Http\Controllers\HomeController::class, 'invoice'])->name('viewInvoice');

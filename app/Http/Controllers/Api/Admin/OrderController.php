@@ -21,6 +21,14 @@ class OrderController extends Controller
         return new OrderResource($order);
     }
 
+    public function orderUpdates(Request $request)
+    {
+        $order = MealPlanOrder::find($request->id);
+        $order->update($request->all());
+        
+        return new OrderResource($order);
+    }
+
     public function getOrderStatuses()
     {
         $orderStatus = OrderStatus::getDataForSelect();

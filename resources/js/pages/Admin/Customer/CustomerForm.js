@@ -18,7 +18,7 @@ const CustomerForm = ({form, onFormChange, hasId, onFormSubmit }) => {
     const { ref: antRef } = usePlacesWidget({
         apiKey: GOOGLE_API_KEY,
         options: {
-            componentRestrictions: { country: ["us", "ca"] },
+            componentRestrictions: { country: [ "ca"] },
             fields: ["address_components", "geometry"],
             types: ["address"]
         },
@@ -41,32 +41,31 @@ const CustomerForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                         case "route":
                             street1 += component.short_name;
                             const value = form.getFieldValue("address")
-                            form.setFieldsValue({ address: street1 });
+                            form.setFieldsValue({address:{ address: street1 }});
                             break;
                         case "postal_code":
                             zip = `${component.long_name}${zip}`;
-                            form.setFieldsValue({ postal_code: zip });
+                            form.setFieldsValue({address:{ postal_code: zip }});
                             break;
                         case "locality":
                             city = `${component.long_name}${city}`;
-                            form.setFieldsValue({ city: city });
+                            form.setFieldsValue({address:{ city: city }});
                             break;
                         case "administrative_area_level_1":
                             state = `${component.short_name}${state}`;
-                            form.setFieldsValue({ state: state });
+                            form.setFieldsValue({address:{ state: state }});
                             break;
                         case "country":
                             country = `${component.short_name}${country}`;
-                            form.setFieldsValue({ country: country });
+                            form.setFieldsValue({address: { country: country }});
                             break;
                         default:
                             break;
                     }
                 }
 
-                form.setFieldsValue({ lat: place.geometry.location.lat() });
-                form.setFieldsValue({ lng: place.geometry.location.lng() });
-                //antInputRef.current.setValue(place?.formatted_address);
+                form.setFieldsValue({address:{ lat: place.geometry.location.lat() }});
+                form.setFieldsValue({address:{ lng: place.geometry.location.lng() }});
             }
         }
     });
@@ -156,41 +155,42 @@ const CustomerForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                             />
                         </Form.Item>
 
-                        <Form.Item label="Address" name="address"
+                        <Form.Item label="Address" name={["address", "address"]}
                             rules={[{ required: true }]}
                         >
                             <Input />
                         </Form.Item>
-                        <Form.Item label="City" name="city"
+                        <Form.Item label="City" name={["address", "city"]}
                             rules={[{ required: true },]}
                         >
                             <Input />
                         </Form.Item>
-                        <Form.Item label="State" name="state"
+                        <Form.Item label="State" name={["address", "state"]}
                             rules={[{ required: true },]}
                         >
                             <Input />
                         </Form.Item>
                         <Form.Item
-                            name={['postal_code']}
+                            name={["address",'postal_code']}
                             label="Postal Code"
                             rules={[{ required: true, }]}
                         >
                             <Input />
                         </Form.Item>
-                        <Form.Item name="country" label="Country"
+                        <Form.Item label="Country" name={["address", "country"]}
                             rules={[{
                                 required: true,
-                                message: 'Please input your phone number!',
+                                message: 'Please input your Country!',
                             }
                             ]}
                         >
                             <Input style={{ width: '100%' }} />
                         </Form.Item>
-                        <Form.Item name="lat" hidden>
+
+                        <Form.Item name={["address", "lat"]} hidden>
                             <Input type="hidden" />
                         </Form.Item>
-                        <Form.Item name="lng" hidden>
+                        <Form.Item name={["address", "lng"]} hidden>
                             <Input type="hidden" />
                         </Form.Item>
                         {
@@ -213,7 +213,7 @@ const CustomerForm = ({form, onFormChange, hasId, onFormSubmit }) => {
 
                 <Row>
                     <Col span={12}>
-                        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                        <Form.Item wrapperCol={{ offset: 4, span: 16 }}>
                             <Button type="primary" htmlType="submit">Submit</Button>
                         </Form.Item>
                     </Col>

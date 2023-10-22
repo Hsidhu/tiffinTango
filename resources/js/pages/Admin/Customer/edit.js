@@ -39,7 +39,7 @@ const Edit = ({ }) => {
     };
 
     useEffect(() => {
-        form.setFieldsValue({ ...customer, ...customer.address })
+        form.setFieldsValue({...customer })
     }, [form, customer])
 
     return (

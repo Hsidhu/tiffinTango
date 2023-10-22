@@ -17,7 +17,7 @@ function Login() {
 
     return (
         <Row justify="center" align="middle">
-            <Col span={6}>fedcsz
+            <Col span={6}>
                 <Form
                     name="normal_login"
                     onFinish={onFinish}

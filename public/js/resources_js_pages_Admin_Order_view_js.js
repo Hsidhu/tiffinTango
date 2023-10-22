@@ -8632,8 +8632,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/row/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/col/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/descriptions/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/card/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/table/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/select/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/card/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/table/index.js");
 /* harmony import */ var _redux_Order_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../redux/Order/actions */ "./resources/js/redux/Order/actions.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
@@ -8824,9 +8825,25 @@ var View = function View(_ref) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(antd__WEBPACK_IMPORTED_MODULE_14__["default"].Item, {
             label: "Start Date",
             children: moment__WEBPACK_IMPORTED_MODULE_2___default()(order.start_date, 'YYYY-MM-DD').format('DD-MM-YYYY')
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(antd__WEBPACK_IMPORTED_MODULE_14__["default"].Item, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_14__["default"].Item, {
             label: "Status",
-            children: order === null || order === void 0 ? void 0 : order.status
+            children: [order === null || order === void 0 ? void 0 : order.status, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(antd__WEBPACK_IMPORTED_MODULE_15__["default"], {
+              defaultValue: "lucy",
+              style: {
+                width: 120
+              },
+              bordered: false,
+              options: [{
+                value: 'jack',
+                label: 'Jack'
+              }, {
+                value: 'lucy',
+                label: 'Lucy'
+              }, {
+                value: 'Yiminghe',
+                label: 'yiminghe'
+              }]
+            })]
           })]
         })
       })
@@ -8834,13 +8851,13 @@ var View = function View(_ref) {
       gutter: 12,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(antd__WEBPACK_IMPORTED_MODULE_13__["default"], {
         span: 18,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_15__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_16__["default"], {
           title: "Order Detail",
           extra: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
             href: "#",
             children: "Invoice"
           }),
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(antd__WEBPACK_IMPORTED_MODULE_16__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(antd__WEBPACK_IMPORTED_MODULE_17__["default"], {
             columns: columns2,
             dataSource: data2,
             pagination: false,
@@ -8850,7 +8867,7 @@ var View = function View(_ref) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(antd__WEBPACK_IMPORTED_MODULE_13__["default"], {
         span: 6,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_15__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_16__["default"], {
           title: "Customer details",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("p", {
             children: ["Name: ", order.customer_name]
@@ -46912,75 +46929,6 @@ function getOffset(node) {
 
 /***/ }),
 
-/***/ "./node_modules/rc-util/es/getScrollBarSize.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/rc-util/es/getScrollBarSize.js ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ getScrollBarSize),
-/* harmony export */   getTargetScrollBarSize: () => (/* binding */ getTargetScrollBarSize)
-/* harmony export */ });
-/* eslint-disable no-param-reassign */
-
-var cached;
-function getScrollBarSize(fresh) {
-  if (typeof document === 'undefined') {
-    return 0;
-  }
-  if (fresh || cached === undefined) {
-    var inner = document.createElement('div');
-    inner.style.width = '100%';
-    inner.style.height = '200px';
-    var outer = document.createElement('div');
-    var outerStyle = outer.style;
-    outerStyle.position = 'absolute';
-    outerStyle.top = '0';
-    outerStyle.left = '0';
-    outerStyle.pointerEvents = 'none';
-    outerStyle.visibility = 'hidden';
-    outerStyle.width = '200px';
-    outerStyle.height = '150px';
-    outerStyle.overflow = 'hidden';
-    outer.appendChild(inner);
-    document.body.appendChild(outer);
-    var widthContained = inner.offsetWidth;
-    outer.style.overflow = 'scroll';
-    var widthScroll = inner.offsetWidth;
-    if (widthContained === widthScroll) {
-      widthScroll = outer.clientWidth;
-    }
-    document.body.removeChild(outer);
-    cached = widthContained - widthScroll;
-  }
-  return cached;
-}
-function ensureSize(str) {
-  var match = str.match(/^(.*)px$/);
-  var value = Number(match === null || match === void 0 ? void 0 : match[1]);
-  return Number.isNaN(value) ? getScrollBarSize() : value;
-}
-function getTargetScrollBarSize(target) {
-  if (typeof document === 'undefined' || !target || !(target instanceof Element)) {
-    return {
-      width: 0,
-      height: 0
-    };
-  }
-  var _getComputedStyle = getComputedStyle(target, '::-webkit-scrollbar'),
-    width = _getComputedStyle.width,
-    height = _getComputedStyle.height;
-  return {
-    width: ensureSize(width),
-    height: ensureSize(height)
-  };
-}
-
-/***/ }),
-
 /***/ "./node_modules/rc-util/es/index.js":
 /*!******************************************!*\
   !*** ./node_modules/rc-util/es/index.js ***!
@@ -47011,67 +46959,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-/***/ }),
-
-/***/ "./node_modules/rc-util/es/pickAttrs.js":
-/*!**********************************************!*\
-  !*** ./node_modules/rc-util/es/pickAttrs.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ pickAttrs)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
-
-var attributes = "accept acceptCharset accessKey action allowFullScreen allowTransparency\n    alt async autoComplete autoFocus autoPlay capture cellPadding cellSpacing challenge\n    charSet checked classID className colSpan cols content contentEditable contextMenu\n    controls coords crossOrigin data dateTime default defer dir disabled download draggable\n    encType form formAction formEncType formMethod formNoValidate formTarget frameBorder\n    headers height hidden high href hrefLang htmlFor httpEquiv icon id inputMode integrity\n    is keyParams keyType kind label lang list loop low manifest marginHeight marginWidth max maxLength media\n    mediaGroup method min minLength multiple muted name noValidate nonce open\n    optimum pattern placeholder poster preload radioGroup readOnly rel required\n    reversed role rowSpan rows sandbox scope scoped scrolling seamless selected\n    shape size sizes span spellCheck src srcDoc srcLang srcSet start step style\n    summary tabIndex target title type useMap value width wmode wrap";
-var eventsName = "onCopy onCut onPaste onCompositionEnd onCompositionStart onCompositionUpdate onKeyDown\n    onKeyPress onKeyUp onFocus onBlur onChange onInput onSubmit onClick onContextMenu onDoubleClick\n    onDrag onDragEnd onDragEnter onDragExit onDragLeave onDragOver onDragStart onDrop onMouseDown\n    onMouseEnter onMouseLeave onMouseMove onMouseOut onMouseOver onMouseUp onSelect onTouchCancel\n    onTouchEnd onTouchMove onTouchStart onScroll onWheel onAbort onCanPlay onCanPlayThrough\n    onDurationChange onEmptied onEncrypted onEnded onError onLoadedData onLoadedMetadata\n    onLoadStart onPause onPlay onPlaying onProgress onRateChange onSeeked onSeeking onStalled onSuspend onTimeUpdate onVolumeChange onWaiting onLoad onError";
-var propList = "".concat(attributes, " ").concat(eventsName).split(/[\s\n]+/);
-
-/* eslint-enable max-len */
-var ariaPrefix = 'aria-';
-var dataPrefix = 'data-';
-function match(key, prefix) {
-  return key.indexOf(prefix) === 0;
-}
-/**
- * Picker props from exist props with filter
- * @param props Passed props
- * @param ariaOnly boolean | { aria?: boolean; data?: boolean; attr?: boolean; } filter config
- */
-function pickAttrs(props) {
-  var ariaOnly = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-  var mergedConfig;
-  if (ariaOnly === false) {
-    mergedConfig = {
-      aria: true,
-      data: true,
-      attr: true
-    };
-  } else if (ariaOnly === true) {
-    mergedConfig = {
-      aria: true
-    };
-  } else {
-    mergedConfig = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, ariaOnly);
-  }
-  var attrs = {};
-  Object.keys(props).forEach(function (key) {
-    if (
-    // Aria
-    mergedConfig.aria && (key === 'role' || match(key, ariaPrefix)) ||
-    // Data
-    mergedConfig.data && match(key, dataPrefix) ||
-    // Attr
-    mergedConfig.attr && propList.includes(key)) {
-      attrs[key] = props[key];
-    }
-  });
-  return attrs;
-}
 
 /***/ }),
 

@@ -39,6 +39,13 @@ class Setting extends Model
         return $options;
     }
 
+
+    public function getValueAttribute($value)
+    {
+        // Use is_numeric to check if the value is a number
+        return is_numeric($value) ? (int) $value : $value;
+    }
+
     //
     // Registration
     //

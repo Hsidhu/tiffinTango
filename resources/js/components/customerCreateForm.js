@@ -7,7 +7,7 @@ import {
 import moment from "moment";
 
 import { usePlacesWidget } from "react-google-autocomplete";
-import { GOOGLE_API_KEY, orderTypeOptions, deliveryWindow } from '../config/constants';
+import { GOOGLE_API_KEY, orderTypeOptions, autocompleteOptions } from '../config/constants';
 import { phonePattern } from '../validationHelper'
 
 const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindows, getDeliveryCharge, placeOrder }) => {
@@ -21,11 +21,7 @@ const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindo
 
     const { ref: antRef } = usePlacesWidget({
         apiKey: GOOGLE_API_KEY,
-        options: {
-            componentRestrictions: { country: ["ca"] },
-            fields: ["address_components", "geometry"],
-            types: ["address"]
-        },
+        options: autocompleteOptions,
         onPlaceSelected: (place) => {
             const address = place.address_components;
             let { street1, city, state, zip, country } = {
@@ -87,7 +83,6 @@ const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindo
     };
 
     const onDateChange = (date, dateString) => {
-        console.log(date, dateString);
         setStartDate(date)
     }
 
@@ -103,15 +98,13 @@ const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindo
             // onFinish={onFormSubmit}
         >
 
-            
-
             <Form.Item label="Order Type" name="order_type" >
                 <Radio.Group size="large" optionType="button" options={orderTypeOptions}  />
             </Form.Item>
 
             {
                 deliveryWindowShow && 
-                <Form.Item label="Delivery Window" name="delivery_window"
+                <Form.Item label="Delivery Window" name="delivery_window_id"
                     rules={[{ required: true}]}
                     >
                     <Radio.Group size="large" optionType="button" options={deliveryWindows}  />
@@ -123,7 +116,7 @@ const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindo
                 >
                 <DatePicker size="large" style={{width: "100%"}} format={'DD-MM-YYYY'}
                     disabledDate={current => {
-                        return current && current < moment().add(1, "day");
+                        return current && current < moment().add(1, "day") && current.day() === 0;
                     }}
                 />
             </Form.Item>
@@ -214,7 +207,7 @@ const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindo
                 </Col>
             </Row>
 
-            <Row>
+            <Row gutter={16}>
                 <Col span={12}>
                     <Form.Item name={['postal_code']} label="Postal Code" labelCol={{span:6}}
                         rules={[{ required: true, }]}
@@ -223,14 +216,8 @@ const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindo
                     </Form.Item>
                 </Col>
                 <Col span={12}>
-                    <Form.Item name="country" label="Country"
-                        rules={[{
-                            required: true,
-                            message: 'Please input your phone number!',
-                        }
-                        ]}
-                    >
-                        <Input style={{ width: '100%' }} />
+                    <Form.Item name="country" label="Country" disabled >
+                        <Input style={{ width: '100%' }} value={'CA'} />
                     </Form.Item>
                 </Col>
             </Row>

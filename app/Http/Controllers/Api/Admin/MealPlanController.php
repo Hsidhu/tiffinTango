@@ -45,7 +45,7 @@ class MealPlanController extends Controller
             $request->file('file')->storeAs('public/mealplan', $fileName);
             $request->merge(['image' => 'mealplan/'.$fileName]);
         }
-        $mealPlan = MealPlan::create($$request->only(['name','description','short_description', 'price', 'discount', 'duration', 'image']));
+        $mealPlan = MealPlan::create($$request->only(['name','description','short_description', 'price', 'discount', 'duration', 'image', 'status']));
         return response()->json($mealPlan);
     }
 
@@ -124,7 +124,8 @@ class MealPlanController extends Controller
         }
         $mealPlan->update($request->only([
                 'name','description','short_description', 
-                'price', 'discount', 'duration', 'image'
+                'price', 'discount', 'duration', 'image',
+                'status'
         ]));
         return response()->json($mealPlan);
     }

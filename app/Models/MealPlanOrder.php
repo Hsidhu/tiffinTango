@@ -49,7 +49,7 @@ class MealPlanOrder extends Model
 
     public function status()
     {
-        return $this->hasOne(\App\Models\OrderStatus::class);
+        return $this->belongsTo(\App\Models\OrderStatus::class);
     }
 
     public function deliveryWindow()

@@ -2,7 +2,8 @@ import {
     SET_ERRORS,
     REDIRECT_TO,
     ORDER_STATUSES,
-    DELIVERY_WINDOWS
+    DELIVERY_WINDOWS,
+    COOKIE_CONSENT
 } from "./actions"
 
 export const errors = (state = {}, action) => {
@@ -35,6 +36,15 @@ export const orderStatuses = (state = [], action) => {
 export const deliveryWindows = (state = [], action) => {
     switch (action.type) {
         case DELIVERY_WINDOWS:
+            return action.payload
+        default:
+            return state
+    }
+}
+
+export const cookieConsent = (state = false, action) => {
+    switch (action.type) {
+        case COOKIE_CONSENT:
             return action.payload
         default:
             return state

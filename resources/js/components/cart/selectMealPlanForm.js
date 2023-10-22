@@ -1,22 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
 import { isEmpty } from 'lodash';
 import {
-    Row, Col,
-    Select, Card,
-    Image, Descriptions,
+    Row, Col, Select, Card,
     Typography, Button
 } from 'antd';
-
+import MealPlanOptions from "../containers/cart/mealPlanOptions"
 const { Text } = Typography;
 
-import { axiosConfig } from '../../config/constants';
-import MealPlanOptions from "../containers/cart/mealPlanOptions"
-import { imageUrl } from '../../config/helpers';
-
-const SelectMealPlanForm = ({ nextForm, orderData, cart, getMealPlanForOrder, addToCartselectMealPlan }) => {
-
-    const [selectedMealPlan, setSelectedMealPlan] = useState();
+const SelectMealPlanForm = ({ nextForm, orderData, selectedMealPlan, getMealPlanForOrder, addToCartselectMealPlan }) => {
 
     useEffect(() => {
         getMealPlanForOrder()
@@ -31,13 +22,8 @@ const SelectMealPlanForm = ({ nextForm, orderData, cart, getMealPlanForOrder, ad
         label: `${item.name} - $${item.price}`
     }));
 
-    const defaultValue = cart?.items ? cart?.items[0] : null
-
     const handleChange = (value) => {
-        console.log('Select checked', value);
         const meal = _.find(orderData, { meal_id: value });
-        setSelectedMealPlan(meal);
-        // selected mealPlan
         addToCartselectMealPlan(meal);
     };
 
@@ -45,10 +31,8 @@ const SelectMealPlanForm = ({ nextForm, orderData, cart, getMealPlanForOrder, ad
         <Card title="Select Mealpan"  >
 
             <Row>
-                <Col span={4}>
+                <Col span={24}>
                     <Text>Select your Plan:</Text>
-                </Col>
-                <Col span={18}>
                     <Select size="large"
                         placeholder = "Select MealPlan"
                         defaultValue={selectedMealPlan?.meal_id}
@@ -63,20 +47,7 @@ const SelectMealPlanForm = ({ nextForm, orderData, cart, getMealPlanForOrder, ad
                 {
                     !isEmpty(selectedMealPlan) ? <MealPlanOptions mealPlanID={selectedMealPlan.meal_id} /> : null
                 }
-                {
-                    !isEmpty(selectedMealPlan) ? <Descriptions title="Selected Meal Plan Description" bordered layout="vertical">
-                            <Descriptions.Item label="Name">{selectedMealPlan.name}</Descriptions.Item>
-                            <Descriptions.Item label="Description">{selectedMealPlan.description}</Descriptions.Item>
-                            <Descriptions.Item label="Billing">Monthly</Descriptions.Item>
-                    </Descriptions>: null
-                }
                 <br/>
-                {
-                    !isEmpty(selectedMealPlan) ? <Image
-                                width={200}
-                                src={imageUrl(`/images/${selectedMealPlan.image}`)}
-                            /> : null
-                }
 
                 <Button block disabled={isEmpty(selectedMealPlan) ? true : false} size={'large'} type="primary" onClick={nextForm}>
                     Next
