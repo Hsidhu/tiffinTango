@@ -16,12 +16,14 @@ return new class extends Migration
         Schema::create('daily_delivery_meal_plan_logs', function (Blueprint $table) {
             $table->id();
             $table->integer('customer_id');
+            $table->integer('driver_id');
             $table->integer('order_id');
             $table->string('image', 164)->nullable();
             $table->float('lat', 10, 6)->nullable();
             $table->float('lng', 10, 6)->nullable();
             $table->string('comment', 268)->nullable();
-            $table->integer('status');
+            $table->integer('priority')->default(1);
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
 
@@ -31,7 +33,7 @@ return new class extends Migration
             $table->integer('order_id');
             $table->dateTime('picked_at');
             $table->string('comment', 268)->nullable();
-            $table->integer('status');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

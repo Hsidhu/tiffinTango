@@ -70,11 +70,14 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::get('/order/statuses', [App\Http\Controllers\Api\Admin\OrderStatusController::class, 'getOrderStatuses']);
     Route::post('/order/updates', [App\Http\Controllers\Api\Admin\OrderController::class, 'orderUpdates']);
 
-
+    Route::post('/order/picked', [App\Http\Controllers\Api\Admin\OrderController::class, 'picked']);
+    Route::post('/order/delivered', [App\Http\Controllers\Api\Admin\OrderController::class, 'delivered']);
 });
 
 Route::get('images/{folder}/{filename}', [App\Http\Controllers\Api\FileController::class, 'images'])
     ->where(['folder' => '.*', 'filename' => '.*']);
+
+Route::get('test', [App\Http\Controllers\Api\FileController::class, 'test']);
 
 Route::get('/mealplanorder/data', [App\Http\Controllers\Api\OrderController::class, 'getMealPlans']);
 Route::post('/mealplanorder/create', [App\Http\Controllers\Api\OrderController::class, 'createOrder']);

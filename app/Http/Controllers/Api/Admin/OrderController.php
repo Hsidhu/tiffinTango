@@ -5,7 +5,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\MealPlanOrder;
 use App\Models\OrderStatus;
+use App\Models\PickedUpMealPlanLog;
+use App\Models\DailyDeliveryMealPlanLog;
 use App\Http\Resources\Admin\OrderResource;
+use Carbon\Carbon;
 
 class OrderController extends Controller
 {
@@ -39,4 +42,34 @@ class OrderController extends Controller
         return response()->json($orderStatus);
     }
 
+    /**
+     * Order picked up
+     */
+    public function picked(Request $request)
+    {
+        $order = MealPlanOrder::find($request->id);
+        $picked = PickedUpMealPlanLog::create([
+            'order_id' => $order->id,
+            'customer' => $order->customer_id,
+            'picked_at' => Carbon::now(),
+            'comment' => $request->get('comment')
+        ]);
+        return response()->json($picked);
+    }
+
+    public function delivered(Request $request)
+    {
+        $order = MealPlanOrder::find($request->id);
+        $picked = DailyDeliveryMealPlanLog::where([
+            'order_id' => $order->id,
+            'customer' => $order->customer_id,
+            'driver_id' => $request->get('driver_id'),
+        ])->update([
+            'lat' => $request->get('lat'),
+            'lng' => $request->get('lng'),
+            'comment' => $request->get('comment'),
+            'image' =>'image'
+        ]);
+        return response()->json($picked);
+    }
 }
