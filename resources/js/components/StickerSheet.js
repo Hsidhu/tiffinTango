@@ -10,10 +10,8 @@ const StickerSheet = ({pages}) => {
             <div key={pageIndex} className="label-sheet">
             {page.map((label, labelIndex) => (
                 <div key={labelIndex} className="label">
-                    Customer className<br/> 
+                    Customer<br/> 
                     {label} <br/>
-                    Address <br/>
-                    Tiffin detail
                 </div>
             ))}
             </div>

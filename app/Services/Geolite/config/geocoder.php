@@ -32,6 +32,7 @@ return [
                 'geocode' => 'https://maps.googleapis.com/maps/api/geocode/json?address=%s',
                 'reverse' => 'https://maps.googleapis.com/maps/api/geocode/json?latlng=%F,%F',
                 'distance' => 'https://maps.googleapis.com/maps/api/distancematrix/json?destinations=%F,%F&origins=%F,%F',
+                'direction' => 'https://maps.googleapis.com/maps/api/directions/json'
             ],
             'locale' => 'en-GB',
             'region' => 'GB',

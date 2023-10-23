@@ -217,7 +217,7 @@ return new class extends Migration
             $table->engine = 'InnoDB';
             $table->id();
             $table->string('hash', 40)->nullable()->index();
-            $table->integer('customer_id')->nullable();
+            $table->integer('customer_id');
             $table->string('order_type', 32);
             $table->integer('delivery_window_id')->default(1);
             $table->dateTime('start_date');
@@ -231,7 +231,7 @@ return new class extends Migration
             $table->string('payment_type', 35);
             $table->boolean('payment_processed')->nullable();
             $table->integer('order_status_id');
-            $table->text('comment')->nullable();
+            $table->string('comment', 268)->nullable();
             $table->text('delivery_comment')->nullable();
             $table->timestamps();
         });

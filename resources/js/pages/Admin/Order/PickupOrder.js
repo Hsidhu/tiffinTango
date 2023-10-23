@@ -63,7 +63,7 @@ const PickupOrder = ({}) => {
             />
             <Modal
                 title="Add Event"
-                visible={isModalVisible}
+                open={isModalVisible}
                 onOk={handleOk}
                 onCancel={handleCancel}
             >

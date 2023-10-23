@@ -10612,7 +10612,7 @@ var PickupOrder = function PickupOrder(_ref) {
       }
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
       title: "Add Event",
-      visible: isModalVisible,
+      open: isModalVisible,
       onOk: handleOk,
       onCancel: handleCancel,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
