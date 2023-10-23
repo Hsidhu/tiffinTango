@@ -114,7 +114,7 @@ class DeliveryZoneController extends Controller
         }
     }
 
-    public function getDeliveryZonesSelect()
+    public function getSelectList()
     {
         $deliveryZones =  DeliveryZone::getDataForSelect();
         return response()->json($deliveryZones);

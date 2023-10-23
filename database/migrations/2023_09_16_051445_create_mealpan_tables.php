@@ -242,7 +242,7 @@ return new class extends Migration
             $table->integer('order_id');
             $table->integer('meal_plan_id');
             $table->string('name');
-            $table->integer('quantity')->default('1');
+            $table->integer('quantity')->default(1);
             $table->decimal('price', 15)->nullable();
             $table->decimal('subtotal', 15)->nullable();
             $table->text('option_values')->nullable();
@@ -256,6 +256,7 @@ return new class extends Migration
             $table->integer('meal_plan_id');
             $table->integer('meal_plan_option_id');
             $table->string('option_name', 128);
+            $table->integer('quantity')->default(1);
             $table->integer('value_id');
             $table->string('value_name', 128);
             $table->decimal('value_price', 15)->nullable();

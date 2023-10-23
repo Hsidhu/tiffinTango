@@ -64,6 +64,8 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::delete('/delivery_zone/delete/{id}', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'delete']);
     Route::post('/delivery_zone/assign_zone', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'assignZoneToDriver']);
 
+    Route::post('/delivery_zone/select', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'getSelectList']);
+
 
     Route::get('/orders', [App\Http\Controllers\Api\Admin\OrderController::class, 'index']);
     Route::get('/order/view/{id}', [App\Http\Controllers\Api\Admin\OrderController::class, 'view']);
