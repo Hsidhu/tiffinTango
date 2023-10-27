@@ -61,3 +61,18 @@ if (!function_exists('str_slug')) {
         return Str::slug($title, $separator, $language);
     }
 }
+
+
+if (!function_exists('array_except')) {
+    /**
+     * Get all of the given array except for a specified array of keys.
+     *
+     * @param array $array
+     * @param array|string $keys
+     * @return array
+     */
+    function array_except($array, $keys)
+    {
+        return Arr::except($array, $keys);
+    }
+}

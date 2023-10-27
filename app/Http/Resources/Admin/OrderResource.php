@@ -33,6 +33,8 @@ class OrderResource extends JsonResource
             'end_date' => $this->end_date,
             'total_price' => $this->total_price,
             'order_status_id' => $this->order_status_id,
+            'status' => $this->status->name,
+            'payment_processed'=> $this->payment_processed,
             'items' => OrderItemResource::collection($this->items),
             'totals' => OrderTotalResource::collection($this->totals),
             'deliveries' => $this->deliveries,

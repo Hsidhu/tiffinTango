@@ -13,7 +13,10 @@ class MealPlanOrder extends Model
 
     const DELIVERY = 'delivery';
 
-    const COLLECTION = 'collection';
+    const PICKUP = 'pickup';
+
+    const PAYMENT_PROCESSED = 1;
+    const PAYMENT_NOT_PROCESSED = 0;
 
     protected $guarded = [];
 
@@ -59,12 +62,12 @@ class MealPlanOrder extends Model
 
     public function status()
     {
-        return $this->belongsTo(\App\Models\OrderStatus::class);
+        return $this->belongsTo(\App\Models\OrderStatus::class, 'order_status_id');
     }
 
     public function deliveryWindow()
     {
-        return $this->hasOne(\App\Models\DeliveryWindow::class);
+        return $this->hasOne(\App\Models\DeliveryWindow::class, 'delivery_window_id');
     }
     /**
      * Return the order data to build mail template

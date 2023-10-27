@@ -6737,9 +6737,13 @@ var Order = function Order(_ref) {
     title: 'Order Type',
     dataIndex: 'order_type'
   }, {
-    key: 'start_date',
-    title: 'Start Date',
-    dataIndex: 'start_date'
+    key: 'order_type',
+    title: 'Order Type',
+    dataIndex: 'order_type'
+  }, {
+    key: 'status',
+    title: 'Status',
+    dataIndex: 'status'
   }, {
     key: 'action',
     title: 'Action',

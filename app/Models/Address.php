@@ -12,7 +12,15 @@ class Address extends Model
     protected $guarded = [];
 
     protected $defaultFormat = [
-        "{address_1}\n{address_2}\n{city} {postcode}\n{state}\n{country}",
+        "{address}\n{city} {postal_code}\n{state}\n{country}",
+    ];
+
+    protected $requiredAddressKeys = [
+        'address',
+        'city',
+        'postal_code',
+        'state',
+        'country',
     ];
 
     public function customer()
@@ -46,9 +54,9 @@ class Address extends Model
 
         $formattedAddress = str_replace(['\r\n', '\r', '\n'], '<br />',
             preg_replace(['/\s\s+/', '/\r\r+/', '/\n\n+/'], '<br />',
-                trim(str_replace([
-                    '{address_1}', '{address_2}', '{city}', '{postcode}', '{state}', '{country}',
-                ], array_except($address, 'format'), $format))
+                str_replace([
+                    '{address}', '{city}', '{postal_code}', '{state}', '{country}',
+                ], array_except($address, 'format'), $format)
             )
         );
 
@@ -56,5 +64,19 @@ class Address extends Model
             $formattedAddress = str_replace('<br />', ', ', $formattedAddress);
 
         return strip_tags($formattedAddress);
+    }
+
+    protected function evalAddress($address)
+    {
+        $result = [];
+        foreach ($this->requiredAddressKeys as $key) {
+            $result[$key] = $address[$key] ?? '';
+        }
+        return $result;
+    }
+
+    public function getDefaultFormat()
+    {
+        return $this->defaultFormat;
     }
 }
