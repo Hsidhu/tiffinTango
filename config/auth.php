@@ -47,6 +47,10 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'customer'=>[
+            'driver' => 'sanctum',
+            'provider' => 'customers',
+        ]
     ],
 
     /*

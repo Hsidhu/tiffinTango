@@ -41,3 +41,24 @@ export const updateOrderStatus = (data) => (dispatch) => {
         console.log(error);
     });
 }
+
+
+// any key pair can be updated
+export const addPickupLog = (data) => (dispatch) => {
+
+    const res = postRequest('order/picked', data).then(response => {
+        // dispatch({
+        //     type: ORDER_PLACED,
+        //     payload: response.data
+        // });
+        message.success({
+            content: 'Order Updated',
+            style: {
+                padding:'20px',
+                marginTop: '5vh',
+            }
+        });
+    }).catch(error => {
+        console.log(error);
+    });
+}

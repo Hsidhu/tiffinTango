@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Admin;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Admin\OrderPickedupLog;
 
 class OrderResource extends JsonResource
 {
@@ -33,7 +34,9 @@ class OrderResource extends JsonResource
             'total_price' => $this->total_price,
             'order_status_id' => $this->order_status_id,
             'items' => OrderItemResource::collection($this->items),
-            'totals' => OrderTotalResource::collection($this->totals)
+            'totals' => OrderTotalResource::collection($this->totals),
+            'deliveries' => $this->deliveries,
+            'pickups' => OrderPickedupLog::collection($this->pickups),
         ];
     }
 }

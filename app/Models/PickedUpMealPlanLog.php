@@ -11,4 +11,9 @@ class PickedUpMealPlanLog extends Model
     
     protected $guarded = [];
 
+    protected $casts = [
+        'created_at' => 'datetime',
+        'picked_at' => 'datetime',
+    ];
+
 }

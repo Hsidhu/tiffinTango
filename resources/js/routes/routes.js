@@ -11,6 +11,20 @@ export const publicRouteList = [
         path: 'order/mealplan',
         component: lazy(() => import('../pages/orderMealPlan')),
         exact: true,
+    },
+    {
+        path: 'order/catering',
+        component: lazy(() => import('../pages/Catering')),
+        exact: true,
+    }
+]
+
+export const customerRouteList = [
+    {
+        path: '',
+        name:'home',
+        component: lazy(() => import('../pages/home')),
+        exact: true,
     }
 ]
 

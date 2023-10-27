@@ -50,8 +50,8 @@ class OrderController extends Controller
         $order = MealPlanOrder::find($request->id);
         $picked = PickedUpMealPlanLog::create([
             'order_id' => $order->id,
-            'customer' => $order->customer_id,
-            'picked_at' => Carbon::now(),
+            'customer_id' => $order->customer_id,
+            'picked_at' => $request->get('picked_at'),
             'comment' => $request->get('comment')
         ]);
         return response()->json($picked);
@@ -62,7 +62,7 @@ class OrderController extends Controller
         $order = MealPlanOrder::find($request->id);
         $picked = DailyDeliveryMealPlanLog::where([
             'order_id' => $order->id,
-            'customer' => $order->customer_id,
+            'customer_id' => $order->customer_id,
             'driver_id' => $request->get('driver_id'),
         ])->update([
             'lat' => $request->get('lat'),

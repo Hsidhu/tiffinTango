@@ -17,9 +17,11 @@ export function AppRoutes({ isAuthenticated }) {
                     <PublicRoute path={["/", '/order/*']} isAuthenticated={isAuthenticated} exact>
                         <PublicRoutes />
                     </PublicRoute>
+
                     <AuthRoute path={["/login", "/registration"]} isAuthenticated={isAuthenticated} exact>
                         <AuthRoutes />
                     </AuthRoute>
+                    
                     <PrivateRoute path={["/admin/*"]} isAuthenticated={isAuthenticated} >
                         <ProtectedRoutes />
                     </PrivateRoute>

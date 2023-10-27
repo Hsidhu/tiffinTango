@@ -37,6 +37,16 @@ class MealPlanOrder extends Model
         return $this->hasMany(\App\Models\MealPlanOrderTotal::class, 'order_id');
     }
 
+    public function deliveries()
+    {
+        return $this->hasMany(\App\Models\DailyDeliveryMealPlanLog::class, 'order_id');
+    }
+
+    public function pickups()
+    {
+        return $this->hasMany(\App\Models\PickedUpMealPlanLog::class, 'order_id');
+    }
+
     public function isDeliveryType()
     {
         return $this->order_type == static::DELIVERY;

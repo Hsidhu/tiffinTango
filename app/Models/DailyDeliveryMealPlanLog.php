@@ -10,4 +10,14 @@ class DailyDeliveryMealPlanLog extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function order()
+    {
+        return $this->belongsTo(\App\Models\MealPlanOrder::class);
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(\App\Models\Customer::class);
+    }
 }

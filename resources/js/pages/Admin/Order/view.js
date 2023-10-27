@@ -8,7 +8,7 @@ import {
     Card, Table, Divider, Select
 } from 'antd';
 
-import { getOrder } from "../../../redux/Order/actions"
+import { getOrder, addPickupLog } from "../../../redux/Order/actions"
 import { isEmpty } from 'lodash';
 import TableHeaderLink from '../../../components/tableHeaderLink';
 import GoogleMapReact from 'google-map-react';
@@ -221,26 +221,31 @@ const View = ({ }) => {
                 </Col>
             </Row>
             <Divider />
-            <Row gutter={6}>
-                <Col span={16}>
-                    <GoogleMapReact
-                        style={{ height: '500px' }}
-                        bootstrapURLKeys={{ libraries: ['geometry'], key: GOOGLE_API_KEY }}
-                        defaultCenter={{ lat: order.customer_lat, lng: order.customer_lng }}
-                        defaultZoom={12}
-                        yesIWantToUseGoogleMapApiInternals={true}
-                        onGoogleApiLoaded={({ map, maps }) => {
-                            renderMarkers(map, maps)
-                            handleApiLoaded(map, maps)
-                        }}
-                    >
-                    </GoogleMapReact>
-                </Col>
-                <Col span={6}>
-                    Update zone
-                </Col>
-            </Row>
-            <PickupOrder/>
+            {
+                order.order_type == 'pickup' ?
+                <PickupOrder order_id={order.id} customer_id={order.customer_id} pickups={order.pickups} />
+                :
+                <Row gutter={6}>
+                    <Col span={16}>
+                        <GoogleMapReact
+                            style={{ height: '500px' }}
+                            bootstrapURLKeys={{ libraries: ['geometry'], key: GOOGLE_API_KEY }}
+                            defaultCenter={{ lat: order.customer_lat, lng: order.customer_lng }}
+                            defaultZoom={12}
+                            yesIWantToUseGoogleMapApiInternals={true}
+                            onGoogleApiLoaded={({ map, maps }) => {
+                                renderMarkers(map, maps)
+                                handleApiLoaded(map, maps)
+                            }}
+                        >
+                        </GoogleMapReact>
+                    </Col>
+                    <Col span={6}>
+                        Update zone
+                    </Col>
+                </Row>
+            }
+            
         </>
     );
 }
