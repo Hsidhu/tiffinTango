@@ -63,6 +63,11 @@ export const privateRouteList = [
         exact: true,
     },
     {
+        path: 'admin/order/generateDeliveries',
+        component: lazy(() => import('../pages/Admin/Order/GenerateDeliveries')),
+        exact: true,
+    },
+    {
         path: 'admin/locations',
         component: lazy(() => import('../pages/Admin/Location/index')),
         exact: true,

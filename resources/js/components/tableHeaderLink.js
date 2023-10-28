@@ -6,16 +6,27 @@ import {
     PageHeader
 } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
+import { isEmpty } from 'lodash';
 
 const headerWrapper = {
     padding: "24px",
     backgroundColor: "#f5f5f5"
 }
 
-const TableHeaderLink = ({ name, backUri, toUri, toText, children }) => {
+const TableHeaderLink = ({ name, backUri, toUri, toText, HeaderButtons, children }) => {
     const history = useHistory();
     const navTo = (uri) => {
         history.push(uri)
+    }
+
+    if(isEmpty(HeaderButtons)){
+        HeaderButtons = [
+            <Button key="2">Operation</Button>,
+            !toUri ? null :
+                <Button key="3" type="primary" onClick={() => navTo(toUri)} >
+                    {toText}
+                </Button>,
+        ]
     }
 
     return (
@@ -26,13 +37,7 @@ const TableHeaderLink = ({ name, backUri, toUri, toText, children }) => {
                 onBack={() => window.history.back()}
                 title={name}
                 subTitle="This is a subtitle"
-                extra={[
-                    <Button key="2">Operation</Button>,
-                    !toUri ? null :
-                        <Button key="3" type="primary" onClick={() => navTo(toUri)} >
-                            {toText}
-                        </Button>,
-                ]}
+                extra={HeaderButtons}
             >
                 { children ?? null}
                 <Descriptions size="small" column={3}>

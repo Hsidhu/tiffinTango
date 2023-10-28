@@ -10,6 +10,7 @@ export const COOKIE_CONSENT = "COOKIE_CONSENT";
 export const ORDER_STATUSES = "ORDER_STATUSES";
 export const UPDATE_ORDER_STATUS = "UPDATE_ORDER_STATUS";
 export const DELIVERY_WINDOWS = "DELIVERY_WINDOWS";
+export const DELIVERY_WINDOWS_LIST = "DELIVERY_WINDOWS_LIST"
 
 
 export const getSiteSettings = () => (dispatch) => {
@@ -37,10 +38,10 @@ export const getOrderStatuses = () => (dispatch) => {
     });
 }
 
-export const getDeliveryWindows = () => (dispatch) => {
+export const getDeliveryWindowsList = () => (dispatch) => {
     const res = getRequest('delivery_windows').then(response => {
         dispatch({
-            type: DELIVERY_WINDOWS,
+            type: DELIVERY_WINDOWS_LIST,
             payload: response.data
         });
     });
@@ -49,7 +50,7 @@ export const getDeliveryWindows = () => (dispatch) => {
 
 export const setcookieConsent = () => {
     dispatch({
-        type: DELIVERY_WINDOWS,
+        type: COOKIE_CONSENT,
         payload: data
     });
 }

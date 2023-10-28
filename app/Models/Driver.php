@@ -10,6 +10,9 @@ class Driver extends Model
 {
     use HasFactory, HasApiTokens;
 
+    const ACTIVE = 1;
+    const INACTIVE = 0;
+
     protected $guarded = [];
 
     public function address()

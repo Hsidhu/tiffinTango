@@ -1,11 +1,27 @@
-import React from 'react';
-import StickerSheet from '../../../components/StickerSheet';
+import React, {useEffect} from 'react';
+import StickerSheet from '../../../components/containers/stickerSheet';
 import { Button, Table, Divider } from 'antd';
+import { useDispatch, useSelector } from 'react-redux'
 
-const StickerView = () => {
+import TableHeaderLink from '../../../components/tableHeaderLink';
+import {getDailyDeliveries } from "../../../redux/Order/actions"
+import { isEmpty } from 'lodash';
+
+const StickerView = ({}) => {
+
+    const dispatch = useDispatch();
+    const {dailyDeliveries } = useSelector(state => state)
+
+    useEffect(() => {
+        dispatch(getDailyDeliveries())
+    }, [])
 
     const printStickerSheet = () => {
         window.print();
+    }
+
+    if(isEmpty(dailyDeliveries)){
+        return null
     }
 
     const stickerData = [
@@ -33,7 +49,7 @@ const StickerView = () => {
         return pages;
     }
     
-    const pages = splitStickerDataIntoPages(stickerData, labelsPerPage)
+    const pages = splitStickerDataIntoPages(dailyDeliveries.data, labelsPerPage)
     return (
         <>
             <Button onClick={printStickerSheet}>Print</Button>

@@ -4,6 +4,7 @@ import {
     REDIRECT_TO,
     ORDER_STATUSES,
     DELIVERY_WINDOWS,
+    DELIVERY_WINDOWS_LIST,
     COOKIE_CONSENT
 } from "./actions"
 
@@ -45,7 +46,7 @@ export const orderStatuses = (state = [], action) => {
 
 export const deliveryWindows = (state = [], action) => {
     switch (action.type) {
-        case DELIVERY_WINDOWS:
+        case DELIVERY_WINDOWS_LIST:
             return action.payload
         default:
             return state

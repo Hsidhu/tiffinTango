@@ -38,11 +38,14 @@ class AddressObserver
             // Temporarily disable model events
             Address::withoutEvents(function () use ($address) {
                 $customerLocationDetails = $this->onSearchNearby($address->formatted_address);
-                Log::info(json_encode($customerLocationDetails));
-
+                
                 // Check if 'deliveryZone' is not null in the result
-                if ($customerLocationDetails['deliveryZone']) {
-                    $address->delivery_zone_id = $customerLocationDetails['deliveryZone']->id;
+                if ($customerLocationDetails->deliveryZone) {
+                    $userCoordinates = $customerLocationDetails->userLocation->getCoordinates();
+
+                    $address->lat = $userCoordinates->getLatitude();
+                    $address->lng = $userCoordinates->getLongitude();
+                    $address->delivery_zone_id = $customerLocationDetails->deliveryZone->id;
                     $address->save();
                 }
             });

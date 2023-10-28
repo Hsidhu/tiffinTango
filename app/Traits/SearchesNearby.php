@@ -30,7 +30,7 @@ trait SearchesNearby
             $deliveryZone = $nearByLocation->searchDeliveryArea($userLocation->getCoordinates());
         }
             
-        return [
+        return (object)[
             'userLocation' => $userLocation ?? null,
             'nearByLocation' => $nearByLocation ?? null,
             'deliveryZone' => $deliveryZone ?? null,

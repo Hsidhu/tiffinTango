@@ -8,7 +8,7 @@ import {
 import { isEmpty } from 'lodash';
 import { getDriver, updateDriver } from '../../../redux/Driver/actions'
 import TableHeaderLink from '../../../components/tableHeaderLink';
-import { getDeliveryWindows } from '../../../redux/Common/actions';
+import { getDeliveryWindowsList } from '../../../redux/Common/actions';
 import DriverForm from './DriverForm';
 
 const Edit = ({ }) => {
@@ -20,7 +20,7 @@ const Edit = ({ }) => {
     const [form] = Form.useForm();
 
     useEffect(() => {
-        dispatch(getDeliveryWindows());
+        dispatch(getDeliveryWindowsList());
         dispatch(getDriver(id))
     }, [])
 
@@ -37,7 +37,7 @@ const Edit = ({ }) => {
     const onFormSubmit = (values) => {
         values.status = mapSwitchValue(values.status);
         dispatch(updateDriver(values));
-        //history.push('/admin/drivers')
+        history.push('/admin/drivers')
     }
 
     useEffect(() => {

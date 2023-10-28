@@ -11773,7 +11773,7 @@ __webpack_require__.r(__webpack_exports__);
     deliveryWindows: deliveryWindows
   };
 }, {
-  getDeliveryWindows: _redux_Common_actions__WEBPACK_IMPORTED_MODULE_3__.getDeliveryWindows,
+  getDeliveryWindowsList: _redux_Common_actions__WEBPACK_IMPORTED_MODULE_3__.getDeliveryWindowsList,
   getDeliveryCharge: _redux_Cart_actions__WEBPACK_IMPORTED_MODULE_2__.getDeliveryCharge,
   placeOrder: _redux_Cart_actions__WEBPACK_IMPORTED_MODULE_2__.placeOrder
 })(_customerCreateForm__WEBPACK_IMPORTED_MODULE_1__["default"]));
@@ -11824,7 +11824,7 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
   var form = _ref.form,
     orderData = _ref.orderData,
     deliveryWindows = _ref.deliveryWindows,
-    getDeliveryWindows = _ref.getDeliveryWindows,
+    getDeliveryWindowsList = _ref.getDeliveryWindowsList,
     getDeliveryCharge = _ref.getDeliveryCharge,
     placeOrder = _ref.placeOrder;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('pickup'),
@@ -11837,7 +11837,7 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
     setDeliveryWindowShow = _useState4[1];
   var antInputRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    getDeliveryWindows();
+    getDeliveryWindowsList();
   }, []);
   var _usePlacesWidget = (0,react_google_autocomplete__WEBPACK_IMPORTED_MODULE_2__.usePlacesWidget)({
       apiKey: _config_constants__WEBPACK_IMPORTED_MODULE_3__.GOOGLE_API_KEY,

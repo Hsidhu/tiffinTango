@@ -107,9 +107,9 @@ section>div {
     border-radius: 5px;
     width: 66.675mm; /* Set label width to 2-5/8 inches */
     height: 26mm; /* Set label height to 1 inch */
-    padding: 0.1in; /* Adjust this for spacing inside each label */
+    padding: 0.04in; /* Adjust this for spacing inside each label */
     margin: 0in 0in 0.008in 0in;
-
+    font-size: 12px;
     display: flex;
     align-items: center;
 }

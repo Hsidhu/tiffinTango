@@ -5,8 +5,8 @@ import { customers, customer } from './Customer/reducer';
 import { drivers, driver, driverSelect } from './Driver/reducer';
 import { mealplans, mealplan, mealplanOptions } from './MealPlan/redux';
 import { orderData, cart, orderSummary, selectedMealPlan } from './Cart/redux'
-import { orders, order } from './Order/redux'
-import { deliveryZones, deliveryZone } from './DeliveryZone/reducer';
+import { orders, order, dailyDeliveries } from './Order/redux'
+import { deliveryZones, deliveryZone, deliveryZoneList } from './DeliveryZone/reducer';
 import { settings } from './Settings/redux'
 
 // Include all the reducer to combine and provide to configure store.
@@ -19,6 +19,6 @@ export default {
     drivers, driver, driverSelect,
     mealplans, mealplan, mealplanOptions,
     orderData, cart, orderSummary, selectedMealPlan,
-    orders, order,
-    deliveryZones, deliveryZone
+    orders, order, dailyDeliveries,
+    deliveryZones, deliveryZone, deliveryZoneList
 }

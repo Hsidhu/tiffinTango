@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Table, Divider } from 'antd';
 
 
-const StickerSheet = ({pages}) => {
+const StickerSheet = ({pages, dailyDeliveries}) => {
     
     return (
         <div className='print-section'>
@@ -10,8 +10,10 @@ const StickerSheet = ({pages}) => {
             <div key={pageIndex} className="label-sheet">
             {page.map((label, labelIndex) => (
                 <div key={labelIndex} className="label">
-                    Customer<br/> 
-                    {label} <br/>
+                    {label?.address ?? 'no_address'}<br/>
+                    {label?.customer_name ?? 'customer_name'} - {label?.customer_phone ?? 'customer_phone'}<br/>
+                    <br/>
+                    {labelIndex} <br/>
                 </div>
             ))}
             </div>

@@ -10,13 +10,13 @@ import { usePlacesWidget } from "react-google-autocomplete";
 import { GOOGLE_API_KEY, orderTypeOptions, autocompleteOptions } from '../config/constants';
 import { phonePattern } from '../validationHelper'
 
-const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindows, getDeliveryCharge, placeOrder }) => {
+const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindowsList, getDeliveryCharge, placeOrder }) => {
     const [orderType, setOrderType] = useState('pickup');
     const [deliveryWindowShow, setDeliveryWindowShow] = useState(false);
     const antInputRef = useRef(null);
 
     useEffect(()=>{
-        getDeliveryWindows()
+        getDeliveryWindowsList()
     }, []);
 
     const { ref: antRef } = usePlacesWidget({

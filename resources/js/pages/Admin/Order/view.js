@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from "moment";
 import {
@@ -25,6 +25,7 @@ const View = ({ }) => {
     const { id } = useParams();
     const {order} = useSelector(state => state)
     const dispatch = useDispatch();
+
 
     useEffect(() => {
         dispatch(getOrder(id))
@@ -161,6 +162,9 @@ const View = ({ }) => {
             <TableHeaderLink
                 name="View Order"
                 backUri="/admin/orders"
+                HeaderButtons = {[
+                    <Link to="/admin/order/generateDeliveries"> Generate Deliveries</Link>,
+                ]}
             />
             <Divider />
             <Row>

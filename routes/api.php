@@ -64,7 +64,7 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::delete('/delivery_zone/delete/{id}', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'delete']);
     Route::post('/delivery_zone/assign_zone', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'assignZoneToDriver']);
 
-    Route::post('/delivery_zone/select', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'getSelectList']);
+    Route::get('/delivery_zone/select', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'getSelectList']);
 
 
     Route::get('/orders', [App\Http\Controllers\Api\Admin\OrderController::class, 'index']);
@@ -74,6 +74,9 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
 
     Route::post('/order/picked', [App\Http\Controllers\Api\Admin\OrderController::class, 'picked']);
     Route::post('/order/delivered', [App\Http\Controllers\Api\Admin\OrderController::class, 'delivered']);
+
+    Route::post('/order/dailyDeliveries', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'index']);
+    Route::post('/order/generateDailyDeliveries', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'generateDailyDeliveries']);
 });
 
 Route::get('images/{folder}/{filename}', [App\Http\Controllers\Api\FileController::class, 'images'])
@@ -81,6 +84,8 @@ Route::get('images/{folder}/{filename}', [App\Http\Controllers\Api\FileControlle
 
 Route::get('test', [App\Http\Controllers\Api\FileController::class, 'test']);
 
+
+// site Frontend
 Route::get('/mealplanorder/data', [App\Http\Controllers\Api\OrderController::class, 'getMealPlans']);
 Route::post('/mealplanorder/create', [App\Http\Controllers\Api\OrderController::class, 'createOrder']);
 Route::get('/mealplanorder/deliveryCharge', [App\Http\Controllers\Api\OrderController::class, 'getDeliveryCharges']);

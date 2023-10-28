@@ -7,6 +7,7 @@ export const GET_DELIVERY_ZONE = "GET_DELIVERY_ZONE"
 export const UPDATE_DELIVERY_ZONE = "UPDATE_DELIVERY_ZONE"
 export const DELETE_DELIVERY_ZONE = "DELETE_DELIVERY_ZONE"
 export const ASSIGN_DRIVER_TO_ZONE = "ASSIGN_DRIVER_TO_ZONE"
+export const DELIVERY_WINDOWS_SELECT_LIST = "DELIVERY_WINDOWS_SELECT_LIST"
 
 export const getDeliveryZones = () => (dispatch) => {
     const res = getRequest('delivery_zones').then(response => {
@@ -77,4 +78,16 @@ export const assignDriverToZone = (data) => (dispatch) => {
         message.error('assign_zone : Something went wrong!')
     });
 }
+
+
+export const getDeliveryZoneList = () => (dispatch) => {
+    const res = getRequest('delivery_zone/select').then(response => {
+        dispatch({
+            type: DELIVERY_WINDOWS_SELECT_LIST,
+            payload: response.data
+        });
+    });
+}
+
+
 

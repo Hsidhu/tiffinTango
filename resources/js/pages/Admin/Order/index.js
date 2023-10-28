@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { Space, Table, Divider } from 'antd';
 import { getOrders } from "../../../redux/Order/actions"
@@ -63,6 +63,9 @@ const Order = ({ }) => {
         <>
             <TableHeaderLink
                 name="Orders"
+                HeaderButtons = {[
+                    <Link to="/admin/order/generateDeliveries"> Generate Deliveries</Link>,
+                ]}
             />
             <Divider />
             <Table rowKey="id" columns={columns} dataSource={orders.data} />

@@ -7,7 +7,7 @@ import {
 } from 'antd';
 import { createDriver } from '../../../redux/Driver/actions'
 import TableHeaderLink from '../../../components/tableHeaderLink';
-import { getDeliveryWindows } from '../../../redux/Common/actions';
+import { getDeliveryWindowsList } from '../../../redux/Common/actions';
 import DriverForm from './DriverForm';
 
 const Create = ({ }) => {
@@ -17,7 +17,7 @@ const Create = ({ }) => {
 
 
     useEffect(() => {
-        dispatch(getDeliveryWindows());
+        dispatch(getDeliveryWindowsList());
     }, [])
 
     const mapSwitchValue = (value) => (value ? 1 : 0);

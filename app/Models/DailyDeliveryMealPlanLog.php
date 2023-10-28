@@ -11,6 +11,11 @@ class DailyDeliveryMealPlanLog extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+
     public function order()
     {
         return $this->belongsTo(\App\Models\MealPlanOrder::class);
@@ -19,5 +24,10 @@ class DailyDeliveryMealPlanLog extends Model
     public function customer()
     {
         return $this->belongsTo(\App\Models\Customer::class);
+    }
+
+    public function driver()
+    {
+        return $this->belongsTo(\App\Models\Driver::class);
     }
 }

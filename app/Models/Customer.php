@@ -15,6 +15,10 @@ class Customer extends Model
 {
     use HasFactory, HasApiTokens, Notifiable;
 
+    const ACTIVE = 1;
+    const INACTIVE = 0;
+
+
     private $send_invite = false;
 
     protected $guarded = [];
@@ -28,7 +32,7 @@ class Customer extends Model
     
     public function address()
     {
-        return $this->belongsTo(\App\Models\Address::class);
+        return $this->belongsTo(\App\Models\Address::class, 'address_id');
     }
 
     public function getFullNameAttribute($value)
