@@ -12,8 +12,7 @@ const StickerSheet = ({pages, dailyDeliveries}) => {
                 <div key={labelIndex} className="label">
                     {label?.address ?? 'no_address'}<br/>
                     {label?.customer_name ?? 'customer_name'} - {label?.customer_phone ?? 'customer_phone'}<br/>
-                    <br/>
-                    {labelIndex} <br/>
+                    {labelIndex}
                 </div>
             ))}
             </div>

@@ -44,7 +44,6 @@ class Address extends Model
 
     private function addressFormat($address, $useLineBreaks = false)
     {
-
         $formattedAddress = $this->getDefaultFormat();
         // Replace placeholders with values from the address array
         foreach ($this->requiredAddressKeys as $key) {

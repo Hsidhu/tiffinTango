@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
 use App\Services\Geolite\Facades\Geocoder;
 use App\Models\Address;
-use  App\Traits\SearchesNearby;
+use App\Traits\SearchesNearby;
 
 class FileController extends Controller
 {

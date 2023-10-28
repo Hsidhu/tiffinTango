@@ -21,6 +21,8 @@ class DailyDeliveryMealPlanLogResouce extends JsonResource
             'customer_name' => $this->customer->full_name,
             'customer_email' => $this->customer->email,
             'address' => $this->customer->address->formatted_address,
+            'delivery_zone_id' => $this->customer->address->delivery_zone_id,
+            'delivery_zone_name' => $this->customer->address->deliveryZone->name,
             'customer_phone' => $this->customer->phone,
             'driver_id' => $this->driver_id,
             'driver_name' => $this->driver->full_name,

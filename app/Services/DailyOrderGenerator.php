@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Services;
 
 use App\Models\Customer;
@@ -27,7 +26,7 @@ class DailyOrderGenerator
         $orders = $this->getMealPlanOrders($deliveryWindowId, $customerIdsByZone);
 
         foreach ($orders as $order) {
-            $this->createDailyDeliveries($order->id, $order->customer_id, $driver->id);
+            $this->createDailyDeliveries($order->id, $order->customer_id, $driver->id, $deliveryZoneId, $deliveryWindowId);
         }
         return true;
     }
@@ -44,12 +43,14 @@ class DailyOrderGenerator
     /**
      * Create if delivery orders
      */
-    public function createDailyDeliveries($customer_id, $order_id, $driver_id)
+    public function createDailyDeliveries($customer_id, $order_id, $driver_id, $deliveryZoneId, $deliveryWindowId)
     {
         DailyDeliveryMealPlanLog::create([
             "customer_id" => $customer_id,
             "driver_id" => $order_id,
             "order_id" => $driver_id,
+            "delivery_zone_id" => $deliveryZoneId,
+            "delivery_window_id" => $deliveryWindowId,
         ]);
     }
 

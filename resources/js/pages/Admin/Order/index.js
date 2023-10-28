@@ -64,7 +64,7 @@ const Order = ({ }) => {
             <TableHeaderLink
                 name="Orders"
                 HeaderButtons = {[
-                    <Link to="/admin/order/generateDeliveries"> Generate Deliveries</Link>,
+                    <Link key={'link'} to="/admin/order/generateDeliveries"> Generate Deliveries</Link>,
                 ]}
             />
             <Divider />

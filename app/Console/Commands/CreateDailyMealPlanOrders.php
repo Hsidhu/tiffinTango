@@ -56,7 +56,7 @@ class CreateDailyMealPlanOrders extends Command
         foreach ($orders as $order) {
             $this->info("Order for Customer: {$order->customer->full_name}");
             $this->info("Driver name: {$driver->full_name}");
-            $dailyOrderGenerator->createDailyDeliveries($order->id, $order->customer_id, $driver->id);
+            $dailyOrderGenerator->createDailyDeliveries($order->id, $order->customer_id, $driver->id, $deliveryZoneId, $deliveryWindowId);
         }
 
         $this->info('Daily meal plan orders created successfully.');

@@ -14,10 +14,37 @@ class Location extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    protected $requiredAddressKeys = [
+        'address',
+        'city',
+        'postal_code',
+        'state',
+        'country',
+    ];
+
     
     public function delivery_zones()
     {
         return $this->hasMany(\App\Models\DeliveryZone::class);
+    }
+
+    public function getFormattedAddressAttribute($value)
+    {
+        return $this->addressFormat($this->toArray(), false);
+    }
+
+    private function addressFormat($address, $useLineBreaks = false)
+    {
+        $formattedAddress = "{address}, {city} {postal_code}, {state}, {country}";
+        // Replace placeholders with values from the address array
+        foreach ($this->requiredAddressKeys as $key) {
+            $formattedAddress = str_replace("{{$key}}", $address[$key], $formattedAddress);
+        }
+        if ($useLineBreaks) {
+            $formattedAddress = str_replace(', ', '<br />', $formattedAddress);
+        }
+        return $formattedAddress;
     }
 
 

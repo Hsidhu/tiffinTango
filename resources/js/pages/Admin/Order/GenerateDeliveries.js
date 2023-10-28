@@ -59,6 +59,11 @@ const GenerateDeliveries = ({ }) => {
             key: 'address',
         },
         {
+            title: 'Delivery Zone',
+            dataIndex: 'delivery_zone_name',
+            key: 'delivery_zone_name',
+        },
+        {
             title: 'Meal Plan',
             dataIndex: 'mealplan_name',
             key: 'mealplan_name',

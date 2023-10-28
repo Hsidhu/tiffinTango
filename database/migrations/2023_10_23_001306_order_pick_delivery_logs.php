@@ -18,6 +18,8 @@ return new class extends Migration
             $table->integer('customer_id');
             $table->integer('driver_id');
             $table->integer('order_id');
+            $table->integer('delivery_window_id');
+            $table->integer('delivery_zone_id');
             $table->string('image', 164)->nullable();
             $table->float('lat', 10, 6)->nullable();
             $table->float('lng', 10, 6)->nullable();
