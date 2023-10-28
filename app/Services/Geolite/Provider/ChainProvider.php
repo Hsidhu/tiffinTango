@@ -70,6 +70,18 @@ class ChainProvider extends AbstractProvider
         return null;
     }
 
+
+    public function directionRouter($origin, Array $waypoints, $destination)
+    {
+        foreach ($this->providers as $name => $config) {
+            $result = $this->geocoder->makeProvider($name)->directionRouter($origin, $waypoints, $destination);
+            if (!is_null($result))
+                return $result;
+        }
+
+        return null;
+    }
+
     public function addProvider($name, array $config = [])
     {
         $this->providers[$name] = $config;

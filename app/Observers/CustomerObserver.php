@@ -1,15 +1,13 @@
 <?php
-
 namespace App\Observers;
 
 use App\Models\Customer;
 use Illuminate\Support\Facades\Request;
-use App\Traits\SearchesNearby;
-
+use Illuminate\Support\Facades\Log;
 
 class CustomerObserver
 {
-    use SearchesNearby;
+
     /**
      * Handle the Customer "created" event.
      *
@@ -20,17 +18,8 @@ class CustomerObserver
     {
         $customer->ip_address = Request::getClientIp();
 
-        // get use lat and long
-        // get closest lat and long and get all the delivery zones and search for the zone user belong to
-        // $deliveryZone = $this->onSearchNearby([$customer->address->lat, $customer->address->lng]);
-        // $customer->address->zone_id = $deliveryZone;
-        // $customer->address->save();
-
-
         $customer->save();
-
         // Send email to customer
-
     }
 
     /**
@@ -41,7 +30,7 @@ class CustomerObserver
      */
     public function updated(Customer $customer)
     {
-        //
+        
     }
 
     /**

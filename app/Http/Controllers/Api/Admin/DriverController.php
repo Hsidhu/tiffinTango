@@ -33,7 +33,7 @@ class DriverController extends Controller
         
         $address = Address::create($request->address);
         $driverData = array_merge(['address_id' => $address->id, 'password' => \Hash::make(config('app.customer_default')) ],
-            $request->only(['first_name','last_name','email', 'phone', 'license', 'delivery_window_id'])
+            $request->only(['first_name','last_name','email', 'phone', 'license', 'delivery_window_id', 'status'])
         );
         $driver = Driver::create($driverData);
         return response()->json($driver);
@@ -62,7 +62,7 @@ class DriverController extends Controller
             'address.country' => ['required'],
         ]);
         $driver->update(
-            $request->only(['first_name', 'last_name', 'email', 'phone', 'delivery_window_id', 'license'])
+            $request->only(['first_name', 'last_name', 'email', 'phone', 'delivery_window_id', 'license', 'status'])
         );
         $address->update(
             $request->address

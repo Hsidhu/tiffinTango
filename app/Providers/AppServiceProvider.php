@@ -9,6 +9,9 @@ use Illuminate\Support\ServiceProvider;
 use App\Models\Customer;
 use App\Observers\CustomerObserver;
 
+use App\Models\Address;
+use App\Observers\AddressObserver;
+
 use App\Models\MealPlanOrder;
 use App\Observers\MealPlanOrderObserver;
 
@@ -44,6 +47,8 @@ class AppServiceProvider extends ServiceProvider
         // observers
         Customer::observe(CustomerObserver::class);
         MealPlanOrder::observe(MealPlanOrderObserver::class);
+        Address::observe(AddressObserver::class);
+        
     }
 
     protected function setConfiguration()

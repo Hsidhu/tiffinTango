@@ -20,21 +20,21 @@ trait SearchesNearby
             ? $this->geocodeSearchPoint($searchQuery)
             : $this->geocodeSearchQuery($searchQuery);
 
-            $userZone = null;
-            $locationModel = new Location();
-            // get location and search location zones
+        $locationModel = new Location();
+
         $nearByLocation = $locationModel->searchByCoordinates(
-                $userLocation->getCoordinates()
-        )->first(function ($location) use ($userLocation) {
+            $userLocation->getCoordinates()
+        )->first();
+        
+        if ($nearByLocation) {
+            $deliveryZone = $nearByLocation->searchDeliveryArea($userLocation->getCoordinates());
+        }
             
-            if ($area = $location->searchDeliveryArea($userLocation->getCoordinates())) {
-                $userZone = $area;
-                // $this->setCoveredArea(new CoveredArea($area));
-                return $area;
-            }
-        });
-dd($userZone);
-        return $nearByLocation;
+        return [
+            'userLocation' => $userLocation ?? null,
+            'nearByLocation' => $nearByLocation ?? null,
+            'deliveryZone' => $deliveryZone ?? null,
+        ];
         
     }
 // from location manager
@@ -94,8 +94,6 @@ dd($userZone);
         $userLocation = $collection->first();
         if (!$userLocation->hasCoordinates())
             throw new ApplicationException('alert_invalid_search_query');
-
-       //  Location::updateUserPosition($userLocation);
 
         return $userLocation;
     }

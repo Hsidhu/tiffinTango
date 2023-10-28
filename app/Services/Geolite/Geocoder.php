@@ -38,6 +38,12 @@ class Geocoder extends Manager implements Contracts\GeocoderInterface
         return $this->driver()->reverseQuery($query);
     }
 
+
+    public function directionRouter($origin, Array $waypoints, $destination)
+    {
+        return $this->driver()->directionRouter($origin, $waypoints, $destination);
+    }
+
     /**
      * @param $name
      * @return \Igniter\Flame\Geolite\Contracts\AbstractProvider
@@ -116,4 +122,5 @@ class Geocoder extends Manager implements Contracts\GeocoderInterface
 
         return new Provider\GoogleProvider(new Client, $config);
     }
+
 }

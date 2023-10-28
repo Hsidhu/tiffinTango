@@ -113,6 +113,96 @@ class GoogleProvider extends AbstractProvider
         }
     }
 
+    /**
+     * Direction route
+     *  https://developers.google.com/maps/documentation/directions/get-directions
+     */
+    public function directionRouter($origin, Array $waypoints, $destination)
+    {
+        $endpoint = array_get($this->config, 'endpoints.direction');
+        $apiKey = array_get($this->config, 'apiKey');
+
+        // departure_time
+        // region=ca
+        $queryAarrayParams = [
+            'provideRouteAlternatives' => false,
+            'travelMode' => 'DRIVING',
+            'avoid' => 'tolls|ferries',
+            'drivingOptions' =>  [
+                // 'departureTime' => new \Date(/* now, or future date */),
+                'trafficModel' => 'pessimistic'
+            ],
+            'optimizeWaypoints' => true,
+            'key' => $apiKey,
+            'origin' => $origin,
+            'destination' => $destination,
+            'waypoints' => 'optimize:true|' . implode('|', $waypoints),
+        ];
+
+        $combinedInfo = [];
+
+        $combinedInfo[] = [
+            'address' => $origin,
+            'waypoint_order' => -1, // Indicating the start location
+            'distance' => 0, // Starting location has no distance
+            'duration' => '0 mins', // Starting location has no duration
+        ];
+
+        try {
+            $response = $this->getHttpClient()->get($endpoint, ['query' => $queryAarrayParams]);
+            $data = json_decode($response->getBody());
+            if ($data->status === 'OK') {
+                $route = $data->routes[0];
+                
+                // dd($route->summary, $route->warnings);
+                
+                foreach ($route->waypoint_order as $waypointOrder) {
+                    $leg = $route->legs[$waypointOrder];
+                    
+                    // Use the waypoint order to associate the information with the correct address
+                    $combinedInfo[] = [
+                        'address' => $waypoints[$waypointOrder],
+                        'waypoint_order' => $waypointOrder,
+                        'distance' => $leg->distance->text, // "10.5 mi"
+                        'duration' => $leg->duration->text, // "25 mins"
+                    ];
+                }
+                $combinedInfo[] = [
+                    'address' => $destination,
+                    'waypoint_order' => -1, // Indicating the start location
+                    'distance' => 0, // Starting location has no distance
+                    'duration' => '0 mins', // Starting location has no duration
+                ];
+                return $combinedInfo;
+            }
+            return $data;
+        }
+        catch (Throwable $e) {
+            var_dump($e);
+            return null;
+        }
+    }
+
+    protected function prependRouteDirectionQuery($params, string $url): string
+    {
+        if (isset($params['origin']))
+            $url .= '&origin='.$params['origin'];
+        
+        if (isset($params['destination']))
+            $url .= '&destination='.$params['destination'];
+
+        if (isset($params['provideRouteAlternatives']))
+            $url .= '&provideRouteAlternatives='.$params['provideRouteAlternatives'];
+
+        if (isset($params['travelMode']))
+            $url .= '&travelMode='.$params['travelMode'];
+        
+        if (isset($params['waypoints']))
+            $url .= '&waypoints=optimize:true|' . implode('|', $params['waypoints']);
+
+        return $url;
+    }
+
     protected function hydrateResponse($response, int $limit)
     {
         $result = [];

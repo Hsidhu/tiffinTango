@@ -32,7 +32,7 @@ class CustomerController extends Controller
         
         $address = Address::create($request->address);
         $customerData = array_merge(['address_id' => $address->id, 'password' => \Hash::make(config('app.customer_default')) ],
-            $request->only(['first_name','last_name','email', 'phone'])
+            $request->only(['first_name','last_name','email', 'phone', 'status'])
         );
         $customer = Customer::create($customerData);
         return response()->json($customer);
@@ -60,7 +60,7 @@ class CustomerController extends Controller
             'address.country' => ['required'],
         ]);
         $customer->update(
-            $request->only(['first_name','last_name','email', 'phone'])
+            $request->only(['first_name','last_name','email', 'phone', 'status'])
         );
         $address->update(
             $request->address
