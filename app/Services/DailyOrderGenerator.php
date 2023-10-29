@@ -9,9 +9,11 @@ use App\Models\DeliveryWindow;
 use App\Models\DailyDeliveryMealPlanLog;
 use App\Models\OrderStatus;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class DailyOrderGenerator 
 {
+    //get orders by Delivery Windows
 
     public function generateOrder($deliveryZoneId, $deliveryWindowId)
     {
@@ -19,14 +21,19 @@ class DailyOrderGenerator
         if ($orderAlreadyCreate) {
             return false;
         }
-        $customerIdsByZone = $this->getCustomersByDeliveryZone($deliveryZoneId);
 
-        $driver = $this->getDriver($deliveryZoneId, $deliveryWindowId);
-
-        $orders = $this->getMealPlanOrders($deliveryWindowId, $customerIdsByZone);
+        $orders = $this->getMealPlanOrders($deliveryWindowId);
 
         foreach ($orders as $order) {
-            $this->createDailyDeliveries($order->id, $order->customer_id, $driver->id, $deliveryZoneId, $deliveryWindowId);
+
+            $deliveryZoneId = $order->customer->address->delivery_zone_id;
+            $driver = $this->getDriver($deliveryZoneId, $deliveryWindowId);
+
+            $this->createDailyDeliveries(
+                $order->id, $order->customer_id, 
+                $driver->id, $deliveryZoneId, 
+                $order->delivery_window_id
+            );
         }
         return true;
     }
@@ -36,8 +43,11 @@ class DailyOrderGenerator
      */
     public function orderAlreadyCreate()
     {
-        $today = Carbon::now();
-        return DailyDeliveryMealPlanLog::whereDate('created_at', $today->toDateString())->exists();
+        $today = Carbon::now()->tz(config('app.CLIENT_TIMEZONE'));
+        return DailyDeliveryMealPlanLog::whereDate(
+                DB::raw("CONVERT_TZ(created_at, 'UTC', '".config('app.CLIENT_TIMEZONE')."')"), 
+                $today->format('Y-m-d')
+            )->exists();
     }
 
     /**
@@ -63,33 +73,25 @@ class DailyOrderGenerator
      * given delivery window and customers
      * Check if order is for 5 or 6 days
      */
-    public function getMealPlanOrders($deliveryWindowId, $customerIdsByZone)
+    public function getMealPlanOrders($deliveryWindowId, $customerIdsByZone = null)
     {
         $today = Carbon::now()->format('Y-m-d H:i:s');
-        return MealPlanOrder::whereDate('start_date', '<=', $today)->whereDate('end_date', '>=', $today)
+        $query = MealPlanOrder::whereDate('start_date', '<=', $today)->whereDate('end_date', '>=', $today)
             ->where('order_type', MealPlanOrder::DELIVERY)
             ->where('order_status_id', $this->orderStatus()->id)
             ->where('payment_processed', MealPlanOrder::PAYMENT_PROCESSED)
-            ->where('delivery_window_id', $deliveryWindowId)
-            ->whereIn('customer_id', $customerIdsByZone)
-            ->get();
+            ->where('delivery_window_id', $deliveryWindowId);
+
+        if($customerIdsByZone !== null) {
+            $query->whereIn('customer_id', $customerIdsByZone);
+        }
+        
+        return $query->get();
     }
 
     public function orderStatus()
     {
         return OrderStatus::where('name', 'Scheduled')->first();
-    }
-
-     /**
-     * Get Customer based on zone
-     */
-    public function getCustomersByDeliveryZone($deliveryZoneId)
-    {
-        return Customer::where('status', Customer::ACTIVE)
-                ->whereHas('address', function ($query) use ($deliveryZoneId) {
-                    $query->where('delivery_zone_id', $deliveryZoneId);
-                })
-                ->get()->pluck('id')->toArray();
     }
 
     /**
@@ -102,6 +104,18 @@ class DailyOrderGenerator
             $query->where('delivery_zone_id', $deliveryZoneId);
         })
         ->first();
+    }
+
+    /**
+    * Get Customer based on zone
+    */
+    public function getCustomersByDeliveryZone($deliveryZoneId)
+    {
+        return Customer::where('status', Customer::ACTIVE)
+                ->whereHas('address', function ($query) use ($deliveryZoneId) {
+                    $query->where('delivery_zone_id', $deliveryZoneId);
+                })
+                ->get()->pluck('id')->toArray();
     }
 
 }

@@ -30,4 +30,14 @@ class DailyDeliveryMealPlanLog extends Model
     {
         return $this->belongsTo(\App\Models\Driver::class);
     }
+
+    public function deliveryZone()
+    {
+        return $this->belongsTo(\App\Models\DeliveryZone::class);
+    }
+
+    public function deliveryWindow()
+    {
+        return $this->belongsTo(\App\Models\DeliveryWindow::class);
+    }
 }

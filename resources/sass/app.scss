@@ -84,18 +84,18 @@ section>div {
 
 
 @page {
-    size: 215.9mm 279.4mm;
-    margin: 0; /* Reduce margins to minimize extra space */
+    size: 216mm 279.4mm;
+    margin: 5mm 1.4mm 5mm 1.4mm; /* Reduce margins to minimize extra space */
 }
 .print-section{
-    width: 215.9mm;
+    width: 216mm;
 }
 
 .label-sheet {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 215.9mm; /* Set the sheet width to 8.5 inches */
+    width: 216mm; /* Set the sheet width to 8.5 inches */
     height: 279.4mm; /* Set the sheet height to 11 inches */
     align-items: center;
     justify-content: center;
@@ -105,7 +105,7 @@ section>div {
 .label {
     border: 1px dashed #000;
     border-radius: 5px;
-    width: 66.675mm; /* Set label width to 2-5/8 inches */
+    width: 66.7mm; /* Set label width to 2-5/8 inches */
     height: 26mm; /* Set label height to 1 inch */
     padding: 0.04in; /* Adjust this for spacing inside each label */
     margin: 0in 0in 0.008in 0in;

@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Services\DailyOrderGenerator;
+use Carbon\Carbon;
 
 class CreateDailyMealPlanOrders extends Command
 {
@@ -12,7 +13,7 @@ class CreateDailyMealPlanOrders extends Command
      *
      * @var string
      */
-    protected $signature = 'mealplan:create-daily-orders {delivery_zone_id} {delivery_window_id}';
+    protected $signature = 'mealplan:create-daily-orders {delivery_window_id}';
 
     /**
      * The console command description.
@@ -28,7 +29,6 @@ class CreateDailyMealPlanOrders extends Command
      */
     public function handle()
     {
-        $deliveryZoneId = $this->argument('delivery_zone_id');
         $deliveryWindowId = $this->argument('delivery_window_id');
 
         $dailyOrderGenerator = new DailyOrderGenerator();
@@ -39,13 +39,7 @@ class CreateDailyMealPlanOrders extends Command
             return 0;
         }
 
-        $customerIdsByZone = $dailyOrderGenerator->getCustomersByDeliveryZone($deliveryZoneId);
-        $this->info("Customers found");
-
-        $driver = $dailyOrderGenerator->getDriver($deliveryZoneId, $deliveryWindowId);
-        $this->info("driver found");
-
-        $orders = $dailyOrderGenerator->getMealPlanOrders($deliveryWindowId, $customerIdsByZone);
+        $orders = $dailyOrderGenerator->getMealPlanOrders($deliveryWindowId);
 
         if($orders->count() == 0){
             $this->info('No Delivery orders today.');
@@ -55,8 +49,16 @@ class CreateDailyMealPlanOrders extends Command
         
         foreach ($orders as $order) {
             $this->info("Order for Customer: {$order->customer->full_name}");
-            $this->info("Driver name: {$driver->full_name}");
-            $dailyOrderGenerator->createDailyDeliveries($order->id, $order->customer_id, $driver->id, $deliveryZoneId, $deliveryWindowId);
+            $deliveryZoneId = $order->customer->address->delivery_zone_id;
+            $driver = $dailyOrderGenerator->getDriver($deliveryZoneId, $deliveryWindowId);
+            $this->info("driver found: {$driver->full_name}");
+            $dailyOrderGenerator->createDailyDeliveries(
+                $order->id, 
+                $order->customer_id, 
+                $driver->id, 
+                $deliveryZoneId, 
+                $order->delivery_window_id
+            );
         }
 
         $this->info('Daily meal plan orders created successfully.');
