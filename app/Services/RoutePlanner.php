@@ -6,12 +6,15 @@ use App\Services\Geolite\Facades\Geocoder;
 use App\Services\DailyOrderGenerator;
 use App\Models\DailyDeliveryMealPlanLog;
 use App\Models\DeliveryZone;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class RoutePlanner
 {
-    public function addressList()
+    public function addressList($deliveryWindowId)
     {
         $deliveryZones = DeliveryZone::all();
+        $dailyDeliveryLogs = $this->getDailyLogs($deliveryWindowId);
         
         // get address by zone
         $collection = Geocoder::directionRouter(
@@ -20,5 +23,18 @@ class RoutePlanner
             'Markham, ON, CA'
         );
         dd($collection);
+    }
+
+    public function getDailyLogs($deliveryWindowId)
+    {
+        $today = Carbon::now()->tz(config('app.CLIENT_TIMEZONE'));
+        return DailyDeliveryMealPlanLog::whereDate(
+            DB::raw("CONVERT_TZ(created_at, 'UTC', '".config('app.CLIENT_TIMEZONE')."')"), 
+            $today->format('Y-m-d')
+        )
+        ->where('delivery_window_id', $deliveryWindowId)
+        ->orderBy('delivery_zone_id', 'ASC')
+        ->orderBy('priority', 'DESC')
+        ->get();
     }
 }

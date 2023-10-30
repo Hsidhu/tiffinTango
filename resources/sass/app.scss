@@ -78,16 +78,18 @@ section>div {
     height: 100%;
 }
 
-.ant-table-summary{
+.ant-table-summary {
     z-index: auto;
 }
 
 
 @page {
     size: 216mm 279.4mm;
-    margin: 5mm 1.4mm 5mm 1.4mm; /* Reduce margins to minimize extra space */
+    margin: 5mm 1.4mm 5mm 1.4mm;
+    /* Reduce margins to minimize extra space */
 }
-.print-section{
+
+.print-section {
     width: 216mm;
 }
 
@@ -95,8 +97,10 @@ section>div {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 216mm; /* Set the sheet width to 8.5 inches */
-    height: 279.4mm; /* Set the sheet height to 11 inches */
+    width: 216mm;
+    /* Set the sheet width to 8.5 inches */
+    height: 279.4mm;
+    /* Set the sheet height to 11 inches */
     align-items: center;
     justify-content: center;
 }
@@ -105,9 +109,12 @@ section>div {
 .label {
     border: 1px dashed #000;
     border-radius: 5px;
-    width: 66.7mm; /* Set label width to 2-5/8 inches */
-    height: 26mm; /* Set label height to 1 inch */
-    padding: 0.04in; /* Adjust this for spacing inside each label */
+    width: 66.7mm;
+    /* Set label width to 2-5/8 inches */
+    height: 26mm;
+    /* Set label height to 1 inch */
+    padding: 0.04in;
+    /* Adjust this for spacing inside each label */
     margin: 0in 0in 0.008in 0in;
     font-size: 12px;
     display: flex;
@@ -120,20 +127,29 @@ section>div {
         visibility: hidden !important;
     }
 
-    .ant-layout, 
+    .ant-layout,
     .ant-layout-content {
-        margin:0!important;
-        padding:0!important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
-    header.ant-layout-header, 
-    aside.ant-layout-sider, 
+    header.ant-layout-header,
+    aside.ant-layout-sider,
     button.ant-btn,
     footer.ant-layout-footer {
         display: none;
     }
-  
+
     .print-section {
         visibility: visible;
     }
+}
+
+
+#components-table-demo-drag-sorting tr.drop-over-downward td {
+    border-bottom: 2px dashed #1890ff;
+}
+
+#components-table-demo-drag-sorting tr.drop-over-upward td {
+    border-top: 2px dashed #1890ff;
 }

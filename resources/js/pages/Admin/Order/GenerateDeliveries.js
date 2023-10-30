@@ -3,70 +3,51 @@ import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
     Row, Col, Button, Space, Select, Divider,
-    Typography, Table
+    Typography, Table, Collapse
 
 } from 'antd'
 import TableHeaderLink from '../../../components/tableHeaderLink';
 
 import { getDeliveryWindowsList } from '../../../redux/Common/actions'
-import { getDeliveryZoneList } from '../../../redux/DeliveryZone/actions'
 import { createDailyDeliveries, getDailyDeliveries } from "../../../redux/Order/actions"
 import { isEmpty } from 'lodash';
 
-const GenerateDeliveries = ({ }) => {
+import DndSortTable from '../../../components/dndSortTable';
 
+const { Panel } = Collapse;
+
+const GenerateDeliveries = ({ }) => {
     const history = useHistory()
-    const { deliveryZoneList, deliveryWindows, dailyDeliveries } = useSelector(state => state)
+    const { deliveryWindows, dailyDeliveries } = useSelector(state => state)
     const dispatch = useDispatch();
 
-    const [deliveryZoneID, setDeliveryZoneID] = useState('');
     const [deliveryWindowID, setDeliveryWindowID] = useState('');
-
 
     useEffect(() => {
         dispatch(getDeliveryWindowsList())
-        dispatch(getDeliveryZoneList())
         dispatch(getDailyDeliveries())
     }, [])
 
-    const updateDeliveryZone = (value) => {
-        setDeliveryZoneID(value)
-    }
     const updateDeliveryWindow = (value) => {
         setDeliveryWindowID(value)
     }
 
     const createDeliveries = () => {
-        if (deliveryZoneID && deliveryWindowID) {
+        if (deliveryWindowID) {
             dispatch(createDailyDeliveries({
-                delivery_zone_id: deliveryZoneID,
                 delivery_window_id: deliveryWindowID
             }))
+            location.reload();
         }
     }
 
     const columns = [
-        { title: 'Customer Name', dataIndex: 'customer_name', key: 'customer_name',},
-        { title: 'Driver Name', dataIndex: 'driver_name', key: 'driver_name', },
-        {
-            title: 'Customer Phone',
-            dataIndex: 'customer_phone',
-            key: 'customer_phone',
-        },
-        {
-            title: 'Address',
-            dataIndex: 'address',
-            key: 'address',
-        },
-        {
-            title: 'Delivery Zone',
-            dataIndex: 'delivery_zone_name',
-            key: 'delivery_zone_name',
-        },
-        {
-            title: 'Meal Plan',
-            dataIndex: 'mealplan_name',
-            key: 'mealplan_name',
+        { title: 'Customer Name', dataIndex: 'customer_name', key: 'customer_name' },
+        { title: 'Driver Name', dataIndex: 'driver_name', key: 'driver_name' },
+        { title: 'Customer Phone', dataIndex: 'customer_phone', key: 'customer_phone' },
+        { title: 'Address', dataIndex: 'address', key: 'address' },
+        { title: 'Delivery Zone', dataIndex: 'delivery_zone_name', key: 'delivery_zone_name' },
+        { title: 'Meal Plan', dataIndex: 'mealplan_name', key: 'mealplan_name',
             render: (_, record) => (
                 <span>{record.items.name}</span>
             ),
@@ -92,19 +73,6 @@ const GenerateDeliveries = ({ }) => {
             <Row>
                 <Col span={14}>
                     <Space>
-                        {!isEmpty(deliveryZoneList) ?
-                            <Select
-                                placeholder={"Select Delivery Zone"}
-                                defaultValue={deliveryZoneID}
-                                size={'medium'}
-                                style={{
-                                    width: 300,
-                                }}
-                                options={deliveryZoneList}
-                                onChange={updateDeliveryZone}
-                            />
-                            : null
-                        }
                         {!isEmpty(deliveryWindows) ?
                             <Select
                                 placeholder={"Select Delivery Zone"}
@@ -124,10 +92,19 @@ const GenerateDeliveries = ({ }) => {
                     </Space>
                 </Col>
             </Row>
+
+            
             <Divider />
             {
                 !isEmpty(dailyDeliveries) ?
-                    <Table rowKey='id' columns={columns} dataSource={dailyDeliveries.data} />
+                    <Collapse accordion defaultActiveKey={Object.keys(dailyDeliveries)[0]}>
+                        {Object.keys(dailyDeliveries).map((key) => (
+                            <Panel header="Zone Deliveries 1" key={key}>
+                                <DndSortTable tableColumns={columns} tableData={dailyDeliveries[key]} />
+                            </Panel>
+                        ))}
+                    </Collapse>
+
                     : null
             }
             

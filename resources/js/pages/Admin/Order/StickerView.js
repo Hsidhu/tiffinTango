@@ -1,36 +1,54 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import StickerSheet from '../../../components/containers/stickerSheet';
-import { Button, Table, Divider } from 'antd';
+import { Row, Col, Space, Divider, Select, Button } from 'antd';
 import { useDispatch, useSelector } from 'react-redux'
 
 import TableHeaderLink from '../../../components/tableHeaderLink';
-import {getDailyDeliveries } from "../../../redux/Order/actions"
+import { getDailyDeliveries, getStickerData } from "../../../redux/Order/actions";
+import { getDeliveryWindowsList } from '../../../redux/Common/actions'
+import { getDeliveryZoneList } from '../../../redux/DeliveryZone/actions'
 import { isEmpty } from 'lodash';
 
 const StickerView = ({}) => {
 
     const dispatch = useDispatch();
-    const {dailyDeliveries } = useSelector(state => state)
+    const {deliveryZoneList, deliveryWindows, deliveryStickers  } = useSelector(state => state)
+
+    const [deliveryZoneID, setDeliveryZoneID] = useState('');
+    const [deliveryWindowID, setDeliveryWindowID] = useState('');
 
     useEffect(() => {
-        dispatch(getDailyDeliveries())
+        dispatch(getDeliveryWindowsList())
+        dispatch(getDeliveryZoneList())
     }, [])
 
     const printStickerSheet = () => {
         window.print();
     }
 
-    if(isEmpty(dailyDeliveries)){
-        return null
+    const updateDeliveryZone = (value) => {
+        setDeliveryZoneID(value)
+    }
+    const updateDeliveryWindow = (value) => {
+        setDeliveryWindowID(value)
+    }
+
+    const fetchStickers = () => {
+        if (deliveryWindowID) {
+            dispatch(getStickerData({
+                delivery_zone_id: deliveryZoneID,
+                delivery_window_id: deliveryWindowID
+            }))
+        }
     }
 
     const stickerData = [
         'Label 1', 'Label 2', 'Label 3', 'Label 4','Label 5', 'Label 6', 'Label 7', 'Label 8',
         'Label 9', 'Label 10', 'Label 11', 'Label 12','Label 13', 'Label 14', 'Label 15', 'Label 16',
         'Label 17', 'Label 18', 'Label 19', 'Label 20','Label 21', 'Label 22', 'Label 23', 'Label 24',
-        'Label 25', 'Label 26', 'Label 27', 'Label 28','Label 29', 'Label 30', 'Label 31', 'Label 32',
-
-        'NEXT 1', 'NEXT 2', 'NEXT 3', 'NEXT 4','NEXT 5', 'NEXT 6', 'NEXT 7', 'NEXT 8'
+        'Label 25', 'Label 26', 'Label 27', 'Label 28','Label 29', 'Label 30', 
+        'NEXT 31', 'NEXT 32', 'NEXT 1', 'NEXT 2', 'NEXT 3', 'NEXT 4','NEXT 5', 'NEXT 6', 'NEXT 7', 
+        'NEXT 8'
     ];
     const labelsPerPage = 30;
     const splitStickerDataIntoPages = (stickerData, labelsPerPage) => {
@@ -49,9 +67,44 @@ const StickerView = ({}) => {
         return pages;
     }
     
-    const pages = splitStickerDataIntoPages(dailyDeliveries.data, labelsPerPage)
+    const pages = splitStickerDataIntoPages(deliveryStickers?.data ?? stickerData, labelsPerPage)
     return (
         <>
+            <Row>
+                <Col span={14}>
+                <Space>
+                        {!isEmpty(deliveryZoneList) ?
+                            <Select
+                                placeholder={"Select Delivery Zone"}
+                                defaultValue={deliveryZoneID}
+                                size={'medium'}
+                                style={{
+                                    width: 300,
+                                }}
+                                options={deliveryZoneList}
+                                onChange={updateDeliveryZone}
+                            />
+                            : null
+                        }
+                        {!isEmpty(deliveryWindows) ?
+                            <Select
+                                placeholder={"Select Delivery Zone"}
+                                defaultValue={deliveryWindowID}
+                                size={'medium'}
+                                style={{
+                                    width: 300,
+                                }}
+                                options={deliveryWindows}
+                                onChange={updateDeliveryWindow}
+                            />
+                            : null
+                        }
+                        <Button type={'primary'} onClick={fetchStickers}>
+                            Fetch Stickers
+                        </Button>
+                    </Space>
+                </Col>
+            </Row>
             <Button onClick={printStickerSheet}>Print</Button>
             <StickerSheet pages={pages} />
         </>

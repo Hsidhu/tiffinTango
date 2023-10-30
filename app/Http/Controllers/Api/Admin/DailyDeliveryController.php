@@ -7,23 +7,20 @@ use App\Http\Controllers\Controller;
 use App\Services\DailyOrderGenerator;
 use App\Models\DailyDeliveryMealPlanLog;
 use App\Http\Resources\Admin\DailyDeliveryMealPlanLogResouce;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 
 class DailyDeliveryController extends Controller
 {
     public function index()
     {
         $getDailyOrders = $this->getDailyLog();
-        return DailyDeliveryMealPlanLogResouce::collection($getDailyOrders);
+        return DailyDeliveryMealPlanLogResouce::collection($getDailyOrders)->collection->groupBy('delivery_zone_id');
     }
 
     public function generateDailyDeliveries(Request $request) 
     {
-        $deliveryZoneId = $request->get('delivery_zone_id');
         $deliveryWindowId = $request->get('delivery_window_id');
 
-        $output = (new DailyOrderGenerator())->generateOrder($deliveryZoneId, $deliveryWindowId);
+        $output = (new DailyOrderGenerator())->generateOrder($deliveryWindowId);
         if(!$output){
             // return response()->json([
             //     'error' => 'Already created',
@@ -31,20 +28,30 @@ class DailyDeliveryController extends Controller
         }
         
         $getDailyOrders = $this->getDailyLog();
-        return DailyDeliveryMealPlanLogResouce::collection($getDailyOrders);
+        return DailyDeliveryMealPlanLogResouce::collection($getDailyOrders)->collection->groupBy('delivery_zone_id');
     }
 
-    private function getDailyLog()
+    public function getStickerData(Request $request)
     {
-        $today = Carbon::now()->tz(config('app.CLIENT_TIMEZONE'));
-        return DailyDeliveryMealPlanLog::whereDate(
-            DB::raw("CONVERT_TZ(created_at, 'UTC', '".config('app.CLIENT_TIMEZONE')."')"), 
-            $today->format('Y-m-d')
-        )
-        ->orderBy('delivery_zone_id', 'ASC')
-        ->orderBy('priority', 'DESC')
-        ->get();
-        
+        $deliveryZoneId = $request->get('delivery_zone_id');
+        $deliveryWindowId = $request->get('delivery_window_id');
+        $dailyDeliveries = $this->getDailyLog($deliveryZoneId, $deliveryWindowId);
+        return DailyDeliveryMealPlanLogResouce::collection($dailyDeliveries);
+    }
+
+    /**
+     * get list of dail logs
+     */
+    private function getDailyLog($deliveryZoneId=null, $deliveryWindowId=null)
+    {
+        $query = DailyDeliveryMealPlanLog::byClientTimezone();
+        if($deliveryZoneId){
+            $query->where('delivery_zone_id', $deliveryZoneId);
+        }
+        if($deliveryZoneId){
+            $query->where('delivery_window_id', $deliveryWindowId);
+        }
+        return $query->orderBy('delivery_zone_id', 'DESC')->orderBy('priority', 'ASC')->get();
     }
 
 }

@@ -4,8 +4,6 @@ namespace App\Services;
 use App\Models\Customer;
 use App\Models\MealPlanOrder;
 use App\Models\Driver;
-use App\Models\DriverZone;
-use App\Models\DeliveryWindow;
 use App\Models\DailyDeliveryMealPlanLog;
 use App\Models\OrderStatus;
 use Carbon\Carbon;
@@ -15,7 +13,7 @@ class DailyOrderGenerator
 {
     //get orders by Delivery Windows
 
-    public function generateOrder($deliveryZoneId, $deliveryWindowId)
+    public function generateOrder($deliveryWindowId)
     {
         $orderAlreadyCreate = $this->orderAlreadyCreate();
         if ($orderAlreadyCreate) {
@@ -43,9 +41,10 @@ class DailyOrderGenerator
      */
     public function orderAlreadyCreate()
     {
-        $today = Carbon::now()->tz(config('app.CLIENT_TIMEZONE'));
+        $tz = $this->getClientTimezone();
+        $today = Carbon::now()->tz($tz);
         return DailyDeliveryMealPlanLog::whereDate(
-                DB::raw("CONVERT_TZ(created_at, 'UTC', '".config('app.CLIENT_TIMEZONE')."')"), 
+                DB::raw("CONVERT_TZ(created_at, 'UTC', '".$tz."')"), 
                 $today->format('Y-m-d')
             )->exists();
     }
@@ -75,8 +74,15 @@ class DailyOrderGenerator
      */
     public function getMealPlanOrders($deliveryWindowId, $customerIdsByZone = null)
     {
-        $today = Carbon::now()->format('Y-m-d H:i:s');
-        $query = MealPlanOrder::whereDate('start_date', '<=', $today)->whereDate('end_date', '>=', $today)
+        $tz = $this->getClientTimezone();
+        $todayDate = Carbon::now()->tz($tz)->format('Y-m-d');
+        $query = MealPlanOrder::whereDate(
+            DB::raw("CONVERT_TZ(start_date, 'UTC', '".$tz."')"),
+            '<=', $todayDate
+            )
+            ->whereDate(
+                'end_date', 
+            '>=', $todayDate)
             ->where('order_type', MealPlanOrder::DELIVERY)
             ->where('order_status_id', $this->orderStatus()->id)
             ->where('payment_processed', MealPlanOrder::PAYMENT_PROCESSED)
@@ -116,6 +122,11 @@ class DailyOrderGenerator
                     $query->where('delivery_zone_id', $deliveryZoneId);
                 })
                 ->get()->pluck('id')->toArray();
+    }
+
+    private function getClientTimezone()
+    {
+        return config('app.CLIENT_TIMEZONE');
     }
 
 }

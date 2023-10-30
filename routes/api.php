@@ -75,8 +75,10 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::post('/order/picked', [App\Http\Controllers\Api\Admin\OrderController::class, 'picked']);
     Route::post('/order/delivered', [App\Http\Controllers\Api\Admin\OrderController::class, 'delivered']);
 
-    Route::post('/order/dailyDeliveries', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'index']);
+    Route::get('/order/dailyDeliveries', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'index']);
     Route::post('/order/generateDailyDeliveries', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'generateDailyDeliveries']);
+    Route::post('/order/getStickerData', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'getStickerData']);
+    
 });
 
 Route::get('images/{folder}/{filename}', [App\Http\Controllers\Api\FileController::class, 'images'])

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class DailyDeliveryMealPlanLog extends Model
 {
@@ -39,5 +41,16 @@ class DailyDeliveryMealPlanLog extends Model
     public function deliveryWindow()
     {
         return $this->belongsTo(\App\Models\DeliveryWindow::class);
+    }
+
+    public function scopeByClientTimezone($query)
+    {
+        $tz = config('app.CLIENT_TIMEZONE');
+        $todayInClientTimezone = Carbon::now()->tz($tz)->format('Y-m-d');
+
+        return $query->whereDate(
+            DB::raw("CONVERT_TZ(created_at, 'UTC', '".$tz."')"),
+            $todayInClientTimezone
+        );
     }
 }
