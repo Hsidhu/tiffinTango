@@ -33,7 +33,7 @@ class CreateDailyMealPlanOrders extends Command
 
         $dailyOrderGenerator = new DailyOrderGenerator();
 
-        $orderAlreadyCreate = $dailyOrderGenerator->orderAlreadyCreate();
+        $orderAlreadyCreate = $dailyOrderGenerator->orderAlreadyCreate($deliveryWindowId);
         if ($orderAlreadyCreate) {
             $this->info('Orders already created.');
             return 0;
@@ -57,7 +57,8 @@ class CreateDailyMealPlanOrders extends Command
                 $order->customer_id, 
                 $driver->id, 
                 $deliveryZoneId, 
-                $order->delivery_window_id
+                $order->delivery_window_id,
+                $order->customer->address->id
             );
         }
 

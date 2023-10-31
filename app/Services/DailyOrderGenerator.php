@@ -15,11 +15,10 @@ class DailyOrderGenerator
 
     public function generateOrder($deliveryWindowId)
     {
-        $orderAlreadyCreate = $this->orderAlreadyCreate();
+        $orderAlreadyCreate = $this->orderAlreadyCreate($deliveryWindowId);
         if ($orderAlreadyCreate) {
             return false;
         }
-
         $orders = $this->getMealPlanOrders($deliveryWindowId);
 
         foreach ($orders as $order) {
@@ -30,7 +29,8 @@ class DailyOrderGenerator
             $this->createDailyDeliveries(
                 $order->id, $order->customer_id, 
                 $driver->id, $deliveryZoneId, 
-                $order->delivery_window_id
+                $order->delivery_window_id,
+                $order->customer->address->id
             );
         }
         return true;
@@ -39,20 +39,20 @@ class DailyOrderGenerator
     /**
      * Check if delivery orders are already create for today
      */
-    public function orderAlreadyCreate()
+    public function orderAlreadyCreate($deliveryWindowId)
     {
         $tz = $this->getClientTimezone();
         $today = Carbon::now()->tz($tz);
         return DailyDeliveryMealPlanLog::whereDate(
                 DB::raw("CONVERT_TZ(created_at, 'UTC', '".$tz."')"), 
                 $today->format('Y-m-d')
-            )->exists();
+            )->where('delivery_window_id', $deliveryWindowId)->exists();
     }
 
     /**
      * Create if delivery orders
      */
-    public function createDailyDeliveries($customer_id, $order_id, $driver_id, $deliveryZoneId, $deliveryWindowId)
+    public function createDailyDeliveries($customer_id, $order_id, $driver_id, $deliveryZoneId, $deliveryWindowId, $addressId)
     {
         DailyDeliveryMealPlanLog::create([
             "customer_id" => $customer_id,
@@ -60,6 +60,7 @@ class DailyOrderGenerator
             "order_id" => $driver_id,
             "delivery_zone_id" => $deliveryZoneId,
             "delivery_window_id" => $deliveryWindowId,
+            "address_id" => $addressId,
         ]);
     }
 

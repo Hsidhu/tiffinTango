@@ -11,11 +11,23 @@ use Illuminate\Support\Facades\DB;
 
 class RoutePlanner
 {
-    public function addressList($deliveryWindowId)
+    public function updateDeliveryList($dailyDeliveries)
     {
-        $deliveryZones = DeliveryZone::all();
-        $dailyDeliveryLogs = $this->getDailyLogs($deliveryWindowId);
-        
+        $addressList = $this->setupAddressList($dailyDeliveries);
+        $this->optimzer($addressList);
+    }
+
+    public function setupAddressList($dailyDeliveries)
+    {
+        $addressList = [];
+        foreach ($dailyDeliveries as $delivery) {
+            $addressList[] = $delivery->address->formatted_address;
+        }
+        return $addressList;
+    }
+
+    public function optimzer($addressList)
+    {
         // get address by zone
         $collection = Geocoder::directionRouter(
             'Markham, ON, CA',

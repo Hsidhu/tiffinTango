@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Services\DailyOrderGenerator;
 use App\Models\DailyDeliveryMealPlanLog;
 use App\Http\Resources\Admin\DailyDeliveryMealPlanLogResouce;
+use App\Services\RoutePlanner;
 
 class DailyDeliveryController extends Controller
 {
@@ -27,7 +28,7 @@ class DailyDeliveryController extends Controller
             // ], 400);
         }
         
-        $getDailyOrders = $this->getDailyLog();
+        $getDailyOrders = $this->getDailyLog(null, $deliveryWindowId);
         return DailyDeliveryMealPlanLogResouce::collection($getDailyOrders)->collection->groupBy('delivery_zone_id');
     }
 
@@ -36,6 +37,16 @@ class DailyDeliveryController extends Controller
         $deliveryZoneId = $request->get('delivery_zone_id');
         $deliveryWindowId = $request->get('delivery_window_id');
         $dailyDeliveries = $this->getDailyLog($deliveryZoneId, $deliveryWindowId);
+        return DailyDeliveryMealPlanLogResouce::collection($dailyDeliveries);
+    }
+
+    public function optimizeRoute(Request $request)
+    {
+        $deliveryZoneId = $request->get('delivery_zone_id');
+        $deliveryWindowId = $request->get('delivery_window_id');
+        $dailyDeliveries = $this->getDailyLog($deliveryZoneId, $deliveryWindowId);
+        $output = (new RoutePlanner())->updateDeliveryList($dailyDeliveries);
+        dd($output);
         return DailyDeliveryMealPlanLogResouce::collection($dailyDeliveries);
     }
 

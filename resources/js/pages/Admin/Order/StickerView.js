@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import StickerSheet from '../../../components/containers/stickerSheet';
-import { Row, Col, Space, Divider, Select, Button } from 'antd';
+import { Row, Col, Space, Divider, Select, Button, Spin, message } from 'antd';
 import { useDispatch, useSelector } from 'react-redux'
 
 import TableHeaderLink from '../../../components/tableHeaderLink';
@@ -9,9 +9,12 @@ import { getDeliveryWindowsList } from '../../../redux/Common/actions'
 import { getDeliveryZoneList } from '../../../redux/DeliveryZone/actions'
 import { isEmpty } from 'lodash';
 
+import { postRequest } from '../../../config/axiosClient';
+
 const StickerView = ({}) => {
 
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState(false);
     const {deliveryZoneList, deliveryWindows, deliveryStickers  } = useSelector(state => state)
 
     const [deliveryZoneID, setDeliveryZoneID] = useState('');
@@ -34,7 +37,7 @@ const StickerView = ({}) => {
     }
 
     const fetchStickers = () => {
-        if (deliveryWindowID) {
+        if (deliveryWindowID && deliveryZoneID) {
             dispatch(getStickerData({
                 delivery_zone_id: deliveryZoneID,
                 delivery_window_id: deliveryWindowID
@@ -66,12 +69,32 @@ const StickerView = ({}) => {
         }
         return pages;
     }
+
+    const handleOptimizeRoute = async () => {
+        if (!deliveryWindowID || !deliveryZoneID) {
+            message.info('Please select Delivery Zone and Window')
+            return;
+        }
+        try {
+            setLoading(true);
+            const response = await postRequest('order/optimizeRoute', {
+                delivery_zone_id: deliveryZoneID,
+                delivery_window_id: deliveryWindowID
+            });
+            setLoading(false);
+            fetchStickers();
+        } catch (error) {
+            console.error('Error:', error);
+            setLoading(false);
+        }
+    }
     
     const pages = splitStickerDataIntoPages(deliveryStickers?.data ?? stickerData, labelsPerPage)
     return (
         <>
-            <Row>
-                <Col span={14}>
+            {loading && <Spin tip="Loading..." />}
+            <Row className='sticker_page_header'>
+                <Col span={18}>
                 <Space>
                         {!isEmpty(deliveryZoneList) ?
                             <Select
@@ -101,6 +124,10 @@ const StickerView = ({}) => {
                         }
                         <Button type={'primary'} onClick={fetchStickers}>
                             Fetch Stickers
+                        </Button>
+
+                        <Button type={'primary'} onClick={handleOptimizeRoute}>
+                            Optimize Route
                         </Button>
                     </Space>
                 </Col>

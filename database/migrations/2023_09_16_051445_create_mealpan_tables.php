@@ -140,6 +140,8 @@ return new class extends Migration
                 `country` varchar(64) NOT NULL,
                 `lat` double DEFAULT NULL,
                 `lng` double DEFAULT NULL,
+                `delivery_zone_id` int(11) unsigned DEFAULT NULL,
+                `status` tinyint(1) NOT NULL DEFAULT '1',
                 `created_at` timestamp NULL DEFAULT NULL,
                 `updated_at` timestamp NULL DEFAULT NULL,
                 PRIMARY KEY (`id`)

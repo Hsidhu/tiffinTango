@@ -90,8 +90,6 @@ export const getStickerData = (data) => (dispatch) => {
     });
 }
 
-
-
 // any key pair can be updated
 export const createDailyDeliveries = (data) => (dispatch) => {
 

@@ -43,6 +43,11 @@ class DailyDeliveryMealPlanLog extends Model
         return $this->belongsTo(\App\Models\DeliveryWindow::class);
     }
 
+    public function address()
+    {
+        return $this->belongsTo(\App\Models\Address::class);
+    }
+
     public function scopeByClientTimezone($query)
     {
         $tz = config('app.CLIENT_TIMEZONE');

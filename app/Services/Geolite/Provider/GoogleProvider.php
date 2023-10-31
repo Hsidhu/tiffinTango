@@ -153,16 +153,14 @@ class GoogleProvider extends AbstractProvider
             $data = json_decode($response->getBody());
             if ($data->status === 'OK') {
                 $route = $data->routes[0];
-                
                 // dd($route->summary, $route->warnings);
-                
-                foreach ($route->waypoint_order as $waypointOrder) {
-                    $leg = $route->legs[$waypointOrder];
+                foreach ($route->waypoint_order as $orginalWaypointOrder) {
+                    $leg = $route->legs[$orginalWaypointOrder];
                     
                     // Use the waypoint order to associate the information with the correct address
                     $combinedInfo[] = [
-                        'address' => $waypoints[$waypointOrder],
-                        'waypoint_order' => $waypointOrder,
+                        'address' => $waypoints[$orginalWaypointOrder],
+                        'orginal_waypoint_order' => $orginalWaypointOrder,
                         'distance' => $leg->distance->text, // "10.5 mi"
                         'duration' => $leg->duration->text, // "25 mins"
                     ];
