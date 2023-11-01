@@ -46,7 +46,11 @@ class DailyDeliveryController extends Controller
         $deliveryWindowId = $request->get('delivery_window_id');
         $dailyDeliveries = $this->getDailyLog($deliveryZoneId, $deliveryWindowId);
         $output = (new RoutePlanner())->updateDeliveryList($dailyDeliveries);
-        dd($output);
+        if(!$output){
+            // return response()->json([
+            //     'error' => 'Already created',
+            // ], 400);
+        }
         return DailyDeliveryMealPlanLogResouce::collection($dailyDeliveries);
     }
 

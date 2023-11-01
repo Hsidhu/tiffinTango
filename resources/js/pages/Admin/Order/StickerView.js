@@ -132,6 +132,7 @@ const StickerView = ({}) => {
                     </Space>
                 </Col>
             </Row>
+            
             <Button onClick={printStickerSheet}>Print</Button>
             <StickerSheet pages={pages} />
         </>

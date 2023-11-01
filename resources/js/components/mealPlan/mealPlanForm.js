@@ -40,8 +40,6 @@ const MealPlanForm = ({ }) => {
 
     const [form] = Form.useForm()
 
-    
-
     const onFormLayoutChange = ({ first_name }) => {
         console.log(first_name);
         setComponentSize(first_name);
@@ -76,27 +74,21 @@ const MealPlanForm = ({ }) => {
                 <Col span={12}>
                     <Form.Item label="Name" name="name"
                         rules={[
-                            {
-                                required: true
-                            },
+                            { required: true },
                         ]}
                     >
                         <Input />
                     </Form.Item>
                     <Form.Item label="Description" name="description"
                         rules={[
-                            {
-                                required: true
-                            },
+                            { required: true },
                         ]}
                     >
                         <TextArea rows={2} />
                     </Form.Item>
                     <Form.Item label="Short Description" name="short_description"
                         rules={[
-                            {
-                                required: false
-                            },
+                            { required: false },
                         ]}
                     >
                         <TextArea rows={2} />

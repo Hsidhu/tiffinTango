@@ -32,8 +32,8 @@ class RoutePlanner
                 'priority' => $key
             ]);
         }
-
-        dd($refinedOrder, $optimizedList);
+        return true;
+        //dd($refinedOrder, $optimizedList);
     }
 
     public function setupAddressList($dailyDeliveries)
