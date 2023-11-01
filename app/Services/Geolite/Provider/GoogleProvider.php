@@ -143,7 +143,7 @@ class GoogleProvider extends AbstractProvider
 
         $combinedInfo[] = [
             'address' => $origin,
-            'waypoint_order' => -1, // Indicating the start location
+            'orginal_waypoint_order' => -1, // Indicating the start location
             'distance' => 0, // Starting location has no distance
             'duration' => '0 mins', // Starting location has no duration
         ];
@@ -167,7 +167,7 @@ class GoogleProvider extends AbstractProvider
                 }
                 $combinedInfo[] = [
                     'address' => $destination,
-                    'waypoint_order' => -1, // Indicating the start location
+                    'orginal_waypoint_order' => -2, // Indicating the start location
                     'distance' => 0, // Starting location has no distance
                     'duration' => '0 mins', // Starting location has no duration
                 ];

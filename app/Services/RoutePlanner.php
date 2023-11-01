@@ -13,28 +13,52 @@ class RoutePlanner
 {
     public function updateDeliveryList($dailyDeliveries)
     {
-        $addressList = $this->setupAddressList($dailyDeliveries);
-        $this->optimzer($addressList);
+        $deliveryUnSortedData = $this->setupAddressList($dailyDeliveries);
+        $addressList = $deliveryUnSortedData['addressList'];
+        $orginalOrder =  $deliveryUnSortedData['addressDeliveryIds'];
+
+       // $addressList = ['Guelph ON', 'Oakville, ON', 'Brampton, ON', 'Mississauga, ON', 'Vaughan, ON', 'Markham, ON, CA'];
+        //$orginalOrder = [1,2,3,4,5,6];
+        $refinedOrder=[];
+        $optimizedList = $this->optimzer($addressList);
+        foreach ($optimizedList as $key => $value) {
+            if($value['orginal_waypoint_order'] == -1 || $value['orginal_waypoint_order'] == -2){
+                continue;
+            }
+            //$refinedOrder[] = $orginalOrder[$value['orginal_waypoint_order']];
+            
+            DailyDeliveryMealPlanLog::where('id', $orginalOrder[$value['orginal_waypoint_order']])
+            ->update([
+                'priority' => $key
+            ]);
+        }
+
+        dd($refinedOrder, $optimizedList);
     }
 
     public function setupAddressList($dailyDeliveries)
     {
         $addressList = [];
+        $addressDeliveryIds = [];
         foreach ($dailyDeliveries as $delivery) {
             $addressList[] = $delivery->address->formatted_address;
+            $addressDeliveryIds[] = $delivery->id;
         }
-        return $addressList;
+        return [
+            'addressList' => $addressList,
+            'addressDeliveryIds' => $addressDeliveryIds,
+        ];
     }
 
     public function optimzer($addressList)
     {
         // get address by zone
-        $collection = Geocoder::directionRouter(
+        $optimzied = Geocoder::directionRouter(
             'Markham, ON, CA',
-            ['Guelph ON', 'Oakville, ON', 'Brampton, ON', 'Mississauga, ON', 'Vaughan, ON', 'Markham, ON, CA'],
+            $addressList,
             'Markham, ON, CA'
         );
-        dd($collection);
+        return $optimzied;
     }
 
     public function getDailyLogs($deliveryWindowId)
