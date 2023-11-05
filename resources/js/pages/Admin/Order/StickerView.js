@@ -10,6 +10,7 @@ import { getDeliveryZoneList } from '../../../redux/DeliveryZone/actions'
 import { isEmpty } from 'lodash';
 
 import { postRequest } from '../../../config/axiosClient';
+import MapViewOfRoute from './MapViewOfRoute';
 
 const StickerView = ({}) => {
 
@@ -19,6 +20,7 @@ const StickerView = ({}) => {
 
     const [deliveryZoneID, setDeliveryZoneID] = useState('');
     const [deliveryWindowID, setDeliveryWindowID] = useState('');
+    const [directionResponse, setDirectionResponse] = useState({});
 
     useEffect(() => {
         dispatch(getDeliveryWindowsList())
@@ -81,6 +83,8 @@ const StickerView = ({}) => {
                 delivery_zone_id: deliveryZoneID,
                 delivery_window_id: deliveryWindowID
             });
+            setDirectionResponse(response.data)
+
             setLoading(false);
             fetchStickers();
         } catch (error) {
@@ -130,6 +134,12 @@ const StickerView = ({}) => {
                             Optimize Route
                         </Button>
                     </Space>
+                </Col>
+            </Row>
+
+            <Row className='sticker_page_header'>
+                <Col span={14}>
+                    <MapViewOfRoute directionResponse={directionResponse} />
                 </Col>
             </Row>
             

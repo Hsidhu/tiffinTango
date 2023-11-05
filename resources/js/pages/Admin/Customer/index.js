@@ -7,7 +7,7 @@ import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const Customer = ({ }) => {
     const history = useHistory();
-    const customers = useSelector(state => state.customers)
+    const {customers} = useSelector(state => state)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -41,6 +41,16 @@ const Customer = ({ }) => {
             title: 'Phone',
             dataIndex: 'phone',
             key: 'phone',
+        },
+        {
+            title: 'Address',
+            dataIndex: 'address',
+            key: 'address',
+        },
+        {
+            title: 'Delivery Zone',
+            dataIndex: 'delivery_zone_id',
+            key: 'delivery_zone_id',
         },
         {
             title: 'Action',

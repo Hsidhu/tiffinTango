@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::delete('/location/delete/{id}', [App\Http\Controllers\Api\Admin\LocationController::class, 'delete']);
     
     // Customer Routes
-    Route::get('/customer', [App\Http\Controllers\Api\Admin\CustomerController::class, 'index']);
+    Route::get('/customers', [App\Http\Controllers\Api\Admin\CustomerController::class, 'index']);
     Route::post('/customer/create', [App\Http\Controllers\Api\Admin\CustomerController::class, 'create']);
     Route::get('/customer/edit/{id}', [App\Http\Controllers\Api\Admin\CustomerController::class, 'edit']);
     Route::post('/customer/update', [App\Http\Controllers\Api\Admin\CustomerController::class, 'update']);

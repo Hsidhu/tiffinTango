@@ -45,9 +45,10 @@ class NewCustomerNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->from('custom@example.com')
+                    ->from('custom@example.com', 'AB catering')
+                    ->subject('Welcome to AB catering')
                     ->line('The introduction to the notification. ' . $notifiable->full_name)
-                    ->action('Notification Action', url('/'))
+                    ->action('Login to your account', url('/customer/login'))
                     ->line('Thank you for using our application!');
     }
 

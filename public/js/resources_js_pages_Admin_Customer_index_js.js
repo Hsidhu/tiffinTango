@@ -6712,9 +6712,10 @@ function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("
 var Customer = function Customer(_ref) {
   _objectDestructuringEmpty(_ref);
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useHistory)();
-  var customers = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
-    return state.customers;
-  });
+  var _useSelector = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
+      return state;
+    }),
+    customers = _useSelector.customers;
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_redux_Customer_actions__WEBPACK_IMPORTED_MODULE_2__.getCustomers)());
@@ -6748,6 +6749,14 @@ var Customer = function Customer(_ref) {
     title: 'Phone',
     dataIndex: 'phone',
     key: 'phone'
+  }, {
+    title: 'Address',
+    dataIndex: 'address',
+    key: 'address'
+  }, {
+    title: 'Delivery Zone',
+    dataIndex: 'delivery_zone_id',
+    key: 'delivery_zone_id'
   }, {
     title: 'Action',
     key: 'action',

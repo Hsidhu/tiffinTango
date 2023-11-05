@@ -10,7 +10,7 @@ import {
     Switch,
     InputNumber,
     Space,
-    Radio
+    Radio, Checkbox
 } from 'antd';
 import { createMealPlanOption } from '../../redux/MealPlan/actions';
 
@@ -60,6 +60,10 @@ const CreateMealPlanOptions = ({ }) => {
                             <Radio.Button value="select">select</Radio.Button>
                             <Radio.Button value="input">input</Radio.Button>
                         </Radio.Group>
+                    </Form.Item>
+
+                    <Form.Item label="Required" name="required">
+                        <Checkbox />
                     </Form.Item>
 
                     <Form.Item label="Option Values" >

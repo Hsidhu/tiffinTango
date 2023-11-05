@@ -2,18 +2,18 @@
 
 {{-- Greeting --}}
 @if (! empty($greeting))
-# {{ $greeting }}
+     {{ $greeting }}
 @else
-@if ($level === 'error')
-# @lang('Whoops!')
-@else
-# @lang('Hello!')
-@endif
+    @if ($level === 'error')
+        # @lang('Whoops!')
+    @else
+        # @lang('Hello!')
+    @endif
 @endif
 
 {{-- Intro Lines --}}
 @foreach ($introLines as $line)
-{{ $line }}
+    {{ $line }}
 
 @endforeach
 

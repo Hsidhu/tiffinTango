@@ -4439,9 +4439,7 @@ var Edit = function Edit(_ref) {
   }, [form, deliveryZone]);
   var onFormSubmit = function onFormSubmit(values) {
     dispatch((0,_redux_DeliveryZone_actions__WEBPACK_IMPORTED_MODULE_5__.updateDeliveryZone)(values, history));
-    // history.push('/admin/delivery_zones')
   };
-
   console.log(_typeof(deliveryZone.boundaries));
   var handleApiLoaded = function handleApiLoaded(map, maps) {
     var bermudaTriangle = new maps.Polygon({

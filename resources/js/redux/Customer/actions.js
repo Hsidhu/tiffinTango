@@ -8,7 +8,7 @@ export const GET_UPDATE_CUSTOMER = "GET_UPDATE_CUSTOMER"
 export const GET_DELETE_CUSTOMER = "GET_DELETE_CUSTOMER"
 
 export const getCustomers = () => (dispatch) => {
-    const res = getRequest('customer').then(response => {
+    const res = getRequest('customers').then(response => {
         dispatch({
             type: GET_CUSTOMERS,
             payload: response.data

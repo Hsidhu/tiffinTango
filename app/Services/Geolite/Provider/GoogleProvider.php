@@ -171,7 +171,10 @@ class GoogleProvider extends AbstractProvider
                     'distance' => 0, // Starting location has no distance
                     'duration' => '0 mins', // Starting location has no duration
                 ];
-                return $combinedInfo;
+                return [
+                    'response' => $data,
+                    'refinedData' => $combinedInfo
+                ];
             }
             return $data;
         }

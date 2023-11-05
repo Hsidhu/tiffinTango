@@ -68,6 +68,11 @@ export const privateRouteList = [
         exact: true,
     },
     {
+        path: 'admin/order/MapViewOfRoute',
+        component: lazy(() => import('../pages/Admin/Order/MapViewOfRoute')),
+        exact: true,
+    },
+    {
         path: 'admin/locations',
         component: lazy(() => import('../pages/Admin/Location/index')),
         exact: true,

@@ -60,7 +60,7 @@ class MealPlanController extends Controller
         ]);
 
         // display type == radio, input, checkbox
-        $mealPlanOption = MealPlanOption::create($request->only(['name', 'display_type', 'status']));
+        $mealPlanOption = MealPlanOption::create($request->only(['name', 'display_type', 'status', 'required']));
         foreach ($request->get('optionValues') as $key => $data) {
             MealPlanOptionValue::create([
                 'meal_plan_option_id' => $mealPlanOption->id,

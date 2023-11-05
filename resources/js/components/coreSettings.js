@@ -54,6 +54,10 @@ const CoreSettings = ({settings, getSettings, saveSettings}) => {
                     <Input />
                 </Form.Item>
 
+                <Form.Item label="Contact Email" name={['core', 'contact_email']} wrapperCol={{ span: 6 }}>
+                    <Input />
+                </Form.Item>
+
                 <Form.Item label="Tax Included" name={['core', 'include_tax']} valuePropName="checked" >
                     <Switch />
                 </Form.Item>

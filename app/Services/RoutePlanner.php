@@ -8,6 +8,7 @@ use App\Models\DailyDeliveryMealPlanLog;
 use App\Models\DeliveryZone;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Session;
 
 class RoutePlanner
 {
@@ -17,20 +18,19 @@ class RoutePlanner
         $addressList = $deliveryUnSortedData['addressList'];
         $orginalOrder =  $deliveryUnSortedData['addressDeliveryIds'];
 
-       // $addressList = ['Guelph ON', 'Oakville, ON', 'Brampton, ON', 'Mississauga, ON', 'Vaughan, ON', 'Markham, ON, CA'];
-        //$orginalOrder = [1,2,3,4,5,6];
+        // $addressList = ['Guelph ON', 'Oakville, ON', 'Brampton, ON', 'Mississauga, ON', 'Vaughan, ON', 'Markham, ON, CA'];
+        // $orginalOrder = [1,2,3,4,5,6];
         $refinedOrder=[];
         $optimizedList = $this->optimzer($addressList);
-        foreach ($optimizedList as $key => $value) {
+        Session::put('zoneRoute', $optimizedList['response']);
+        foreach ($optimizedList['refinedData'] as $key => $value) {
             if($value['orginal_waypoint_order'] == -1 || $value['orginal_waypoint_order'] == -2){
                 continue;
             }
-            //$refinedOrder[] = $orginalOrder[$value['orginal_waypoint_order']];
+            $refinedOrder[] = $orginalOrder[$value['orginal_waypoint_order']];
             
             DailyDeliveryMealPlanLog::where('id', $orginalOrder[$value['orginal_waypoint_order']])
-            ->update([
-                'priority' => $key
-            ]);
+            ->update([  'priority' => $key ]);
         }
         return true;
         //dd($refinedOrder, $optimizedList);
