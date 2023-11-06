@@ -24,6 +24,7 @@ class MealPlanResource extends JsonResource
             'price' => $this->price,
             'discount' => $this->discount,
             'duration' => $this->duration,
+            'image' => $this->image,
             'status'=> $this->status,
             'options' => MealPlanOptionResource::collection($this->options)
         ];

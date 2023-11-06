@@ -7,12 +7,13 @@ import { mealplans, mealplan, mealplanOptions } from './MealPlan/redux';
 import { orderData, cart, orderSummary, selectedMealPlan } from './Cart/redux'
 import { orders, order, dailyDeliveries, deliveryStickers } from './Order/redux'
 import { deliveryZones, deliveryZone, deliveryZoneList } from './DeliveryZone/reducer';
+import { mediaFiles } from './Media/redux';
 import { settings } from './Settings/redux'
 
 // Include all the reducer to combine and provide to configure store.
 export default {
     authenticateReducer,
-    siteSettings, settings,
+    siteSettings, settings, mediaFiles,
     redirectTo, orderStatuses, deliveryWindows, cookieConsent,
     locations, location,
     customers, customer,

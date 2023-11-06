@@ -151,5 +151,10 @@ export const privateRouteList = [
         path: 'admin/settings',
         component: lazy(() => import('../pages/Admin/settings')),
         exact: true,
+    },
+    {
+        path: 'admin/media',
+        component: lazy(() => import('../pages/Admin/Media/index')),
+        exact: true,
     }
 ]

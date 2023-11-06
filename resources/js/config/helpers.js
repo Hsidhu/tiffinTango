@@ -9,7 +9,7 @@ export const getBase64FileReader = (file) =>
 });
 
 export const imageUrl = (uri) => {
-    return `${axiosConfig.HOST_URL}${uri}`
+    return `${axiosConfig.HOST_URL}/${uri}`
 }
 
 

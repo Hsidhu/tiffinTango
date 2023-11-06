@@ -9,6 +9,7 @@ import {
     Upload
 } from 'antd';
 import { getMealPlan, updateMealPlan } from '../../redux/MealPlan/actions';
+import { imageUrl } from '../../config/helpers';
 
 const { TextArea } = Input;
 
@@ -54,7 +55,21 @@ const MealPlanForm = ({ }) => {
         dispatch(updateMealPlan(values));
     }
 
+    const handleImageRemove = (file) => {
+        // Handle the removal of the file from the fileList
+        const updatedFileList = fileList.filter((item) => item.uid !== file.uid);
+        setFileList(updatedFileList);
+    };
+
     useEffect(() => {
+        setFileList([
+            {
+                uid: '-1',
+                name: 'image.png', // You can use a name from the URL or any preferred name
+                status: 'done',
+                url:  imageUrl(`images/${mealplan.image}`), // Replace with your image URL
+            },
+        ])
         form.setFieldsValue({...mealplan})
     }, [form, mealplan])
 
@@ -140,9 +155,11 @@ const MealPlanForm = ({ }) => {
                         <Upload
                             disabled={fileList.length == 0 ? false : true}
                             listType="picture-card"
+                            limit={1}
                             fileList={fileList}
                             onPreview={handlePreview}
                             onChange={handleUpload}
+                            onRemove={handleImageRemove}
                             beforeUpload={() => false} // return false so that antd doesn't upload the picture right away
                             >
                             <div>

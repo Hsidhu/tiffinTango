@@ -1270,7 +1270,7 @@ var ContentCards = function ContentCards() {
         title: "Tiffin",
         bordered: false,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-          src: (0,_config_helpers__WEBPACK_IMPORTED_MODULE_1__.imageUrl)('/images/site/tiffin_shape.jpeg')
+          src: (0,_config_helpers__WEBPACK_IMPORTED_MODULE_1__.imageUrl)('images/site/tiffin_shape.jpeg')
         })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -1279,7 +1279,7 @@ var ContentCards = function ContentCards() {
         title: "Take Away",
         bordered: false,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-          src: (0,_config_helpers__WEBPACK_IMPORTED_MODULE_1__.imageUrl)('/images/site/take_away_shape.jpeg')
+          src: (0,_config_helpers__WEBPACK_IMPORTED_MODULE_1__.imageUrl)('images/site/take_away_shape.jpeg')
         })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -1289,71 +1289,13 @@ var ContentCards = function ContentCards() {
         bordered: false,
         actions: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_6__["default"], {}, "setting"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_7__["default"], {}, "edit")],
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-          src: (0,_config_helpers__WEBPACK_IMPORTED_MODULE_1__.imageUrl)('/images/site/catering_shape.jpeg')
+          src: (0,_config_helpers__WEBPACK_IMPORTED_MODULE_1__.imageUrl)('images/site/catering_shape.jpeg')
         })
       })
     })]
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ContentCards);
-
-/***/ }),
-
-/***/ "./resources/js/config/helpers.js":
-/*!****************************************!*\
-  !*** ./resources/js/config/helpers.js ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   getBase64FileReader: () => (/* binding */ getBase64FileReader),
-/* harmony export */   imageUrl: () => (/* binding */ imageUrl)
-/* harmony export */ });
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ "./resources/js/config/constants.js");
-
-var getBase64FileReader = function getBase64FileReader(file) {
-  return new Promise(function (resolve, reject) {
-    var reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      return resolve(reader.result);
-    };
-    reader.onerror = function (error) {
-      return reject(error);
-    };
-  });
-};
-var imageUrl = function imageUrl(uri) {
-  return "".concat(_constants__WEBPACK_IMPORTED_MODULE_0__.axiosConfig.HOST_URL).concat(uri);
-};
-
-/**
- * Modify Geo route request
- */
-var addGoogleServiceSDKFields = function addGoogleServiceSDKFields(serverResponse, maps) {
-  serverResponse.routes = serverResponse.routes.map(function (response) {
-    var bounds = new maps.LatLngBounds(response.bounds.southwest, response.bounds.northeast);
-    response.bounds = bounds;
-    response.overview_path = maps.geometry.encoding.decodePath(response.overview_polyline.points);
-    response.legs = response.legs.map(function (leg) {
-      leg.start_location = new maps.LatLng(leg.start_location.lat, leg.start_location.lng);
-      leg.end_location = new maps.LatLng(leg.end_location.lat, leg.end_location.lng);
-      leg.steps = leg.steps.map(function (step) {
-        step.path = maps.geometry.encoding.decodePath(step.polyline.points);
-        step.start_location = new maps.LatLng(step.start_location.lat, step.start_location.lng);
-        step.end_location = new maps.LatLng(step.end_location.lat, step.end_location.lng);
-        return step;
-      });
-      return leg;
-    });
-    return response;
-  });
-  serverResponse.request = {
-    travelMode: maps.DirectionsTravelMode.DRIVING
-  };
-  return serverResponse;
-};
 
 /***/ }),
 

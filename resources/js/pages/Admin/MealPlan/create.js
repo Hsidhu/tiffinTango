@@ -56,6 +56,11 @@ const Create = ({ }) => {
         values.status = mapSwitchValue(values.status);
         dispatch(createMealPlan(values));
     }
+    const handleRemove = (file) => {
+        // Handle the removal of the file from the fileList
+        const updatedFileList = fileList.filter((item) => item.uid !== file.uid);
+        setFileList(updatedFileList);
+    };
 
     const uploadButton = (
         <div>
@@ -157,9 +162,11 @@ const Create = ({ }) => {
                             <Upload
                                 disabled={fileList.length == 0 ? false : true}
                                 listType="picture-card"
+                                limit={1}
                                 fileList={fileList}
                                 onPreview={handlePreview}
                                 onChange={handleUpload}
+                                onRemove={handleRemove}
                                 beforeUpload={() => false} // return false so that antd doesn't upload the picture right away
                             >
                                 {uploadButton}

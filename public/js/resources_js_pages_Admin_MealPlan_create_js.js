@@ -5341,6 +5341,13 @@ var Create = function Create(_ref) {
     values.status = mapSwitchValue(values.status);
     dispatch((0,_redux_MealPlan_actions__WEBPACK_IMPORTED_MODULE_2__.createMealPlan)(values));
   };
+  var handleRemove = function handleRemove(file) {
+    // Handle the removal of the file from the fileList
+    var updatedFileList = fileList.filter(function (item) {
+      return item.uid !== file.uid;
+    });
+    setFileList(updatedFileList);
+  };
   var uploadButton = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_8__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "ant-upload-text",
@@ -5435,9 +5442,11 @@ var Create = function Create(_ref) {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_13__["default"], {
               disabled: fileList.length == 0 ? false : true,
               listType: "picture-card",
+              limit: 1,
               fileList: fileList,
               onPreview: handlePreview,
               onChange: handleUpload,
+              onRemove: handleRemove,
               beforeUpload: function beforeUpload() {
                 return false;
               } // return false so that antd doesn't upload the picture right away

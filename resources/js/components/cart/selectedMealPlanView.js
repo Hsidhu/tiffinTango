@@ -14,13 +14,13 @@ const SelectedMealPlanView = ({selectedMealPlan}) => {
                     <Image
                         preview={false}
                         width={200}
-                        src={imageUrl(`/images/${selectedMealPlan.image}`)}
+                        src={imageUrl(`images/${selectedMealPlan.image}`)}
                     /> 
                     : 
                     <Image
                         preview={false}
                         width={200}
-                        src={imageUrl(`/images/site/tiffin_shape.jpeg`)}
+                        src={imageUrl(`images/site/tiffin_shape.jpeg`)}
                     /> 
             }
             {

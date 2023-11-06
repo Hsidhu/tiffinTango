@@ -2,6 +2,7 @@ import React from 'react';
 import { Carousel } from 'antd';
 
 import { axiosConfig } from '../config/constants';
+import { imageUrl } from '../config/helpers';
 
 const contentStyle = {
     margin: 0,
@@ -36,7 +37,7 @@ const CarouselSlider = () => {
         <Carousel afterChange={onChange} autoplay={false} >
             <div>
                 <div style={{position:"relative"}}>
-                    <img width={'100%'} src={`${axiosConfig.HOST_URL}/images/site/slider_440.png`} />
+                    <img width={'100%'} src={imageUrl('images/site/slider_440.png')} />
                     <div style={textOverLay}>
                         <h3>Title 1</h3>
                         <p>Description 1</p>

@@ -80,7 +80,11 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::post('/order/getStickerData', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'getStickerData']);
     Route::post('/order/optimizeRoute', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'optimizeRoute']);
     
+    
 });
+
+Route::post('/media/upload', [App\Http\Controllers\Api\Admin\MediaController::class,'upload']);
+Route::get('/media/files', [App\Http\Controllers\Api\Admin\MediaController::class,'index']);
 
 Route::get('images/{folder}/{filename}', [App\Http\Controllers\Api\FileController::class, 'images'])
     ->where(['folder' => '.*', 'filename' => '.*']);
