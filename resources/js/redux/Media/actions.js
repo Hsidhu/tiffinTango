@@ -15,6 +15,10 @@ export const uploadFile = (file) => {
     formData.append('file', file);
     return postRequest('media/upload', formData, config).then(response => {
         console.log(response.data)
+        dispatch({
+            type: GET_MEDIA_FILES,
+            payload: response.data
+        });
     });
 };
 
