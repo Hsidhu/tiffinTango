@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { UploadOutlined } from '@ant-design/icons';
 import { Row, Col, Upload,
     Button, Modal, Divider } from 'antd';
@@ -6,9 +6,14 @@ import { Row, Col, Upload,
 import MediaFileView from './containers/mediaFileView';
 
 
-const MediaLibrary = ({uploadFile}) => {
+const MediaLibrary = ({openLibraryFlag, uploadFile, handleFileSelection}) => {
 
+    console.log(openLibraryFlag);
     const [open, setOpen] = useState(false);
+
+    useEffect(() => {
+        setOpen(openLibraryFlag)
+    }, [openLibraryFlag]);
 
     const customRequest = (file) => {
         uploadFile(file);
@@ -45,7 +50,9 @@ const MediaLibrary = ({uploadFile}) => {
                     </Row>
                     <Divider/>
 
-                        <MediaFileView />
+                        <MediaFileView 
+                            handleFileSelection={handleFileSelection}
+                        />
 
                 </Modal>
             

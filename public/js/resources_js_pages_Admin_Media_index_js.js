@@ -3691,7 +3691,7 @@ var columns = [{
   key: 'name'
 }];
 var MediaFileView = function MediaFileView(_ref) {
-  var retrieveFileData = _ref.retrieveFileData,
+  var handleFileSelection = _ref.handleFileSelection,
     mediaFiles = _ref.mediaFiles,
     getMediaFiles = _ref.getMediaFiles;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
@@ -3713,7 +3713,7 @@ var MediaFileView = function MediaFileView(_ref) {
       return obj.id === selectedFileID;
     });
     console.log(findFileDetail);
-    //        retrieveFileData(findFileDetail)
+    handleFileSelection(findFileDetail);
   };
 
   // Implement media selection and form integration logic
@@ -3794,11 +3794,17 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var MediaLibrary = function MediaLibrary(_ref) {
-  var uploadFile = _ref.uploadFile;
+  var openLibraryFlag = _ref.openLibraryFlag,
+    uploadFile = _ref.uploadFile,
+    handleFileSelection = _ref.handleFileSelection;
+  console.log(openLibraryFlag);
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     open = _useState2[0],
     setOpen = _useState2[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setOpen(openLibraryFlag);
+  }, [openLibraryFlag]);
   var customRequest = function customRequest(file) {
     uploadFile(file);
     return false;
@@ -3835,7 +3841,9 @@ var MediaLibrary = function MediaLibrary(_ref) {
             })
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_containers_mediaFileView__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_containers_mediaFileView__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        handleFileSelection: handleFileSelection
+      })]
     })]
   });
 };

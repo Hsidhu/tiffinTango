@@ -11,10 +11,7 @@ export const getBase64FileReader = (file) =>
 export const imageUrl = (uri) => {
     return `${axiosConfig.HOST_URL}/${uri}`
 }
-
-
-
-
+export const mapSwitchValue = (value) => (value ? 1 : 0);
 
 /**
  * Modify Geo route request

@@ -11,6 +11,7 @@ use App\Http\Resources\Admin\MealPlanResource;
 use App\Http\Resources\MealPlanOrderResource;
 use App\Models\MealPlanAddon;
 use Illuminate\Support\Facades\Storage;
+use App\Models\MediaFile;
 
 class MealPlanController extends Controller
 {
@@ -36,7 +37,7 @@ class MealPlanController extends Controller
             'short_description' => ['between:1,48'],
             'price' => ['required','numeric'],
             'discount' => ['numeric'],
-            'duration' => ['max:64']
+            'delivery_plan' => ['min:5']
         ]);
 
         $fileName = null;
@@ -45,7 +46,7 @@ class MealPlanController extends Controller
             $request->file('file')->storeAs('public/mealplan', $fileName);
             $request->merge(['image' => 'mealplan/'.$fileName]);
         }
-        $mealPlan = MealPlan::create($$request->only(['name','description','short_description', 'price', 'discount', 'duration', 'image', 'status']));
+        $mealPlan = MealPlan::create($$request->only(['name','description','short_description', 'price', 'discount', 'delivery_plan', 'image', 'status']));
         return response()->json($mealPlan);
     }
 
@@ -112,7 +113,7 @@ class MealPlanController extends Controller
             'short_description' => ['between:1,48'],
             'price' => ['required','numeric'],
             'discount' => ['numeric'],
-            'duration' => ['max:64']
+            'delivery_plan' => ['min:4']
         ]);
 
         $fileName = $mealPlan->image;
@@ -124,13 +125,11 @@ class MealPlanController extends Controller
         }
         $mealPlan->update($request->only([
                 'name','description','short_description', 
-                'price', 'discount', 'duration', 'image',
+                'price', 'discount', 'delivery_plan', 'image',
                 'status'
         ]));
         return response()->json($mealPlan);
     }
-
-
 
     private function fileStoreName($file)
     {
@@ -150,5 +149,13 @@ class MealPlanController extends Controller
     {
         $mealPlans = MealPlan::where('status', 1)->get();
         return MealPlanOrderResource::collection($mealPlans)->collection;
+    }
+
+
+    private function addMediaToModel(MealPlan $mealPlan, $mediaFileId)
+    {
+        $mediaFile = MediaFile::find($mediaFileId);
+        $mediaItem = $mediaFile->getMedia()->first();
+        $mediaItem->move($mealPlan);
     }
 }

@@ -13,7 +13,7 @@ const columns = [
     }
 ];
 
-const MediaFileView = ({retrieveFileData, mediaFiles, getMediaFiles}) => {
+const MediaFileView = ({handleFileSelection, mediaFiles, getMediaFiles}) => {
     const [files, setFiles] = useState([]);
 
     const [selectedFileID, setSelectedFileID] = useState();
@@ -29,7 +29,7 @@ const MediaFileView = ({retrieveFileData, mediaFiles, getMediaFiles}) => {
     const handleAttachFile = () => {
         const findFileDetail = mediaFiles.data.find(obj => obj.id === selectedFileID)
         console.log(findFileDetail);
-//        retrieveFileData(findFileDetail)
+        handleFileSelection(findFileDetail)
     }
 
     // Implement media selection and form integration logic

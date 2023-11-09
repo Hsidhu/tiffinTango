@@ -20,7 +20,6 @@ class MealPlan extends Model implements HasMedia
 
     protected $casts = [
         "price" => 'float',
-        
     ];
     
     public function addOns()
@@ -31,6 +30,14 @@ class MealPlan extends Model implements HasMedia
     public function options()
     {
         return $this->belongsToMany(\App\Models\MealPlanOption::class, 'meal_plan_addons');
+    }
+
+    public function durationList()
+    {
+        return [
+            [ 'value' => 'mon_to_friday', 'label' => 'Monday to Friday', ],
+            [ 'value' => 'mon_to_sat', 'label' => 'Monday to Saturday', ]
+        ];
     }
 
     // Accessor to format price without .00
