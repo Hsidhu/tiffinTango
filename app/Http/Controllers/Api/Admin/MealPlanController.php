@@ -37,7 +37,7 @@ class MealPlanController extends Controller
             'short_description' => ['between:1,48'],
             'price' => ['required','numeric'],
             'discount' => ['numeric'],
-            'delivery_plan' => ['min:5']
+            'delivery_days' => ['min:5']
         ]);
 
         $fileName = null;
@@ -46,7 +46,10 @@ class MealPlanController extends Controller
             $request->file('file')->storeAs('public/mealplan', $fileName);
             $request->merge(['image' => 'mealplan/'.$fileName]);
         }
-        $mealPlan = MealPlan::create($$request->only(['name','description','short_description', 'price', 'discount', 'delivery_plan', 'image', 'status']));
+        $mealPlan = MealPlan::create($$request->only([
+                'name','description','short_description', 'price',
+                'discount', 'delivery_days', 'image', 'status'
+            ]));
         return response()->json($mealPlan);
     }
 
@@ -113,10 +116,12 @@ class MealPlanController extends Controller
             'short_description' => ['between:1,48'],
             'price' => ['required','numeric'],
             'discount' => ['numeric'],
-            'delivery_plan' => ['min:4']
+            'delivery_days' => ['min:4']
         ]);
 
         $fileName = $mealPlan->image;
+        $this->addMediaToModel($mealPlan, $request->file('mediaFileId'));
+
         if(!empty($request->file('file'))) {
             unlink(storage_path('app/public/'.$fileName));
             $fileName = $this->fileStoreName($request->file('file'));
@@ -125,7 +130,7 @@ class MealPlanController extends Controller
         }
         $mealPlan->update($request->only([
                 'name','description','short_description', 
-                'price', 'discount', 'delivery_plan', 'image',
+                'price', 'discount', 'delivery_days', 'image',
                 'status'
         ]));
         return response()->json($mealPlan);

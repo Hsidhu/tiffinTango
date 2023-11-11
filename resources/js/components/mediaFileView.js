@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import { 
     Table, Button,
-    List, Radio
+    List, Radio, Divider
 } from 'antd';
 
 const columns = [
@@ -39,7 +39,7 @@ const MediaFileView = ({handleFileSelection, mediaFiles, getMediaFiles}) => {
                 selectedFileID &&
                 <Button type="primary" onClick={handleAttachFile}>Attach Media</Button>
             }
-
+            <Divider/>
             <List
                 itemLayout="horizontal"
                 dataSource={mediaFiles.data}

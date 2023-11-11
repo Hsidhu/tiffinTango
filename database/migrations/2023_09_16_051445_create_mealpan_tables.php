@@ -178,7 +178,7 @@ return new class extends Migration
             $table->string('short_description', 164)->nullable();
             $table->decimal('price', 10, 2);
             $table->decimal('discount', 15, 2)->nullable();
-            $table->string('delivery_plan', 164)->nullable();
+            $table->string('delivery_days', 164)->nullable();
             $table->string('image')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();

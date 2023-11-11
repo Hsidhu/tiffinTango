@@ -7068,7 +7068,15 @@ var GenerateDeliveries = function GenerateDeliveries(_ref) {
   var columns = [{
     title: 'Customer Name',
     dataIndex: 'customer_name',
-    key: 'customer_name'
+    key: 'customer_name',
+    render: function render(_, record) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
+        onClick: function onClick() {
+          return history.push("/admin/customer/edit/".concat(record.customer_id));
+        },
+        children: record.customer_name
+      });
+    }
   }, {
     title: 'Driver Name',
     dataIndex: 'driver_name',

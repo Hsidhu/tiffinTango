@@ -42,7 +42,11 @@ const GenerateDeliveries = ({ }) => {
     }
 
     const columns = [
-        { title: 'Customer Name', dataIndex: 'customer_name', key: 'customer_name' },
+        { title: 'Customer Name', dataIndex: 'customer_name', key: 'customer_name',
+            render: (_, record) => (
+                <a onClick={ () => history.push(`/admin/customer/edit/${record.customer_id}`)} >{record.customer_name}</a>
+            ),
+        },
         { title: 'Driver Name', dataIndex: 'driver_name', key: 'driver_name' },
         { title: 'Customer Phone', dataIndex: 'customer_phone', key: 'customer_phone' },
         { title: 'Address', dataIndex: 'address', key: 'address' },

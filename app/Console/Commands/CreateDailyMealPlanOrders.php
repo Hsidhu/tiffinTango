@@ -51,15 +51,22 @@ class CreateDailyMealPlanOrders extends Command
             $this->info("Order for Customer: {$order->customer->full_name}");
             $deliveryZoneId = $order->customer->address->delivery_zone_id;
             $driver = $dailyOrderGenerator->getDriver($deliveryZoneId, $deliveryWindowId);
+            
             $this->info("driver found: {$driver->full_name}");
-            $dailyOrderGenerator->createDailyDeliveries(
-                $order->id, 
-                $order->customer_id, 
-                $driver->id, 
-                $deliveryZoneId, 
-                $order->delivery_window_id,
-                $order->customer->address->id
-            );
+
+            if($dailyOrderGenerator->orderItemsDeliveryDays($order->items)){
+                $dailyOrderGenerator->createDailyDeliveries(
+                    $order->id, 
+                    $order->customer_id, 
+                    $driver->id, 
+                    $deliveryZoneId, 
+                    $order->delivery_window_id,
+                    $order->customer->address->id
+                );
+            }
+            else{
+                $this->info("Delivery day is not today for Order: {$order->id}");
+            }
         }
 
         $this->info('Daily meal plan orders created successfully.');

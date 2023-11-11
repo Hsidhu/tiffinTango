@@ -26,6 +26,11 @@ class MediaController extends Controller
         return MediaFileResource::collection($mediaFiles);
     }
 
+    public function remove(Request $request)
+    {
+        // get Id from Media table and add it to media Files table
+    }
+
     public function update(Request $request, $id)
     {
         // $mediaFile = MediaFile::create([
@@ -35,8 +40,6 @@ class MediaController extends Controller
         dd($mediaFile);
         $mediaItem = $mediaFile->getMedia()->first();
 
-        
-       
         $meal = MealPlan::first();
         $movedMediaItem = $mediaItem->move($meal);
         

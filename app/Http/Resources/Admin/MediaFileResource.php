@@ -21,6 +21,7 @@ class MediaFileResource extends JsonResource
             'name' => $this->name,
             'created_at' => $this->created_at,
             'file_url' => $this->getFirstMediaUrl(),
+            'mediaMeta' => $this->getFirstMedia(),
         ];
 
     }

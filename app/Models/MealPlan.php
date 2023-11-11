@@ -35,8 +35,8 @@ class MealPlan extends Model implements HasMedia
     public function durationList()
     {
         return [
-            [ 'value' => 'mon_to_friday', 'label' => 'Monday to Friday', ],
-            [ 'value' => 'mon_to_sat', 'label' => 'Monday to Saturday', ]
+            [ 'value' => 'monday_to_friday', 'label' => 'Monday to Friday', ],
+            [ 'value' => 'monday_to_saturday', 'label' => 'Monday to Saturday', ]
         ];
     }
 

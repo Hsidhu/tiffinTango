@@ -21,12 +21,12 @@ class MealPlanOrderItem extends Model
 
     public function mealPlan()
     {
-        return $this->belongTo(\App\Models\MealPlan::class, "meal_plan_id");
+        return $this->belongsTo(\App\Models\MealPlan::class, "meal_plan_id");
     }
 
     public function order()
     {
-        return $this->belongTo(\App\Models\MealPlanOrder::class, "order_id");
+        return $this->belongsTo(\App\Models\MealPlanOrder::class, "order_id");
     }
  
     public function options()

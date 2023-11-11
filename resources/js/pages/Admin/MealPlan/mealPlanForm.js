@@ -48,6 +48,7 @@ const MealPlanForm = ({form, onFormChange, hasId, onFormSubmit }) => {
         const newFileList = [...fileList, {
             uid: mediaItem.id, // Must be unique
             name: mediaItem.name,
+            preview: mediaItem.file_url,
             status: 'done',
             url: mediaItem.file_url, // The URL to access the media item
         }];
@@ -157,7 +158,7 @@ const MealPlanForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                     </Col>
                     <Col span={12}>
 
-                        <Form.Item label="Delivery Plan" name="delivery_plan"
+                        <Form.Item label="Delivery Plan" name="delivery_days"
                             rules={[{
                                 required: false
                             }]}

@@ -3,6 +3,7 @@ namespace App\Services;
 
 use App\Models\Customer;
 use App\Models\MealPlanOrder;
+use App\Models\MealPlan;
 use App\Models\Driver;
 use App\Models\DailyDeliveryMealPlanLog;
 use App\Models\OrderStatus;
@@ -24,14 +25,17 @@ class DailyOrderGenerator
         foreach ($orders as $order) {
 
             $deliveryZoneId = $order->customer->address->delivery_zone_id;
-            $driver = $this->getDriver($deliveryZoneId, $deliveryWindowId);
 
-            $this->createDailyDeliveries(
-                $order->id, $order->customer_id, 
-                $driver->id, $deliveryZoneId, 
-                $order->delivery_window_id,
-                $order->customer->address->id
-            );
+            $driver = $this->getDriver($deliveryZoneId, $deliveryWindowId);
+            
+            if($this->orderItemsDeliveryDays($order->items)){
+                $this->createDailyDeliveries(
+                    $order->id, $order->customer_id, 
+                    $driver->id, $deliveryZoneId, 
+                    $order->delivery_window_id,
+                    $order->customer->address->id
+                );
+            }
         }
         return true;
     }
@@ -125,9 +129,44 @@ class DailyOrderGenerator
                 ->get()->pluck('id')->toArray();
     }
 
+    public function orderItemsDeliveryDays($items)
+    {
+        $deliveryDays = [];
+        foreach ($items as $item) {
+            $deliveryDays[] = $item->mealplan->delivery_days;
+        }
+        return $this->isOrderGoingToday($deliveryDays);
+    }
+
     private function getClientTimezone()
     {
         return config('app.CLIENT_TIMEZONE');
+    }
+
+    public function isOrderGoingToday($deliveryDays)
+    {
+        $deliveryDaysByWeekDays = $this->getDayOfTheWeek();
+        foreach ($deliveryDaysByWeekDays as $weekDay) {
+            if(in_array($weekDay, $deliveryDays)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function getDayOfTheWeek()
+    {
+        $weekMap = [
+            1 => ['monday_to_friday', 'monday_to_saturday'], // 'monday'
+            2 => ['monday_to_friday', 'monday_to_saturday'], // 'tuesday'
+            3 => ['monday_to_friday', 'monday_to_saturday'], // 'wednesday',
+            4 => ['monday_to_friday', 'monday_to_saturday'], // 'thursday',
+            5 => ['monday_to_friday', 'monday_to_saturday'], // 'friday',
+            6 => ['monday_to_saturday'], // saturday
+            7 => [],//'sunday',
+        ];
+        $dayOfWeekInNumber = Carbon::now()->tz(config('app.CLIENT_TIMEZONE'))->dayOfWeek;
+        return $weekMap[$dayOfWeekInNumber];
     }
 
 }
