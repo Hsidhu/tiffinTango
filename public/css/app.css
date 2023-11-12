@@ -27010,10 +27010,15 @@ section > div {
     visibility: visible;
   }
 }
-#components-table-demo-drag-sorting tr.drop-over-downward td {
+/* Drag table*/
+tr.drop-over-downward td {
   border-bottom: 2px dashed #1890ff;
 }
 
-#components-table-demo-drag-sorting tr.drop-over-upward td {
+tr.drop-over-upward td {
   border-top: 2px dashed #1890ff;
+}
+
+.row-status-canceled {
+  background-color: #d42626; /* example color */
 }

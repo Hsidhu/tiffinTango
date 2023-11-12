@@ -1,4 +1,5 @@
 import { getRequest, postRequest, deleteRequest } from "../../config/axiosClient"
+import { message } from 'antd';
 
 export const GET_ORDERS = "GET_ORDERS"
 export const GET_ORDER = "GET_ORDER";
@@ -107,5 +108,28 @@ export const createDailyDeliveries = (data) => (dispatch) => {
         });
     }).catch(error => {
         console.log(error);
+    });
+}
+
+export const updatedOrderOfDailyDelivery = (data) => (dispatch) => {
+
+    const res = postRequest('order/generateDailyDelivery/update', data).then(response => {
+        
+        message.success({
+            content: 'Daily Deliveries Order updated',
+            style: {
+                padding:'20px',
+                marginTop: '5vh',
+            }
+        });
+    }).catch(error => {
+        console.log(error);
+        message.error({
+            content: 'Something Went wrong!',
+            style: {
+                padding:'20px',
+                marginTop: '5vh',
+            }
+        });
     });
 }

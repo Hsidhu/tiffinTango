@@ -46,7 +46,7 @@ const DraggableBodyRow = ({ index, moveRow, className, style, ...restProps }) =>
     );
 };
 
-const DndSortTable = ({tableColumns, tableData}) => {
+const DndSortTable = ({tableColumns, tableData, onDragfinish}) => {
     const [data, setData] = useState(tableData);
 
     const components = {
@@ -55,13 +55,20 @@ const DndSortTable = ({tableColumns, tableData}) => {
         },
     };
     const moveRow = useCallback(
+        // Drag index where are row were and Hover index where the row was dropped
         (dragIndex, hoverIndex) => {
             const updatedData = _.clone(data);
             const dragRow = data[dragIndex];
             // Splice the data array to move the element from dragIndex to hoverIndex
             updatedData.splice(dragIndex, 1); // Remove the element from dragIndex
             updatedData.splice(hoverIndex, 0, dragRow); // Insert the element at hoverIndex
+
             setData(updatedData);
+
+            onDragfinish({
+                id:dragRow.id,
+                priority:hoverIndex
+            })
         },
         [data],
     );

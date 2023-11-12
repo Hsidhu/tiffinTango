@@ -17,6 +17,7 @@ import { GOOGLE_API_KEY } from '../../../config/constants';
 import OrderStatus from '../../../components/containers/orderStatus';
 
 import PickupOrder from './PickupOrder';
+import DailyDeliveryTable from '../../../components/dailyDeliveryTable';
 
 const { Title } = Typography;
 
@@ -161,11 +162,19 @@ const View = ({ }) => {
         <>
             <TableHeaderLink
                 name="View Order"
+                subTitle="Order Detail"
                 backUri="/admin/orders"
                 HeaderButtons = {[
-                    <Link to="/admin/order/generateDeliveries"> Generate Deliveries</Link>,
+                    <Link key={'generate'} to="/admin/order/generateDeliveries"> Generate Deliveries</Link>,
                 ]}
-            />
+            >
+                <Descriptions size="small" column={3}>
+                    <Descriptions.Item label="OrderID">{order?.id}</Descriptions.Item>
+                    <Descriptions.Item label="Creation At">{order?.created_at}</Descriptions.Item>
+                    <Descriptions.Item label="Last Updated at ">{order?.updated_at}</Descriptions.Item>
+                </Descriptions>
+
+            </TableHeaderLink>
             <Divider />
             <Row>
                 <Col span={24}>
@@ -175,16 +184,14 @@ const View = ({ }) => {
                         contentStyle={{ fontSize: "20px" }}
                     >
                         <Descriptions.Item
-                            label="OrderID"
-                        >
-                            {order?.id}
-                        </Descriptions.Item>
-                        <Descriptions.Item
                             label="Order Type">
                             {order?.order_type}
                         </Descriptions.Item>
                         <Descriptions.Item
                             label="Start Date">{moment(order.start_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}
+                        </Descriptions.Item>
+                        <Descriptions.Item
+                            label="End Date">{moment(order.end_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}
                         </Descriptions.Item>
                         <Descriptions.Item label="Status">
                             <OrderStatus order_id={order.id} statusID={order?.order_status_id} />
@@ -245,9 +252,18 @@ const View = ({ }) => {
                         </GoogleMapReact>
                     </Col>
                     <Col span={6}>
+                        // need address ID
                         Update zone
                     </Col>
                 </Row>
+            }
+            {
+                order.order_type == 'pickup' ?
+                null
+                :<>
+                    <Divider/>
+                    <DailyDeliveryTable dailyDeliveryLogs={order.deliveries} />
+                </>
             }
             
         </>

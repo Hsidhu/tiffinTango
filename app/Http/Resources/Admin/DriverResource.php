@@ -22,7 +22,8 @@ class DriverResource extends JsonResource
             'address_id' => $this->address->id,
             'address' => $this->address->address,
             'city' => $this->address->city,
-            'postal_code' => $this->address->postal_code
+            'postal_code' => $this->address->postal_code,
+            'created_at' => $this->created_at->setTimezone(config('app.CLIENT_TIMEZONE'))->format('Y-m-d H:i:s')
         ];
     }
 }

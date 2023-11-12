@@ -9,7 +9,7 @@ import {
 import TableHeaderLink from '../../../components/tableHeaderLink';
 
 import { getDeliveryWindowsList } from '../../../redux/Common/actions'
-import { createDailyDeliveries, getDailyDeliveries } from "../../../redux/Order/actions"
+import { createDailyDeliveries, getDailyDeliveries, updatedOrderOfDailyDelivery } from "../../../redux/Order/actions"
 import { isEmpty } from 'lodash';
 
 import DndSortTable from '../../../components/dndSortTable';
@@ -41,10 +41,14 @@ const GenerateDeliveries = ({ }) => {
         }
     }
 
+    const deliveryUpdate = (data) => {
+        dispatch(updatedOrderOfDailyDelivery(data))
+    }
+
     const columns = [
         { title: 'Customer Name', dataIndex: 'customer_name', key: 'customer_name',
             render: (_, record) => (
-                <a onClick={ () => history.push(`/admin/customer/edit/${record.customer_id}`)} >{record.customer_name}</a>
+                <a onClick={ () => history.push(`/admin/customer/edit/${record.customer_id}`)} >{record.id} - {record.customer_name}</a>
             ),
         },
         { title: 'Driver Name', dataIndex: 'driver_name', key: 'driver_name' },
@@ -54,6 +58,15 @@ const GenerateDeliveries = ({ }) => {
         { title: 'Meal Plan', dataIndex: 'mealplan_name', key: 'mealplan_name',
             render: (_, record) => (
                 <span>{record.items.name}</span>
+            ),
+        },
+        {
+            title: 'Action',
+            key: 'action',
+            render: (_, record) => (
+                <Space size="middle">
+                    <a onClick={ () => history.push(`/admin/order/view/${record.order_id}`)} >View Order</a>
+                </Space>
             ),
         },
     ];
@@ -104,7 +117,7 @@ const GenerateDeliveries = ({ }) => {
                     <Collapse accordion defaultActiveKey={Object.keys(dailyDeliveries)[0]}>
                         {Object.keys(dailyDeliveries).map((key) => (
                             <Panel header="Zone Deliveries 1" key={key}>
-                                <DndSortTable tableColumns={columns} tableData={dailyDeliveries[key]} />
+                                <DndSortTable tableColumns={columns} tableData={dailyDeliveries[key]} onDragfinish={deliveryUpdate} />
                             </Panel>
                         ))}
                     </Collapse>

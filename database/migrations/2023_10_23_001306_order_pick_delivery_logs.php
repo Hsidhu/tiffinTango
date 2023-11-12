@@ -25,7 +25,7 @@ return new class extends Migration
             $table->float('lat', 10, 6)->nullable();
             $table->float('lng', 10, 6)->nullable();
             $table->string('comment', 268)->nullable();
-            $table->integer('priority')->default(1);
+            $table->integer('priority')->default(0);
             $table->integer('status')->default(1);
             $table->timestamps();
         });

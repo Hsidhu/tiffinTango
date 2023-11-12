@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import StickerSheet from '../../../components/containers/stickerSheet';
 import { Row, Col, Space, Divider, Select, Button, Spin, message } from 'antd';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
+import Papa from 'papaparse';
 
-import TableHeaderLink from '../../../components/tableHeaderLink';
 import { getDailyDeliveries, getStickerData } from "../../../redux/Order/actions";
 import { getDeliveryWindowsList } from '../../../redux/Common/actions'
 import { getDeliveryZoneList } from '../../../redux/DeliveryZone/actions'
@@ -27,9 +27,7 @@ const StickerView = ({}) => {
         dispatch(getDeliveryZoneList())
     }, [])
 
-    const printStickerSheet = () => {
-        window.print();
-    }
+    
 
     const updateDeliveryZone = (value) => {
         setDeliveryZoneID(value)
@@ -72,11 +70,15 @@ const StickerView = ({}) => {
         return pages;
     }
 
-    const handleOptimizeRoute = async () => {
+    const selectValidation = () =>{
         if (!deliveryWindowID || !deliveryZoneID) {
-            message.info('Please select Delivery Zone and Window')
+            message.error('Please select Delivery Zone and Window')
             return;
         }
+    }
+
+    const handleOptimizeRoute = async () => {
+        selectValidation();
         try {
             setLoading(true);
             const response = await postRequest('order/optimizeRoute', {
@@ -91,6 +93,23 @@ const StickerView = ({}) => {
             console.error('Error:', error);
             setLoading(false);
         }
+    }
+
+    const handleDownloadCSV = () => {
+        selectValidation();
+        const csv = Papa.unparse(deliveryStickers?.data);
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `route_csv_${deliveryZoneID}_${deliveryWindowID}`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+
+    const printStickerSheet = () => {
+        selectValidation();
+        window.print();
     }
     
     const pages = splitStickerDataIntoPages(deliveryStickers?.data ?? stickerData, labelsPerPage)
@@ -133,6 +152,13 @@ const StickerView = ({}) => {
                         <Button type={'primary'} onClick={handleOptimizeRoute}>
                             Optimize Route
                         </Button>
+
+                        <Button type={'primary'} onClick={handleDownloadCSV}>
+                            Download CSV
+                        </Button>
+                        <Button type={'primary'} onClick={printStickerSheet}>
+                            Print
+                        </Button>
                     </Space>
                 </Col>
             </Row>
@@ -143,7 +169,6 @@ const StickerView = ({}) => {
                 </Col>
             </Row>
             
-            <Button onClick={printStickerSheet}>Print</Button>
             <StickerSheet pages={pages} />
         </>
     );

@@ -22,6 +22,11 @@ const Order = ({ }) => {
         history.push(`/admin/order/view/${id}`)
     }
 
+    const getRowClassName = (record) => {
+        // Example condition: change color if a certain field is true
+        return record.status=='Canceled'? 'row-status-canceled' : '';
+    };
+
     const columns = [
         {
             key: 'customer_name',
@@ -63,12 +68,17 @@ const Order = ({ }) => {
         <>
             <TableHeaderLink
                 name="Orders"
+                subTitle="MealPlan Orders"
                 HeaderButtons = {[
                     <Link key={'link'} to="/admin/order/generateDeliveries"> Generate Deliveries</Link>,
                 ]}
             />
             <Divider />
-            <Table rowKey="id" columns={columns} dataSource={orders.data} />
+            <Table 
+                rowKey="id" columns={columns} 
+                dataSource={orders.data} 
+                rowClassName={getRowClassName}
+            />
         </>
     );
 }

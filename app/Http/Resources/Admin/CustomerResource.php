@@ -27,7 +27,8 @@ class CustomerResource extends JsonResource
             'address' => $this->address->formatted_Address,
             'delivery_zone_id' => $this->address->delivery_zone_id,
             'status' => $this->status,
-            'mealplanorders' => $this->mealplanorders
+            'mealplanorders' => $this->mealplanorders,
+            'created_at' => $this->created_at->setTimezone(config('app.CLIENT_TIMEZONE'))->format('Y-m-d H:i:s')
         ];
     }
 }

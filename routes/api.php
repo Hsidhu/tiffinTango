@@ -77,6 +77,8 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
 
     Route::get('/order/dailyDeliveries', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'index']);
     Route::post('/order/generateDailyDeliveries', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'generateDailyDeliveries']);
+    Route::post('/order/generateDailyDelivery/update', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class, 'update']);
+
     Route::post('/order/getStickerData', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'getStickerData']);
     Route::post('/order/optimizeRoute', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'optimizeRoute']);
     

@@ -9,6 +9,7 @@ use App\Models\DailyDeliveryMealPlanLog;
 use App\Models\OrderStatus;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class DailyOrderGenerator 
 {
@@ -46,10 +47,13 @@ class DailyOrderGenerator
     public function orderAlreadyCreate($deliveryWindowId)
     {
         $tz = $this->getClientTimezone();
-        $today = Carbon::now()->tz($tz);
+        $todayDate = $this->getTodaysDate()->format('Y-m-d ');
+
+        Log::info("Log Today date :" . $todayDate);
+
         return DailyDeliveryMealPlanLog::whereDate(
                 DB::raw("CONVERT_TZ(created_at, 'UTC', '".$tz."')"), 
-                $today->format('Y-m-d')
+                $todayDate
             )->where('delivery_window_id', $deliveryWindowId)->exists();
     }
 
@@ -80,7 +84,9 @@ class DailyOrderGenerator
     public function getMealPlanOrders($deliveryWindowId, $customerIdsByZone = null)
     {
         $tz = $this->getClientTimezone();
-        $todayDate = Carbon::now()->tz($tz)->format('Y-m-d');
+        $todayDate = $this->getTodaysDate()->format('Y-m-d ');
+        Log::info("Log Today date :" . $todayDate);
+
         $query = MealPlanOrder::whereDate(
             DB::raw("CONVERT_TZ(start_date, 'UTC', '".$tz."')"),
             '<=', $todayDate
@@ -138,10 +144,7 @@ class DailyOrderGenerator
         return $this->isOrderGoingToday($deliveryDays);
     }
 
-    private function getClientTimezone()
-    {
-        return config('app.CLIENT_TIMEZONE');
-    }
+    
 
     public function isOrderGoingToday($deliveryDays)
     {
@@ -167,6 +170,19 @@ class DailyOrderGenerator
         ];
         $dayOfWeekInNumber = Carbon::now()->tz(config('app.CLIENT_TIMEZONE'))->dayOfWeek;
         return $weekMap[$dayOfWeekInNumber];
+    }
+
+
+    private function getTodaysDate()
+    {
+        $tz = $this->getClientTimezone();
+        $today = Carbon::now()->tz($tz);
+        return $today;
+    }
+
+    private function getClientTimezone()
+    {
+        return config('app.CLIENT_TIMEZONE');
     }
 
 }

@@ -1,11 +1,9 @@
 import React from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { 
-    Layout, Menu, MenuProps, Col, Row, Space,
-    Badge
+    Layout, Menu, MenuProps, Col, Row, Space
 } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { BellOutlined } from '@ant-design/icons';
 
 import {privateRouteList} from '../routes/routes';
 
@@ -14,9 +12,9 @@ import actions from '../redux/Authenticate/actions';
 import { protectedSideMenu } from '../routes/menu';
 import HeaderProfileDorpdown from '../components/headerProfileDorpdown';
 import HeaderLogo from '../components/headerLogo';
+import HeaderNotificationBell from '../components/HeaderNotificationBell';
 
 const { Header, Sider, Content, Footer } = Layout;
-
 
 function ProtectedRoutes() {
     const { name } = useSelector(state => state.authenticateReducer)
@@ -41,13 +39,7 @@ function ProtectedRoutes() {
                     <Col flex={3}>
                         <div style={{ display: 'flex', alignItems:'center', justifyContent:'end' }}>
                             <Space size={"large"}>
-                                <div>
-                                    <a href="#" style={{display:"flex"}}>
-                                        <Badge count={5}>
-                                            <BellOutlined style={{ fontSize: '24px' }}/>
-                                        </Badge>
-                                    </a>
-                                </div>
+                                <HeaderNotificationBell/>
                                 <HeaderProfileDorpdown />
                             </Space>
                         </div>

@@ -88,4 +88,13 @@ class DailyDeliveryController extends Controller
         return $query->orderBy('delivery_zone_id', 'DESC')->orderBy('priority', 'ASC')->get();
     }
 
+    public function update(Request $request)
+    {
+        $dailyDelivery = DailyDeliveryMealPlanLog::find($request->id);
+        $newRequest = $request->except('id');
+        $dailyDelivery->update($newRequest);
+        
+        return response()->json($dailyDelivery);
+    }
+
 }

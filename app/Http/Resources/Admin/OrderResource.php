@@ -3,6 +3,10 @@
 namespace App\Http\Resources\Admin;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+
+use App\Http\Resources\Admin\OrderItemResource;
+use App\Http\Resources\Admin\OrderTotalResource;
+use App\Http\Resources\Admin\DailyDeliveryMealPlanLogResouce;
 use App\Http\Resources\Admin\OrderPickedupLog;
 
 class OrderResource extends JsonResource
@@ -29,7 +33,6 @@ class OrderResource extends JsonResource
             'customer_delivery_zone' => $this->customer->address->deliveryZone,
             'order_type' => $this->order_type,
             'start_date' => $this->start_date,
-            'created_at' => $this->created_at,
             'end_date' => $this->end_date,
             'total_price' => $this->total_price,
             'order_status_id' => $this->order_status_id,
@@ -37,8 +40,10 @@ class OrderResource extends JsonResource
             'payment_processed'=> $this->payment_processed,
             'items' => OrderItemResource::collection($this->items),
             'totals' => OrderTotalResource::collection($this->totals),
-            'deliveries' => $this->deliveries,
+            'deliveries' => DailyDeliveryMealPlanLogResouce::collection($this->deliveries),
             'pickups' => OrderPickedupLog::collection($this->pickups),
+            'created_at' => $this->created_at->setTimezone(config('app.CLIENT_TIMEZONE'))->format('Y-m-d H:i:s'),
+            'updated_at' => $this->updated_at->setTimezone(config('app.CLIENT_TIMEZONE'))->format('Y-m-d H:i:s')
         ];
     }
 }
