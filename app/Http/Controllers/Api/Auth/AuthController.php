@@ -15,10 +15,10 @@ class AuthController extends Controller
 {
     public function authenticate(AuthenticateRequest $request): JsonResponse
     {
-        $userType = $request->input('user_type', 'user'); // Default to 'user' if not provided
+        $userType = $request->input('user_type', 'user');
+        $guard = $this->getGraud($userType);
+
         $credentials = $request->only('email', 'password');
-       
-        $guard = ($userType === 'customer') ? 'customer-web' : 'customer-web';
 
         if (!Auth::guard($guard)->attempt($credentials)) {
             return response()->json([
@@ -37,7 +37,6 @@ class AuthController extends Controller
         $user['userType'] = $this->getUserType($user);
 
         $token = $user->createToken('auth_token')->plainTextToken;
-
         return response()->json([
             'user' => $user,
             'access_token' => $token,
@@ -85,5 +84,20 @@ class AuthController extends Controller
             return 'user';
         }
         return false;
+    }
+
+    private function getGraud($userTypeFlag)
+    {
+        switch ($userTypeFlag) {
+            case 'customer':
+                    return 'customer-web';
+                break;
+            case 'driver':
+                return 'driver-web';
+            break;
+            default:
+                return 'web';
+            break;
+        }
     }
 }

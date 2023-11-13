@@ -10,12 +10,24 @@ class CheckUserType
     {
         $user = Auth::user();
 
-        if ($user instanceof \App\Models\Customer) {
-            // Handle Customer logic
-        } elseif ($user instanceof \App\Models\User) {
-            // Handle User logic
-        }
+        $userType = $this->getUserType($user);
 
         return $next($request);
     }
+
+    private function getUserType($user)
+    {
+        $userType = get_class($user);
+        switch ($userType) {
+            case \App\Models\Customer::class:
+                return 'customer';
+            case \App\Models\Driver::class:
+                return 'driver';
+            default:
+                return 'user';
+            break;
+        }
+        return '';
+    }
+
 }

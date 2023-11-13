@@ -21,12 +21,17 @@ class UserController extends Controller
 
     private function getUserType($user)
     {
-        if ($user instanceof \App\Models\Customer) {
-            return 'customer';
-        } elseif ($user instanceof \App\Models\User) {
-            return 'user';
+        $userType = get_class($user);
+        switch ($userType) {
+            case \App\Models\Customer::class:
+                return 'customer';
+            case \App\Models\Driver::class:
+                return 'driver';
+            default:
+                return 'user';
+            break;
         }
-        return false;
+        return '';
     }
 
 }

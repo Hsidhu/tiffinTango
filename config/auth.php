@@ -55,6 +55,15 @@ return [
             'driver' => 'sanctum',
             'provider' => 'customers',
             'hash' => false,
+        ],
+        'driver-web' => [
+            'driver' => 'session',
+            'provider' => 'drivers',
+        ],
+        'driver-api'=>[
+            'driver' => 'sanctum',
+            'provider' => 'drivers',
+            'hash' => false,
         ]
     ],
 

@@ -22,6 +22,9 @@ function Login() {
                     name="normal_login"
                     onFinish={onFinish}
                 >
+                    <Form.Item name="user_type" hidden>
+                        <Input type="hidden" value="customer" />
+                    </Form.Item>
                     <Form.Item
                         name="email"
                         validateTrigger="onSubmit"
