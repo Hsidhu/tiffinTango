@@ -47,9 +47,14 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
-        'customer'=>[
+        'customer-web' => [
+            'driver' => 'session',
+            'provider' => 'customers',
+        ],
+        'customer-api'=>[
             'driver' => 'sanctum',
             'provider' => 'customers',
+            'hash' => false,
         ]
     ],
 

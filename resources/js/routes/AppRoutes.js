@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { PrivateRoute, PublicRoute, AuthRoute } from '../routes/helpers';
 import PublicRoutes from '../layouts/PublicRoutes';

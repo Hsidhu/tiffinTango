@@ -23,8 +23,12 @@ class AuthenticateRequest extends FormRequest
      */
     public function rules()
     {
+        $userType = $this->request->get('user_type', 'user');
+
+        $guard = ($userType === 'customer') ? 'customer' : 'web';
+
         return [
-            'email' => ['required', 'email', 'exists:users,email'],
+            'email' => ['required', 'email', 'exists:'.$guard.',email'],
             'password' => ['required', 'min:6'],
         ];
     }

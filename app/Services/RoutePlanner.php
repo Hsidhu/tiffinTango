@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Services\Geolite\Facades\Geocoder;
 use App\Services\DailyOrderGenerator;
 use App\Models\DailyDeliveryMealPlanLog;
-use App\Models\DeliveryZone;
+use App\Models\Location;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Session;
@@ -18,11 +18,13 @@ class RoutePlanner
         $addressList = $deliveryUnSortedData['addressList'];
         $orginalOrder =  $deliveryUnSortedData['addressDeliveryIds'];
 
+        $start = $end = $this->getLocationAddress();
         // $addressList = ['Guelph ON', 'Oakville, ON', 'Brampton, ON', 'Mississauga, ON', 'Vaughan, ON', 'Markham, ON, CA'];
         // $orginalOrder = [1,2,3,4,5,6];
         $refinedOrder=[];
-        $optimizedList = $this->optimzer($addressList);
+        $optimizedList = $this->optimzer($start, $addressList, $end);
         Session::put('zoneRoute', $optimizedList['response']);
+        
         foreach ($optimizedList['refinedData'] as $key => $value) {
             if($value['orginal_waypoint_order'] == -1 || $value['orginal_waypoint_order'] == -2){
                 continue;
@@ -50,7 +52,7 @@ class RoutePlanner
         ];
     }
 
-    public function optimzer($addressList)
+    public function optimzer($start, $addressList, $end)
     {
         // get address by zone
         $optimzied = Geocoder::directionRouter(
@@ -72,5 +74,10 @@ class RoutePlanner
         ->orderBy('delivery_zone_id', 'ASC')
         ->orderBy('priority', 'DESC')
         ->get();
+    }
+
+    public function getLocationAddress()
+    {
+        return Location::first()->formatted_address;
     }
 }

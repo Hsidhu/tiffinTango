@@ -33,11 +33,11 @@ export const publicTopMenu = [
 export const protectedSideMenu = [
     getItem('/admin/dashboard', 'Dashboard', <DashboardOutlined />),
     getItem('/admin/orders', 'Orders', <UnorderedListOutlined />),
-    getItem('/admin/locations', 'Locations', <PushpinFilled />),
-    getItem('/admin/mealplans', 'MealPlan', <CopyFilled />),
     getItem('/admin/customers', 'Customers', <TeamOutlined />),
     getItem('/admin/drivers', 'Drivers', <TeamOutlined />),
+    getItem('/admin/mealplans', 'MealPlan', <CopyFilled />),
     getItem('/admin/delivery_zones', 'Delivery Zone', <CarFilled />),
+    getItem('/admin/locations', 'Locations', <PushpinFilled />),
     getItem('/admin/settings', 'Settings', <SettingFilled />),
     getItem('User', 'sub1', <UserOutlined />, [
         getItem('Tom', '3'),

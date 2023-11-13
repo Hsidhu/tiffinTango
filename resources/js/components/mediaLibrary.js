@@ -27,7 +27,7 @@ const MediaLibrary = ({openLibraryFlag, uploadFile, handleFileSelection}) => {
             </Button>
 
                 <Modal
-                    title="Modal 1000px width"
+                    title="Media Library"
                     centered
                     open={open}
                     onOk={() => setOpen(false)}

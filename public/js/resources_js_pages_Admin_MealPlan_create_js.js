@@ -6554,7 +6554,7 @@ var MediaLibrary = function MediaLibrary(_ref) {
       },
       children: "Open Modal of 1000px width"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      title: "Modal 1000px width",
+      title: "Media Library",
       centered: true,
       open: open,
       onOk: function onOk() {

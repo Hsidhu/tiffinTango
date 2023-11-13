@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\MediaFile;
 use App\Models\MealPlan;
 use App\Http\Resources\Admin\MediaFileResource;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+
 
 class MediaController extends Controller
 {
@@ -29,6 +31,20 @@ class MediaController extends Controller
     public function remove(Request $request)
     {
         // get Id from Media table and add it to media Files table
+        $mediaFileWithoutMedia = MediaFile::doesntHave('media')->first();
+
+        $mediaId = 1; // Replace with your actual media ID
+
+        $media = Media::find($mediaId);
+        if ($media) {
+            $modelType = $media->model_type;
+            $modelId = $media->model_id;
+        
+            $relatedModel = $modelType::find($modelId);
+            
+            // Now $relatedModel is the model instance associated with the media
+        }
+
     }
 
     public function update(Request $request, $id)

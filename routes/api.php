@@ -28,9 +28,13 @@ Route::post('/mealplan/update', [App\Http\Controllers\Api\Admin\MealPlanControll
 Route::delete('/mealplan/delete/{id}', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'delete']);
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
-    Route::get('/auth/user', function (Request $request) {
-        return ['user' => $request->user()];
-    });
+    
+    Route::get('/auth/user', [App\Http\Controllers\Api\Admin\UserController::class, 'getAuthUser']);
+
+    // Route::get('/auth/user', function (Request $request) {
+    //     return ['user' => $request->user()];
+    // });
+
     Route::delete('/logout', [App\Http\Controllers\Api\Auth\AuthController::class,'logout']);
 
     // Location Routes
@@ -81,7 +85,6 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
 
     Route::post('/order/getStickerData', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'getStickerData']);
     Route::post('/order/optimizeRoute', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'optimizeRoute']);
-    
     
 });
 

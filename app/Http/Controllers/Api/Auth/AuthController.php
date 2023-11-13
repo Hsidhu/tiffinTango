@@ -15,7 +15,12 @@ class AuthController extends Controller
 {
     public function authenticate(AuthenticateRequest $request): JsonResponse
     {
-        if(!Auth::attempt($request->only('email', 'password'))){
+        $userType = $request->input('user_type', 'user'); // Default to 'user' if not provided
+        $credentials = $request->only('email', 'password');
+       
+        $guard = ($userType === 'customer') ? 'customer-web' : 'customer-web';
+
+        if (!Auth::guard($guard)->attempt($credentials)) {
             return response()->json([
                 'message' => 'Invalid login details'
             ], 401);
@@ -28,7 +33,9 @@ class AuthController extends Controller
         // Authorization: Bearer {API_TOKEN}
         $request->session()->regenerate();
 
-        $user = Auth::user();
+        $user = Auth::guard($guard)->user();
+        $user['userType'] = $this->getUserType($user);
+
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
@@ -60,10 +67,23 @@ class AuthController extends Controller
 
     public function logout(Request $request): JsonResponse
     {
-        Auth::guard('web')->logout();
+        $userType = $request->input('user_type', 'user');  
+        $guard = ($userType === 'customer') ? 'customer-web' : 'web';
+
+        Auth::guard($guard)->logout();
         Auth::user()->tokens()->delete();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return response()->json(["message" => "User successfully logged out"], 204);
+    }
+
+    private function getUserType($user)
+    {
+        if ($user instanceof \App\Models\Customer) {
+            return 'customer';
+        } elseif ($user instanceof \App\Models\User) {
+            return 'user';
+        }
+        return false;
     }
 }

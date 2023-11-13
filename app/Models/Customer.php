@@ -11,7 +11,9 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\NewCustomerNotification;
 
-class Customer extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class Customer extends Authenticatable
 {
     use HasFactory, HasApiTokens, Notifiable;
 
