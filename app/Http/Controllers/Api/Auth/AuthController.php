@@ -82,6 +82,8 @@ class AuthController extends Controller
             return 'customer';
         } elseif ($user instanceof \App\Models\User) {
             return 'user';
+        } elseif ($user instanceof \App\Models\Driver) {
+            return 'driver';
         }
         return false;
     }
