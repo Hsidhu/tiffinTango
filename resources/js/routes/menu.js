@@ -26,7 +26,7 @@ export const publicTopMenu = [
     getItem('/', 'Home', <HomeFilled />),
     getItem('/order/mealplan',  <Link to="/order/mealplan" >MealPlan</Link>, <UnorderedListOutlined />),
     getItem('/order/catering', 'Catering', <UnorderedListOutlined />),
-    getItem('/order/takeway', 'Takeway', <UnorderedListOutlined />),
+    getItem('/order/takeway', 'Takeout', <UnorderedListOutlined />),
     getItem('/login', 'login', <LoginOutlined />)
 ];
 

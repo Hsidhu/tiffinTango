@@ -21,9 +21,9 @@ class MealPlanSeeder extends Seeder
     {
         $mealPlan = MealPlan::create([
             'name' => '2 Daal + 4 roti - Mon-to-Fri',
-            'description' => "Daal Daal Daal",
-            'short_description' => 'Daal short description - delivery will be monday to friday',
-            'price' => 100.00, 
+            'description' => "Daal short description - delivery will be monday to friday",
+            'short_description' => '2 Daal + 4 roti',
+            'price' => 100.00,
             'discount' => 0.00,
             'delivery_days' => 'monday_to_friday',
             'image' => ''

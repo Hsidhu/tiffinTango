@@ -1,11 +1,13 @@
 import React from 'react';
 import { Typography, Space, Form } from 'antd'
 import ContentCards from '../components/contentCards';
+import SitePageHeader from '../components/sitePageHeader';
 
 const Catering = ({ }) => {
     return (
         <>
             <div>
+                <SitePageHeader pageTitle={'Catering'}/>
                 {/* 
                     Snacks
                     Item, price, Qty, amount

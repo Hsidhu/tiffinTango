@@ -1,7 +1,6 @@
 import React from 'react';
-import { Carousel } from 'antd';
-
-import { axiosConfig } from '../config/constants';
+import { Carousel, Button, Typography } from 'antd';
+import { Link } from 'react-router-dom';
 import { imageUrl } from '../config/helpers';
 
 const contentStyle = {
@@ -39,21 +38,41 @@ const CarouselSlider = () => {
                 <div style={{position:"relative"}}>
                     <img width={'100%'} src={imageUrl('images/site/slider_440.png')} />
                     <div style={textOverLay}>
+                        <Typography.Title level={1} style={{margin: "14px 8px"}}>
+                            Contact us @
+                        </Typography.Title>
+                        <p>
+                            <Link to={"order/mealplan"}>
+                                <Button type={'primary'} size={'large'}>Order Tiffin Now!</Button>
+                            </Link>
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div>
+                <div style={{position:"relative"}}>
+                    <img width={'100%'} src={imageUrl('images/site/slider_show_2.png')} />
+                    <div style={textOverLay}>
                         <h3>Title 1</h3>
                         <p>Description 1</p>
                     </div>
                 </div>
                 
             </div>
+
             <div>
-                <h3 style={contentStyle}>2</h3>
+                <div style={{position:"relative"}}>
+                    <img width={'100%'} src={imageUrl('images/site/slider_show_3.png')} />
+                    <div style={textOverLay}>
+                        <h3>Title 1</h3>
+                        <p>Description 1</p>
+                    </div>
+                </div>
+                
             </div>
-            <div>
-                <h3 style={contentStyle}>3</h3>
-            </div>
-            <div>
-                <h3 style={contentStyle}>4</h3>
-            </div>
+
         </Carousel>
     );
 };
