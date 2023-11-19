@@ -1,6 +1,6 @@
 export const axiosConfig = {
     //HOST_URL: 'https://laravel-react-boilerplate.herokuapp.com/api',
-    HOST_URL: 'https://tiffintango.dvl.to/api',
+    HOST_URL: process.env.API_URL ?? 'https://tiffintango.dvl.to/api',
     headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',

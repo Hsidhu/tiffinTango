@@ -20,12 +20,7 @@ Route::post('/register', [App\Http\Controllers\Api\Auth\AuthController::class,'r
 
 Route::get('/mealplan', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'index']);
 Route::get('/mealplan/options/{mealplan_id}', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'mealplanOptions']);
-Route::post('/mealplan/create', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'create']);
-Route::post('/mealplan/create/option', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'createOption']);
-Route::post('/mealplan/create/addon', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'createAddon']);
-Route::get('/mealplan/edit/{id}', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'edit']);
-Route::post('/mealplan/update', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'update']);
-Route::delete('/mealplan/delete/{id}', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'delete']);
+
 
 Route::group(['middleware' => 'auth:sanctum'], function() {
     
@@ -70,7 +65,7 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
 
     Route::get('/delivery_zone/select', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'getSelectList']);
 
-
+    // Order admin
     Route::get('/orders', [App\Http\Controllers\Api\Admin\OrderController::class, 'index']);
     Route::get('/order/view/{id}', [App\Http\Controllers\Api\Admin\OrderController::class, 'view']);
     Route::get('/order/statuses', [App\Http\Controllers\Api\Admin\OrderStatusController::class, 'getOrderStatuses']);
@@ -85,11 +80,24 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
 
     Route::post('/order/getStickerData', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'getStickerData']);
     Route::post('/order/optimizeRoute', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'optimizeRoute']);
+
+    // mealplan create
+    Route::post('/mealplan/create', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'create']);
+    Route::post('/mealplan/create/option', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'createOption']);
+    Route::post('/mealplan/create/addon', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'createAddon']);
+    Route::get('/mealplan/edit/{id}', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'edit']);
+    Route::post('/mealplan/update', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'update']);
+    Route::delete('/mealplan/delete/{id}', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'delete']);
     
+    // media
+    Route::post('/media/upload', [App\Http\Controllers\Api\Admin\MediaController::class,'upload']);
+    Route::get('/media/files', [App\Http\Controllers\Api\Admin\MediaController::class,'index']);
+
+    // site Settings
+    Route::get('/settings/{code}', [App\Http\Controllers\Api\Admin\SettingController::class, 'index']);
+    Route::post('/settings/save', [App\Http\Controllers\Api\Admin\SettingController::class, 'save']);
 });
 
-Route::post('/media/upload', [App\Http\Controllers\Api\Admin\MediaController::class,'upload']);
-Route::get('/media/files', [App\Http\Controllers\Api\Admin\MediaController::class,'index']);
 
 Route::get('images/{folder}/{filename}', [App\Http\Controllers\Api\FileController::class, 'images'])
     ->where(['folder' => '.*', 'filename' => '.*']);
@@ -106,7 +114,6 @@ Route::get('/delivery_windows', [App\Http\Controllers\Api\OrderController::class
 
 
 Route::get('/site/settings', [App\Http\Controllers\Api\SettingController::class, 'getSiteSettings']);
-Route::get('/settings/{code}', [App\Http\Controllers\Api\Admin\SettingController::class, 'index']);
-Route::post('/settings/save', [App\Http\Controllers\Api\Admin\SettingController::class, 'save']);
+
 
 //Route::apiResource('settings', App\Http\Controllers\Api\Admin\SettingController::class);

@@ -1,126 +1,80 @@
-import React, {useEffect} from 'react';
-import { useDispatch } from 'react-redux'
-import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
-import {
-    Layout, Row, Col, Menu, Space,
-    BackTop, Button, Divider
+import React from 'react';
+import { Route, Switch, useHistory } from 'react-router-dom';
+import { 
+    Layout, Menu, MenuProps, Col, Row, Space
 } from 'antd';
-import { customerRouteList } from '../routes/routes';
-import { publicTopMenu } from '../routes/menu'
-import HeaderLogo from '../components/headerLogo';
-import CarouselSlider from '../components/CarouselSlider';
-import { ArrowUpOutlined } from '@ant-design/icons';
+import { useDispatch, useSelector } from 'react-redux';
 
-import CookieConsent from '../components/cookieConsent';
-import { getSiteSettings } from '../redux/Common/actions';
+import {privateRouteList} from '../routes/routes';
+
+import { customerSideMenu } from '../routes/menu';
+import HeaderProfileDorpdown from '../components/headerProfileDorpdown';
+import HeaderLogo from '../components/headerLogo';
+import HeaderNotificationBell from '../components/HeaderNotificationBell';
 
 const { Header, Sider, Content, Footer } = Layout;
 
-// Layout for public pages
-const CustomerLayout = () => {
-    const history = useHistory();
-    const location = useLocation();
-    const dispatch = useDispatch()
+function CustomerLayout() {
+    const { name } = useSelector(state => state.authenticateReducer)
 
-    useEffect(()=>{
-        dispatch(getSiteSettings())
-    },[]);
+    const dispatch = useDispatch();
+    const history = useHistory()
 
-    const handleMenuClick = ({ key }) => {
-        if (key) {
+    const sidebarOnClickHandler = ({key}) => {
+        if(key){
             history.push(key)
         }
-    };
-    const renderSlider = () => {
-        return location.pathname === '/' ? <CarouselSlider /> : null;
     }
 
     return (
-        <Layout>
-            <Header style={{
-                        position: 'sticky',
-                        top: 0,
-                        zIndex: 1,
-                        width: '100%',
-                    }}
-                >
-                <Row>
-                    <Col span={8}>
-                        <HeaderLogo  uri="/" />
+        <Layout style={{ minHeight: "100vh" }}>
+            
+            <Header>
+                <Row justify="space-between" align="center">
+                    <Col flex={2}>
+                        <HeaderLogo uri="/admin/dashboard" />
                     </Col>
-                    <Col span={4}>
-
-                    </Col>
-                    <Col span={12}>
-                        <Menu
-                            mode="horizontal"
-                            style={{ 
-                                display: 'flex', justifyContent: 'flex-end', 
-                                backgroundColor:"transparent", borderBottom:'none',  fontSize:"20px" 
-                            }}
-                            defaultSelectedKeys={['home']}
-                            items={publicTopMenu}
-                            onClick={handleMenuClick}
-                        />
+                    <Col flex={3}>
+                        <div style={{ display: 'flex', alignItems:'center', justifyContent:'end' }}>
+                            <Space size={"large"}>
+                                <HeaderNotificationBell/>
+                                <HeaderProfileDorpdown />
+                            </Space>
+                        </div>
                     </Col>
                 </Row>
+                
             </Header>
+            <Layout hasSider>
+                
+                <Sider width={200}>
+                    <Menu
+                        mode="inline"
+                        defaultSelectedKeys={['/admin/dashboard']}
+                        defaultOpenKeys={['sub1']}
+                        style={{ height: '100%', borderRight: 0 }}
+                        items={customerSideMenu}
+                        onClick={sidebarOnClickHandler}
+                    />
+                </Sider>
 
-            {renderSlider()}
+                <Layout style={{ padding: '0 24px 24px' }}>
+                    <Content style={{ padding: 24, margin: 0, minHeight: 280}}>
+                        <Switch>
+                            {privateRouteList.map(({ component: Component, path, exact }, index) => (
+                                <Route path={`/${path}`} key={index} exact={exact}>
+                                    <Component />
+                                </Route>
+                            ))}
+                        </Switch>
+                    </Content>
+                    <Footer style={{ textAlign: 'center'}}>
+                        Ant Design ©2023 Created by Ant UED
+                    </Footer>
+                </Layout>
 
-            <Content style={{ padding: '0 50px' }}>
-                <Space
-                    direction="vertical"
-                    size="large"
-                    style={{
-                        display: 'flex',
-                        margin: '18px 14px'
-                    }}
-                >
-                    <Switch>
-                        {customerRouteList.map(({ component: Component, path, exact }, index) => (
-                            <Route path={`/${path}`} key={index} exact={exact}>
-                                <Component />
-                            </Route>
-                        ))}
-                    </Switch>
-                </Space>
+            </Layout>
 
-            </Content>
-            <Footer>
-                <Row justify="center">
-                    <Col span={6}>
-                        <h2>Contacts</h2>
-                        <div>
-                            <a target="_blank" href="mailto:info@abcatering.ca">
-                                Email : info@abcatering.ca
-                            </a>
-                        </div>
-                        <div>
-                            <a target="_blank" href="tel:6479673831">
-                                Tel : 6479673831
-                            </a>
-                        </div>
-                    </Col>
-                    
-                    <Col span={6}>
-                        <h2>Opening time</h2>
-                        <p> Tuesday - Wednesday 11pm - 10pm </p>
-                        <p> Thursday  - Saturday 11pm - 11pm </p>
-                        <p> Sunday - Monday 11pm - 10pm</p>
-                    </Col>
-                    <Col span={6}>
-                        <h2>Follow Us</h2>
-                    </Col>
-                </Row>
-                <BackTop>
-                    <Button size={'large'} icon={<ArrowUpOutlined />} />
-                </BackTop>
-                <Divider/>
-                AB Catering ©2024 Created by FirstWish.ca
-
-                <CookieConsent/>
-            </Footer>
         </Layout>
     );
 }

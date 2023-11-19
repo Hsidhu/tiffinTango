@@ -24,7 +24,7 @@ export function AppRoutes({ }) {
             <Suspense fallback={<Spinner/>}>
                 <Switch>
 
-                    <PublicRoute path={["/", '/order/*']} exact>
+                    <PublicRoute path={["/", '/order/*', '/about-us', '/terms-and-conditions', '/policies']} exact>
                         <PublicLayout />
                     </PublicRoute>
 

@@ -30,7 +30,7 @@ export const publicTopMenu = [
     getItem('/login', 'login', <LoginOutlined />)
 ];
 
-export const protectedSideMenu = [
+export const adminSideMenu = [
     getItem('/admin/dashboard', 'Dashboard', <DashboardOutlined />),
     getItem('/admin/orders', 'Orders', <UnorderedListOutlined />),
     getItem('/admin/customers', 'Customers', <TeamOutlined />),
@@ -39,6 +39,15 @@ export const protectedSideMenu = [
     getItem('/admin/delivery_zones', 'Delivery Zone', <CarFilled />),
     getItem('/admin/locations', 'Locations', <PushpinFilled />),
     getItem('/admin/settings', 'Settings', <SettingFilled />),
+    getItem('User', 'sub1', <UserOutlined />, [
+        getItem('Tom', '3'),
+        getItem('Bill', '4'),
+    ]),
+];
+
+
+export const customerSideMenu = [
+    getItem('/customer/dashboard', 'Dashboard', <DashboardOutlined />),
     getItem('User', 'sub1', <UserOutlined />, [
         getItem('Tom', '3'),
         getItem('Bill', '4'),

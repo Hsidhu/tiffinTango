@@ -16,6 +16,21 @@ export const publicRouteList = [
         path: 'order/catering',
         component: lazy(() => import('../pages/Catering')),
         exact: true,
+    },
+    {
+        path: 'terms-and-conditions',
+        component: lazy(() => import('../pages/Terms')),
+        exact: true,
+    },
+    {
+        path: 'policies',
+        component: lazy(() => import('../pages/Policy')),
+        exact: true,
+    },
+    {
+        path: 'about-us',
+        component: lazy(() => import('../pages/About')),
+        exact: true,
     }
 ]
 

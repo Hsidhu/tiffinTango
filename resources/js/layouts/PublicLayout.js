@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import { useDispatch } from 'react-redux'
-import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
+import { Route, Switch, useHistory, useLocation, Link } from 'react-router-dom';
 import {
     Layout, Row, Col, Menu, Space,
     BackTop, Button, Divider
@@ -9,7 +9,7 @@ import { publicRouteList } from '../routes/routes';
 import { publicTopMenu } from '../routes/menu'
 import HeaderLogo from '../components/headerLogo';
 import CarouselSlider from '../components/CarouselSlider';
-import { ArrowUpOutlined } from '@ant-design/icons';
+import { ArrowUpOutlined, MenuFoldOutlined } from '@ant-design/icons';
 
 import CookieConsent from '../components/cookieConsent';
 import { getSiteSettings } from '../redux/Common/actions';
@@ -62,6 +62,7 @@ const PublicLayout = () => {
                             defaultSelectedKeys={['home']}
                             items={publicTopMenu}
                             onClick={handleMenuClick}
+                            overflowedIndicator={<MenuFoldOutlined/>}
                         />
                     </Col>
                 </Row>
@@ -112,6 +113,17 @@ const PublicLayout = () => {
                     </Col>
                     <Col span={6}>
                         <h2>Follow Us</h2>
+                        <ul>
+                            <li>
+                                <Link to="/policies">Policies</Link>
+                            </li>
+                            <li>
+                                <Link to="/terms-and-conditions">Terms</Link>
+                            </li>
+                            <li>
+                                <Link to="/about-us">About Us</Link>
+                            </li>
+                        </ul>
                     </Col>
                 </Row>
                 <BackTop>

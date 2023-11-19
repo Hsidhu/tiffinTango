@@ -7,9 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {privateRouteList} from '../routes/routes';
 
-import actions from '../redux/Authenticate/actions';
-
-import { protectedSideMenu } from '../routes/menu';
+import { adminSideMenu } from '../routes/menu';
 import HeaderProfileDorpdown from '../components/headerProfileDorpdown';
 import HeaderLogo from '../components/headerLogo';
 import HeaderNotificationBell from '../components/HeaderNotificationBell';
@@ -55,7 +53,7 @@ function AdminLayout() {
                         defaultSelectedKeys={['/admin/dashboard']}
                         defaultOpenKeys={['sub1']}
                         style={{ height: '100%', borderRight: 0 }}
-                        items={protectedSideMenu}
+                        items={adminSideMenu}
                         onClick={sidebarOnClickHandler}
                     />
                 </Sider>

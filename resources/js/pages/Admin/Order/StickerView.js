@@ -3,6 +3,7 @@ import StickerSheet from '../../../components/containers/stickerSheet';
 import { Row, Col, Space, Divider, Select, Button, Spin, message } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import Papa from 'papaparse';
+import moment from 'moment';
 
 import { getDailyDeliveries, getStickerData } from "../../../redux/Order/actions";
 import { getDeliveryWindowsList } from '../../../redux/Common/actions'
@@ -97,11 +98,23 @@ const StickerView = ({}) => {
 
     const handleDownloadCSV = () => {
         selectValidation();
-        const csv = Papa.unparse(deliveryStickers?.data);
+        if(_.isEmpty(deliveryStickers.data)){
+            message.error('No deliveries fetch to download')
+            return;
+        }
+        const csvData = deliveryStickers.data.map(({ customer_name, customer_email, customer_phone,  address, items }) => {
+            //const itemDetails = items.map(item => `Name: ${item.name}, Quantity: Quantity`).join(' | ');
+            const itemName = items.name;
+            return {
+                customer_name, customer_email, customer_phone,  address, itemName
+            };
+        });
+
+        const csv = Papa.unparse(csvData);
         const blob = new Blob([csv], { type: 'text/csv' });
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
-        a.download = `route_csv_${deliveryZoneID}_${deliveryWindowID}`;
+        a.download = `route_csv_${deliveryZoneID}_${deliveryWindowID}_${moment(new Date()).format("DD_MM_YYYY")}`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
