@@ -31,13 +31,16 @@ const CustomerDetailForm = ({prevForm, cart, placeOrder }) => {
     }
 
     return (
-        <Card title="Details" >
+        <Card title="Customer Details" 
+            extra={<Button key="go_back" onClick={prevForm}>
+                    <ArrowLeftOutlined />
+                </Button>
+            }
+        >
 
             <Row>
                 <Col span={24}>
-                    <Button onClick={prevForm}>
-                        <ArrowLeftOutlined />
-                    </Button>
+                    
                     <CustomerCreateForm form={form} />
                     <Button type="primary" onClick={triggerSubmit}>Submit</Button>
                     <br/>

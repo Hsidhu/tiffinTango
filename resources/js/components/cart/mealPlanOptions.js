@@ -76,7 +76,7 @@ const MealPlanOptions = ({mealPlanID, orderData, cart, selectMealPlanOption}) =>
                     <Text>{option.name}: </Text>
                 </Col>
 
-                <Col span={12}>
+                <Col span={14}>
                     <Space>
                         {option.display == 'select' ? buildSelectOptions(option.values) : null}
                         {option.display == 'radio' ? buildRadioOptions(option.values) : null}
