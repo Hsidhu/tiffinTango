@@ -11,6 +11,7 @@ const actions = {
     REGISTER: 'REGISTER',
     REGISTER_SUCCESS: 'REGISTER_SUCCESS',
     REGISTER_FAILURE: 'REGISTER_FAILURE',
+    USER_TYPE: 'USER_TYPE',
 }
 
 export default actions;

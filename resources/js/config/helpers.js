@@ -51,3 +51,9 @@ const addGoogleServiceSDKFields = (serverResponse, maps) => {
     serverResponse.request = {travelMode: maps.DirectionsTravelMode.DRIVING};
     return serverResponse;
 }
+
+export function getUrlSegment(urlString, index) {
+    const url = new URL(urlString);
+    const segments = url.pathname.split('/');
+    return segments[index];
+}

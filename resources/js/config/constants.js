@@ -30,3 +30,8 @@ export const autocompleteOptions = {
     fields: ["address_components", "geometry"],
     types: ["address"]
 }
+
+
+export const USER_TYPE_USER = 'user'
+export const USER_TYPE_DRIVER = 'driver'
+export const USER_TYPE_CUSTOMER = 'customer'

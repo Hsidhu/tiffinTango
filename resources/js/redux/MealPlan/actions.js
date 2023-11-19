@@ -1,5 +1,4 @@
 import { getRequest, postRequest, deleteRequest } from "../../config/axiosClient"
-import Errors from "../../services/errors"
 import { message } from 'antd';
 
 export const GET_MEALPLANS = "GET_MEALPLANS"
@@ -37,19 +36,15 @@ export const createMealPlan = (data) => (dispatch) => {
         formData.append(key, data[key]);
     }
 
-    let errs= Errors;
     const res = postRequest('mealplan/create', formData, config).then(response => {
         console.log(response.data)
         dispatch({
             type: GET_MEALPLANS,
             payload: response.data
         });
+        message.success('Success message');
     }).catch(error => {
-        errs.setErrors(error.response)
-        dispatch({
-            type: SET_ERRORS,
-            payload: errs
-        });
+        message.error('something is wrong');
     });
 }
 
@@ -88,19 +83,15 @@ export const updateMealPlan = (data) => (dispatch) => {
         formData.append(key, data[key]);
     }
 
-    let errs= Errors;
     const res = postRequest('mealplan/update', formData, config).then(response => {
         console.log(response.data)
         dispatch({
             type: GET_CUSTOMERS,
             payload: response.data
         });
+        message.success('Success message');
     }).catch(error => {
-        errs.setErrors(error.response)
-        dispatch({
-            type: SET_ERRORS,
-            payload: errs
-        });
+        message.error('something is wrong');
     });
 }
 
@@ -108,11 +99,11 @@ export const updateMealPlan = (data) => (dispatch) => {
 export const createMealPlanAddon = (data) => (dispatch) => {
 
     const res = postRequest('mealplan/create/addon', data).then(response => {
-        console.log(response.data)
         dispatch({
             type: CREATE_MEALPLAN_OPTION,
             payload: response.data
         });
+        message.success('Success message');
     }).catch(error => {
         message.error('something is wrong');
     });

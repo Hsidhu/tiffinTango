@@ -45,6 +45,13 @@ class MealPlanSeeder extends Seeder
             'price' => 8.00
         ]);
 
+        MealPlanAddon::create([
+            'meal_plan_id' => 1,
+            'meal_plan_option_id' => 1,
+            'required' => 1,
+            'priority' => 1,
+            'status' => 1
+        ]);
 
         /** Order status */
         OrderStatus::create([

@@ -19,18 +19,19 @@ export const publicRouteList = [
     }
 ]
 
-export const customerRouteList = [
-    {
-        path: '',
-        name:'home',
-        component: lazy(() => import('../pages/home')),
-        exact: true,
-    }
-]
-
 export const authRouteList = [
     {
         path: 'login',
+        component: lazy(() => import('../pages/Auth/Login')),
+        exact: true,
+    },
+    {
+        path: 'admin/login',
+        component: lazy(() => import('../pages/Auth/Login')),
+        exact: true,
+    },
+    {
+        path: 'customer/login',
         component: lazy(() => import('../pages/Auth/Login')),
         exact: true,
     },
@@ -158,3 +159,11 @@ export const privateRouteList = [
         exact: true,
     }
 ]
+
+export const customerRouteList = [
+    {
+        path: 'customer/dashboard',
+        component: lazy(() => import('../pages/Customer/Dashboard')),
+        exact: true,
+    },
+];

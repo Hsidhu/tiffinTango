@@ -7,7 +7,8 @@ const initialState = {
     name: null,
     validateUserLoader: true,
     logOutLoader: false,
-    token: ''
+    token: '',
+    userType:null
 }
 
 function Reducer(state = initialState, action) {
@@ -21,6 +22,7 @@ function Reducer(state = initialState, action) {
                 isAuthenticated: !!action.payload.user.email,
                 email: action.payload.user.email,
                 name: action.payload.user.name,
+                userType: action.payload.user.userType
             }
         case actions.GET_AUTH_USER_FAILURE:
             return {
@@ -29,6 +31,7 @@ function Reducer(state = initialState, action) {
                 validateUserLoader: false,
                 email: null,
                 name: null,
+                userType:null
             }
         case actions.LOGIN:
             return { ...state, loader: true }
@@ -39,6 +42,7 @@ function Reducer(state = initialState, action) {
                 loader: false,
                 email: action.payload.user.email,
                 name: action.payload.user.name,
+                userType: action.payload.user.userType
             }
         case actions.LOGIN_FAILURE:
             return { ...state, isAuthenticated: false, loader: false }
