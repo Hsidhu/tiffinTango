@@ -20,7 +20,6 @@ function Home() {
                 </Typography.Title>
             </div>
             <FeatureCards/>
-
         </>
     );
   }

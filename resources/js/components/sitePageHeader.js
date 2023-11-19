@@ -7,9 +7,12 @@ import { Link } from 'react-router-dom';
 
 
 const breadcrumbBG = {
-    background: `url('${imageUrl('images/site/slider_440.png')}') no-repeat center center`,
+    background:  ` url('${imageUrl('images/site/slider_440.png')}') no-repeat center center rgb(108 30 30 / 70%)`,
     backgroundSize: 'cover',
-    display:'flex', justifyContent: 'center', margin: '10px'
+    backgroundBlendMode: 'multiply',
+    display:'flex',
+    justifyContent: 'center',
+    padding:"60px"
 }
 
 const SitePageHeader = ({pageTitle}) => {
@@ -17,9 +20,9 @@ const SitePageHeader = ({pageTitle}) => {
     return (
         <>
             <Row>
-                <Col span={12}>
+                <Col span={24}>
                     <div style={breadcrumbBG}>
-                        <Typography.Title level={1} style={{margin: "14px 8px"}}>
+                        <Typography.Title level={1} style={{margin: "14px 8px", color:"#ffffff"}}>
                             {pageTitle}
                         </Typography.Title>
                     </div>

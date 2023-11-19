@@ -33,7 +33,7 @@ const CarouselSlider = () => {
         console.log(currentSlide);
     };
     return (
-        <Carousel afterChange={onChange} autoplay={false} >
+        <Carousel afterChange={onChange} autoplay={true} dotPosition={'right'} >
             <div>
                 <div style={{position:"relative"}}>
                     <img width={'100%'} src={imageUrl('images/site/slider_440.png')} />

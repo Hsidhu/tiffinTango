@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
     Button, message, Steps,
-    Layout, Divider, Row, Col
+    Space, Divider, Row, Col
 } from 'antd';
 
 import MealPlan from './_cart/mealPlan';
@@ -43,20 +43,28 @@ const OrderMealPlan = () => {
 
     return (
         <>
-            <Row gutter={16}>
-                <Col span={24}>
-                    <Steps current={current} items={items} />
-                    <Divider />
-                    <div style={contentStyle}>
+            <Space
+                direction="vertical"
+                size="large"
+                style={{
+                    display: 'flex',
+                    margin: '18px 14px'
+                }}
+            >
+                <Row gutter={16}>
+                    <Col span={24}>
+                        <Steps current={current} items={items} />
+                        <Divider />
+                        <div style={contentStyle}>
 
-                        {steps[current].content}
+                            {steps[current].content}
 
-                    </div>
-                </Col>
+                        </div>
+                    </Col>
 
-            </Row>
+                </Row>
 
-
+            </Space>
         </>
     );
 };

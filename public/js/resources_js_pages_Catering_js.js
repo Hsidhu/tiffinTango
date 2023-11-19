@@ -1210,11 +1210,10 @@ __webpack_require__.r(__webpack_exports__);
 var ContentCards = function ContentCards() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
     gutter: 16,
-    style: {
-      display: 'flex'
-    },
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      span: 8,
+      sm: 24,
+      md: 6,
+      lg: 8,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
         to: "order/mealplan",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -1238,7 +1237,9 @@ var ContentCards = function ContentCards() {
         })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      span: 8,
+      sm: 24,
+      md: 6,
+      lg: 8,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
         to: "order/takeout",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -1262,7 +1263,9 @@ var ContentCards = function ContentCards() {
         })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      span: 8,
+      sm: 24,
+      md: 6,
+      lg: 8,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
         to: "order/catering",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -1316,24 +1319,26 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var breadcrumbBG = {
-  background: "url('".concat((0,_config_helpers__WEBPACK_IMPORTED_MODULE_1__.imageUrl)('images/site/slider_440.png'), "') no-repeat center center"),
+  background: " url('".concat((0,_config_helpers__WEBPACK_IMPORTED_MODULE_1__.imageUrl)('images/site/slider_440.png'), "') no-repeat center center rgb(108 30 30 / 70%)"),
   backgroundSize: 'cover',
+  backgroundBlendMode: 'multiply',
   display: 'flex',
   justifyContent: 'center',
-  margin: '10px'
+  padding: "60px"
 };
 var SitePageHeader = function SitePageHeader(_ref) {
   var pageTitle = _ref.pageTitle;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        span: 12,
+        span: 24,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           style: breadcrumbBG,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].Title, {
             level: 1,
             style: {
-              margin: "14px 8px"
+              margin: "14px 8px",
+              color: "#ffffff"
             },
             children: pageTitle
           })

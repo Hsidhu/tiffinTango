@@ -71,27 +71,17 @@ const PublicLayout = () => {
             {renderSlider()}
 
             <Content style={{ padding: '0 50px' }}>
-                <Space
-                    direction="vertical"
-                    size="large"
-                    style={{
-                        display: 'flex',
-                        margin: '18px 14px'
-                    }}
-                >
-                    <Switch>
-                        {publicRouteList.map(({ component: Component, path, exact }, index) => (
-                            <Route path={`/${path}`} key={index} exact={exact}>
-                                <Component />
-                            </Route>
-                        ))}
-                    </Switch>
-                </Space>
-
+                <Switch>
+                    {publicRouteList.map(({ component: Component, path, exact }, index) => (
+                        <Route path={`/${path}`} key={index} exact={exact}>
+                            <Component />
+                        </Route>
+                    ))}
+                </Switch>
             </Content>
             <Footer>
                 <Row justify="center">
-                    <Col span={6}>
+                    <Col sm={24} md={6} lg={8}>
                         <h2>Contacts</h2>
                         <div>
                             <a target="_blank" href="mailto:info@abcatering.ca">
@@ -105,13 +95,13 @@ const PublicLayout = () => {
                         </div>
                     </Col>
                     
-                    <Col span={6}>
+                    <Col sm={24} md={6} lg={8}>
                         <h2>Opening time</h2>
                         <p> Tuesday - Wednesday 11pm - 10pm </p>
                         <p> Thursday  - Saturday 11pm - 11pm </p>
                         <p> Sunday - Monday 11pm - 10pm</p>
                     </Col>
-                    <Col span={6}>
+                    <Col sm={24} md={6} lg={8}>
                         <h2>Follow Us</h2>
                         <ul>
                             <li>

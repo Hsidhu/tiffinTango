@@ -6,8 +6,8 @@ import { imageUrl } from '../config/helpers';
 import { Link } from 'react-router-dom';
 
 const ContentCards = () => (
-    <Row gutter={16} style={{display:'flex'}}>
-        <Col span={8}>
+    <Row gutter={16}>
+        <Col sm={24} md={6} lg={8}>
 
             <Link to={`order/mealplan`}>
                 <Card
@@ -24,7 +24,7 @@ const ContentCards = () => (
             </Link>
 
         </Col>
-        <Col span={8}>
+        <Col sm={24} md={6} lg={8}>
             
             <Link to={`order/takeout`}>
                 <Card hoverable bordered={false}
@@ -39,7 +39,7 @@ const ContentCards = () => (
             </Link>
 
         </Col>
-        <Col span={8}>
+        <Col sm={24} md={6} lg={8}>
 
             <Link to={`order/catering`}>
                 <Card hoverable bordered={false}
