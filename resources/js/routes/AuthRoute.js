@@ -3,10 +3,11 @@ import { Redirect, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from '../redux/Authenticate/actions';
 import Spinner from '../components/Spinner'
+import { USER_TYPE_CUSTOMER, USER_TYPE_USER } from '../config/constants';
 
 function AuthRoute({ children, ...rest }) {
     // Getting isAuthenticated store value from Authentication reducer.
-    const { isAuthenticated, validateUserLoader } = useSelector(state => state.authenticateReducer)
+    const { isAuthenticated, validateUserLoader, userType } = useSelector(state => state.authenticateReducer)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -21,6 +22,8 @@ function AuthRoute({ children, ...rest }) {
         return <Spinner />;
     }
 
+    const redirectTo = userType == USER_TYPE_CUSTOMER ? 'customer' : 'admin';
+
     return (
         <Route
             {...rest}
@@ -31,7 +34,7 @@ function AuthRoute({ children, ...rest }) {
                 ) : (
                     <Redirect
                         to={{
-                            pathname: '/admin/dashboard',
+                            pathname: `/${redirectTo}/dashboard`,
                             state: { from: location },
                         }}
                     />
