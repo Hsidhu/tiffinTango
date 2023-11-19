@@ -25,7 +25,7 @@ class MealPlanSeeder extends Seeder
             'short_description' => 'Daal short descriptin',
             'price' => 100.00, 
             'discount' => 0.00,
-            'duration' => '',
+            'delivery_days' => 'monday_to_friday',
             'image' => ''
         ]);
         $mealPlanOption = MealPlanOption::create([

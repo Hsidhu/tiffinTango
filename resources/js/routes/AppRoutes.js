@@ -1,9 +1,14 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { PrivateRoute, PublicRoute, AuthRoute } from '../routes/helpers';
+
+import PublicRoute from './PublicRoute';
 import PublicRoutes from '../layouts/PublicRoutes';
+
+import AuthRoute  from './AuthRoute'
 import AuthRoutes from "../layouts/AuthRoutes"
-import ProtectedRoutes from '../layouts/ProtectedRoutes';
+
+import AdminRoute from './AdminRoute'
+import AdminRoutes from '../layouts/AdminRoutes';
 
 const NoPageFound = lazy(() => import('../pages/noPageFound'));
 
@@ -22,9 +27,9 @@ export function AppRoutes({ isAuthenticated }) {
                         <AuthRoutes />
                     </AuthRoute>
                     
-                    <PrivateRoute path={["/admin/*"]} isAuthenticated={isAuthenticated} >
-                        <ProtectedRoutes />
-                    </PrivateRoute>
+                    <AdminRoute path={["/admin/*"]} isAuthenticated={isAuthenticated} >
+                        <AdminRoutes />
+                    </AdminRoute>
 
                     <Route path="*">
                         <NoPageFound />

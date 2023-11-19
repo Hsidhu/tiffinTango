@@ -16,6 +16,8 @@ class Driver extends Authenticatable
 
     protected $guarded = [];
 
+    protected $hidden = ['password']; 
+
     public function address()
     {
         return $this->belongsTo(\App\Models\Address::class);

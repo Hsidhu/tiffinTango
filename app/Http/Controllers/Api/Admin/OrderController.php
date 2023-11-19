@@ -59,8 +59,9 @@ class OrderController extends Controller
 
     public function delivered(Request $request)
     {
-        $order = MealPlanOrder::find($request->id);
-        $picked = DailyDeliveryMealPlanLog::where([
+        $order = MealPlanOrder::find($request->order_id);
+        $dailyDeliveryId = DailyDeliveryMealPlanLog::where([
+            'id' => $request->id,
             'order_id' => $order->id,
             'customer_id' => $order->customer_id,
             'driver_id' => $request->get('driver_id'),
@@ -70,6 +71,11 @@ class OrderController extends Controller
             'comment' => $request->get('comment'),
             'image' =>'image'
         ]);
-        return response()->json($picked);
+
+        $deliveryModel = DailyDeliveryMealPlanLog::find($dailyDeliveryId);
+        // // addMediaFromRequest
+        $deliveryModel->addMedia($request->file('image'))->toMediaCollection();
+
+        return response()->json($deliveryModel);
     }
 }
