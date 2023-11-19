@@ -3,7 +3,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import actions from '../redux/Authenticate/actions';
 import Spinner from '../components/Spinner'
-import { USER_TYPE_DRIVER } from '../config/constants';
+import { USER_TYPE_CUSTOMER } from '../config/constants';
 
 function CustomerRoute({ children, ...rest }) {
     // Getting isAuthenticated store value from Authentication reducer.
@@ -26,7 +26,7 @@ function CustomerRoute({ children, ...rest }) {
         <Route
             {...rest}
             render={({ location }) =>
-            ((isAuthenticated  && userType == USER_TYPE_USER) ? (
+            ((isAuthenticated  && userType == USER_TYPE_CUSTOMER) ? (
                 children
             ) : (
                 <Redirect
