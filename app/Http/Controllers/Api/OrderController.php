@@ -45,7 +45,7 @@ class OrderController extends Controller
             "invoice_no" => 'adsfaf',
             "payment_type" => 'cash',
             'payment_processed' => 1,
-            'status_id' => 1,
+            'order_status_id' => 1,
             'delivery_comment' => $request->get('delivery_comment'),
             'comment' => $request->get('comment'),
             'delivery_window_id' => $request->get('delivery_window_id')

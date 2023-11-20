@@ -47,7 +47,9 @@ class Address extends Model
         $formattedAddress = $this->getDefaultFormat();
         // Replace placeholders with values from the address array
         foreach ($this->requiredAddressKeys as $key) {
-            $formattedAddress = str_replace("{{$key}}", $address[$key], $formattedAddress);
+            if(isset($address[$key])){
+                $formattedAddress = str_replace("{{$key}}", $address[$key], $formattedAddress);
+            }
         }
 
         if ($useLineBreaks) {
