@@ -10,7 +10,7 @@ export const ASSIGN_DRIVER_TO_ZONE = "ASSIGN_DRIVER_TO_ZONE"
 export const DELIVERY_WINDOWS_SELECT_LIST = "DELIVERY_WINDOWS_SELECT_LIST"
 
 export const getDeliveryZones = () => (dispatch) => {
-    const res = getRequest('delivery_zones').then(response => {
+    const res = getRequest('admin/delivery_zones').then(response => {
         dispatch({
             type: GET_DELIVERY_ZONES,
             payload: response.data
@@ -21,7 +21,7 @@ export const getDeliveryZones = () => (dispatch) => {
 }
 
 export const createDeliveryZone = (data) => (dispatch) => {
-    const res = postRequest('delivery_zone/create', data).then(response => {
+    const res = postRequest('admin/delivery_zone/create', data).then(response => {
         dispatch({
             type: CREATE_DELIVERY_ZONE,
             payload: response.data
@@ -32,7 +32,7 @@ export const createDeliveryZone = (data) => (dispatch) => {
 }
 
 export const getDeliveryZone = (id) => (dispatch) => {
-    const res = getRequest(`delivery_zone/edit/${id}`).then(response => {
+    const res = getRequest(`admin/delivery_zone/edit/${id}`).then(response => {
         dispatch({
             type: GET_DELIVERY_ZONE,
             payload: response.data
@@ -42,7 +42,7 @@ export const getDeliveryZone = (id) => (dispatch) => {
 
 export const updateDeliveryZone = (data, navigate) => (dispatch) => {
 
-    const res = postRequest('delivery_zone/update', data).then(response => {
+    const res = postRequest('admin/delivery_zone/update', data).then(response => {
         dispatch({
             type: UPDATE_DELIVERY_ZONE,
             payload: response.data
@@ -56,7 +56,7 @@ export const updateDeliveryZone = (data, navigate) => (dispatch) => {
 
 export const deleteDeliveryZone = (id) => (dispatch) => {
 
-    const res = deleteRequest(`delivery_zone/delete/${id}`).then(response => {
+    const res = deleteRequest(`admin/delivery_zone/delete/${id}`).then(response => {
         dispatch({
             type: DELETE_DELIVERY_ZONE,
             payload: response.data
@@ -69,7 +69,7 @@ export const deleteDeliveryZone = (id) => (dispatch) => {
 
 export const assignDriverToZone = (data) => (dispatch) => {
 
-    const res = postRequest(`delivery_zone/assign_zone`, data).then(response => {
+    const res = postRequest(`admin/delivery_zone/assign_zone`, data).then(response => {
         dispatch({
             type: ASSIGN_DRIVER_TO_ZONE,
             payload: response.data
@@ -81,7 +81,7 @@ export const assignDriverToZone = (data) => (dispatch) => {
 
 
 export const getDeliveryZoneList = () => (dispatch) => {
-    const res = getRequest('delivery_zone/select').then(response => {
+    const res = getRequest('admin/delivery_zone/select').then(response => {
         dispatch({
             type: DELIVERY_WINDOWS_SELECT_LIST,
             payload: response.data

@@ -30,7 +30,7 @@ export const redirect = link => {
 };
 
 export const getOrderStatuses = () => (dispatch) => {
-    const res = getRequest('order/statuses').then(response => {
+    const res = getRequest('admin/order/statuses').then(response => {
         dispatch({
             type: ORDER_STATUSES,
             payload: response.data

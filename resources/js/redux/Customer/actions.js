@@ -8,7 +8,7 @@ export const GET_UPDATE_CUSTOMER = "GET_UPDATE_CUSTOMER"
 export const GET_DELETE_CUSTOMER = "GET_DELETE_CUSTOMER"
 
 export const getCustomers = () => (dispatch) => {
-    const res = getRequest('customers').then(response => {
+    const res = getRequest('admin/customers').then(response => {
         dispatch({
             type: GET_CUSTOMERS,
             payload: response.data
@@ -18,7 +18,7 @@ export const getCustomers = () => (dispatch) => {
 
 export const createCustomers = (data) => (dispatch) => {
 
-    const res = postRequest('customer/create', data).then(response => {
+    const res = postRequest('admin/customer/create', data).then(response => {
         console.log(response.data)
         dispatch({
             type: GET_CUSTOMERS,
@@ -30,7 +30,7 @@ export const createCustomers = (data) => (dispatch) => {
 }
 
 export const getCustomer = (id) => (dispatch) => {
-    const res = getRequest(`customer/edit/${id}`).then(response => {
+    const res = getRequest(`admin/customer/edit/${id}`).then(response => {
         dispatch({
             type: GET_CUSTOMER,
             payload: response.data
@@ -39,7 +39,7 @@ export const getCustomer = (id) => (dispatch) => {
 }
 
 export const updateCustomer = (data) => (dispatch) => {
-    const res = postRequest('customer/update', data).then(response => {
+    const res = postRequest('admin/customer/update', data).then(response => {
         // dispatch({
         //     type: GET_CUSTOMERS,
         //     payload: response.data
@@ -51,7 +51,7 @@ export const updateCustomer = (data) => (dispatch) => {
 
 export const deleteCustomer = (id) => (dispatch) => {
 
-    const res = deleteRequest(`customer/delete/${id}`).then(response => {
+    const res = deleteRequest(`admin/customer/delete/${id}`).then(response => {
         // dispatch({
         //     type: GET_CUSTOMERS,
         //     payload: response.data

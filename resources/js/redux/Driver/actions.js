@@ -9,7 +9,7 @@ export const DELETE_DRIVER = "DELETE_DRIVER"
 export const GET_DRIVER_SELECT = "GET_DRIVER_SELECT"
 
 export const getDrivers = () => (dispatch) => {
-    const res = getRequest('drivers').then(response => {
+    const res = getRequest('admin/drivers').then(response => {
         dispatch({
             type: GET_DRIVERS,
             payload: response.data
@@ -20,7 +20,7 @@ export const getDrivers = () => (dispatch) => {
 }
 
 export const createDriver = (data) => (dispatch) => {
-    const res = postRequest('driver/create', data).then(response => {
+    const res = postRequest('admin/driver/create', data).then(response => {
         dispatch({
             type: CREATE_DRIVER,
             payload: response.data
@@ -31,7 +31,7 @@ export const createDriver = (data) => (dispatch) => {
 }
 
 export const getDriver = (id) => (dispatch) => {
-    const res = getRequest(`driver/edit/${id}`).then(response => {
+    const res = getRequest(`admin/driver/edit/${id}`).then(response => {
         dispatch({
             type: GET_DRIVER,
             payload: response.data
@@ -40,7 +40,7 @@ export const getDriver = (id) => (dispatch) => {
 }
 
 export const updateDriver = (data) => (dispatch) => {
-    const res = postRequest('driver/update', data).then(response => {
+    const res = postRequest('admin/driver/update', data).then(response => {
         dispatch({
             type: UPDATE_DRIVER,
             payload: response.data
@@ -52,7 +52,7 @@ export const updateDriver = (data) => (dispatch) => {
 
 export const deleteDriver = (id) => (dispatch) => {
 
-    const res = deleteRequest(`driver/delete/${id}`).then(response => {
+    const res = deleteRequest(`admin/driver/delete/${id}`).then(response => {
         dispatch({
             type: DELETE_DRIVER,
             payload: response.data
@@ -64,7 +64,7 @@ export const deleteDriver = (id) => (dispatch) => {
 
 
 export const getDriverSelect = () => (dispatch) => {
-    const res = getRequest(`driver/select`).then(response => {
+    const res = getRequest(`admin/driver/select`).then(response => {
         dispatch({
             type: GET_DRIVER_SELECT,
             payload: response.data

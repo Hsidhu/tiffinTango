@@ -7,7 +7,7 @@ export const DAILY_DELIVERIES = "DAILY_DELIVERIES";
 export const DAILY_DELIVERY_STICKERS = "DAILY_DELIVERY_STICKERS"
 
 export const getOrders = () => (dispatch) => {
-    const res = getRequest('orders').then(response => {
+    const res = getRequest('admin/orders').then(response => {
         dispatch({
             type: GET_ORDERS,
             payload: response.data
@@ -16,7 +16,7 @@ export const getOrders = () => (dispatch) => {
 }
 
 export const getOrder = (id) => (dispatch) => {
-    const res = getRequest(`order/view/${id}`).then(response => {
+    const res = getRequest(`admin/order/view/${id}`).then(response => {
         dispatch({
             type: GET_ORDER,
             payload: response.data
@@ -28,7 +28,7 @@ export const getOrder = (id) => (dispatch) => {
 // any key pair can be updated
 export const updateOrderStatus = (data) => (dispatch) => {
 
-    const res = postRequest('order/updates', data).then(response => {
+    const res = postRequest('admin/order/updates', data).then(response => {
         dispatch({
             type: ORDER_PLACED,
             payload: response.data
@@ -49,7 +49,7 @@ export const updateOrderStatus = (data) => (dispatch) => {
 // any key pair can be updated
 export const addPickupLog = (data) => (dispatch) => {
 
-    const res = postRequest('order/picked', data).then(response => {
+    const res = postRequest('admin/order/picked', data).then(response => {
         // dispatch({
         //     type: ORDER_PLACED,
         //     payload: response.data
@@ -69,7 +69,7 @@ export const addPickupLog = (data) => (dispatch) => {
 
 export const getDailyDeliveries = () => (dispatch) => {
 
-    const res = getRequest('order/dailyDeliveries').then(response => {
+    const res = getRequest('admin/order/dailyDeliveries').then(response => {
         dispatch({
             type: DAILY_DELIVERIES,
             payload: response.data
@@ -81,7 +81,7 @@ export const getDailyDeliveries = () => (dispatch) => {
 
 export const getStickerData = (data) => (dispatch) => {
 
-    const res = postRequest('order/getStickerData', data).then(response => {
+    const res = postRequest('admin/order/getStickerData', data).then(response => {
         dispatch({
             type: DAILY_DELIVERY_STICKERS,
             payload: response.data
@@ -94,7 +94,7 @@ export const getStickerData = (data) => (dispatch) => {
 // any key pair can be updated
 export const createDailyDeliveries = (data) => (dispatch) => {
 
-    const res = postRequest('order/generateDailyDeliveries', data).then(response => {
+    const res = postRequest('admin/order/generateDailyDeliveries', data).then(response => {
         dispatch({
             type: DAILY_DELIVERIES,
             payload: response.data
@@ -113,7 +113,7 @@ export const createDailyDeliveries = (data) => (dispatch) => {
 
 export const updatedOrderOfDailyDelivery = (data) => (dispatch) => {
 
-    const res = postRequest('order/generateDailyDelivery/update', data).then(response => {
+    const res = postRequest('admin/order/generateDailyDelivery/update', data).then(response => {
         
         message.success({
             content: 'Daily Deliveries Order updated',

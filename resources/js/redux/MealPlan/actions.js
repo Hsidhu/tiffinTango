@@ -36,7 +36,7 @@ export const createMealPlan = (data) => (dispatch) => {
         formData.append(key, data[key]);
     }
 
-    const res = postRequest('mealplan/create', formData, config).then(response => {
+    const res = postRequest('admin/mealplan/create', formData, config).then(response => {
         console.log(response.data)
         dispatch({
             type: GET_MEALPLANS,
@@ -50,7 +50,7 @@ export const createMealPlan = (data) => (dispatch) => {
 
 export const createMealPlanOption = (data) => (dispatch) => {
 
-    const res = postRequest('mealplan/create/option', data).then(response => {
+    const res = postRequest('admin/mealplan/create/option', data).then(response => {
         console.log(response.data)
         dispatch({
             type: CREATE_MEALPLAN_OPTION,
@@ -64,7 +64,7 @@ export const createMealPlanOption = (data) => (dispatch) => {
 
 
 export const getMealPlan = (id) => (dispatch) => {
-    const res = getRequest(`mealplan/edit/${id}`).then(response => {
+    const res = getRequest(`admin/mealplan/edit/${id}`).then(response => {
         dispatch({
             type: GET_MEALPLAN,
             payload: response.data
@@ -83,7 +83,7 @@ export const updateMealPlan = (data) => (dispatch) => {
         formData.append(key, data[key]);
     }
 
-    const res = postRequest('mealplan/update', formData, config).then(response => {
+    const res = postRequest('admin/mealplan/update', formData, config).then(response => {
         console.log(response.data)
         dispatch({
             type: GET_CUSTOMERS,
@@ -98,7 +98,7 @@ export const updateMealPlan = (data) => (dispatch) => {
 
 export const createMealPlanAddon = (data) => (dispatch) => {
 
-    const res = postRequest('mealplan/create/addon', data).then(response => {
+    const res = postRequest('admin/mealplan/create/addon', data).then(response => {
         dispatch({
             type: CREATE_MEALPLAN_OPTION,
             payload: response.data

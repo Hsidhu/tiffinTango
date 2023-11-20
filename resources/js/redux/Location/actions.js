@@ -8,7 +8,7 @@ export const GET_UPDATE_LOCATION = "GET_UPDATE_LOCATION"
 export const GET_DELETE_LOCATION = "GET_DELETE_LOCATION"
 
 export const getLocations = () => (dispatch) => {
-    const res = getRequest('locations').then(response => {
+    const res = getRequest('admin/locations').then(response => {
         dispatch({
             type: GET_LOCATIONS,
             payload: response.data
@@ -18,7 +18,7 @@ export const getLocations = () => (dispatch) => {
 
 export const createLocation = (data) => (dispatch) => {
 
-    const res = postRequest('location/create', data).then(response => {
+    const res = postRequest('admin/location/create', data).then(response => {
         console.log(response.data)
         dispatch({
             type: GET_LOCATIONS,
@@ -31,7 +31,7 @@ export const createLocation = (data) => (dispatch) => {
 }
 
 export const getLocation = (id) => (dispatch) => {
-    const res = getRequest(`location/edit/${id}`).then(response => {
+    const res = getRequest(`admin/location/edit/${id}`).then(response => {
         dispatch({
             type: GET_LOCATION,
             payload: response.data
