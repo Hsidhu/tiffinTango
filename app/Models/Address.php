@@ -30,7 +30,7 @@ class Address extends Model
 
     public function deliveryZone()
     {
-        return $this->belongsTo(\App\Models\deliveryZone::class);
+        return $this->belongsTo(\App\Models\DeliveryZone::class);
     }
 
     //
