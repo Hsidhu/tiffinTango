@@ -21,7 +21,7 @@ class AddressObserver
         // get use lat and long
         // get closest lat and long and get all the delivery zones and search for the zone user belong to
         $customerLocationDetails = $this->onSearchNearby($address->formatted_address);
-        $address->delivery_zone_id = $customerLocationDetails['deliveryZone']->id;
+        $address->delivery_zone_id = $customerLocationDetails->deliveryZone->id;
         $address->save();
     }
 
