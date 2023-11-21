@@ -6,8 +6,8 @@ import SitePageHeader from '../components/sitePageHeader';
 const Catering = ({ }) => {
     return (
         <>
-            <div>
-                <SitePageHeader pageTitle={'Catering'}/>
+            <SitePageHeader pageTitle={'Catering'}/>
+            <div style={{ padding: '0 50px' }}>
                 {/* 
                     Snacks
                     Item, price, Qty, amount
@@ -24,12 +24,10 @@ const Catering = ({ }) => {
                     */
 
                 }
-                <Typography.Title level={1} style={{ margin: "14px 8px" }}>
-                    Catering
-                </Typography.Title>
-            </div>
 
-            <ContentCards />
+                <ContentCards />
+
+            </div>
         </>
     );
 }

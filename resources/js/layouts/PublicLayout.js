@@ -70,7 +70,7 @@ const PublicLayout = () => {
 
             {renderSlider()}
 
-            <Content style={{ padding: '0 50px' }}>
+            <Content>
                 <Switch>
                     {publicRouteList.map(({ component: Component, path, exact }, index) => (
                         <Route path={`/${path}`} key={index} exact={exact}>

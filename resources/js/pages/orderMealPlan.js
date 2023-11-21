@@ -3,7 +3,7 @@ import {
     Button, message, Steps,
     Space, Divider, Row, Col
 } from 'antd';
-
+import SitePageHeader from '../components/sitePageHeader';
 import MealPlan from './_cart/mealPlan';
 import Customer from './_cart/customer';
 
@@ -43,12 +43,14 @@ const OrderMealPlan = () => {
 
     return (
         <>
+            <SitePageHeader pageTitle={'Order Tiffin'}/>
             <Space
                 direction="vertical"
                 size="large"
                 style={{
                     display: 'flex',
-                    margin: '18px 14px'
+                    margin: '18px 14px',
+                    padding: '0 50px'
                 }}
             >
                 <Row gutter={16}>

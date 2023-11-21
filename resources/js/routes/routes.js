@@ -18,6 +18,11 @@ export const publicRouteList = [
         exact: true,
     },
     {
+        path: 'order/takeout',
+        component: lazy(() => import('../pages/Takeout')),
+        exact: true,
+    },
+    {
         path: 'terms-and-conditions',
         component: lazy(() => import('../pages/Terms')),
         exact: true,

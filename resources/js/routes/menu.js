@@ -26,7 +26,7 @@ export const publicTopMenu = [
     getItem('/', 'Home', <HomeFilled />),
     getItem('/order/mealplan',  <Link to="/order/mealplan" >MealPlan</Link>, <UnorderedListOutlined />),
     getItem('/order/catering', 'Catering', <UnorderedListOutlined />),
-    getItem('/order/takeway', 'Takeout', <UnorderedListOutlined />),
+    getItem('/order/takeout', 'Takeout', <UnorderedListOutlined />),
     getItem('/login', 'login', <LoginOutlined />)
 ];
 
@@ -45,11 +45,7 @@ export const adminSideMenu = [
     ]),
 ];
 
-
 export const customerSideMenu = [
     getItem('/customer/dashboard', 'Dashboard', <DashboardOutlined />),
-    getItem('User', 'sub1', <UserOutlined />, [
-        getItem('Tom', '3'),
-        getItem('Bill', '4'),
-    ]),
+    getItem('/customer/orders', 'Orders', <UnorderedListOutlined />)
 ];

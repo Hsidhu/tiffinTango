@@ -6,7 +6,7 @@ import { Row, Col, Table, Button } from 'antd';
 const Dashboard = ({ }) => {
     return (
         <>
-            <h1>Laravel React Boilerplate</h1>
+            <h1>Customer Boilerplate</h1>
             <Row>
                 <Col>
                     1

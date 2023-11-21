@@ -6,21 +6,24 @@ import FeatureCards from '../components/featureCards';
 function Home() {
     return (
         <>
-            <div style={{ display:'flex', justifyContent: 'center', margin: '10px' }}>
-                <Typography.Title level={1} style={{margin: "14px 8px"}}>
-                    Welcome To AB Catering
-                </Typography.Title>
-            </div>
-            
-            <ContentCards />
+            <div style={{ padding: '0 50px' }}>
+                <div style={{ display:'flex', justifyContent: 'center', margin: '10px' }}>
+                    <Typography.Title level={1} style={{margin: "14px 8px"}}>
+                        Welcome To AB Catering
+                    </Typography.Title>
+                </div>
+                
+                <ContentCards />
 
-            <div style={{ display:'flex', justifyContent: 'center', margin: '10px' }}>
-                <Typography.Title level={1} style={{margin: "14px 8px"}}>
-                    Feature Menu Items
-                </Typography.Title>
+                <div style={{ display:'flex', justifyContent: 'center', margin: '10px' }}>
+                    <Typography.Title level={1} style={{margin: "14px 8px"}}>
+                        Feature Menu Items
+                    </Typography.Title>
+                </div>
+                <FeatureCards/>
             </div>
-            <FeatureCards/>
         </>
+        
     );
   }
   
