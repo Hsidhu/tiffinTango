@@ -16,7 +16,7 @@ export const getCustomers = () => (dispatch) => {
     });
 }
 
-export const createCustomers = (data) => (dispatch) => {
+export const createCustomers = (data, history) => (dispatch) => {
 
     const res = postRequest('admin/customer/create', data).then(response => {
         console.log(response.data)
@@ -24,6 +24,8 @@ export const createCustomers = (data) => (dispatch) => {
             type: GET_CUSTOMERS,
             payload: response.data
         });
+        message.success('Customer Created')
+        history.push('/admin/customers')
     }).catch(error => {
         message.error('something wrong')
     });
@@ -38,12 +40,15 @@ export const getCustomer = (id) => (dispatch) => {
     });
 }
 
-export const updateCustomer = (data) => (dispatch) => {
+export const updateCustomer = (data, history) => (dispatch) => {
     const res = postRequest('admin/customer/update', data).then(response => {
         // dispatch({
         //     type: GET_CUSTOMERS,
         //     payload: response.data
         // });
+        
+        message.success('update Customer Done!')
+        history.push('/admin/customers')
     }).catch(error => {
         message.error('something wrong')
     });

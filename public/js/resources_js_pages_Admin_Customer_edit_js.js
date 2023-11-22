@@ -3054,8 +3054,7 @@ var Edit = function Edit(_ref) {
     return null;
   }
   var onFormSubmit = function onFormSubmit(values) {
-    dispatch((0,_redux_Customer_actions__WEBPACK_IMPORTED_MODULE_4__.updateCustomer)(values));
-    history.push('/admin/customers');
+    dispatch((0,_redux_Customer_actions__WEBPACK_IMPORTED_MODULE_4__.updateCustomer)(values, history));
   };
   var onFormChange = function onFormChange(_ref2) {
     var name = _ref2.name;

@@ -28,8 +28,7 @@ const Create = ({ }) => {
 
     const onFormSubmit = (values) => {
         values.status = mapSwitchValue(values.status);
-        dispatch(createDriver(values));
-        history.push('/admin/drivers')
+        dispatch(createDriver(values, history));
     }
 
     return (

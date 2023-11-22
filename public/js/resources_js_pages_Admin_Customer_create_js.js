@@ -3037,8 +3037,7 @@ var Create = function Create(_ref) {
     console.log(name);
   };
   var onFormSubmit = function onFormSubmit(values) {
-    dispatch((0,_redux_Customer_actions__WEBPACK_IMPORTED_MODULE_2__.createCustomers)(values));
-    history.push('/admin/customers');
+    dispatch((0,_redux_Customer_actions__WEBPACK_IMPORTED_MODULE_2__.createCustomers)(values, history));
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_tableHeaderLink__WEBPACK_IMPORTED_MODULE_4__["default"], {

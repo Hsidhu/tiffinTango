@@ -24,7 +24,7 @@ export const createLocation = (data) => (dispatch) => {
             type: GET_LOCATIONS,
             payload: response.data
         });
-        message.success('Success message');
+        message.success('Location Created!');
     }).catch(error => {
         message.error('something wrong')
     });
@@ -46,7 +46,7 @@ export const updateLocation = (data) => (dispatch) => {
         //     payload: response.data
         // });
 
-        message.success('Success message');
+        message.success('Location Update!');
     }).catch(error => {
         message.error('location: something wrong')
     });
@@ -60,7 +60,7 @@ export const deleteLocation = (id) => (dispatch) => {
         //     payload: response.data
         // });
 
-        message.success('Success message');
+        message.success('Location Deleted!');
     }).catch(error => {
         message.error('location: something wrong')
     });

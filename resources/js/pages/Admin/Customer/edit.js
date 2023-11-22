@@ -30,8 +30,7 @@ const Edit = ({ }) => {
     }
 
     const onFormSubmit = (values) => {
-        dispatch(updateCustomer(values));
-        history.push('/admin/customers')
+        dispatch(updateCustomer(values, history));
     }
 
     const onFormChange = ({ name }) => {

@@ -3407,8 +3407,7 @@ var Create = function Create(_ref) {
   };
   var onFormSubmit = function onFormSubmit(values) {
     values.status = mapSwitchValue(values.status);
-    dispatch((0,_redux_Driver_actions__WEBPACK_IMPORTED_MODULE_2__.createDriver)(values));
-    history.push('/admin/drivers');
+    dispatch((0,_redux_Driver_actions__WEBPACK_IMPORTED_MODULE_2__.createDriver)(values, history));
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_tableHeaderLink__WEBPACK_IMPORTED_MODULE_3__["default"], {

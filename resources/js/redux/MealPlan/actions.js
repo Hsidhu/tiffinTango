@@ -56,7 +56,7 @@ export const createMealPlanOption = (data) => (dispatch) => {
             type: CREATE_MEALPLAN_OPTION,
             payload: response.data
         });
-        message.success('This is a success message');
+        message.success('MealPlan SuccessFully created!');
     }).catch(error => {
         message.error('something is wrong');
     });
@@ -89,7 +89,7 @@ export const updateMealPlan = (data) => (dispatch) => {
             type: GET_CUSTOMERS,
             payload: response.data
         });
-        message.success('Success message');
+        message.success('MealPlan SuccessFully Updated!');
     }).catch(error => {
         message.error('something is wrong');
     });
@@ -103,7 +103,7 @@ export const createMealPlanAddon = (data) => (dispatch) => {
             type: CREATE_MEALPLAN_OPTION,
             payload: response.data
         });
-        message.success('Success message');
+        message.success('MealPlan Addon Done!');
     }).catch(error => {
         message.error('something is wrong');
     });

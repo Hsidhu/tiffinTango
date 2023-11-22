@@ -36,8 +36,7 @@ const Edit = ({ }) => {
 
     const onFormSubmit = (values) => {
         values.status = mapSwitchValue(values.status);
-        dispatch(updateDriver(values));
-        history.push('/admin/drivers')
+        dispatch(updateDriver(values, history));
     }
 
     useEffect(() => {

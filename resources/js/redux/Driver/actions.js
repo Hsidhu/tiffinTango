@@ -14,17 +14,20 @@ export const getDrivers = () => (dispatch) => {
             type: GET_DRIVERS,
             payload: response.data
         });
+        message.success('Fetch Drivers!')
     }).catch(error => {
         message.error("Couldn't get Drivers!")
     });
 }
 
-export const createDriver = (data) => (dispatch) => {
+export const createDriver = (data, history) => (dispatch) => {
     const res = postRequest('admin/driver/create', data).then(response => {
         dispatch({
             type: CREATE_DRIVER,
             payload: response.data
         });
+        message.success('Create Driver Successfully!')
+        history.push('/admin/drivers')
     }).catch(error => {
         message.error('Create Driver: Something went wrong!')
     });
@@ -39,12 +42,14 @@ export const getDriver = (id) => (dispatch) => {
     });
 }
 
-export const updateDriver = (data) => (dispatch) => {
+export const updateDriver = (data, history) => (dispatch) => {
     const res = postRequest('admin/driver/update', data).then(response => {
         dispatch({
             type: UPDATE_DRIVER,
             payload: response.data
         });
+        message.success('Update Driver Done!')
+        history.push('/admin/drivers')
     }).catch(error => {
         message.error('Driver update: something went wrong!')
     });
@@ -57,6 +62,7 @@ export const deleteDriver = (id) => (dispatch) => {
             type: DELETE_DRIVER,
             payload: response.data
         });
+        message.success('Driver Deleted!')
     }).catch(error => {
         message.error('Driver Delete: Something went wrong!')
     });

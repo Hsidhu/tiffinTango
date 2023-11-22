@@ -15,6 +15,7 @@ export const getDeliveryZones = () => (dispatch) => {
             type: GET_DELIVERY_ZONES,
             payload: response.data
         });
+        message.success('DeliveryZone Fetch!')
     }).catch(error => {
         message.error("Couldn't get DeliveryZone!")
     });
@@ -26,6 +27,7 @@ export const createDeliveryZone = (data) => (dispatch) => {
             type: CREATE_DELIVERY_ZONE,
             payload: response.data
         });
+        message.success('DeliveryZone Created!')
     }).catch(error => {
         message.error('Create DeliveryZone: Something went wrong!')
     });
@@ -47,6 +49,7 @@ export const updateDeliveryZone = (data, navigate) => (dispatch) => {
             type: UPDATE_DELIVERY_ZONE,
             payload: response.data
         });
+        message.success('DeliveryZone Updated!')
         navigate.push('/admin/delivery_zones')
         
     }).catch(error => {
@@ -61,6 +64,7 @@ export const deleteDeliveryZone = (id) => (dispatch) => {
             type: DELETE_DELIVERY_ZONE,
             payload: response.data
         });
+        message.success('DeliveryZone Deleted!')
     }).catch(error => {
         message.error('Driver Delete: Something went wrong!')
     });
@@ -74,6 +78,8 @@ export const assignDriverToZone = (data) => (dispatch) => {
             type: ASSIGN_DRIVER_TO_ZONE,
             payload: response.data
         });
+
+        message.success('DeliveryZone assigned!')
     }).catch(error => {
         message.error('assign_zone : Something went wrong!')
     });

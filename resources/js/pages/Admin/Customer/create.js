@@ -23,8 +23,7 @@ const Create = ({ }) => {
     };
     
     const onFormSubmit = (values) => {
-        dispatch(createCustomers(values));
-        history.push('/admin/customers')
+        dispatch(createCustomers(values, history));
     }
 
     return (

@@ -3426,8 +3426,7 @@ var Edit = function Edit(_ref) {
   };
   var onFormSubmit = function onFormSubmit(values) {
     values.status = mapSwitchValue(values.status);
-    dispatch((0,_redux_Driver_actions__WEBPACK_IMPORTED_MODULE_3__.updateDriver)(values));
-    history.push('/admin/drivers');
+    dispatch((0,_redux_Driver_actions__WEBPACK_IMPORTED_MODULE_3__.updateDriver)(values, history));
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     form.setFieldsValue(_objectSpread({}, driver));
