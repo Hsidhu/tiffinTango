@@ -31,6 +31,8 @@ class OrderResource extends JsonResource
             'customer_lat' => $this->customer->address->lat,
             'customer_lng' => $this->customer->address->lng,
             'customer_delivery_zone' => $this->customer->address->deliveryZone,
+            'address_id' => $this->customer->address->id,
+            'address_delivery_zone_id' => $this->customer->address->delivery_zone_id,
             'order_type' => $this->order_type,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,

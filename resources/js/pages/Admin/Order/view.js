@@ -19,6 +19,8 @@ import OrderStatus from '../../../components/containers/orderStatus';
 import PickupOrder from './PickupOrder';
 import DailyDeliveryTable from '../../../components/dailyDeliveryTable';
 
+import AssignZoneToAddress from '../../../components/containers/assignZoneToAddress';
+
 const { Title } = Typography;
 
 const View = ({ }) => {
@@ -252,8 +254,7 @@ const View = ({ }) => {
                         </GoogleMapReact>
                     </Col>
                     <Col span={6}>
-                        // need address ID
-                        Update zone
+                        <AssignZoneToAddress address_id={order.address_id} delivery_zone_id ={order.address_delivery_zone_id}/>
                     </Col>
                 </Row>
             }

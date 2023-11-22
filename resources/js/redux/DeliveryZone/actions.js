@@ -73,7 +73,22 @@ export const deleteDeliveryZone = (id) => (dispatch) => {
 
 export const assignDriverToZone = (data) => (dispatch) => {
 
-    const res = postRequest(`admin/delivery_zone/assign_zone`, data).then(response => {
+    const res = postRequest(`admin/delivery_zone/assign_zone/driver`, data).then(response => {
+        dispatch({
+            type: ASSIGN_DRIVER_TO_ZONE,
+            payload: response.data
+        });
+
+        message.success('DeliveryZone assigned!')
+    }).catch(error => {
+        message.error('assign_zone : Something went wrong!')
+    });
+}
+
+
+export const assignAddressToZone = (data) => (dispatch) => {
+
+    const res = postRequest(`admin/delivery_zone/assign_zone/address`, data).then(response => {
         dispatch({
             type: ASSIGN_DRIVER_TO_ZONE,
             payload: response.data

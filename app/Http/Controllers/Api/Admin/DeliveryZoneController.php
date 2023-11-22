@@ -8,6 +8,7 @@ use App\Models\Location;
 use App\Models\DeliveryZone;
 use App\Models\Driver;
 use App\Models\DriverZone;
+use App\Models\Address;
 
 // https://mapsengine.google.com/map/ 
 
@@ -68,18 +69,6 @@ class DeliveryZoneController extends Controller
         return response()->json($deliveryZone);
     }
 
-    public function assignZoneToDriver(Request $request)
-    {
-        $this->validate($request, [
-            'driver_id' => ['required'],
-            'zone_id' => ['required'],
-        ]);
-        $driverZone = DriverZone::create(
-            $request->only(['driver_id', 'zone_id'])
-        );
-        return response()->json($driverZone);
-    }
-
     private function extractDataFromCSV($wkt)
     {
         // Define a more flexible regular expression pattern to match various geometry types
@@ -116,7 +105,35 @@ class DeliveryZoneController extends Controller
 
     public function getSelectList()
     {
-        $deliveryZones =  DeliveryZone::getDataForSelect();
+        $deliveryZones = DeliveryZone::getDataForSelect();
         return response()->json($deliveryZones);
     }
+
+    public function assignZoneToAddress(Request $request)
+    {
+        $this->validate($request, [
+            'address_id' => ['required'],
+            'delivery_zone_id' => ['required'],
+        ]);
+        Address::withoutEvents(function () use ($request) {
+            Address::where('id', $request->get('address_id'))->update([
+                'delivery_zone_id' => $request->get('delivery_zone_id'),
+            ]);
+        });
+        return response()->json(['success' => true]);
+    }
+
+    public function assignZoneToDriver(Request $request)
+    {
+        $this->validate($request, [
+            'driver_id' => ['required'],
+            'delivery_zone_id' => ['required'],
+        ]);
+        $driverZone = DriverZone::create(
+            $request->only(['driver_id', 'delivery_zone_id'])
+        );
+        return response()->json($driverZone);
+    }
 }
+
+/// need to add type to mealplan like pickup and order numbers
