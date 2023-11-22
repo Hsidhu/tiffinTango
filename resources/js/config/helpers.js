@@ -57,3 +57,16 @@ export function getUrlSegment(urlString, index) {
     const segments = url.pathname.split('/');
     return segments[index];
 }
+
+
+
+export const displayErrors = (response) => {
+    const errorMessages = Object.entries(response.errors).map(([field, errors]) => (
+      <ul key={field}>
+        {errors.map((error, index) => (
+          <li key={index}>{error}</li>
+        ))}
+      </ul>
+    ));
+    return errorMessages
+};

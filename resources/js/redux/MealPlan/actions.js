@@ -1,5 +1,6 @@
 import { getRequest, postRequest, deleteRequest } from "../../config/axiosClient"
 import { message } from 'antd';
+import { displayErrors } from "../../config/helpers"
 
 export const GET_MEALPLANS = "GET_MEALPLANS"
 export const GET_MEALPLAN = "GET_MEALPLAN"
@@ -44,7 +45,7 @@ export const createMealPlan = (data) => (dispatch) => {
         });
         message.success('Success message');
     }).catch(error => {
-        message.error('something is wrong');
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
 }
 
@@ -58,7 +59,7 @@ export const createMealPlanOption = (data) => (dispatch) => {
         });
         message.success('MealPlan SuccessFully created!');
     }).catch(error => {
-        message.error('something is wrong');
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
 }
 
@@ -91,7 +92,7 @@ export const updateMealPlan = (data) => (dispatch) => {
         });
         message.success('MealPlan SuccessFully Updated!');
     }).catch(error => {
-        message.error('something is wrong');
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
 }
 

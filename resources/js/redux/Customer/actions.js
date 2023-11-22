@@ -1,5 +1,6 @@
 import { getRequest, postRequest, deleteRequest } from "../../config/axiosClient"
 import { message } from "antd"
+import { displayErrors } from "../../config/helpers"
 
 export const GET_CUSTOMERS = "GET_CUSTOMERS"
 export const GET_CUSTOMER = "GET_CUSTOMER"
@@ -27,7 +28,7 @@ export const createCustomers = (data, history) => (dispatch) => {
         message.success('Customer Created')
         history.push('/admin/customers')
     }).catch(error => {
-        message.error('something wrong')
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
 }
 
@@ -50,7 +51,7 @@ export const updateCustomer = (data, history) => (dispatch) => {
         message.success('update Customer Done!')
         history.push('/admin/customers')
     }).catch(error => {
-        message.error('something wrong')
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
 }
 
@@ -62,7 +63,7 @@ export const deleteCustomer = (id) => (dispatch) => {
         //     payload: response.data
         // });
     }).catch(error => {
-        message.error('something wrong')
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
 }
 

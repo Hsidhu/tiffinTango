@@ -1,5 +1,6 @@
 import { getRequest, postRequest, deleteRequest } from "../../config/axiosClient"
 import { message } from "antd"
+import { displayErrors } from "../../config/helpers"
 
 export const GET_DRIVERS = "GET_DRIVERS"
 export const CREATE_DRIVER = "CREATE_DRIVER"
@@ -29,7 +30,7 @@ export const createDriver = (data, history) => (dispatch) => {
         message.success('Create Driver Successfully!')
         history.push('/admin/drivers')
     }).catch(error => {
-        message.error('Create Driver: Something went wrong!')
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
 }
 
@@ -51,7 +52,7 @@ export const updateDriver = (data, history) => (dispatch) => {
         message.success('Update Driver Done!')
         history.push('/admin/drivers')
     }).catch(error => {
-        message.error('Driver update: something went wrong!')
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
 }
 

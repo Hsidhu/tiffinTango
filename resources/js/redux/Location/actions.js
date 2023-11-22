@@ -1,5 +1,6 @@
 import { getRequest, postRequest, deleteRequest } from "../../config/axiosClient"
-import { message } from "antd"
+import { message } from "antd";
+import { displayErrors } from "../../config/helpers"
 
 export const GET_LOCATIONS = "GET_LOCATIONS"
 export const GET_LOCATION = "GET_LOCATION"
@@ -26,7 +27,7 @@ export const createLocation = (data) => (dispatch) => {
         });
         message.success('Location Created!');
     }).catch(error => {
-        message.error('something wrong')
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
 }
 
@@ -48,7 +49,7 @@ export const updateLocation = (data) => (dispatch) => {
 
         message.success('Location Update!');
     }).catch(error => {
-        message.error('location: something wrong')
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
 }
 
@@ -62,7 +63,7 @@ export const deleteLocation = (id) => (dispatch) => {
 
         message.success('Location Deleted!');
     }).catch(error => {
-        message.error('location: something wrong')
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
 }
 
