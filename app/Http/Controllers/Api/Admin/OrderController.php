@@ -52,7 +52,8 @@ class OrderController extends Controller
             'order_id' => $order->id,
             'customer_id' => $order->customer_id,
             'picked_at' => $request->get('picked_at'),
-            'comment' => $request->get('comment')
+            'comment' => $request->get('comment'),
+            'qty' => $request->get('qty') ?? 1
         ]);
         return response()->json($picked);
     }

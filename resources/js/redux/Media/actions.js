@@ -33,3 +33,10 @@ export const getMediaFiles = () => (dispatch) => {
         });
     });
 };
+
+export const getMediaFile = (id) => {
+    const res = getRequest(`media/get/${id}`).then(response => {
+        return response.data
+    });
+    return {}
+};

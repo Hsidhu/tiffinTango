@@ -249,6 +249,7 @@ return new class extends Migration
             $table->decimal('price', 15)->nullable();
             $table->decimal('subtotal', 15)->nullable();
             $table->text('option_values')->nullable();
+            $table->integer('quota')->default(24);
             $table->timestamps();
         });
         // will have meal plan item options

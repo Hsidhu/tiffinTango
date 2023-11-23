@@ -20,6 +20,7 @@ class MealPlan extends Model implements HasMedia
 
     protected $casts = [
         "price" => 'float',
+        "number_of_meals" => 'int',
     ];
     
     public function addOns()
