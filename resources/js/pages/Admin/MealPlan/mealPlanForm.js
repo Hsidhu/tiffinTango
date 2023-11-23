@@ -175,6 +175,39 @@ const MealPlanForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                             />
                         </Form.Item>
 
+                        <Form.Item label="Delivery Type" name="delivery_type"
+                            rules={[{
+                                required: false
+                            }]}
+                        >
+                            <Select
+                                placeholder={'Select Plan delivery'}
+                                style={{
+                                    width: 400,
+                                }}
+                                options={[
+                                    {value: 'pickup', label: 'pickup'},
+                                    {value: 'delivery', label: 'delivery'}
+                                ]}
+                            />
+                        </Form.Item>
+
+                        <Form.Item
+                            name={['number_of_meals']}
+                            label="number_of_meals"
+                            rules={[
+                                {
+                                    required: false
+                                },
+                            ]}
+                        >
+                            <InputNumber
+                                min={1}
+                                step={1}
+                                stringMode
+                            />
+                        </Form.Item>
+
                         <Form.Item label="Upload" name='image'>
                             <Upload
                                 listType="picture-card"

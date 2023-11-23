@@ -17,6 +17,12 @@ class MediaController extends Controller
         return MediaFileResource::collection($mediaFiles);
     }
 
+    public function getMedia($id)
+    {
+        $media = Media::find($id);
+        return response()->json($media);
+    }
+
     public function upload(Request $request)
     {
         $mediaFile = MediaFile::create([

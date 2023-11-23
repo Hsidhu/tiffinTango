@@ -28,8 +28,10 @@ Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::delete('/logout', [App\Http\Controllers\Api\Auth\AuthController::class,'logout']);
     
     // media
-    Route::post('/media/upload', [App\Http\Controllers\Api\Admin\MediaController::class,'upload']);
-    Route::get('/media/files', [App\Http\Controllers\Api\Admin\MediaController::class,'index']);
+    Route::post('/media/upload', [App\Http\Controllers\Api\Admin\MediaController::class, 'upload']);
+    Route::get('/media/files', [App\Http\Controllers\Api\Admin\MediaController::class, 'index']);
+
+    Route::get('/media/get/{id}', [App\Http\Controllers\Api\Admin\MediaController::class, 'getMedia']);
 
 });
 

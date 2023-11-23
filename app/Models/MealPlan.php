@@ -32,6 +32,14 @@ class MealPlan extends Model implements HasMedia
         return $this->belongsToMany(\App\Models\MealPlanOption::class, 'meal_plan_addons');
     }
 
+    public function deliveryType()
+    {
+        return [
+            [ 'value' => 'pickup', 'label' => 'pickup' ],
+            [ 'value' => 'delivery', 'label' => 'delivery' ]
+        ];
+    }
+    
     public function durationList()
     {
         return [

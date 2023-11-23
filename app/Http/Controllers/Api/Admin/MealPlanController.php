@@ -37,19 +37,13 @@ class MealPlanController extends Controller
             'short_description' => ['between:1,48'],
             'price' => ['required','numeric'],
             'discount' => ['numeric'],
-            'delivery_days' => ['min:5']
+            'delivery_days' => ['required']
         ]);
 
-        $fileName = null;
-        if($request->hasFile('file')) {
-            $fileName = $this->fileStoreName($request->file('file'));
-            $request->file('file')->storeAs('public/mealplan', $fileName);
-            $request->merge(['image' => 'mealplan/'.$fileName]);
-        }
         $mealPlan = MealPlan::create($$request->only([
-                'name','description','short_description', 'price',
-                'discount', 'delivery_days', 'image', 'status'
-            ]));
+            'name','description','short_description', 'price',
+            'discount', 'delivery_days', 'number_of_meals', 'delivery_type', 'status'
+        ]));
         return response()->json($mealPlan);
     }
 
@@ -116,11 +110,11 @@ class MealPlanController extends Controller
             'short_description' => ['between:1,48'],
             'price' => ['required','numeric'],
             'discount' => ['numeric'],
-            'delivery_days' => ['min:4']
+            'delivery_days' => ['required']
         ]);
 
-        $fileName = $mealPlan->image;
-        $this->addMediaToModel($mealPlan, $request->file('mediaFileId'));
+        //$fileName = $mealPlan->image;
+        //$this->addMediaToModel($mealPlan, $request->file('mediaFileId'));
 
         if(!empty($request->file('file'))) {
             unlink(storage_path('app/public/'.$fileName));
@@ -130,8 +124,7 @@ class MealPlanController extends Controller
         }
         $mealPlan->update($request->only([
                 'name','description','short_description', 
-                'price', 'discount', 'delivery_days', 'image',
-                'status'
+                'price', 'discount', 'delivery_days', 'number_of_meals', 'delivery_type', 'status'
         ]));
         return response()->json($mealPlan);
     }

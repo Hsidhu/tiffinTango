@@ -6959,6 +6959,36 @@ var MealPlanForm = function MealPlanForm(_ref) {
               }]
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
+            label: "Delivery Type",
+            name: "delivery_type",
+            rules: [{
+              required: false
+            }],
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
+              placeholder: 'Select Plan delivery',
+              style: {
+                width: 400
+              },
+              options: [{
+                value: 'pickup',
+                label: 'pickup'
+              }, {
+                value: 'delivery',
+                label: 'delivery'
+              }]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
+            name: ['number_of_meals'],
+            label: "number_of_meals",
+            rules: [{
+              required: false
+            }],
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
+              min: 1,
+              step: 1,
+              stringMode: true
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
             label: "Upload",
             name: "image",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
