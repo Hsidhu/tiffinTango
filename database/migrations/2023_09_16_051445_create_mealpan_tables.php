@@ -179,7 +179,7 @@ return new class extends Migration
             $table->decimal('discount', 15, 2)->nullable();
             $table->string('delivery_days', 164)->nullable();
             $table->string('delivery_type', 164)->default('pickup');
-            $table->integer('number_of_meals',10)->default(24);
+            $table->integer('quota', 10)->default(24);
             $table->string('image')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
@@ -245,11 +245,10 @@ return new class extends Migration
             $table->integer('order_id');
             $table->integer('meal_plan_id');
             $table->string('name');
-            $table->integer('quantity')->default(1);
+            $table->integer('qty')->default(1);
             $table->decimal('price', 15)->nullable();
             $table->decimal('subtotal', 15)->nullable();
             $table->text('option_values')->nullable();
-            $table->integer('quota')->default(24);
             $table->timestamps();
         });
         // will have meal plan item options
@@ -260,7 +259,7 @@ return new class extends Migration
             $table->integer('meal_plan_id');
             $table->integer('meal_plan_option_id');
             $table->string('option_name', 128);
-            $table->integer('quantity')->default(1);
+            $table->integer('qty')->default(1);
             $table->integer('value_id');
             $table->string('value_name', 128);
             $table->decimal('value_price', 15)->nullable();

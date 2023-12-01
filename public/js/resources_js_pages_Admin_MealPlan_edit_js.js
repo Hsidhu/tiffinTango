@@ -7959,8 +7959,8 @@ var MealPlanForm = function MealPlanForm(_ref) {
               }]
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
-            name: ['number_of_meals'],
-            label: "number_of_meals",
+            name: ['quota'],
+            label: "quota",
             rules: [{
               required: false
             }],

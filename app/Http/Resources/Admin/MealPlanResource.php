@@ -28,7 +28,7 @@ class MealPlanResource extends JsonResource
             'media_id' => $this->getFirstMedia()->id ?? null,
             'delivery_type'=> $this->delivery_type,
             'delivery_days'=> $this->delivery_days,
-            'number_of_meals'=> $this->number_of_meals,
+            'quota'=> $this->quota,
             'status'=> $this->status,
             'options' => MealPlanOptionResource::collection($this->options)
         ];

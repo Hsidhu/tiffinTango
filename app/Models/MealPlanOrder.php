@@ -107,17 +107,17 @@ class MealPlanOrder extends Model
             foreach ($menu->menu_options->groupBy('order_option_group') as $menuItemOptionGroupName => $menuItemOptions) {
                 $optionData[] = $menuItemOptionGroupName;
                 foreach ($menuItemOptions as $menuItemOption) {
-                    $optionData[] = $menuItemOption->quantity
+                    $optionData[] = $menuItemOption->qty
                         .'&nbsp;'.lang('admin::lang.text_times').'&nbsp;'
                         .$menuItemOption->order_option_name
                         .lang('admin::lang.text_equals')
-                        .currency_format($menuItemOption->quantity * $menuItemOption->order_option_price);
+                        .currency_format($menuItemOption->qty * $menuItemOption->order_option_price);
                 }
             }
 
             $data['order_menus'][] = [
                 'menu_name' => $menu->name,
-                'menu_quantity' => $menu->quantity,
+                'menu_quantity' => $menu->qty,
                 'menu_price' => currency_format($menu->price),
                 'menu_subtotal' => currency_format($menu->subtotal),
                 'menu_options' => implode('<br /> ', $optionData),

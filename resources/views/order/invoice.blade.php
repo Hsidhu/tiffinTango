@@ -107,7 +107,7 @@
                                                         <li>
                                                             {{ $menuItemOption->order_option_name }}&nbsp;
                                                             @if ($menuItemOption->order_option_price > 0)
-                                                                ({{ currency_format($menuItemOption->quantity * $menuItemOption->order_option_price) }})
+                                                                ({{ currency_format($menuItemOption->qty * $menuItemOption->order_option_price) }})
                                                             @endif
                                                         </li>
                                                     @endforeach

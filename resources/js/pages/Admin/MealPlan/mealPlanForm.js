@@ -193,8 +193,8 @@ const MealPlanForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                         </Form.Item>
 
                         <Form.Item
-                            name={['number_of_meals']}
-                            label="number_of_meals"
+                            name={['quota']}
+                            label="quota"
                             rules={[
                                 {
                                     required: false
