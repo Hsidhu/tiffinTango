@@ -43,11 +43,6 @@ const Order = ({ }) => {
             dataIndex: 'order_type',
         },
         {
-            key: 'order_type',
-            title: 'Order Type',
-            dataIndex: 'order_type',
-        },
-        {
             key: 'status',
             title: 'Status',
             dataIndex: 'status',
@@ -58,7 +53,6 @@ const Order = ({ }) => {
             render: (_, record) => (
                 <Space size="middle">
                     <a onClick={ () => handleEditClick(record.id)} >View</a>
-                    <a>Delete</a>
                 </Space>
             ),
         },

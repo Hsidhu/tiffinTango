@@ -5,7 +5,7 @@ import {
 } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {privateRouteList} from '../routes/routes';
+import {customerRouteList} from '../routes/routes';
 
 import { customerSideMenu } from '../routes/menu';
 import HeaderProfileDorpdown from '../components/headerProfileDorpdown';
@@ -61,7 +61,7 @@ function CustomerLayout() {
                 <Layout style={{ padding: '0 24px 24px' }}>
                     <Content style={{ padding: 24, margin: 0, minHeight: 280}}>
                         <Switch>
-                            {privateRouteList.map(({ component: Component, path, exact }, index) => (
+                            {customerRouteList.map(({ component: Component, path, exact }, index) => (
                                 <Route path={`/${path}`} key={index} exact={exact}>
                                     <Component />
                                 </Route>

@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+// api/customer/
 
-
-Route::group(function () {
-    // Define your admin routes here
-});
+// Order admin
+Route::get('/orders', [App\Http\Controllers\Api\Customer\OrderController::class, 'index']);
+Route::get('/order/view/{id}', [App\Http\Controllers\Api\Customer\OrderController::class, 'view']);

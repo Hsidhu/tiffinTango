@@ -24,7 +24,6 @@ export const getOrder = (id) => (dispatch) => {
     });
 }
 
-
 // any key pair can be updated
 export const updateOrderStatus = (data) => (dispatch) => {
 
@@ -130,6 +129,27 @@ export const updatedOrderOfDailyDelivery = (data) => (dispatch) => {
                 padding:'20px',
                 marginTop: '5vh',
             }
+        });
+    });
+}
+
+
+// Customer api get order
+
+export const getCustomerOrders = () => (dispatch) => {
+    const res = getRequest('customer/orders').then(response => {
+        dispatch({
+            type: GET_ORDERS,
+            payload: response.data
+        });
+    });
+}
+
+export const getCustomerOrder = (id) => (dispatch) => {
+    const res = getRequest(`customer/order/view/${id}`).then(response => {
+        dispatch({
+            type: GET_ORDER,
+            payload: response.data
         });
     });
 }

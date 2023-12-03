@@ -6354,10 +6354,6 @@ var Order = function Order(_ref) {
     title: 'Order Type',
     dataIndex: 'order_type'
   }, {
-    key: 'order_type',
-    title: 'Order Type',
-    dataIndex: 'order_type'
-  }, {
     key: 'status',
     title: 'Status',
     dataIndex: 'status'
@@ -6365,16 +6361,14 @@ var Order = function Order(_ref) {
     key: 'action',
     title: 'Action',
     render: function render(_, record) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
         size: "middle",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
           onClick: function onClick() {
             return handleEditClick(record.id);
           },
           children: "View"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
-          children: "Delete"
-        })]
+        })
       });
     }
   }];

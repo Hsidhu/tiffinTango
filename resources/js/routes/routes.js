@@ -191,4 +191,16 @@ export const customerRouteList = [
         component: lazy(() => import('../pages/Customer/Dashboard')),
         exact: true,
     },
+    {
+        path: 'customer/orders',
+        component: lazy(() => import('../pages/Customer/Order/index')),
+        exact: true,
+    },
+    {
+        path: 'customer/order/view/:id',
+        component: lazy(() => import('../pages/Customer/Order/view')),
+        exact: true,
+    },
 ];
+
+

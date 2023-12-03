@@ -3,8 +3,6 @@ import { useHistory, Link } from 'react-router-dom';
 import { MenuOutlined } from '@ant-design/icons';
 import { Table } from 'antd';
 
-
-
 const DailyDeliveryTable = ({dailyDeliveryLogs}) => {
     const history = useHistory();
 

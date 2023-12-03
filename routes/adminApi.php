@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 // api/admin/
 
 // Location Routes
