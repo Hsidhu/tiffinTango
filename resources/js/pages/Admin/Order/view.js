@@ -15,6 +15,7 @@ import GoogleMapReact from 'google-map-react';
 import { GOOGLE_API_KEY } from '../../../config/constants';
 
 import OrderStatus from '../../../components/containers/orderStatus';
+import OrderDateChange from '../../../components/containers/orderDateChange'
 
 import PickupOrder from './PickupOrder';
 import DailyDeliveryTable from '../../../components/dailyDeliveryTable';
@@ -185,19 +186,17 @@ const View = ({ }) => {
                         labelStyle={{ fontSize: "20px" }}
                         contentStyle={{ fontSize: "20px" }}
                     >
-                        <Descriptions.Item
-                            label="Order Type">
+                        <Descriptions.Item label="Order Type">
                             {order?.order_type}
                         </Descriptions.Item>
-                        <Descriptions.Item
-                            label="Start Date">{moment(order.start_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}
+                        <Descriptions.Item label="Start Date">
+                            <OrderDateChange order_id={order.id} field={'start_date'} defaultDate={order.start_date} />
                         </Descriptions.Item>
-                        <Descriptions.Item
-                            label="End Date">{moment(order.end_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}
+                        <Descriptions.Item label="End Date">
+                            <OrderDateChange order_id={order.id} field={'end_date'} defaultDate={order.end_date} />
                         </Descriptions.Item>
                         <Descriptions.Item label="Status">
                             <OrderStatus order_id={order.id} statusID={order?.order_status_id} />
-                            
                         </Descriptions.Item>
                     </Descriptions>
                 </Col>

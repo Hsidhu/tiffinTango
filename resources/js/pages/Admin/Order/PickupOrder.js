@@ -10,7 +10,6 @@ const PickupOrder = ({order_id, customer_id, pickups}) => {
 
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [form] = Form.useForm();
-    const [selectedDate, setSelectedDate] = useState(null);
     const dispatch = useDispatch();
 
     const showModal = () => {
@@ -46,32 +45,38 @@ const PickupOrder = ({order_id, customer_id, pickups}) => {
                 renderItem={(item, i) => (
                     <List.Item>
                         <List.Item.Meta
-                        title={<a href="https://ant.design">{item.comment} - { i + 1}</a>}
+                        title={<strong>{item.comment} - { i + 1}</strong>}
                         description={`Number of meals picked up ${item.qty} on ${item.created_at}`}
                         />
                     </List.Item>
                 )}
             />}
 
-            
-            
             <Divider/>
 
-            <Button type="button" onClick={showModal}>
+            <Button type="primary" onClick={showModal}>
                 Add Pickup log
             </Button>
 
             <Modal
-                title="Add Event"
+                title="Pickup detail"
                 open={isModalVisible}
                 onOk={handleOk}
                 onCancel={handleCancel}
             >
                 <Form form={form}>
-                    <Form.Item name="comment" label="Comment">
+                    <Form.Item name="comment" label="Comment"
+                        rules={[
+                            { required: true },
+                        ]}
+                    >
                         <Input />
                     </Form.Item>
-                    <Form.Item name="qty" label="Quantity">
+                    <Form.Item name="qty" label="Quantity"
+                        rules={[
+                            { required: true },
+                        ]}
+                    >
                         <InputNumber
                             min={1}
                             step={1}

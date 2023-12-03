@@ -186,8 +186,8 @@ const MealPlanForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                                     width: 400,
                                 }}
                                 options={[
-                                    {value: 'pickup', label: 'pickup'},
-                                    {value: 'delivery', label: 'delivery'}
+                                    {value: 'pickup', label: 'Pickup'},
+                                    {value: 'delivery', label: 'Delivery'}
                                 ]}
                             />
                         </Form.Item>

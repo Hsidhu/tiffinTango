@@ -54,37 +54,63 @@ class MealPlanSeeder extends Seeder
         ]);
 
         /** Order status */
-        OrderStatus::create([
-            'name' => 'Received',
-            'description' => 'customer order Received'
-        ]);
-        OrderStatus::create([
-            'name' => 'Pending',
-            'description' => 'customer order Pending'
-        ]);
-        OrderStatus::create([
-            'name' => 'Scheduled',
-            'description' => 'Ready to be shipped Scheduled'
-        ]);
-        OrderStatus::create([
-            'name' => 'Canceled',
-            'description' => 'customer order Canceled'
-        ]);
+        $this->createOrderStatus();
 
         /** Delivery Windows */
-        DeliveryWindow::create([
-            'name' => 'Morning',
-            'description' => 'Morning deliveries and driver shifts'
-        ]);
-        DeliveryWindow::create([
-            'name' => 'Afternoon',
-            'description' => 'Afternoon deliveries',
-            'status' => 0
-        ]);
+        $this->createDeliveryWindows();
 
-        DeliveryWindow::create([
-            'name' => 'Evening',
-            'description' => 'Evening deliveries',
-        ]);
+    }
+
+    private function createOrderStatus()
+    {
+        $orderStatus = [
+            [
+                'name' => 'Received',
+                'description' => 'Customer order Received'
+            ],
+            [
+                'name' => 'Pending',
+                'description' => 'Customer order Pending'
+            ],
+            [
+                'name' => 'Scheduled',
+                'description' => 'Ready to be shipped Scheduled'
+            ],
+            [
+                'name' => 'Completed',
+                'description' => 'Customer order Completed'
+            ],
+            [
+                'name' => 'Canceled',
+                'description' => 'Customer order Canceled'
+            ]
+        ];
+        
+        foreach ($orderStatus as $status) {
+            OrderStatus::create($status);
+        }
+    }
+
+    private function createDeliveryWindows()
+    {
+        $deliveryWindows = [
+            [
+                'name' => 'Morning',
+                'description' => 'Morning deliveries and driver shifts'
+            ],
+            [
+                'name' => 'Afternoon',
+                'description' => 'Afternoon deliveries',
+                'status' => 0
+            ],
+            [
+                'name' => 'Evening',
+                'description' => 'Evening deliveries',
+            ],
+        ];
+
+        foreach ($deliveryWindows as $deliveryWindow) {
+            DeliveryWindow::create($deliveryWindow);
+        }
     }
 }

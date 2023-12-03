@@ -1,23 +1,7 @@
 import React, {useEffect} from 'react';
-import { Button, Result, Select } from 'antd';
-import { Route, Switch, useHistory, Link } from 'react-router-dom';
-
-import { axiosConfig } from '../config/constants';
+import { Select } from 'antd';
 import { isEmpty } from 'lodash';
 
-const styles = {
-    logoLink:{
-        display: 'flex',
-        alignItems: 'center',
-        height: '100%'
-    },
-    logo: {
-        height: "50px",
-        marginRight: "16px",
-        verticalAlign: "top"
-    }
-
-};
 
 const OrderStatus = ({order_id, statusID, disabled = false, orderStatuses, getOrderStatuses, updateOrderStatus}) => {
 

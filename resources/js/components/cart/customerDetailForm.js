@@ -3,8 +3,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { isEmpty } from 'lodash';
 import moment from "moment";
 import {
-    Row, Col, Button, Select, Card,
-    Radio, DatePicker, Form
+    Row, Col, Button, Card, Form
 } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { axiosConfig } from '../../config/constants';

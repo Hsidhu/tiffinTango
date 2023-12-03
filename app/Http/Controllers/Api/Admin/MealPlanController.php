@@ -32,9 +32,9 @@ class MealPlanController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, [
-            'name' => ['required', 'between:1,64'],
-            'description' => ['required', 'between:1,48'],
-            'short_description' => ['between:1,48'],
+            'name' => ['required', 'between:1, 64'],
+            'description' => ['required', 'between:5, 132'],
+            'short_description' => ['between:4, 132'],
             'price' => ['required','numeric'],
             'discount' => ['numeric'],
             'delivery_days' => ['required']
@@ -106,8 +106,8 @@ class MealPlanController extends Controller
         $mealPlan = MealPlan::find($request->id);
         $this->validate($request, [
             'name' => ['required', 'between:1,64'],
-            'description' => ['required', 'between:1,48'],
-            'short_description' => ['between:1,48'],
+            'description' => ['required', 'between:5, 132'],
+            'short_description' => ['between:4, 132'],
             'price' => ['required','numeric'],
             'discount' => ['numeric'],
             'delivery_days' => ['required']

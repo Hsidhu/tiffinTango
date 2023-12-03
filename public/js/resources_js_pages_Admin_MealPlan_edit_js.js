@@ -7953,10 +7953,10 @@ var MealPlanForm = function MealPlanForm(_ref) {
               },
               options: [{
                 value: 'pickup',
-                label: 'pickup'
+                label: 'Pickup'
               }, {
                 value: 'delivery',
-                label: 'delivery'
+                label: 'Delivery'
               }]
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {

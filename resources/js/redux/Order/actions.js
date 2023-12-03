@@ -30,7 +30,7 @@ export const updateOrderStatus = (data) => (dispatch) => {
 
     const res = postRequest('admin/order/updates', data).then(response => {
         dispatch({
-            type: ORDER_PLACED,
+            type: GET_ORDER,
             payload: response.data
         });
         message.success({
