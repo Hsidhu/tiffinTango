@@ -11767,6 +11767,22 @@ var DailyDeliveryTable = function DailyDeliveryTable(_ref) {
     title: 'Driver Phone',
     dataIndex: 'driver_phone'
   }, {
+    key: 'media_url',
+    title: 'Media',
+    dataIndex: 'media_url',
+    render: function render(_, record) {
+      if (record.media_url) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          width: "50",
+          height: "60",
+          src: record.media_url
+        });
+      }
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        children: "No image"
+      });
+    }
+  }, {
     key: 'created_at',
     title: 'Delivery created',
     dataIndex: 'created_at'

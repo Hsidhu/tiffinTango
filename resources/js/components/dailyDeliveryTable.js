@@ -32,6 +32,17 @@ const DailyDeliveryTable = ({dailyDeliveryLogs}) => {
             dataIndex: 'driver_phone',
         },
         {
+            key: 'media_url',
+            title: 'Media',
+            dataIndex: 'media_url',
+            render: (_, record) => {
+                if(record.media_url) {
+                    return <img width='50' height='60' src={record.media_url} />
+                }
+                return <span>No image</span>
+            }
+        },
+        {
             key: 'created_at',
             title: 'Delivery created',
             dataIndex: 'created_at',

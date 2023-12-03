@@ -31,6 +31,7 @@ class DailyDeliveryMealPlanLogResouce extends JsonResource
             'order_id' => $this->order->id,
             'delivery_comment' => $this->order->delivery_comment,
             'items' => $this->order->items()->first(),
+            'media_url' => $this->getFirstMediaUrl() ?? null,
             'priority' => $this->priority,
             'created_at' => $this->created_at->setTimezone(config('app.CLIENT_TIMEZONE'))->format('Y-m-d H:i:s')
         ];
