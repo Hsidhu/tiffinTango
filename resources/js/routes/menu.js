@@ -38,11 +38,7 @@ export const adminSideMenu = [
     getItem('/admin/mealplans', 'MealPlan', <CopyFilled />),
     getItem('/admin/delivery_zones', 'Delivery Zone', <CarFilled />),
     getItem('/admin/locations', 'Locations', <PushpinFilled />),
-    getItem('/admin/settings', 'Settings', <SettingFilled />),
-    getItem('User', 'sub1', <UserOutlined />, [
-        getItem('Tom', '3'),
-        getItem('Bill', '4'),
-    ]),
+    getItem('/admin/settings', 'Settings', <SettingFilled />)
 ];
 
 export const customerSideMenu = [

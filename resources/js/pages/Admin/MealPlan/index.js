@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { 
     Space, Table, Row, Divider,
@@ -76,8 +76,11 @@ const MealPan = ({ }) => {
         <>
             <TableHeaderLink
                 name="MealPlans"
-                toUri="/admin/mealplan/create"
-                toText="Create"
+                HeaderButtons = {[
+                    <Link key={'create_mealplan'} to="/admin/mealplan/create">
+                        <Button type='primary'>Create</Button>
+                    </Link>,
+                ]}
             />
             <Divider />
             <Table rowKey="id" columns={columns} dataSource={mealplans.data} />

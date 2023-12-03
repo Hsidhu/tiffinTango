@@ -21,7 +21,6 @@ const TableHeaderLink = ({ name, backUri, toUri, toText, HeaderButtons, children
 
     if(isEmpty(HeaderButtons)){
         HeaderButtons = [
-            <Button key="2">Operation</Button>,
             !toUri ? null :
                 <Button key="3" type="primary" onClick={() => navTo(toUri)} >
                     {toText}

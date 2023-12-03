@@ -2932,9 +2932,7 @@ var TableHeaderLink = function TableHeaderLink(_ref) {
     history.push(uri);
   };
   if ((0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(HeaderButtons)) {
-    HeaderButtons = [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      children: "Operation"
-    }, "2"), !toUri ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    HeaderButtons = [!toUri ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
       type: "primary",
       onClick: function onClick() {
         return navTo(toUri);

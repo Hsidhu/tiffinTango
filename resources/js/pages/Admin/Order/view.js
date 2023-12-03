@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import moment from "moment";
 import {
     Row, Col, Typography,
-    Space, Button, Descriptions,
-    Card, Table, Divider, Select
+    Button, Descriptions,
+    Card, Table, Divider
 } from 'antd';
 
-import { getOrder, addPickupLog } from "../../../redux/Order/actions"
+import { getOrder } from "../../../redux/Order/actions"
 import { isEmpty } from 'lodash';
 import TableHeaderLink from '../../../components/tableHeaderLink';
 import GoogleMapReact from 'google-map-react';
@@ -29,7 +29,6 @@ const View = ({ }) => {
     const { id } = useParams();
     const {order} = useSelector(state => state)
     const dispatch = useDispatch();
-
 
     useEffect(() => {
         dispatch(getOrder(id))
@@ -168,7 +167,9 @@ const View = ({ }) => {
                 subTitle="Order Detail"
                 backUri="/admin/orders"
                 HeaderButtons = {[
-                    <Link key={'generate'} to="/admin/order/generateDeliveries"> Generate Deliveries</Link>,
+                    <Link key={'generate_deliveries'} to="/admin/order/generateDeliveries">
+                        <Button type='primary'>Generate Deliveries</Button>
+                    </Link>,
                 ]}
             >
                 <Descriptions size="small" column={3}>

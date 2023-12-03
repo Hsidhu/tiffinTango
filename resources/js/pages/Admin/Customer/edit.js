@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
     Row, Col, Button, Divider, Form
@@ -42,6 +42,11 @@ const Edit = ({ }) => {
             <TableHeaderLink
                 name="Edit Customer"
                 backUri="/admin/customers"
+                HeaderButtons = {[
+                    <Link key={'create_order'} to={`/admin/customer/createOrder/${id}`}>
+                        <Button type='primary'>Create Order</Button>
+                    </Link>,
+                ]}
             />
             <Divider />
             <CustomerForm form={form} onFormChange={onFormChange}  onFormSubmit={onFormSubmit} hasId={true}  />

@@ -3,8 +3,7 @@ import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
     Row, Col, Button, Space, Select, Divider,
-    Typography, Table, Collapse
-
+    Typography, Collapse
 } from 'antd'
 import TableHeaderLink from '../../../components/tableHeaderLink';
 
@@ -76,7 +75,9 @@ const GenerateDeliveries = ({ }) => {
             <TableHeaderLink
                 name="GenerateDeliveries"
                 HeaderButtons = {[
-                    <Link key={"sticker_link"} to="/admin/order/sticker_view">Sticker View</Link>
+                    <Link key={'sticker_link'} to="/admin/order/sticker_view">
+                        <Button type='primary'>Sticker View</Button>
+                    </Link>,
                 ]}
             />
             <Divider />

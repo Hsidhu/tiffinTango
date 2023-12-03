@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { Space, Table, Tag, Row, Col, Button, Divider } from 'antd';
+import { Space, Table, Row, Col, Button, Divider } from 'antd';
 import { getCustomers } from "../../../redux/Customer/actions"
 import TableHeaderLink from '../../../components/tableHeaderLink';
 
@@ -95,8 +95,11 @@ const Customer = ({ }) => {
         <>
             <TableHeaderLink
                 name="Customers"
-                toUri="/admin/customer/create"
-                toText="Create"
+                HeaderButtons = {[
+                    <Link key={'customer_create'} to="/admin/customer/create">
+                        <Button type='primary'>Create</Button>
+                    </Link>,
+                ]}
             />
             <Divider />
             <Table rowKey="id" 

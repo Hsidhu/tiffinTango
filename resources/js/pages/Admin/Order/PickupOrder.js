@@ -1,10 +1,8 @@
 import React, {useState} from 'react';
 
-import {Modal, Button, Form, Input, InputNumber, Typography, List, Divider } from 'antd';
-import moment from 'moment';
+import {Modal, Button, Form, Input, InputNumber, List, Divider } from 'antd';
 import { addPickupLog } from "../../../redux/Order/actions"
 import { useDispatch } from 'react-redux';
-
 
 const PickupOrder = ({order_id, customer_id, pickups}) => {
 
@@ -39,6 +37,12 @@ const PickupOrder = ({order_id, customer_id, pickups}) => {
 
     return (
         <div>
+            <Button type="primary" onClick={showModal}>
+                Add Pickup log
+            </Button>
+
+            <Divider/>
+
             {pickups && <List
                 itemLayout="horizontal"
                 dataSource={pickups}
@@ -51,12 +55,6 @@ const PickupOrder = ({order_id, customer_id, pickups}) => {
                     </List.Item>
                 )}
             />}
-
-            <Divider/>
-
-            <Button type="primary" onClick={showModal}>
-                Add Pickup log
-            </Button>
 
             <Modal
                 title="Pickup detail"

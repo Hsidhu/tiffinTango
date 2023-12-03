@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { Space, Table, Divider } from 'antd';
+import { Space, Table, Divider, Button } from 'antd';
 import { getOrders } from "../../../redux/Order/actions"
 import TableHeaderLink from '../../../components/tableHeaderLink';
 
@@ -70,7 +70,9 @@ const Order = ({ }) => {
                 name="Orders"
                 subTitle="MealPlan Orders"
                 HeaderButtons = {[
-                    <Link key={'link'} to="/admin/order/generateDeliveries"> Generate Deliveries</Link>,
+                    <Link key={'generate_deliveries'} to="/admin/order/generateDeliveries">
+                        <Button type='primary'>Generate Deliveries</Button>
+                    </Link>,
                 ]}
             />
             <Divider />
