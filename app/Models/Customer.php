@@ -95,4 +95,15 @@ class Customer extends Authenticatable
         $this->notify(new NewCustomerNotification);
     }
 
+
+    public static function getDataForSelect()
+    {
+        return static::all()->map(function ($customer) {
+            return [
+                'value' => $customer->id,
+                'label' => $customer->full_name,
+            ];
+        });  
+    }
+
 }

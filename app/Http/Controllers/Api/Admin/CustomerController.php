@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\Address;
 use App\Http\Resources\Admin\CustomerResource;
+use App\Services\CreateMealPlanOrder;
 
 class CustomerController extends Controller
 {
@@ -67,5 +68,11 @@ class CustomerController extends Controller
         );
 
         return $customer;
+    }
+
+    public function createOrder(Request $request)
+    {
+        $orderCreated =  new CreateMealPlanOrder($request);
+        return response()->json(['success' => $orderCreated->create()]);
     }
 }

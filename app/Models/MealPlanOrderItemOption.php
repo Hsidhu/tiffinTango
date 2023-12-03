@@ -13,7 +13,8 @@ class MealPlanOrderItemOption extends Model
     protected $guarded = [];
 
     protected $casts = [
-        "value_price" => 'float'
+        "value_price" => 'float',
+        "qty" => 'int',
     ];
 
 }

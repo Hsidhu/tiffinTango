@@ -6943,7 +6943,7 @@ var MealPlanForm = function MealPlanForm(_ref) {
             label: "Delivery Plan",
             name: "delivery_days",
             rules: [{
-              required: false
+              required: true
             }],
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
               placeholder: 'Select Plan delivery',
@@ -6962,7 +6962,7 @@ var MealPlanForm = function MealPlanForm(_ref) {
             label: "Delivery Type",
             name: "delivery_type",
             rules: [{
-              required: false
+              required: true
             }],
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
               placeholder: 'Select Plan delivery',

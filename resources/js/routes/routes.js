@@ -124,6 +124,11 @@ export const privateRouteList = [
         exact: true,
     },
     {
+        path: 'admin/customer/createOrder/:id',
+        component: lazy(() => import('../pages/Admin/Customer/createOrder')),
+        exact: true,
+    },
+    {
         path: 'admin/mealplans',
         component: lazy(() => import('../pages/Admin/MealPlan/index')),
         exact: true,

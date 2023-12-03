@@ -8,9 +8,8 @@ export const ORDER_CUSTOMER_INFO = "ORDER_META_DATA"
 export const ADD_DELIVERY_CHARGE = "ADD_DELIVERY_CHARGE"
 export const ORDER_PLACED = "ORDER_PLACED"
 
-
-export const getMealPlanForOrder = () => (dispatch) => {
-    const res = getRequest('mealplanorder/data').then(response => {
+export const getMealPlanForOrder = (delivery_type = '') => (dispatch) => {
+    const res = getRequest(`mealplanorder/data?delivery_type=${delivery_type}`).then(response => {
         dispatch({
             type: GET_MEALPLAN_ORDER_DATA,
             payload: response.data
@@ -31,6 +30,13 @@ export const addToCartselectMealPlan = (mealPlanObject) => (dispatch) => {
     dispatch({
         type: SELECT_MEALPLAN,
         payload: mealPlanObject
+    });
+}
+
+export const removeFromCartselectMealPlan = () => (dispatch) => {
+    dispatch({
+        type: SELECT_MEALPLAN,
+        payload: {}
     });
 }
 

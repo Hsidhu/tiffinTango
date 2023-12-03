@@ -34,7 +34,6 @@ return new class extends Migration
             $table->id();
             $table->integer('customer_id');
             $table->integer('order_id');
-            $table->dateTime('picked_at');
             $table->string('comment', 268)->nullable();
             $table->integer('qty')->default(1);
             $table->integer('status')->default(1);

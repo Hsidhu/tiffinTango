@@ -20,7 +20,6 @@ export const getCustomers = () => (dispatch) => {
 export const createCustomers = (data, history) => (dispatch) => {
 
     const res = postRequest('admin/customer/create', data).then(response => {
-        console.log(response.data)
         dispatch({
             type: GET_CUSTOMERS,
             payload: response.data
@@ -50,6 +49,16 @@ export const updateCustomer = (data, history) => (dispatch) => {
         
         message.success('update Customer Done!')
         history.push('/admin/customers')
+    }).catch(error => {
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
+    });
+}
+
+
+export const createCustomerOrder = (data, history) => (dispatch) => {
+    const res = postRequest('admin/customer/createOrder', data).then(response => {
+        message.success('Customer order created!')
+        history.push('/admin/orders')
     }).catch(error => {
         message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });

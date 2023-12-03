@@ -6356,9 +6356,9 @@ var Customer = function Customer(_ref) {
     dataIndex: 'phone',
     key: 'phone'
   }, {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address'
+    title: 'Full Address',
+    dataIndex: 'full_address',
+    key: 'full_address'
   }, {
     title: 'Delivery Zone',
     dataIndex: 'delivery_zone_id',

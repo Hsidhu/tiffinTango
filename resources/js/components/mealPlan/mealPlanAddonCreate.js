@@ -21,11 +21,6 @@ const MealPlanAddonCreate = ({ }) => {
 
     const [form] = Form.useForm()
 
-    const onFormSubmit = (values) => {
-        dispatch(createMealPlanAddon(values));
-        dispatch(getMealPlanOptions(mealplan.id));
-    }
-
     useEffect(() => {
         dispatch(getMealPlanOptions(mealplan.id));
     }, [mealplan])
@@ -37,6 +32,11 @@ const MealPlanAddonCreate = ({ }) => {
     useEffect(() => {
         form.setFieldsValue({meal_plan_id:mealplan.id})
     }, [form, mealplan])
+
+    const onFormSubmit = (values) => {
+        dispatch(createMealPlanAddon(values));
+        dispatch(getMealPlanOptions(mealplan.id));
+    }
 
     return (
         <Form

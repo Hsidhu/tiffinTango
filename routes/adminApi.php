@@ -19,6 +19,7 @@ Route::post('/customer/create', [App\Http\Controllers\Api\Admin\CustomerControll
 Route::get('/customer/edit/{id}', [App\Http\Controllers\Api\Admin\CustomerController::class, 'edit']);
 Route::post('/customer/update', [App\Http\Controllers\Api\Admin\CustomerController::class, 'update']);
 Route::delete('/customer/delete/{id}', [App\Http\Controllers\Api\Admin\CustomerController::class, 'delete']);
+Route::post('/customer/createOrder', [App\Http\Controllers\Api\Admin\CustomerController::class, 'createOrder']);
 
 // Admin Driver Routes
 Route::get('/drivers', [App\Http\Controllers\Api\Admin\DriverController::class, 'index']);
@@ -47,8 +48,6 @@ Route::post('/delivery_zone/update', [App\Http\Controllers\Api\Admin\DeliveryZon
 Route::delete('/delivery_zone/delete/{id}', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'delete']);
 Route::post('/delivery_zone/assign_zone/driver', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'assignZoneToDriver']);
 Route::post('/delivery_zone/assign_zone/address', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'assignZoneToAddress']);
-
-
 
 
 Route::get('/delivery_zone/select', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'getSelectList']);

@@ -41,18 +41,14 @@ const CreateMealPlanOptions = ({ }) => {
                 <Col span={24}>
                     <Form.Item label="Name" name="name"
                         rules={[
-                            {
-                                required: true
-                            },
+                            { required: true },
                         ]}
                     >
                         <Input />
                     </Form.Item>
                     <Form.Item label="Display Type" name="display_type"
                         rules={[
-                            {
-                                required: true
-                            },
+                            { required: true },
                         ]}
                     > 
                         <Radio.Group buttonStyle="solid" >
@@ -62,7 +58,7 @@ const CreateMealPlanOptions = ({ }) => {
                         </Radio.Group>
                     </Form.Item>
 
-                    <Form.Item label="Required" name="required">
+                    <Form.Item label="Required" name="required" valuePropName="checked">
                         <Checkbox />
                     </Form.Item>
 

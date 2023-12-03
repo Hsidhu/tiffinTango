@@ -19,9 +19,14 @@ use App\Models\DeliveryWindow;
 class OrderController extends Controller
 {
 
-    public function getMealPlans()
+    public function getMealPlans(Request $request)
     {
-        $mealPlans = MealPlan::where('status', 1)->get();
+        $deliveryType = $request->get('delivery_type', null);
+        $mealPlans = MealPlan::where('status', 1)
+        ->when(!empty($deliveryType), function($query) use ($deliveryType) {
+            return $query->where('delivery_type', $deliveryType);
+        })->get();
+    
         return MealPlanOrderResource::collection($mealPlans)->collection;
     }
 

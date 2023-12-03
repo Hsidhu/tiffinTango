@@ -160,7 +160,7 @@ const MealPlanForm = ({form, onFormChange, hasId, onFormSubmit }) => {
 
                         <Form.Item label="Delivery Plan" name="delivery_days"
                             rules={[{
-                                required: false
+                                required: true
                             }]}
                         >
                             <Select
@@ -177,7 +177,7 @@ const MealPlanForm = ({form, onFormChange, hasId, onFormSubmit }) => {
 
                         <Form.Item label="Delivery Type" name="delivery_type"
                             rules={[{
-                                required: false
+                                required: true
                             }]}
                         >
                             <Select

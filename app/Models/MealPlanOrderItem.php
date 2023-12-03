@@ -14,11 +14,10 @@ class MealPlanOrderItem extends Model
 
     protected $guarded = [];
 
-    // quota
-    
     protected $casts = [
         "price" => 'float',
-        "subtotal" => 'float'
+        "subtotal" => 'float',
+        "qty" => 'int',
     ];
 
     public function mealPlan()

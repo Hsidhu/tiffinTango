@@ -85,9 +85,8 @@ export const updateMealPlan = (data) => (dispatch) => {
     }
 
     const res = postRequest('admin/mealplan/update', formData, config).then(response => {
-        console.log(response.data)
         dispatch({
-            type: GET_CUSTOMERS,
+            type: GET_MEALPLAN,
             payload: response.data
         });
         message.success('MealPlan SuccessFully Updated!');

@@ -2,14 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
-    Row, Col, Button, Divider,
-    Form, Input, Switch
+    Row, Col, Button, Divider, Form
 } from 'antd';
 
-import Autocomplete, { usePlacesWidget } from "react-google-autocomplete";
-import { GOOGLE_API_KEY } from '../../../config/constants';
 import { updateCustomer, getCustomer } from '../../../redux/Customer/actions'
-import { phonePattern } from '../../../validationHelper'
 import TableHeaderLink from '../../../components/tableHeaderLink';
 import CustomerForm from './CustomerForm';
 

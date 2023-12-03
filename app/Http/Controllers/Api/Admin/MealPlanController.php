@@ -116,17 +116,11 @@ class MealPlanController extends Controller
         //$fileName = $mealPlan->image;
         //$this->addMediaToModel($mealPlan, $request->file('mediaFileId'));
 
-        if(!empty($request->file('file'))) {
-            unlink(storage_path('app/public/'.$fileName));
-            $fileName = $this->fileStoreName($request->file('file'));
-            $request->file('file')->storeAs('public/mealplan', $fileName);
-            $request->merge(['image' => 'mealplan/'.$fileName]);
-        }
         $mealPlan->update($request->only([
                 'name','description','short_description', 
                 'price', 'discount', 'delivery_days', 'quota', 'delivery_type', 'status'
         ]));
-        return response()->json($mealPlan);
+        return new MealPlanResource($mealPlan);
     }
 
     private function fileStoreName($file)

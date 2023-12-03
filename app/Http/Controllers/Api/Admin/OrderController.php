@@ -51,7 +51,6 @@ class OrderController extends Controller
         $picked = PickedUpMealPlanLog::create([
             'order_id' => $order->id,
             'customer_id' => $order->customer_id,
-            'picked_at' => $request->get('picked_at'),
             'comment' => $request->get('comment'),
             'qty' => $request->get('qty') ?? 1
         ]);

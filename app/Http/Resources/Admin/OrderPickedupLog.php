@@ -19,7 +19,7 @@ class OrderPickedupLog extends JsonResource
             'comment' => $this->comment,
             'customer_id' => $this->customer_id,
             'order_id' => $this->order_id,
-            'picked_at' => $this->picked_at->format('Y-m-d'), // Format in the original timezone
+            'qty' => $this->qty,
             'created_at' => $this->created_at->setTimezone(config('app.CLIENT_TIMEZONE'))->format('Y-m-d H:i:s')
         ];
         return parent::toArray($request);

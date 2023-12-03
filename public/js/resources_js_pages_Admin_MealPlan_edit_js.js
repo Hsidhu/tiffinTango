@@ -7105,6 +7105,7 @@ var CreateMealPlanOptions = function CreateMealPlanOptions(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].Item, {
           label: "Required",
           name: "required",
+          valuePropName: "checked",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].Item, {
           label: "Option Values",
@@ -7248,10 +7249,6 @@ var MealPlanAddonCreate = function MealPlanAddonCreate(_ref) {
   var _Form$useForm = antd__WEBPACK_IMPORTED_MODULE_6__["default"].useForm(),
     _Form$useForm2 = _slicedToArray(_Form$useForm, 1),
     form = _Form$useForm2[0];
-  var onFormSubmit = function onFormSubmit(values) {
-    dispatch((0,_redux_MealPlan_actions__WEBPACK_IMPORTED_MODULE_2__.createMealPlanAddon)(values));
-    dispatch((0,_redux_MealPlan_actions__WEBPACK_IMPORTED_MODULE_2__.getMealPlanOptions)(mealplan.id));
-  };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_redux_MealPlan_actions__WEBPACK_IMPORTED_MODULE_2__.getMealPlanOptions)(mealplan.id));
   }, [mealplan]);
@@ -7263,6 +7260,10 @@ var MealPlanAddonCreate = function MealPlanAddonCreate(_ref) {
       meal_plan_id: mealplan.id
     });
   }, [form, mealplan]);
+  var onFormSubmit = function onFormSubmit(values) {
+    dispatch((0,_redux_MealPlan_actions__WEBPACK_IMPORTED_MODULE_2__.createMealPlanAddon)(values));
+    dispatch((0,_redux_MealPlan_actions__WEBPACK_IMPORTED_MODULE_2__.getMealPlanOptions)(mealplan.id));
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
     form: form,
     labelCol: {
@@ -7924,7 +7925,7 @@ var MealPlanForm = function MealPlanForm(_ref) {
             label: "Delivery Plan",
             name: "delivery_days",
             rules: [{
-              required: false
+              required: true
             }],
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
               placeholder: 'Select Plan delivery',
@@ -7943,7 +7944,7 @@ var MealPlanForm = function MealPlanForm(_ref) {
             label: "Delivery Type",
             name: "delivery_type",
             rules: [{
-              required: false
+              required: true
             }],
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
               placeholder: 'Select Plan delivery',
