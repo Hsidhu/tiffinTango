@@ -73,8 +73,8 @@ const PickupOrder = ({order_id, customer_id, pickups, pickupQuota}) => {
                     <List.Item>
                         <List.Item.Meta
                         title={<strong>{item.comment} - { i + 1}</strong>}
-                        description={`Number of meals picked up ${item.qty} on ${item.created_at}`}
                         />
+                        {`Number of meals picked up [ ${item.qty} ] on ${item.created_at}`}
                     </List.Item>
                 )}
             />}

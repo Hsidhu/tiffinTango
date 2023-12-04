@@ -12416,13 +12416,13 @@ var PickupOrder = function PickupOrder(_ref) {
       itemLayout: "horizontal",
       dataSource: pickups,
       renderItem: function renderItem(item, i) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"].Item, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"].Item.Meta, {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_10__["default"].Item, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"].Item.Meta, {
             title: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("strong", {
               children: [item.comment, " - ", i + 1]
             }),
-            description: "Number of meals picked up ".concat(item.qty, " on ").concat(item.created_at)
-          })
+            description: "Number of meals picked up <b> ".concat(item.qty, " </b> on ").concat(item.created_at)
+          }), "Number of meals picked up <b> ".concat(item.qty, " </b> on ").concat(item.created_at)]
         });
       }
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
