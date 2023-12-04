@@ -392,7 +392,7 @@ class Currency
      */
     public function __get($key)
     {
-        return $this->getCurrency()->$$key;
+        return $this->getCurrency()->$key;
     }
 
     /**

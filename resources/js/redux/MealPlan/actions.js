@@ -27,17 +27,13 @@ export const getMealPlanOptions = (mealplan_id) => (dispatch) => {
 }
 
 export const createMealPlan = (data, history) => (dispatch) => {
-    const config = {
-        headers: {
-            'content-type': 'multipart/form-data',
-        },
-    };
+
     const formData = new FormData();
     for ( var key in data ) {
         formData.append(key, data[key]);
     }
 
-    const res = postRequest('admin/mealplan/create', formData, config).then(response => {
+    const res = postRequest('admin/mealplan/create', formData).then(response => {
         console.log(response.data)
         dispatch({
             type: GET_MEALPLANS,

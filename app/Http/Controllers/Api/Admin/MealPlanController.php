@@ -40,7 +40,7 @@ class MealPlanController extends Controller
             'delivery_days' => ['required']
         ]);
 
-        $mealPlan = MealPlan::create($$request->only([
+        $mealPlan = MealPlan::create($request->only([
             'name','description','short_description', 'price',
             'discount', 'delivery_days', 'quota', 'delivery_type', 'status'
         ]));
