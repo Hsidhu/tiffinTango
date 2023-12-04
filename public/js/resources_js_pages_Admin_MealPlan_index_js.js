@@ -7490,7 +7490,7 @@ var MealPan = function MealPan(_ref) {
       });
     }
   }, {
-    title: 'description',
+    title: 'Description',
     dataIndex: 'description',
     key: 'description'
   }, {

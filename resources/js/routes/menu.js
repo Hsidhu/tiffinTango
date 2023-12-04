@@ -35,7 +35,7 @@ export const adminSideMenu = [
     getItem('/admin/orders', 'Orders', <UnorderedListOutlined />),
     getItem('/admin/customers', 'Customers', <TeamOutlined />),
     getItem('/admin/drivers', 'Drivers', <TeamOutlined />),
-    getItem('/admin/mealplans', 'MealPlan', <CopyFilled />),
+    getItem('/admin/mealplans', 'MealPlans', <CopyFilled />),
     getItem('/admin/delivery_zones', 'Delivery Zone', <CarFilled />),
     getItem('/admin/locations', 'Locations', <PushpinFilled />),
     getItem('/admin/settings', 'Settings', <SettingFilled />)
