@@ -1,11 +1,8 @@
-import React, { useState, useRef } from 'react';
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
-    Row, Col, Button, Divider,
-    Form, Input, Select,
-    Switch, InputNumber, Upload
+    Row, Col, Button, Divider, Form
 } from 'antd';
 
 import { mapSwitchValue } from '../../../config/helpers'
@@ -14,14 +11,10 @@ import TableHeaderLink from '../../../components/tableHeaderLink';
 
 import MealPlanForm from './mealPlanForm';
 
-const { TextArea } = Input;
-
 const Create = ({ }) => {
     const history = useHistory()
-    const [fileList, setFileList] = useState([]);
 
     const dispatch = useDispatch();
-
     const [form] = Form.useForm()
 
     
@@ -32,7 +25,7 @@ const Create = ({ }) => {
     const onFormSubmit = (values) => {
         // Map the "status" value before submission
         values.status = mapSwitchValue(values.status);
-        dispatch(createMealPlan(values));
+        dispatch(createMealPlan(values, history));
     }
 
     return (

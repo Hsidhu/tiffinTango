@@ -396,6 +396,42 @@ var QuestionCircleOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64
 
 /***/ }),
 
+/***/ "./node_modules/@ant-design/icons-svg/es/asn/RotateLeftOutlined.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@ant-design/icons-svg/es/asn/RotateLeftOutlined.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// This icon file is generated automatically.
+var RotateLeftOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "defs", "attrs": {}, "children": [{ "tag": "style", "attrs": {} }] }, { "tag": "path", "attrs": { "d": "M672 418H144c-17.7 0-32 14.3-32 32v414c0 17.7 14.3 32 32 32h528c17.7 0 32-14.3 32-32V450c0-17.7-14.3-32-32-32zm-44 402H188V494h440v326z" } }, { "tag": "path", "attrs": { "d": "M819.3 328.5c-78.8-100.7-196-153.6-314.6-154.2l-.2-64c0-6.5-7.6-10.1-12.6-6.1l-128 101c-4 3.1-3.9 9.1 0 12.3L492 318.6c5.1 4 12.7.4 12.6-6.1v-63.9c12.9.1 25.9.9 38.8 2.5 42.1 5.2 82.1 18.2 119 38.7 38.1 21.2 71.2 49.7 98.4 84.3 27.1 34.7 46.7 73.7 58.1 115.8a325.95 325.95 0 016.5 140.9h74.9c14.8-103.6-11.3-213-81-302.3z" } }] }, "name": "rotate-left", "theme": "outlined" };
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RotateLeftOutlined);
+
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons-svg/es/asn/RotateRightOutlined.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@ant-design/icons-svg/es/asn/RotateRightOutlined.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// This icon file is generated automatically.
+var RotateRightOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "defs", "attrs": {}, "children": [{ "tag": "style", "attrs": {} }] }, { "tag": "path", "attrs": { "d": "M480.5 251.2c13-1.6 25.9-2.4 38.8-2.5v63.9c0 6.5 7.5 10.1 12.6 6.1L660 217.6c4-3.2 4-9.2 0-12.3l-128-101c-5.1-4-12.6-.4-12.6 6.1l-.2 64c-118.6.5-235.8 53.4-314.6 154.2A399.75 399.75 0 00123.5 631h74.9c-.9-5.3-1.7-10.7-2.4-16.1-5.1-42.1-2.1-84.1 8.9-124.8 11.4-42.2 31-81.1 58.1-115.8 27.2-34.7 60.3-63.2 98.4-84.3 37-20.6 76.9-33.6 119.1-38.8z" } }, { "tag": "path", "attrs": { "d": "M880 418H352c-17.7 0-32 14.3-32 32v414c0 17.7 14.3 32 32 32h528c17.7 0 32-14.3 32-32V450c0-17.7-14.3-32-32-32zm-44 402H396V494h440v326z" } }] }, "name": "rotate-right", "theme": "outlined" };
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RotateRightOutlined);
+
+
+/***/ }),
+
 /***/ "./node_modules/@ant-design/icons-svg/es/asn/SearchOutlined.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/@ant-design/icons-svg/es/asn/SearchOutlined.js ***!
@@ -446,6 +482,42 @@ __webpack_require__.r(__webpack_exports__);
 // This icon file is generated automatically.
 var UpOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z" } }] }, "name": "up", "theme": "outlined" };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UpOutlined);
+
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons-svg/es/asn/ZoomInOutlined.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@ant-design/icons-svg/es/asn/ZoomInOutlined.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// This icon file is generated automatically.
+var ZoomInOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M637 443H519V309c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v134H325c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h118v134c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V519h118c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm284 424L775 721c122.1-148.9 113.6-369.5-26-509-148-148.1-388.4-148.1-537 0-148.1 148.6-148.1 389 0 537 139.5 139.6 360.1 148.1 509 26l146 146c3.2 2.8 8.3 2.8 11 0l43-43c2.8-2.7 2.8-7.8 0-11zM696 696c-118.8 118.7-311.2 118.7-430 0-118.7-118.8-118.7-311.2 0-430 118.8-118.7 311.2-118.7 430 0 118.7 118.8 118.7 311.2 0 430z" } }] }, "name": "zoom-in", "theme": "outlined" };
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ZoomInOutlined);
+
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons-svg/es/asn/ZoomOutOutlined.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@ant-design/icons-svg/es/asn/ZoomOutOutlined.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// This icon file is generated automatically.
+var ZoomOutOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M637 443H325c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h312c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm284 424L775 721c122.1-148.9 113.6-369.5-26-509-148-148.1-388.4-148.1-537 0-148.1 148.6-148.1 389 0 537 139.5 139.6 360.1 148.1 509 26l146 146c3.2 2.8 8.3 2.8 11 0l43-43c2.8-2.7 2.8-7.8 0-11zM696 696c-118.8 118.7-311.2 118.7-430 0-118.7-118.8-118.7-311.2 0-430 118.8-118.7 311.2-118.7 430 0 118.7 118.8 118.7 311.2 0 430z" } }] }, "name": "zoom-out", "theme": "outlined" };
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ZoomOutOutlined);
 
 
 /***/ }),
@@ -1176,6 +1248,72 @@ QuestionCircleOutlined.displayName = 'QuestionCircleOutlined';
 
 /***/ }),
 
+/***/ "./node_modules/@ant-design/icons/es/icons/RotateLeftOutlined.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@ant-design/icons/es/icons/RotateLeftOutlined.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ant_design_icons_svg_es_asn_RotateLeftOutlined__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/RotateLeftOutlined */ "./node_modules/@ant-design/icons-svg/es/asn/RotateLeftOutlined.js");
+/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
+
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
+
+
+
+var RotateLeftOutlined = function RotateLeftOutlined(props, ref) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
+    ref: ref,
+    icon: _ant_design_icons_svg_es_asn_RotateLeftOutlined__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }));
+};
+RotateLeftOutlined.displayName = 'RotateLeftOutlined';
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(RotateLeftOutlined));
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/RotateRightOutlined.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@ant-design/icons/es/icons/RotateRightOutlined.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ant_design_icons_svg_es_asn_RotateRightOutlined__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/RotateRightOutlined */ "./node_modules/@ant-design/icons-svg/es/asn/RotateRightOutlined.js");
+/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
+
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
+
+
+
+var RotateRightOutlined = function RotateRightOutlined(props, ref) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
+    ref: ref,
+    icon: _ant_design_icons_svg_es_asn_RotateRightOutlined__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }));
+};
+RotateRightOutlined.displayName = 'RotateRightOutlined';
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(RotateRightOutlined));
+
+/***/ }),
+
 /***/ "./node_modules/@ant-design/icons/es/icons/SearchOutlined.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@ant-design/icons/es/icons/SearchOutlined.js ***!
@@ -1272,6 +1410,72 @@ var UpOutlined = function UpOutlined(props, ref) {
 };
 UpOutlined.displayName = 'UpOutlined';
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(UpOutlined));
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/ZoomInOutlined.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@ant-design/icons/es/icons/ZoomInOutlined.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ant_design_icons_svg_es_asn_ZoomInOutlined__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/ZoomInOutlined */ "./node_modules/@ant-design/icons-svg/es/asn/ZoomInOutlined.js");
+/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
+
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
+
+
+
+var ZoomInOutlined = function ZoomInOutlined(props, ref) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
+    ref: ref,
+    icon: _ant_design_icons_svg_es_asn_ZoomInOutlined__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }));
+};
+ZoomInOutlined.displayName = 'ZoomInOutlined';
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(ZoomInOutlined));
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/ZoomOutOutlined.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@ant-design/icons/es/icons/ZoomOutOutlined.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ant_design_icons_svg_es_asn_ZoomOutOutlined__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/ZoomOutOutlined */ "./node_modules/@ant-design/icons-svg/es/asn/ZoomOutOutlined.js");
+/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
+
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
+
+
+
+var ZoomOutOutlined = function ZoomOutOutlined(props, ref) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
+    ref: ref,
+    icon: _ant_design_icons_svg_es_asn_ZoomOutOutlined__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }));
+};
+ZoomOutOutlined.displayName = 'ZoomOutOutlined';
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(ZoomOutOutlined));
 
 /***/ }),
 
@@ -5563,6 +5767,169 @@ function getFieldId(namePath, formName) {
   var isIllegalName = formItemNameBlackList.includes(mergedId);
   return isIllegalName ? "".concat(defaultItemNamePrefixCls, "_").concat(mergedId) : mergedId;
 }
+
+/***/ }),
+
+/***/ "./node_modules/antd/es/image/PreviewGroup.js":
+/*!****************************************************!*\
+  !*** ./node_modules/antd/es/image/PreviewGroup.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   icons: () => (/* binding */ icons)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var _ant_design_icons_es_icons_CloseOutlined__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ant-design/icons/es/icons/CloseOutlined */ "./node_modules/@ant-design/icons/es/icons/CloseOutlined.js");
+/* harmony import */ var _ant_design_icons_es_icons_LeftOutlined__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ant-design/icons/es/icons/LeftOutlined */ "./node_modules/@ant-design/icons/es/icons/LeftOutlined.js");
+/* harmony import */ var _ant_design_icons_es_icons_RightOutlined__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ant-design/icons/es/icons/RightOutlined */ "./node_modules/@ant-design/icons/es/icons/RightOutlined.js");
+/* harmony import */ var _ant_design_icons_es_icons_RotateLeftOutlined__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ant-design/icons/es/icons/RotateLeftOutlined */ "./node_modules/@ant-design/icons/es/icons/RotateLeftOutlined.js");
+/* harmony import */ var _ant_design_icons_es_icons_RotateRightOutlined__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ant-design/icons/es/icons/RotateRightOutlined */ "./node_modules/@ant-design/icons/es/icons/RotateRightOutlined.js");
+/* harmony import */ var _ant_design_icons_es_icons_ZoomInOutlined__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ant-design/icons/es/icons/ZoomInOutlined */ "./node_modules/@ant-design/icons/es/icons/ZoomInOutlined.js");
+/* harmony import */ var _ant_design_icons_es_icons_ZoomOutOutlined__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ant-design/icons/es/icons/ZoomOutOutlined */ "./node_modules/@ant-design/icons/es/icons/ZoomOutOutlined.js");
+/* harmony import */ var rc_image__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rc-image */ "./node_modules/rc-image/es/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _config_provider__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../config-provider */ "./node_modules/antd/es/config-provider/context.js");
+/* harmony import */ var _util_motion__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../_util/motion */ "./node_modules/antd/es/_util/motion.js");
+
+
+var __rest = undefined && undefined.__rest || function (s, e) {
+  var t = {};
+  for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
+  }
+  return t;
+};
+
+
+
+
+
+
+
+
+
+
+
+var icons = {
+  rotateLeft: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_ant_design_icons_es_icons_RotateLeftOutlined__WEBPACK_IMPORTED_MODULE_4__["default"], null),
+  rotateRight: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_ant_design_icons_es_icons_RotateRightOutlined__WEBPACK_IMPORTED_MODULE_5__["default"], null),
+  zoomIn: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_ant_design_icons_es_icons_ZoomInOutlined__WEBPACK_IMPORTED_MODULE_6__["default"], null),
+  zoomOut: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_ant_design_icons_es_icons_ZoomOutOutlined__WEBPACK_IMPORTED_MODULE_7__["default"], null),
+  close: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_ant_design_icons_es_icons_CloseOutlined__WEBPACK_IMPORTED_MODULE_8__["default"], null),
+  left: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_ant_design_icons_es_icons_LeftOutlined__WEBPACK_IMPORTED_MODULE_9__["default"], null),
+  right: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_ant_design_icons_es_icons_RightOutlined__WEBPACK_IMPORTED_MODULE_10__["default"], null)
+};
+var InternalPreviewGroup = function InternalPreviewGroup(_a) {
+  var customizePrefixCls = _a.previewPrefixCls,
+    preview = _a.preview,
+    props = __rest(_a, ["previewPrefixCls", "preview"]);
+  var _React$useContext = react__WEBPACK_IMPORTED_MODULE_3__.useContext(_config_provider__WEBPACK_IMPORTED_MODULE_11__.ConfigContext),
+    getPrefixCls = _React$useContext.getPrefixCls;
+  var prefixCls = getPrefixCls('image-preview', customizePrefixCls);
+  var rootPrefixCls = getPrefixCls();
+  var mergedPreview = react__WEBPACK_IMPORTED_MODULE_3__.useMemo(function () {
+    if (preview === false) {
+      return preview;
+    }
+    var _preview = (0,_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_1__["default"])(preview) === 'object' ? preview : {};
+    return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _preview), {
+      transitionName: (0,_util_motion__WEBPACK_IMPORTED_MODULE_12__.getTransitionName)(rootPrefixCls, 'zoom', _preview.transitionName),
+      maskTransitionName: (0,_util_motion__WEBPACK_IMPORTED_MODULE_12__.getTransitionName)(rootPrefixCls, 'fade', _preview.maskTransitionName)
+    });
+  }, [preview]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(rc_image__WEBPACK_IMPORTED_MODULE_2__["default"].PreviewGroup, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    preview: mergedPreview,
+    previewPrefixCls: prefixCls,
+    icons: icons
+  }, props));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InternalPreviewGroup);
+
+/***/ }),
+
+/***/ "./node_modules/antd/es/image/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/antd/es/image/index.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var _ant_design_icons_es_icons_EyeOutlined__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ant-design/icons/es/icons/EyeOutlined */ "./node_modules/@ant-design/icons/es/icons/EyeOutlined.js");
+/* harmony import */ var rc_image__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rc-image */ "./node_modules/rc-image/es/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _config_provider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../config-provider */ "./node_modules/antd/es/config-provider/context.js");
+/* harmony import */ var _locale_en_US__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../locale/en_US */ "./node_modules/antd/es/locale/en_US.js");
+/* harmony import */ var _util_motion__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../_util/motion */ "./node_modules/antd/es/_util/motion.js");
+/* harmony import */ var _PreviewGroup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./PreviewGroup */ "./node_modules/antd/es/image/PreviewGroup.js");
+
+
+var __rest = undefined && undefined.__rest || function (s, e) {
+  var t = {};
+  for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
+  }
+  return t;
+};
+
+
+
+
+
+
+
+
+var Image = function Image(_a) {
+  var customizePrefixCls = _a.prefixCls,
+    preview = _a.preview,
+    otherProps = __rest(_a, ["prefixCls", "preview"]);
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_3__.useContext)(_config_provider__WEBPACK_IMPORTED_MODULE_4__.ConfigContext),
+    getPrefixCls = _useContext.getPrefixCls,
+    _useContext$locale = _useContext.locale,
+    contextLocale = _useContext$locale === void 0 ? _locale_en_US__WEBPACK_IMPORTED_MODULE_5__["default"] : _useContext$locale,
+    getContextPopupContainer = _useContext.getPopupContainer;
+  var prefixCls = getPrefixCls('image', customizePrefixCls);
+  var rootPrefixCls = getPrefixCls();
+  var imageLocale = contextLocale.Image || _locale_en_US__WEBPACK_IMPORTED_MODULE_5__["default"].Image;
+  var mergedPreview = react__WEBPACK_IMPORTED_MODULE_3__.useMemo(function () {
+    if (preview === false) {
+      return preview;
+    }
+    var _preview = (0,_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_1__["default"])(preview) === 'object' ? preview : {};
+    var getContainer = _preview.getContainer,
+      restPreviewProps = __rest(_preview, ["getContainer"]);
+    return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      mask: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", {
+        className: "".concat(prefixCls, "-mask-info")
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_ant_design_icons_es_icons_EyeOutlined__WEBPACK_IMPORTED_MODULE_6__["default"], null), imageLocale === null || imageLocale === void 0 ? void 0 : imageLocale.preview),
+      icons: _PreviewGroup__WEBPACK_IMPORTED_MODULE_7__.icons
+    }, restPreviewProps), {
+      getContainer: getContainer || getContextPopupContainer,
+      transitionName: (0,_util_motion__WEBPACK_IMPORTED_MODULE_8__.getTransitionName)(rootPrefixCls, 'zoom', _preview.transitionName),
+      maskTransitionName: (0,_util_motion__WEBPACK_IMPORTED_MODULE_8__.getTransitionName)(rootPrefixCls, 'fade', _preview.maskTransitionName)
+    });
+  }, [preview, imageLocale]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(rc_image__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    prefixCls: prefixCls,
+    preview: mergedPreview
+  }, otherProps));
+};
+Image.PreviewGroup = _PreviewGroup__WEBPACK_IMPORTED_MODULE_7__["default"];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Image);
 
 /***/ }),
 
@@ -11893,12 +12260,12 @@ var AssignZoneToAddress = function AssignZoneToAddress(_ref) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
     form: form,
     labelCol: {
-      span: 4
+      span: 8
     },
     wrapperCol: {
       span: 14
     },
-    layout: "horizontal",
+    layout: "vertical",
     onFinish: onFormSubmit,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].Item, {
       name: "address_id",
@@ -11922,7 +12289,7 @@ var AssignZoneToAddress = function AssignZoneToAddress(_ref) {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].Item, {
           wrapperCol: {
-            offset: 8,
+            offset: 2,
             span: 16
           },
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
@@ -12040,7 +12407,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/table/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/image/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/table/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -12080,9 +12448,8 @@ var DailyDeliveryTable = function DailyDeliveryTable(_ref) {
     dataIndex: 'media_url',
     render: function render(_, record) {
       if (record.media_url) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-          width: "50",
-          height: "60",
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          width: 50,
           src: record.media_url
         });
       }
@@ -12096,7 +12463,7 @@ var DailyDeliveryTable = function DailyDeliveryTable(_ref) {
     dataIndex: 'created_at'
   }];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
       rowKey: "id",
       columns: columns,
       dataSource: dailyDeliveryLogs
@@ -12420,9 +12787,8 @@ var PickupOrder = function PickupOrder(_ref) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"].Item.Meta, {
             title: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("strong", {
               children: [item.comment, " - ", i + 1]
-            }),
-            description: "Number of meals picked up <b> ".concat(item.qty, " </b> on ").concat(item.created_at)
-          }), "Number of meals picked up <b> ".concat(item.qty, " </b> on ").concat(item.created_at)]
+            })
+          }), "Number of meals picked up [ ".concat(item.qty, " ] on ").concat(item.created_at)]
         });
       }
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -38205,6 +38571,1168 @@ var Checkbox = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_7__.forwardRef)(fu
   }));
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Checkbox);
+
+/***/ }),
+
+/***/ "./node_modules/rc-image/es/Image.js":
+/*!*******************************************!*\
+  !*** ./node_modules/rc-image/es/Image.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var rc_util_es_Dom_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rc-util/es/Dom/css */ "./node_modules/rc-util/es/Dom/css.js");
+/* harmony import */ var rc_util_es_hooks_useMergedState__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rc-util/es/hooks/useMergedState */ "./node_modules/rc-util/es/hooks/useMergedState.js");
+/* harmony import */ var _Preview__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Preview */ "./node_modules/rc-image/es/Preview.js");
+/* harmony import */ var _PreviewGroup__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./PreviewGroup */ "./node_modules/rc-image/es/PreviewGroup.js");
+
+
+
+
+
+
+var _excluded = ["src", "alt", "onPreviewClose", "prefixCls", "previewPrefixCls", "placeholder", "fallback", "width", "height", "style", "preview", "className", "onClick", "onError", "wrapperClassName", "wrapperStyle", "rootClassName", "crossOrigin", "decoding", "loading", "referrerPolicy", "sizes", "srcSet", "useMap", "draggable"],
+    _excluded2 = ["src", "visible", "onVisibleChange", "getContainer", "mask", "maskClassName", "icons", "scaleStep"];
+
+
+
+
+
+
+
+var uuid = 0;
+
+var ImageInternal = function ImageInternal(_ref) {
+  var _imgCommonProps$style;
+
+  var imgSrc = _ref.src,
+      alt = _ref.alt,
+      onInitialPreviewClose = _ref.onPreviewClose,
+      _ref$prefixCls = _ref.prefixCls,
+      prefixCls = _ref$prefixCls === void 0 ? 'rc-image' : _ref$prefixCls,
+      _ref$previewPrefixCls = _ref.previewPrefixCls,
+      previewPrefixCls = _ref$previewPrefixCls === void 0 ? "".concat(prefixCls, "-preview") : _ref$previewPrefixCls,
+      placeholder = _ref.placeholder,
+      fallback = _ref.fallback,
+      width = _ref.width,
+      height = _ref.height,
+      style = _ref.style,
+      _ref$preview = _ref.preview,
+      preview = _ref$preview === void 0 ? true : _ref$preview,
+      className = _ref.className,
+      onClick = _ref.onClick,
+      onImageError = _ref.onError,
+      wrapperClassName = _ref.wrapperClassName,
+      wrapperStyle = _ref.wrapperStyle,
+      rootClassName = _ref.rootClassName,
+      crossOrigin = _ref.crossOrigin,
+      decoding = _ref.decoding,
+      loading = _ref.loading,
+      referrerPolicy = _ref.referrerPolicy,
+      sizes = _ref.sizes,
+      srcSet = _ref.srcSet,
+      useMap = _ref.useMap,
+      draggable = _ref.draggable,
+      otherProps = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_5__["default"])(_ref, _excluded);
+
+  var isCustomPlaceholder = placeholder && placeholder !== true;
+
+  var _ref2 = (0,_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_4__["default"])(preview) === 'object' ? preview : {},
+      previewSrc = _ref2.src,
+      _ref2$visible = _ref2.visible,
+      previewVisible = _ref2$visible === void 0 ? undefined : _ref2$visible,
+      _ref2$onVisibleChange = _ref2.onVisibleChange,
+      onPreviewVisibleChange = _ref2$onVisibleChange === void 0 ? onInitialPreviewClose : _ref2$onVisibleChange,
+      _ref2$getContainer = _ref2.getContainer,
+      getPreviewContainer = _ref2$getContainer === void 0 ? undefined : _ref2$getContainer,
+      previewMask = _ref2.mask,
+      maskClassName = _ref2.maskClassName,
+      icons = _ref2.icons,
+      scaleStep = _ref2.scaleStep,
+      dialogProps = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_5__["default"])(_ref2, _excluded2);
+
+  var src = previewSrc !== null && previewSrc !== void 0 ? previewSrc : imgSrc;
+  var isControlled = previewVisible !== undefined;
+
+  var _useMergedState = (0,rc_util_es_hooks_useMergedState__WEBPACK_IMPORTED_MODULE_9__["default"])(!!previewVisible, {
+    value: previewVisible,
+    onChange: onPreviewVisibleChange
+  }),
+      _useMergedState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__["default"])(_useMergedState, 2),
+      isShowPreview = _useMergedState2[0],
+      setShowPreview = _useMergedState2[1];
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(isCustomPlaceholder ? 'loading' : 'normal'),
+      _useState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__["default"])(_useState, 2),
+      status = _useState2[0],
+      setStatus = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_6__.useState)(null),
+      _useState4 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__["default"])(_useState3, 2),
+      mousePosition = _useState4[0],
+      setMousePosition = _useState4[1];
+
+  var isError = status === 'error';
+
+  var _React$useContext = react__WEBPACK_IMPORTED_MODULE_6__.useContext(_PreviewGroup__WEBPACK_IMPORTED_MODULE_11__.context),
+      isPreviewGroup = _React$useContext.isPreviewGroup,
+      setCurrent = _React$useContext.setCurrent,
+      setGroupShowPreview = _React$useContext.setShowPreview,
+      setGroupMousePosition = _React$useContext.setMousePosition,
+      registerImage = _React$useContext.registerImage;
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_6__.useState(function () {
+    uuid += 1;
+    return uuid;
+  }),
+      _React$useState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__["default"])(_React$useState, 1),
+      currentId = _React$useState2[0];
+
+  var canPreview = !!preview;
+  var isLoaded = react__WEBPACK_IMPORTED_MODULE_6__.useRef(false);
+
+  var onLoad = function onLoad() {
+    setStatus('normal');
+  };
+
+  var onError = function onError(e) {
+    if (onImageError) {
+      onImageError(e);
+    }
+
+    setStatus('error');
+  };
+
+  var onPreview = function onPreview(e) {
+    if (!isControlled) {
+      var _getOffset = (0,rc_util_es_Dom_css__WEBPACK_IMPORTED_MODULE_8__.getOffset)(e.target),
+          left = _getOffset.left,
+          top = _getOffset.top;
+
+      if (isPreviewGroup) {
+        setCurrent(currentId);
+        setGroupMousePosition({
+          x: left,
+          y: top
+        });
+      } else {
+        setMousePosition({
+          x: left,
+          y: top
+        });
+      }
+    }
+
+    if (isPreviewGroup) {
+      setGroupShowPreview(true);
+    } else {
+      setShowPreview(true);
+    }
+
+    if (onClick) onClick(e);
+  };
+
+  var onPreviewClose = function onPreviewClose(e) {
+    e.stopPropagation();
+    setShowPreview(false);
+
+    if (!isControlled) {
+      setMousePosition(null);
+    }
+  };
+
+  var getImgRef = function getImgRef(img) {
+    isLoaded.current = false;
+    if (status !== 'loading') return;
+
+    if (img !== null && img !== void 0 && img.complete && (img.naturalWidth || img.naturalHeight)) {
+      isLoaded.current = true;
+      onLoad();
+    }
+  }; // Keep order start
+  // Resolve https://github.com/ant-design/ant-design/issues/28881
+  // Only need unRegister when component unMount
+
+
+  react__WEBPACK_IMPORTED_MODULE_6__.useEffect(function () {
+    var unRegister = registerImage(currentId, src);
+    return unRegister;
+  }, []);
+  react__WEBPACK_IMPORTED_MODULE_6__.useEffect(function () {
+    registerImage(currentId, src, canPreview);
+  }, [src, canPreview]); // Keep order end
+
+  react__WEBPACK_IMPORTED_MODULE_6__.useEffect(function () {
+    if (isError) {
+      setStatus('normal');
+    }
+
+    if (isCustomPlaceholder && !isLoaded.current) {
+      setStatus('loading');
+    }
+  }, [imgSrc]);
+  var wrapperClass = classnames__WEBPACK_IMPORTED_MODULE_7___default()(prefixCls, wrapperClassName, rootClassName, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({}, "".concat(prefixCls, "-error"), isError));
+  var mergedSrc = isError && fallback ? fallback : src;
+  var imgCommonProps = {
+    crossOrigin: crossOrigin,
+    decoding: decoding,
+    draggable: draggable,
+    loading: loading,
+    referrerPolicy: referrerPolicy,
+    sizes: sizes,
+    srcSet: srcSet,
+    useMap: useMap,
+    alt: alt,
+    className: classnames__WEBPACK_IMPORTED_MODULE_7___default()("".concat(prefixCls, "-img"), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({}, "".concat(prefixCls, "-img-placeholder"), placeholder === true), className),
+    style: (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__["default"])({
+      height: height
+    }, style)
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement(react__WEBPACK_IMPORTED_MODULE_6__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement("div", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, otherProps, {
+    className: wrapperClass,
+    onClick: canPreview ? onPreview : onClick,
+    style: (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__["default"])({
+      width: width,
+      height: height
+    }, wrapperStyle)
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement("img", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, imgCommonProps, {
+    ref: getImgRef
+  }, isError && fallback ? {
+    src: fallback
+  } : {
+    onLoad: onLoad,
+    onError: onError,
+    src: imgSrc
+  }, {
+    width: width,
+    height: height
+  })), status === 'loading' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement("div", {
+    "aria-hidden": "true",
+    className: "".concat(prefixCls, "-placeholder")
+  }, placeholder), previewMask && canPreview && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement("div", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_7___default()("".concat(prefixCls, "-mask"), maskClassName),
+    style: {
+      display: ((_imgCommonProps$style = imgCommonProps.style) === null || _imgCommonProps$style === void 0 ? void 0 : _imgCommonProps$style.display) === 'none' ? 'none' : undefined
+    }
+  }, previewMask)), !isPreviewGroup && canPreview && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6__.createElement(_Preview__WEBPACK_IMPORTED_MODULE_10__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    "aria-hidden": !isShowPreview,
+    visible: isShowPreview,
+    prefixCls: previewPrefixCls,
+    onClose: onPreviewClose,
+    mousePosition: mousePosition,
+    src: mergedSrc,
+    alt: alt,
+    getContainer: getPreviewContainer,
+    icons: icons,
+    scaleStep: scaleStep,
+    rootClassName: rootClassName
+  }, dialogProps)));
+};
+
+ImageInternal.PreviewGroup = _PreviewGroup__WEBPACK_IMPORTED_MODULE_11__["default"];
+ImageInternal.displayName = 'Image';
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageInternal);
+
+/***/ }),
+
+/***/ "./node_modules/rc-image/es/Operations.js":
+/*!************************************************!*\
+  !*** ./node_modules/rc-image/es/Operations.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var rc_motion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rc-motion */ "./node_modules/rc-motion/es/index.js");
+/* harmony import */ var _rc_component_portal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @rc-component/portal */ "./node_modules/@rc-component/portal/es/index.js");
+/* harmony import */ var _previewConfig__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./previewConfig */ "./node_modules/rc-image/es/previewConfig.js");
+
+
+
+
+
+
+
+var Operations = function Operations(props) {
+  var _countRender;
+
+  var visible = props.visible,
+      maskTransitionName = props.maskTransitionName,
+      getContainer = props.getContainer,
+      prefixCls = props.prefixCls,
+      rootClassName = props.rootClassName,
+      icons = props.icons,
+      countRender = props.countRender,
+      showSwitch = props.showSwitch,
+      showProgress = props.showProgress,
+      current = props.current,
+      count = props.count,
+      scale = props.scale,
+      onSwitchLeft = props.onSwitchLeft,
+      onSwitchRight = props.onSwitchRight,
+      onClose = props.onClose,
+      onZoomIn = props.onZoomIn,
+      onZoomOut = props.onZoomOut,
+      onRotateRight = props.onRotateRight,
+      onRotateLeft = props.onRotateLeft;
+  var rotateLeft = icons.rotateLeft,
+      rotateRight = icons.rotateRight,
+      zoomIn = icons.zoomIn,
+      zoomOut = icons.zoomOut,
+      close = icons.close,
+      left = icons.left,
+      right = icons.right;
+  var toolClassName = "".concat(prefixCls, "-operations-operation");
+  var iconClassName = "".concat(prefixCls, "-operations-icon");
+  var tools = [{
+    icon: close,
+    onClick: onClose,
+    type: 'close'
+  }, {
+    icon: zoomIn,
+    onClick: onZoomIn,
+    type: 'zoomIn',
+    disabled: scale === _previewConfig__WEBPACK_IMPORTED_MODULE_5__.MAX_SCALE
+  }, {
+    icon: zoomOut,
+    onClick: onZoomOut,
+    type: 'zoomOut',
+    disabled: scale === _previewConfig__WEBPACK_IMPORTED_MODULE_5__.MIN_SCALE
+  }, {
+    icon: rotateRight,
+    onClick: onRotateRight,
+    type: 'rotateRight'
+  }, {
+    icon: rotateLeft,
+    onClick: onRotateLeft,
+    type: 'rotateLeft'
+  }];
+  var operations = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, showSwitch && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(react__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("".concat(prefixCls, "-switch-left"), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, "".concat(prefixCls, "-switch-left-disabled"), current === 0)),
+    onClick: onSwitchLeft
+  }, left), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("".concat(prefixCls, "-switch-right"), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, "".concat(prefixCls, "-switch-right-disabled"), current === count - 1)),
+    onClick: onSwitchRight
+  }, right)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("ul", {
+    className: "".concat(prefixCls, "-operations")
+  }, showProgress && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("li", {
+    className: "".concat(prefixCls, "-operations-progress")
+  }, (_countRender = countRender === null || countRender === void 0 ? void 0 : countRender(current + 1, count)) !== null && _countRender !== void 0 ? _countRender : "".concat(current + 1, " / ").concat(count)), tools.map(function (_ref) {
+    var _classnames3;
+
+    var icon = _ref.icon,
+        onClick = _ref.onClick,
+        type = _ref.type,
+        disabled = _ref.disabled;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("li", {
+      className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(toolClassName, (_classnames3 = {}, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classnames3, "".concat(prefixCls, "-operations-operation-").concat(type), true), (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_classnames3, "".concat(prefixCls, "-operations-operation-disabled"), !!disabled), _classnames3)),
+      onClick: onClick,
+      key: type
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.isValidElement(icon) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.cloneElement(icon, {
+      className: iconClassName
+    }) : icon);
+  })));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(rc_motion__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    visible: visible,
+    motionName: maskTransitionName
+  }, function (_ref2) {
+    var className = _ref2.className,
+        style = _ref2.style;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_rc_component_portal__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      open: true,
+      getContainer: getContainer !== null && getContainer !== void 0 ? getContainer : document.body
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+      className: classnames__WEBPACK_IMPORTED_MODULE_2___default()("".concat(prefixCls, "-operations-wrapper"), className, rootClassName),
+      style: style
+    }, operations));
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Operations);
+
+/***/ }),
+
+/***/ "./node_modules/rc-image/es/Preview.js":
+/*!*********************************************!*\
+  !*** ./node_modules/rc-image/es/Preview.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var rc_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rc-dialog */ "./node_modules/rc-dialog/es/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var rc_util_es_Dom_addEventListener__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rc-util/es/Dom/addEventListener */ "./node_modules/rc-util/es/Dom/addEventListener.js");
+/* harmony import */ var rc_util_es_KeyCode__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rc-util/es/KeyCode */ "./node_modules/rc-util/es/KeyCode.js");
+/* harmony import */ var rc_util_es_warning__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rc-util/es/warning */ "./node_modules/rc-util/es/warning.js");
+/* harmony import */ var _PreviewGroup__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./PreviewGroup */ "./node_modules/rc-image/es/PreviewGroup.js");
+/* harmony import */ var _Operations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Operations */ "./node_modules/rc-image/es/Operations.js");
+/* harmony import */ var _hooks_useImageTransform__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./hooks/useImageTransform */ "./node_modules/rc-image/es/hooks/useImageTransform.js");
+/* harmony import */ var _getFixScaleEleTransPosition__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./getFixScaleEleTransPosition */ "./node_modules/rc-image/es/getFixScaleEleTransPosition.js");
+/* harmony import */ var _previewConfig__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./previewConfig */ "./node_modules/rc-image/es/previewConfig.js");
+
+
+
+
+
+var _excluded = ["prefixCls", "src", "alt", "onClose", "afterClose", "visible", "icons", "rootClassName", "getContainer", "countRender", "scaleStep", "transitionName", "maskTransitionName"];
+
+
+
+
+
+
+
+
+
+
+
+
+var Preview = function Preview(props) {
+  var prefixCls = props.prefixCls,
+      src = props.src,
+      alt = props.alt,
+      onClose = props.onClose,
+      afterClose = props.afterClose,
+      visible = props.visible,
+      _props$icons = props.icons,
+      icons = _props$icons === void 0 ? {} : _props$icons,
+      rootClassName = props.rootClassName,
+      getContainer = props.getContainer,
+      countRender = props.countRender,
+      _props$scaleStep = props.scaleStep,
+      scaleStep = _props$scaleStep === void 0 ? 0.5 : _props$scaleStep,
+      _props$transitionName = props.transitionName,
+      transitionName = _props$transitionName === void 0 ? 'zoom' : _props$transitionName,
+      _props$maskTransition = props.maskTransitionName,
+      maskTransitionName = _props$maskTransition === void 0 ? 'fade' : _props$maskTransition,
+      restProps = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_4__["default"])(props, _excluded);
+
+  var imgRef = (0,react__WEBPACK_IMPORTED_MODULE_5__.useRef)();
+  var downPositionRef = (0,react__WEBPACK_IMPORTED_MODULE_5__.useRef)({
+    deltaX: 0,
+    deltaY: 0,
+    transformX: 0,
+    transformY: 0
+  });
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_5__.useState)(false),
+      _useState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__["default"])(_useState, 2),
+      isMoving = _useState2[0],
+      setMoving = _useState2[1];
+
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_5__.useContext)(_PreviewGroup__WEBPACK_IMPORTED_MODULE_11__.context),
+      previewUrls = _useContext.previewUrls,
+      current = _useContext.current,
+      isPreviewGroup = _useContext.isPreviewGroup,
+      setCurrent = _useContext.setCurrent;
+
+  var previewGroupCount = previewUrls.size;
+  var previewUrlsKeys = Array.from(previewUrls.keys());
+  var currentPreviewIndex = previewUrlsKeys.indexOf(current);
+  var combinationSrc = isPreviewGroup ? previewUrls.get(current) : src;
+  var showLeftOrRightSwitches = isPreviewGroup && previewGroupCount > 1;
+  var showOperationsProgress = isPreviewGroup && previewGroupCount >= 1;
+
+  var _useImageTransform = (0,_hooks_useImageTransform__WEBPACK_IMPORTED_MODULE_13__["default"])(imgRef),
+      transform = _useImageTransform.transform,
+      resetTransform = _useImageTransform.resetTransform,
+      updateTransform = _useImageTransform.updateTransform,
+      dispatchZoonChange = _useImageTransform.dispatchZoonChange;
+
+  var rotate = transform.rotate,
+      scale = transform.scale;
+  var wrapClassName = classnames__WEBPACK_IMPORTED_MODULE_7___default()((0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_2__["default"])({}, "".concat(prefixCls, "-moving"), isMoving));
+
+  var onAfterClose = function onAfterClose() {
+    resetTransform();
+  };
+
+  var onZoomIn = function onZoomIn() {
+    dispatchZoonChange(_previewConfig__WEBPACK_IMPORTED_MODULE_15__.BASE_SCALE_RATIO + scaleStep);
+  };
+
+  var onZoomOut = function onZoomOut() {
+    dispatchZoonChange(_previewConfig__WEBPACK_IMPORTED_MODULE_15__.BASE_SCALE_RATIO - scaleStep);
+  };
+
+  var onRotateRight = function onRotateRight() {
+    updateTransform({
+      rotate: rotate + 90
+    });
+  };
+
+  var onRotateLeft = function onRotateLeft() {
+    updateTransform({
+      rotate: rotate - 90
+    });
+  };
+
+  var onSwitchLeft = function onSwitchLeft(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (currentPreviewIndex > 0) {
+      setCurrent(previewUrlsKeys[currentPreviewIndex - 1]);
+    }
+  };
+
+  var onSwitchRight = function onSwitchRight(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (currentPreviewIndex < previewGroupCount - 1) {
+      setCurrent(previewUrlsKeys[currentPreviewIndex + 1]);
+    }
+  };
+
+  var onMouseUp = function onMouseUp() {
+    if (visible && isMoving) {
+      setMoving(false);
+      /** No need to restore the position when the picture is not moved, So as not to interfere with the click */
+
+      var _downPositionRef$curr = downPositionRef.current,
+          transformX = _downPositionRef$curr.transformX,
+          transformY = _downPositionRef$curr.transformY;
+      var hasChangedPosition = transform.x !== transformX && transform.y !== transformY;
+
+      if (!hasChangedPosition) {
+        return;
+      }
+
+      var width = imgRef.current.offsetWidth * scale;
+      var height = imgRef.current.offsetHeight * scale; // eslint-disable-next-line @typescript-eslint/no-shadow
+
+      var _imgRef$current$getBo = imgRef.current.getBoundingClientRect(),
+          left = _imgRef$current$getBo.left,
+          top = _imgRef$current$getBo.top;
+
+      var isRotate = rotate % 180 !== 0;
+      var fixState = (0,_getFixScaleEleTransPosition__WEBPACK_IMPORTED_MODULE_14__["default"])(isRotate ? height : width, isRotate ? width : height, left, top);
+
+      if (fixState) {
+        updateTransform((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_1__["default"])({}, fixState));
+      }
+    }
+  };
+
+  var onMouseDown = function onMouseDown(event) {
+    // Only allow main button
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    downPositionRef.current = {
+      deltaX: event.pageX - transform.x,
+      deltaY: event.pageY - transform.y,
+      transformX: transform.x,
+      transformY: transform.y
+    };
+    setMoving(true);
+  };
+
+  var onMouseMove = function onMouseMove(event) {
+    if (visible && isMoving) {
+      updateTransform({
+        x: event.pageX - downPositionRef.current.deltaX,
+        y: event.pageY - downPositionRef.current.deltaY
+      });
+    }
+  };
+
+  var onWheel = function onWheel(event) {
+    if (!visible || event.deltaY == 0) return; // Scale ratio depends on the deltaY size
+
+    var scaleRatio = Math.abs(event.deltaY / 100); // Limit the maximum scale ratio
+
+    var mergedScaleRatio = Math.min(scaleRatio, _previewConfig__WEBPACK_IMPORTED_MODULE_15__.WHEEL_MAX_SCALE_RATIO); // Scale the ratio each time
+
+    var ratio = _previewConfig__WEBPACK_IMPORTED_MODULE_15__.BASE_SCALE_RATIO + mergedScaleRatio * scaleStep;
+
+    if (event.deltaY > 0) {
+      ratio = _previewConfig__WEBPACK_IMPORTED_MODULE_15__.BASE_SCALE_RATIO / ratio;
+    }
+
+    dispatchZoonChange(ratio, event.clientX, event.clientY);
+  };
+
+  var onKeyDown = (0,react__WEBPACK_IMPORTED_MODULE_5__.useCallback)(function (event) {
+    if (!visible || !showLeftOrRightSwitches) return;
+
+    if (event.keyCode === rc_util_es_KeyCode__WEBPACK_IMPORTED_MODULE_9__["default"].LEFT) {
+      if (currentPreviewIndex > 0) {
+        setCurrent(previewUrlsKeys[currentPreviewIndex - 1]);
+      }
+    } else if (event.keyCode === rc_util_es_KeyCode__WEBPACK_IMPORTED_MODULE_9__["default"].RIGHT) {
+      if (currentPreviewIndex < previewGroupCount - 1) {
+        setCurrent(previewUrlsKeys[currentPreviewIndex + 1]);
+      }
+    }
+  }, [currentPreviewIndex, previewGroupCount, previewUrlsKeys, setCurrent, showLeftOrRightSwitches, visible]);
+
+  var onDoubleClick = function onDoubleClick(event) {
+    if (visible) {
+      if (scale !== 1) {
+        updateTransform({
+          x: 0,
+          y: 0,
+          scale: 1
+        });
+      } else {
+        dispatchZoonChange(_previewConfig__WEBPACK_IMPORTED_MODULE_15__.BASE_SCALE_RATIO + scaleStep, event.clientX, event.clientY);
+      }
+    }
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_5__.useEffect)(function () {
+    var onTopMouseUpListener;
+    var onTopMouseMoveListener;
+    var onMouseUpListener = (0,rc_util_es_Dom_addEventListener__WEBPACK_IMPORTED_MODULE_8__["default"])(window, 'mouseup', onMouseUp, false);
+    var onMouseMoveListener = (0,rc_util_es_Dom_addEventListener__WEBPACK_IMPORTED_MODULE_8__["default"])(window, 'mousemove', onMouseMove, false);
+    var onKeyDownListener = (0,rc_util_es_Dom_addEventListener__WEBPACK_IMPORTED_MODULE_8__["default"])(window, 'keydown', onKeyDown, false);
+
+    try {
+      // Resolve if in iframe lost event
+
+      /* istanbul ignore next */
+      if (window.top !== window.self) {
+        onTopMouseUpListener = (0,rc_util_es_Dom_addEventListener__WEBPACK_IMPORTED_MODULE_8__["default"])(window.top, 'mouseup', onMouseUp, false);
+        onTopMouseMoveListener = (0,rc_util_es_Dom_addEventListener__WEBPACK_IMPORTED_MODULE_8__["default"])(window.top, 'mousemove', onMouseMove, false);
+      }
+    } catch (error) {
+      /* istanbul ignore next */
+      (0,rc_util_es_warning__WEBPACK_IMPORTED_MODULE_10__.warning)(false, "[rc-image] ".concat(error));
+    }
+
+    return function () {
+      var _onTopMouseUpListener, _onTopMouseMoveListen;
+
+      onMouseUpListener.remove();
+      onMouseMoveListener.remove();
+      onKeyDownListener.remove();
+      /* istanbul ignore next */
+
+      (_onTopMouseUpListener = onTopMouseUpListener) === null || _onTopMouseUpListener === void 0 ? void 0 : _onTopMouseUpListener.remove();
+      /* istanbul ignore next */
+
+      (_onTopMouseMoveListen = onTopMouseMoveListener) === null || _onTopMouseMoveListen === void 0 ? void 0 : _onTopMouseMoveListen.remove();
+    };
+  }, [visible, isMoving, onKeyDown]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement((react__WEBPACK_IMPORTED_MODULE_5___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(rc_dialog__WEBPACK_IMPORTED_MODULE_6__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    transitionName: transitionName,
+    maskTransitionName: maskTransitionName,
+    closable: false,
+    keyboard: true,
+    prefixCls: prefixCls,
+    onClose: onClose,
+    afterClose: onAfterClose,
+    visible: visible,
+    wrapClassName: wrapClassName,
+    rootClassName: rootClassName,
+    getContainer: getContainer
+  }, restProps), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("div", {
+    className: "".concat(prefixCls, "-img-wrapper")
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("img", {
+    width: props.width,
+    height: props.height,
+    onWheel: onWheel,
+    onMouseDown: onMouseDown,
+    onDoubleClick: onDoubleClick,
+    ref: imgRef,
+    className: "".concat(prefixCls, "-img"),
+    src: combinationSrc,
+    alt: alt,
+    style: {
+      transform: "translate3d(".concat(transform.x, "px, ").concat(transform.y, "px, 0) scale3d(").concat(scale, ", ").concat(scale, ", 1) rotate(").concat(rotate, "deg)")
+    }
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_Operations__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    visible: visible,
+    maskTransitionName: maskTransitionName,
+    getContainer: getContainer,
+    prefixCls: prefixCls,
+    rootClassName: rootClassName,
+    icons: icons,
+    countRender: countRender,
+    showSwitch: showLeftOrRightSwitches,
+    showProgress: showOperationsProgress,
+    current: currentPreviewIndex,
+    count: previewGroupCount,
+    scale: scale,
+    onSwitchLeft: onSwitchLeft,
+    onSwitchRight: onSwitchRight,
+    onZoomIn: onZoomIn,
+    onZoomOut: onZoomOut,
+    onRotateRight: onRotateRight,
+    onRotateLeft: onRotateLeft,
+    onClose: onClose
+  }));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Preview);
+
+/***/ }),
+
+/***/ "./node_modules/rc-image/es/PreviewGroup.js":
+/*!**************************************************!*\
+  !*** ./node_modules/rc-image/es/PreviewGroup.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   context: () => (/* binding */ context),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var rc_util_es_hooks_useMergedState__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rc-util/es/hooks/useMergedState */ "./node_modules/rc-util/es/hooks/useMergedState.js");
+/* harmony import */ var _Preview__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Preview */ "./node_modules/rc-image/es/Preview.js");
+
+
+
+
+var _excluded = ["visible", "onVisibleChange", "getContainer", "current", "countRender"];
+
+
+
+
+
+/* istanbul ignore next */
+var context = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createContext({
+  previewUrls: new Map(),
+  setPreviewUrls: function setPreviewUrls() {
+    return null;
+  },
+  current: null,
+  setCurrent: function setCurrent() {
+    return null;
+  },
+  setShowPreview: function setShowPreview() {
+    return null;
+  },
+  setMousePosition: function setMousePosition() {
+    return null;
+  },
+  registerImage: function registerImage() {
+    return function () {
+      return null;
+    };
+  },
+  rootClassName: ''
+});
+var Provider = context.Provider;
+
+var Group = function Group(_ref) {
+  var _ref$previewPrefixCls = _ref.previewPrefixCls,
+      previewPrefixCls = _ref$previewPrefixCls === void 0 ? 'rc-image-preview' : _ref$previewPrefixCls,
+      children = _ref.children,
+      _ref$icons = _ref.icons,
+      icons = _ref$icons === void 0 ? {} : _ref$icons,
+      preview = _ref.preview;
+
+  var _ref2 = (0,_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_2__["default"])(preview) === 'object' ? preview : {},
+      _ref2$visible = _ref2.visible,
+      previewVisible = _ref2$visible === void 0 ? undefined : _ref2$visible,
+      _ref2$onVisibleChange = _ref2.onVisibleChange,
+      onPreviewVisibleChange = _ref2$onVisibleChange === void 0 ? undefined : _ref2$onVisibleChange,
+      _ref2$getContainer = _ref2.getContainer,
+      getContainer = _ref2$getContainer === void 0 ? undefined : _ref2$getContainer,
+      _ref2$current = _ref2.current,
+      currentIndex = _ref2$current === void 0 ? 0 : _ref2$current,
+      _ref2$countRender = _ref2.countRender,
+      countRender = _ref2$countRender === void 0 ? undefined : _ref2$countRender,
+      dialogProps = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__["default"])(_ref2, _excluded);
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)(new Map()),
+      _useState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState, 2),
+      previewUrls = _useState2[0],
+      setPreviewUrls = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)(),
+      _useState4 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState3, 2),
+      current = _useState4[0],
+      setCurrent = _useState4[1];
+
+  var _useMergedState = (0,rc_util_es_hooks_useMergedState__WEBPACK_IMPORTED_MODULE_5__["default"])(!!previewVisible, {
+    value: previewVisible,
+    onChange: onPreviewVisibleChange
+  }),
+      _useMergedState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useMergedState, 2),
+      isShowPreview = _useMergedState2[0],
+      setShowPreview = _useMergedState2[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)(null),
+      _useState6 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState5, 2),
+      mousePosition = _useState6[0],
+      setMousePosition = _useState6[1];
+
+  var isControlled = previewVisible !== undefined;
+  var previewUrlsKeys = Array.from(previewUrls.keys());
+  var currentControlledKey = previewUrlsKeys[currentIndex];
+  var canPreviewUrls = new Map(Array.from(previewUrls).filter(function (_ref3) {
+    var _ref4 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref3, 2),
+        canPreview = _ref4[1].canPreview;
+
+    return !!canPreview;
+  }).map(function (_ref5) {
+    var _ref6 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref5, 2),
+        id = _ref6[0],
+        url = _ref6[1].url;
+
+    return [id, url];
+  }));
+
+  var registerImage = function registerImage(id, url) {
+    var canPreview = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+    var unRegister = function unRegister() {
+      setPreviewUrls(function (oldPreviewUrls) {
+        var clonePreviewUrls = new Map(oldPreviewUrls);
+        var deleteResult = clonePreviewUrls.delete(id);
+        return deleteResult ? clonePreviewUrls : oldPreviewUrls;
+      });
+    };
+
+    setPreviewUrls(function (oldPreviewUrls) {
+      return new Map(oldPreviewUrls).set(id, {
+        url: url,
+        canPreview: canPreview
+      });
+    });
+    return unRegister;
+  };
+
+  var onPreviewClose = function onPreviewClose(e) {
+    e.stopPropagation();
+    setShowPreview(false);
+    setMousePosition(null);
+  };
+
+  react__WEBPACK_IMPORTED_MODULE_4__.useEffect(function () {
+    setCurrent(currentControlledKey);
+  }, [currentControlledKey]);
+  react__WEBPACK_IMPORTED_MODULE_4__.useEffect(function () {
+    if (!isShowPreview && isControlled) {
+      setCurrent(currentControlledKey);
+    }
+  }, [currentControlledKey, isControlled, isShowPreview]);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(Provider, {
+    value: {
+      isPreviewGroup: true,
+      previewUrls: canPreviewUrls,
+      setPreviewUrls: setPreviewUrls,
+      current: current,
+      setCurrent: setCurrent,
+      setShowPreview: setShowPreview,
+      setMousePosition: setMousePosition,
+      registerImage: registerImage
+    }
+  }, children, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__.createElement(_Preview__WEBPACK_IMPORTED_MODULE_6__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    "aria-hidden": !isShowPreview,
+    visible: isShowPreview,
+    prefixCls: previewPrefixCls,
+    onClose: onPreviewClose,
+    mousePosition: mousePosition,
+    src: canPreviewUrls.get(current),
+    icons: icons,
+    getContainer: getContainer,
+    countRender: countRender
+  }, dialogProps)));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Group);
+
+/***/ }),
+
+/***/ "./node_modules/rc-image/es/getFixScaleEleTransPosition.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/rc-image/es/getFixScaleEleTransPosition.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getFixScaleEleTransPosition)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var rc_util_es_Dom_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rc-util/es/Dom/css */ "./node_modules/rc-util/es/Dom/css.js");
+
+
+
+
+function fixPoint(key, start, width, clientWidth) {
+  var startAddWidth = start + width;
+  var offsetStart = (width - clientWidth) / 2;
+
+  if (width > clientWidth) {
+    if (start > 0) {
+      return (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])({}, key, offsetStart);
+    }
+
+    if (start < 0 && startAddWidth < clientWidth) {
+      return (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])({}, key, -offsetStart);
+    }
+  } else if (start < 0 || startAddWidth > clientWidth) {
+    return (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])({}, key, start < 0 ? offsetStart : -offsetStart);
+  }
+
+  return {};
+}
+/**
+ * Fix positon x,y point when
+ *
+ * Ele width && height < client
+ * - Back origin
+ *
+ * - Ele width | height > clientWidth | clientHeight
+ * - left | top > 0 -> Back 0
+ * - left | top + width | height < clientWidth | clientHeight -> Back left | top + width | height === clientWidth | clientHeight
+ *
+ * Regardless of other
+ */
+
+
+function getFixScaleEleTransPosition(width, height, left, top) {
+  var _getClientSize = (0,rc_util_es_Dom_css__WEBPACK_IMPORTED_MODULE_2__.getClientSize)(),
+      clientWidth = _getClientSize.width,
+      clientHeight = _getClientSize.height;
+
+  var fixPos = null;
+
+  if (width <= clientWidth && height <= clientHeight) {
+    fixPos = {
+      x: 0,
+      y: 0
+    };
+  } else if (width > clientWidth || height > clientHeight) {
+    fixPos = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, fixPoint('x', left, width, clientWidth)), fixPoint('y', top, height, clientHeight));
+  }
+
+  return fixPos;
+}
+
+/***/ }),
+
+/***/ "./node_modules/rc-image/es/hooks/useImageTransform.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/rc-image/es/hooks/useImageTransform.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ useImageTransform)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var rc_util_es_raf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rc-util/es/raf */ "./node_modules/rc-util/es/raf.js");
+/* harmony import */ var rc_util_es_Dom_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rc-util/es/Dom/css */ "./node_modules/rc-util/es/Dom/css.js");
+/* harmony import */ var _previewConfig__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../previewConfig */ "./node_modules/rc-image/es/previewConfig.js");
+
+
+
+
+
+
+var initialTransform = {
+  x: 0,
+  y: 0,
+  rotate: 0,
+  scale: 1
+};
+function useImageTransform(imgRef) {
+  var frame = (0,react__WEBPACK_IMPORTED_MODULE_2__.useRef)(null);
+  var queue = (0,react__WEBPACK_IMPORTED_MODULE_2__.useRef)([]);
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(initialTransform),
+      _useState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState, 2),
+      transform = _useState2[0],
+      setTransform = _useState2[1];
+
+  var resetTransform = function resetTransform() {
+    setTransform(initialTransform);
+  };
+  /** Direct update transform */
+
+
+  var updateTransform = function updateTransform(newTransform) {
+    if (frame.current === null) {
+      queue.current = [];
+      frame.current = (0,rc_util_es_raf__WEBPACK_IMPORTED_MODULE_3__["default"])(function () {
+        setTransform(function (preState) {
+          var memoState = preState;
+          queue.current.forEach(function (queueState) {
+            memoState = (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, memoState), queueState);
+          });
+          frame.current = null;
+          return memoState;
+        });
+      });
+    }
+
+    queue.current.push((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, transform), newTransform));
+  };
+  /** Scale according to the position of clientX and clientY */
+
+
+  var dispatchZoonChange = function dispatchZoonChange(ratio, clientX, clientY) {
+    var _imgRef$current = imgRef.current,
+        width = _imgRef$current.width,
+        height = _imgRef$current.height,
+        offsetWidth = _imgRef$current.offsetWidth,
+        offsetHeight = _imgRef$current.offsetHeight,
+        offsetLeft = _imgRef$current.offsetLeft,
+        offsetTop = _imgRef$current.offsetTop;
+    var newRatio = ratio;
+    var newScale = transform.scale * ratio;
+
+    if (newScale > _previewConfig__WEBPACK_IMPORTED_MODULE_5__.MAX_SCALE) {
+      newRatio = _previewConfig__WEBPACK_IMPORTED_MODULE_5__.MAX_SCALE / transform.scale;
+      newScale = _previewConfig__WEBPACK_IMPORTED_MODULE_5__.MAX_SCALE;
+    } else if (newScale < _previewConfig__WEBPACK_IMPORTED_MODULE_5__.MIN_SCALE) {
+      newRatio = _previewConfig__WEBPACK_IMPORTED_MODULE_5__.MIN_SCALE / transform.scale;
+      newScale = _previewConfig__WEBPACK_IMPORTED_MODULE_5__.MIN_SCALE;
+    }
+    /** Default center point scaling */
+
+
+    var mergedClientX = clientX !== null && clientX !== void 0 ? clientX : innerWidth / 2;
+    var mergedClientY = clientY !== null && clientY !== void 0 ? clientY : innerHeight / 2;
+    var diffRatio = newRatio - 1;
+    /** Deviation calculated from image size */
+
+    var diffImgX = diffRatio * width * 0.5;
+    var diffImgY = diffRatio * height * 0.5;
+    /** The difference between the click position and the edge of the document */
+
+    var diffOffsetLeft = diffRatio * (mergedClientX - transform.x - offsetLeft);
+    var diffOffsetTop = diffRatio * (mergedClientY - transform.y - offsetTop);
+    /** Final positioning */
+
+    var newX = transform.x - (diffOffsetLeft - diffImgX);
+    var newY = transform.y - (diffOffsetTop - diffImgY);
+    /**
+     * When zooming the image
+     * When the image size is smaller than the width and height of the window, the position is initialized
+     */
+
+    if (ratio < 1 && newScale === 1) {
+      var mergedWidth = offsetWidth * newScale;
+      var mergedHeight = offsetHeight * newScale;
+
+      var _getClientSize = (0,rc_util_es_Dom_css__WEBPACK_IMPORTED_MODULE_4__.getClientSize)(),
+          clientWidth = _getClientSize.width,
+          clientHeight = _getClientSize.height;
+
+      if (mergedWidth <= clientWidth && mergedHeight <= clientHeight) {
+        newX = 0;
+        newY = 0;
+      }
+    }
+
+    updateTransform({
+      x: newX,
+      y: newY,
+      scale: newScale
+    });
+  };
+
+  return {
+    transform: transform,
+    resetTransform: resetTransform,
+    updateTransform: updateTransform,
+    dispatchZoonChange: dispatchZoonChange
+  };
+}
+;
+
+/***/ }),
+
+/***/ "./node_modules/rc-image/es/index.js":
+/*!*******************************************!*\
+  !*** ./node_modules/rc-image/es/index.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Image__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Image */ "./node_modules/rc-image/es/Image.js");
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_Image__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "./node_modules/rc-image/es/previewConfig.js":
+/*!***************************************************!*\
+  !*** ./node_modules/rc-image/es/previewConfig.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   BASE_SCALE_RATIO: () => (/* binding */ BASE_SCALE_RATIO),
+/* harmony export */   MAX_SCALE: () => (/* binding */ MAX_SCALE),
+/* harmony export */   MIN_SCALE: () => (/* binding */ MIN_SCALE),
+/* harmony export */   WHEEL_MAX_SCALE_RATIO: () => (/* binding */ WHEEL_MAX_SCALE_RATIO)
+/* harmony export */ });
+/** Minimum scale */
+var MIN_SCALE = 1;
+/** Maximum Scale */
+
+var MAX_SCALE = 50;
+/** Scale the ratio base */
+
+var BASE_SCALE_RATIO = 1;
+/** The maximum zoom ratio when the mouse zooms in, adjustable */
+
+var WHEEL_MAX_SCALE_RATIO = 0.2;
 
 /***/ }),
 

@@ -26,7 +26,7 @@ export const getMealPlanOptions = (mealplan_id) => (dispatch) => {
     });
 }
 
-export const createMealPlan = (data) => (dispatch) => {
+export const createMealPlan = (data, history) => (dispatch) => {
     const config = {
         headers: {
             'content-type': 'multipart/form-data',
@@ -43,7 +43,8 @@ export const createMealPlan = (data) => (dispatch) => {
             type: GET_MEALPLANS,
             payload: response.data
         });
-        message.success('Success message');
+        message.success('Mealplan created!');
+        history.push('/admin/mealplans')
     }).catch(error => {
         message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
@@ -73,7 +74,7 @@ export const getMealPlan = (id) => (dispatch) => {
     });
 }
 
-export const updateMealPlan = (data) => (dispatch) => {
+export const updateMealPlan = (data, history) => (dispatch) => {
     const config = {
         headers: {
             'content-type': 'multipart/form-data',
@@ -90,6 +91,7 @@ export const updateMealPlan = (data) => (dispatch) => {
             payload: response.data
         });
         message.success('MealPlan SuccessFully Updated!');
+        history.push('/admin/mealplans')
     }).catch(error => {
         message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
@@ -105,6 +107,6 @@ export const createMealPlanAddon = (data) => (dispatch) => {
         });
         message.success('MealPlan Addon Done!');
     }).catch(error => {
-        message.error('something is wrong');
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
 }

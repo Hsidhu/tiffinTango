@@ -36,9 +36,9 @@ const AssignZoneToAddress = ({ address_id, delivery_zone_id, deliveryZoneList, g
     return (
         <Form
             form={form}
-            labelCol={{ span: 4, }}
+            labelCol={{ span: 8, }}
             wrapperCol={{ span: 14, }}
-            layout="horizontal"
+            layout="vertical"
             onFinish={onFormSubmit}
         >
 
@@ -57,7 +57,7 @@ const AssignZoneToAddress = ({ address_id, delivery_zone_id, deliveryZoneList, g
                         />
                     </Form.Item>
                     
-                    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                    <Form.Item wrapperCol={{ offset: 2, span: 16 }}>
                         <Button type="primary" htmlType="submit">Submit</Button>
                     </Form.Item>
 

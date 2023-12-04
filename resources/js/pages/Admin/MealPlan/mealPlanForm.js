@@ -126,9 +126,7 @@ const MealPlanForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                             name={['price']}
                             label="Price"
                             rules={[
-                                {
-                                    required: true
-                                },
+                                { required: true },
                             ]}
                         >
                             <InputNumber
@@ -231,7 +229,7 @@ const MealPlanForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                 </Row>
                 <Row>
                     <Col span={12}>
-                        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                        <Form.Item wrapperCol={{ offset: 2, span: 16 }}>
                             <Button type="primary" htmlType="submit">Submit</Button>
                         </Form.Item>
                     </Col>

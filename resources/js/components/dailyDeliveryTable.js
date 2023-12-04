@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { MenuOutlined } from '@ant-design/icons';
-import { Table } from 'antd';
+import { Table, Image } from 'antd';
 
 const DailyDeliveryTable = ({dailyDeliveryLogs}) => {
     const history = useHistory();
@@ -35,7 +35,7 @@ const DailyDeliveryTable = ({dailyDeliveryLogs}) => {
             dataIndex: 'media_url',
             render: (_, record) => {
                 if(record.media_url) {
-                    return <img width='50' height='60' src={record.media_url} />
+                    return <Image width={50} src={record.media_url} />
                 }
                 return <span>No image</span>
             }
