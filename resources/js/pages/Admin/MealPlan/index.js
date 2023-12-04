@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { 
-    Space, Table, Row, Divider,
-    Col, Button, Popconfirm 
+    Space, Table, Divider,
+    Statistic, Button, Popconfirm 
 } from 'antd';
 import { getMealPlans } from "../../../redux/MealPlan/actions"
 import TableHeaderLink from '../../../components/tableHeaderLink';
@@ -43,14 +43,24 @@ const MealPan = ({ }) => {
             ),
         },
         {
-            title: 'description',
+            title: 'Description',
             dataIndex: 'description',
             key: 'description',
         },
         {
+            title: 'Delivery type',
+            dataIndex: 'delivery_type',
+            key: 'delivery_type',
+        },
+        { 
             title: 'price',
             dataIndex: 'price',
             key: 'price',
+            render: (_, record) => (
+                <Statistic value={record.price} precision={2} prefix={'$'}
+                valueStyle={{fontSize:'14px'}}
+                />
+            ),
         },
         {
             title: 'Action',
