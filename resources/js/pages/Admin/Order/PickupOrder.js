@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 
-import {Modal, Button, Form, Input, InputNumber, List, Divider } from 'antd';
+import {Row, Col, Statistic, Modal, Button, Form, Input, InputNumber, List, Divider } from 'antd';
 import { addPickupLog } from "../../../redux/Order/actions"
 import { useDispatch } from 'react-redux';
 
-const PickupOrder = ({order_id, customer_id, pickups}) => {
+const PickupOrder = ({order_id, customer_id, pickups, pickupQuota}) => {
 
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [form] = Form.useForm();
@@ -35,11 +35,36 @@ const PickupOrder = ({order_id, customer_id, pickups}) => {
         setIsModalVisible(false);
     };
 
+    const totalMealsPickedUp = () => {
+        return pickups.reduce((sum, item) => sum + item.qty, 0);
+    }
+
+    const remainingPickups = () => {
+        return ( pickupQuota - totalMealsPickedUp() )
+    }
+
     return (
         <div>
-            <Button type="primary" onClick={showModal}>
-                Add Pickup log
-            </Button>
+
+            <Row gutter={16}>
+                <Col span={6}>
+                    <Statistic title="Remaining" value={ remainingPickups() } />
+                    <Button type="primary" disabled={remainingPickups() == 0 ? true:false} onClick={showModal}>
+                        Add Pickup log
+                    </Button>
+                </Col>
+                <Col span={6}>
+                    <Statistic title="Total Meals Picked UP" value={ totalMealsPickedUp() } />
+                </Col>
+                <Col span={6}>
+                    <Statistic title="Quota" value={ pickupQuota } />
+                </Col>
+                <Col span={6}>
+                    <Statistic title="Total Pickups" value={pickups.length} />
+                </Col>
+            </Row>
+
+            
 
             <Divider/>
 
@@ -73,6 +98,15 @@ const PickupOrder = ({order_id, customer_id, pickups}) => {
                     <Form.Item name="qty" label="Quantity"
                         rules={[
                             { required: true },
+                            () => ({
+                                validator(_, value) {
+                                    const maxLimit = remainingPickups();
+                                    if (!value || value <= maxLimit) {
+                                        return Promise.resolve();
+                                    }
+                                    return Promise.reject(new Error(`Quantity cannot exceed ${maxLimit}`));
+                                },
+                            }),
                         ]}
                     >
                         <InputNumber

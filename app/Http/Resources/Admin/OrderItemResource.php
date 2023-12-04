@@ -19,6 +19,7 @@ class OrderItemResource extends JsonResource
             'meal_plan_name' => $this->name,
             'price' => $this->price,
             'subtotal' => $this->subtotal,
+            'quota' => $this->mealplan->quota,
             'options' => OrderItemOptionResource::collection($this->options)
         ];
     }

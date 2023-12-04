@@ -143,13 +143,17 @@ const View = ({ }) => {
         },
     ];
 
-    let data2 = order.items?.map((item) => ({
-        key: `items-${item.meal_plan_id}`,
-        name: `${item.meal_plan_name} - $${item.price.toFixed(2)}`,
-        price: item.price,
-        subtotal: item.subtotal.toFixed(2),
-        options: item.options
-    }));
+    let pickupQuota = 0;
+    let invoiceData = order.items?.map((item) => {
+        pickupQuota += item.quota
+        return {
+            key: `items-${item.meal_plan_id}`,
+            name: `${item.meal_plan_name} - $${item.price.toFixed(2)}`,
+            price: item.price,
+            subtotal: item.subtotal.toFixed(2),
+            options: item.options
+        }
+    });
 
     let totals = order.totals?.map((item) => ({
         key: `total-${item.id}`,
@@ -158,7 +162,7 @@ const View = ({ }) => {
         subtotal: item.value,
         options: []
     }));
-    data2.push(...totals)
+    invoiceData.push(...totals)
 
     return (
         <>
@@ -212,7 +216,7 @@ const View = ({ }) => {
                         <br />
                         <Table
                             columns={columns2}
-                            dataSource={data2}
+                            dataSource={invoiceData}
                             pagination={false}
                             bordered
                             className="mb-0" // Add any additional styling classes here
@@ -236,7 +240,7 @@ const View = ({ }) => {
             <Divider />
             {
                 order.order_type == 'pickup' ?
-                <PickupOrder order_id={order.id} customer_id={order.customer_id} pickups={order.pickups} />
+                <PickupOrder order_id={order.id} customer_id={order.customer_id} pickups={order.pickups} pickupQuota={pickupQuota} />
                 :
                 <Row gutter={6}>
                     <Col span={16}>
