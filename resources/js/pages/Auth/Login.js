@@ -30,7 +30,7 @@ function Login() {
 
     return (
         <Row justify="center" align="middle">
-            <Col span={6}>
+            <Col sm={24} md={8} lg={6}>
                 <Form
                     name="normal_login"
                     onFinish={onFinish}

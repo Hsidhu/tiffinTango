@@ -47,7 +47,16 @@ function CustomerLayout() {
             </Header>
             <Layout hasSider>
                 
-                <Sider width={200}>
+                <Sider width={200}
+                    breakpoint="md"
+                    collapsedWidth="0"
+                    onBreakpoint={(broken) => {
+                      console.log(broken);
+                    }}
+                    onCollapse={(collapsed, type) => {
+                      console.log(collapsed, type);
+                    }}
+                >
                     <Menu
                         mode="inline"
                         defaultSelectedKeys={['/admin/dashboard']}

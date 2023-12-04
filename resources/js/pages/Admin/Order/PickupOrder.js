@@ -64,8 +64,6 @@ const PickupOrder = ({order_id, customer_id, pickups, pickupQuota}) => {
                 </Col>
             </Row>
 
-            
-
             <Divider/>
 
             {pickups && <List

@@ -14,63 +14,61 @@ const Dashboard = ({ }) => {
             <h1>Admin Boilerplate</h1>
 
             <Row gutter={16}>
-                <Col span={8}>
+                <Col sm={24} md={8} >
                     <Statistic title="Total Active Customers" value={112893} />
                 </Col>
-                <Col span={8}>
+                <Col sm={24} md={8}>
                     <Statistic title="Total Orders this Month" value={112893}  />
                 </Col>
-                <Col span={8}>
+                <Col sm={24} md={8}>
                     <Statistic title="Orders" value={112893} />
                 </Col>
             </Row>
 
-            <div className="site-statistic-demo-card">
-                <Row gutter={16}>
-                    <Col span={8}>
-                        <Card>
-                            <Statistic
-                                title="Active"
-                                value={21.28}
-                                precision={2}
-                                valueStyle={{
-                                    color: '#3f8600',
-                                }}
-                                prefix={<ArrowUpOutlined />}
-                                suffix="%"
-                            />
-                        </Card>
-                    </Col>
-                    <Col span={8}>
-                        <Card>
-                            <Statistic
-                                title="Idle"
-                                value={2.3}
-                                precision={2}
-                                valueStyle={{
-                                    color: '#cf1322',
-                                }}
-                                prefix={<ArrowDownOutlined />}
-                                suffix="%"
-                            />
-                        </Card>
-                    </Col>
-                    <Col span={8}>
-                        <Card>
-                            <Statistic
-                                title="Idle"
-                                value={2.3}
-                                precision={2}
-                                valueStyle={{
-                                    color: '#cf1322',
-                                }}
-                                prefix={<ArrowDownOutlined />}
-                                suffix="%"
-                            />
-                        </Card>
-                    </Col>
-                </Row>
-            </div>
+            <Row gutter={16}>
+                <Col sm={24} md={8}>
+                    <Card>
+                        <Statistic
+                            title="Active"
+                            value={21.28}
+                            precision={2}
+                            valueStyle={{
+                                color: '#3f8600',
+                            }}
+                            prefix={<ArrowUpOutlined />}
+                            suffix="%"
+                        />
+                    </Card>
+                </Col>
+                <Col sm={24} md={8}>
+                    <Card>
+                        <Statistic
+                            title="Idle"
+                            value={2.3}
+                            precision={2}
+                            valueStyle={{
+                                color: '#cf1322',
+                            }}
+                            prefix={<ArrowDownOutlined />}
+                            suffix="%"
+                        />
+                    </Card>
+                </Col>
+                <Col sm={24} md={8}>
+                    <Card>
+                        <Statistic
+                            title="Idle"
+                            value={2.3}
+                            precision={2}
+                            valueStyle={{
+                                color: '#cf1322',
+                            }}
+                            prefix={<ArrowDownOutlined />}
+                            suffix="%"
+                        />
+                    </Card>
+                </Col>
+            </Row>
         </>
     );
 }

@@ -4903,6 +4903,314 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/antd/es/statistic/Countdown.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/antd/es/statistic/Countdown.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _util_hooks_useForceUpdate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_util/hooks/useForceUpdate */ "./node_modules/antd/es/_util/hooks/useForceUpdate.js");
+/* harmony import */ var _util_reactNode__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../_util/reactNode */ "./node_modules/antd/es/_util/reactNode.js");
+/* harmony import */ var _Statistic__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Statistic */ "./node_modules/antd/es/statistic/Statistic.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils */ "./node_modules/antd/es/statistic/utils.js");
+
+
+
+
+
+
+var REFRESH_INTERVAL = 1000 / 30;
+function getTime(value) {
+  return new Date(value).getTime();
+}
+var Countdown = function Countdown(props) {
+  var value = props.value,
+    _props$format = props.format,
+    format = _props$format === void 0 ? 'HH:mm:ss' : _props$format,
+    onChange = props.onChange,
+    onFinish = props.onFinish;
+  var forceUpdate = (0,_util_hooks_useForceUpdate__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  var countdown = react__WEBPACK_IMPORTED_MODULE_1__.useRef(null);
+  var stopTimer = function stopTimer() {
+    onFinish === null || onFinish === void 0 ? void 0 : onFinish();
+    if (countdown.current) {
+      clearInterval(countdown.current);
+      countdown.current = null;
+    }
+  };
+  var syncTimer = function syncTimer() {
+    var timestamp = getTime(value);
+    if (timestamp >= Date.now()) {
+      countdown.current = setInterval(function () {
+        forceUpdate();
+        onChange === null || onChange === void 0 ? void 0 : onChange(timestamp - Date.now());
+        if (timestamp < Date.now()) {
+          stopTimer();
+        }
+      }, REFRESH_INTERVAL);
+    }
+  };
+  react__WEBPACK_IMPORTED_MODULE_1__.useEffect(function () {
+    syncTimer();
+    return function () {
+      if (countdown.current) {
+        clearInterval(countdown.current);
+        countdown.current = null;
+      }
+    };
+  }, [value]);
+  var formatter = function formatter(formatValue, config) {
+    return (0,_utils__WEBPACK_IMPORTED_MODULE_3__.formatCountdown)(formatValue, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, config), {
+      format: format
+    }));
+  };
+  var valueRender = function valueRender(node) {
+    return (0,_util_reactNode__WEBPACK_IMPORTED_MODULE_4__.cloneElement)(node, {
+      title: undefined
+    });
+  };
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_Statistic__WEBPACK_IMPORTED_MODULE_5__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
+    valueRender: valueRender,
+    formatter: formatter
+  }));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.memo(Countdown));
+
+/***/ }),
+
+/***/ "./node_modules/antd/es/statistic/Number.js":
+/*!**************************************************!*\
+  !*** ./node_modules/antd/es/statistic/Number.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var lodash_padEnd__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/padEnd */ "./node_modules/lodash/padEnd.js");
+/* harmony import */ var lodash_padEnd__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_padEnd__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var StatisticNumber = function StatisticNumber(props) {
+  var value = props.value,
+    formatter = props.formatter,
+    precision = props.precision,
+    decimalSeparator = props.decimalSeparator,
+    _props$groupSeparator = props.groupSeparator,
+    groupSeparator = _props$groupSeparator === void 0 ? '' : _props$groupSeparator,
+    prefixCls = props.prefixCls;
+  var valueNode;
+  if (typeof formatter === 'function') {
+    // Customize formatter
+    valueNode = formatter(value);
+  } else {
+    // Internal formatter
+    var val = String(value);
+    var cells = val.match(/^(-?)(\d*)(\.(\d+))?$/);
+    // Process if illegal number
+    if (!cells || val === '-') {
+      valueNode = val;
+    } else {
+      var negative = cells[1];
+      var int = cells[2] || '0';
+      var decimal = cells[4] || '';
+      int = int.replace(/\B(?=(\d{3})+(?!\d))/g, groupSeparator);
+      if (typeof precision === 'number') {
+        decimal = lodash_padEnd__WEBPACK_IMPORTED_MODULE_0___default()(decimal, precision, '0').slice(0, precision > 0 ? precision : 0);
+      }
+      if (decimal) {
+        decimal = "".concat(decimalSeparator).concat(decimal);
+      }
+      valueNode = [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("span", {
+        key: "int",
+        className: "".concat(prefixCls, "-content-value-int")
+      }, negative, int), decimal && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("span", {
+        key: "decimal",
+        className: "".concat(prefixCls, "-content-value-decimal")
+      }, decimal)];
+    }
+  }
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("span", {
+    className: "".concat(prefixCls, "-content-value")
+  }, valueNode);
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StatisticNumber);
+
+/***/ }),
+
+/***/ "./node_modules/antd/es/statistic/Statistic.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/antd/es/statistic/Statistic.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _config_provider_context__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../config-provider/context */ "./node_modules/antd/es/config-provider/context.js");
+/* harmony import */ var _skeleton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../skeleton */ "./node_modules/antd/es/skeleton/index.js");
+/* harmony import */ var _Number__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Number */ "./node_modules/antd/es/statistic/Number.js");
+
+
+
+
+
+
+
+var Statistic = function Statistic(props) {
+  var prefixCls = props.prefixCls,
+    className = props.className,
+    style = props.style,
+    valueStyle = props.valueStyle,
+    _props$value = props.value,
+    value = _props$value === void 0 ? 0 : _props$value,
+    title = props.title,
+    valueRender = props.valueRender,
+    prefix = props.prefix,
+    suffix = props.suffix,
+    _props$loading = props.loading,
+    loading = _props$loading === void 0 ? false : _props$loading,
+    direction = props.direction,
+    onMouseEnter = props.onMouseEnter,
+    onMouseLeave = props.onMouseLeave,
+    _props$decimalSeparat = props.decimalSeparator,
+    decimalSeparator = _props$decimalSeparat === void 0 ? '.' : _props$decimalSeparat,
+    _props$groupSeparator = props.groupSeparator,
+    groupSeparator = _props$groupSeparator === void 0 ? ',' : _props$groupSeparator;
+  var valueNode = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_Number__WEBPACK_IMPORTED_MODULE_4__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    decimalSeparator: decimalSeparator,
+    groupSeparator: groupSeparator
+  }, props, {
+    value: value
+  }));
+  var cls = classnames__WEBPACK_IMPORTED_MODULE_2___default()(prefixCls, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, "".concat(prefixCls, "-rtl"), direction === 'rtl'), className);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", {
+    className: cls,
+    style: style,
+    onMouseEnter: onMouseEnter,
+    onMouseLeave: onMouseLeave
+  }, title && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", {
+    className: "".concat(prefixCls, "-title")
+  }, title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_skeleton__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    paragraph: false,
+    loading: loading,
+    className: "".concat(prefixCls, "-skeleton")
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", {
+    style: valueStyle,
+    className: "".concat(prefixCls, "-content")
+  }, prefix && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("span", {
+    className: "".concat(prefixCls, "-content-prefix")
+  }, prefix), valueRender ? valueRender(valueNode) : valueNode, suffix && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("span", {
+    className: "".concat(prefixCls, "-content-suffix")
+  }, suffix))));
+};
+var WrapperStatistic = (0,_config_provider_context__WEBPACK_IMPORTED_MODULE_6__.withConfigConsumer)({
+  prefixCls: 'statistic'
+})(Statistic);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (WrapperStatistic);
+
+/***/ }),
+
+/***/ "./node_modules/antd/es/statistic/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/antd/es/statistic/index.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Countdown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Countdown */ "./node_modules/antd/es/statistic/Countdown.js");
+/* harmony import */ var _Statistic__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Statistic */ "./node_modules/antd/es/statistic/Statistic.js");
+
+
+_Statistic__WEBPACK_IMPORTED_MODULE_0__["default"].Countdown = _Countdown__WEBPACK_IMPORTED_MODULE_1__["default"];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_Statistic__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "./node_modules/antd/es/statistic/utils.js":
+/*!*************************************************!*\
+  !*** ./node_modules/antd/es/statistic/utils.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   formatCountdown: () => (/* binding */ formatCountdown),
+/* harmony export */   formatTimeStr: () => (/* binding */ formatTimeStr)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var lodash_padStart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/padStart */ "./node_modules/lodash/padStart.js");
+/* harmony import */ var lodash_padStart__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_padStart__WEBPACK_IMPORTED_MODULE_1__);
+
+
+// Countdown
+var timeUnits = [['Y', 1000 * 60 * 60 * 24 * 365], ['M', 1000 * 60 * 60 * 24 * 30], ['D', 1000 * 60 * 60 * 24], ['H', 1000 * 60 * 60], ['m', 1000 * 60], ['s', 1000], ['S', 1] // million seconds
+];
+
+function formatTimeStr(duration, format) {
+  var leftDuration = duration;
+  var escapeRegex = /\[[^\]]*]/g;
+  var keepList = (format.match(escapeRegex) || []).map(function (str) {
+    return str.slice(1, -1);
+  });
+  var templateText = format.replace(escapeRegex, '[]');
+  var replacedText = timeUnits.reduce(function (current, _ref) {
+    var _ref2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_ref, 2),
+      name = _ref2[0],
+      unit = _ref2[1];
+    if (current.includes(name)) {
+      var value = Math.floor(leftDuration / unit);
+      leftDuration -= value * unit;
+      return current.replace(new RegExp("".concat(name, "+"), 'g'), function (match) {
+        var len = match.length;
+        return lodash_padStart__WEBPACK_IMPORTED_MODULE_1___default()(value.toString(), len, '0');
+      });
+    }
+    return current;
+  }, templateText);
+  var index = 0;
+  return replacedText.replace(escapeRegex, function () {
+    var match = keepList[index];
+    index += 1;
+    return match;
+  });
+}
+function formatCountdown(value, config) {
+  var _config$format = config.format,
+    format = _config$format === void 0 ? '' : _config$format;
+  var target = new Date(value).getTime();
+  var current = Date.now();
+  var diff = Math.max(target - current, 0);
+  return formatTimeStr(diff, format);
+}
+
+/***/ }),
+
 /***/ "./node_modules/antd/es/table/Column.js":
 /*!**********************************************!*\
   !*** ./node_modules/antd/es/table/Column.js ***!
@@ -8426,22 +8734,61 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/divider/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/list/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/row/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/col/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/statistic/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/divider/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/list/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
 var PickupOrder = function PickupOrder(_ref) {
-  var pickups = _ref.pickups;
+  var pickups = _ref.pickups,
+    pickupQuota = _ref.pickupQuota;
+  var totalMealsPickedUp = function totalMealsPickedUp() {
+    return pickups.reduce(function (sum, item) {
+      return sum + item.qty;
+    }, 0);
+  };
+  var remainingPickups = function remainingPickups() {
+    return pickupQuota - totalMealsPickedUp();
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"], {}), pickups && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      gutter: 16,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        span: 6,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          title: "Remaining",
+          value: remainingPickups()
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        span: 6,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          title: "Total Meals Picked UP",
+          value: totalMealsPickedUp()
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        span: 6,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          title: "Quota",
+          value: pickupQuota
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        span: 6,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          title: "Total Pickups",
+          value: pickups.length
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {}), pickups && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
       itemLayout: "horizontal",
       dataSource: pickups,
       renderItem: function renderItem(item, i) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"].Item, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"].Item.Meta, {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"].Item.Meta, {
             title: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("strong", {
               children: [item.comment, " - ", i + 1]
             }),
@@ -8585,7 +8932,9 @@ var View = function View(_ref) {
       });
     }
   }];
-  var data2 = (_order$items = order.items) === null || _order$items === void 0 ? void 0 : _order$items.map(function (item) {
+  var pickupQuota = 0;
+  var invoiceData = (_order$items = order.items) === null || _order$items === void 0 ? void 0 : _order$items.map(function (item) {
+    pickupQuota += item.quota;
     return {
       key: "items-".concat(item.meal_plan_id),
       name: "".concat(item.meal_plan_name, " - $").concat(item.price.toFixed(2)),
@@ -8603,7 +8952,7 @@ var View = function View(_ref) {
       options: []
     };
   });
-  data2.push.apply(data2, _toConsumableArray(totals));
+  invoiceData.push.apply(invoiceData, _toConsumableArray(totals));
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_tableHeaderLink__WEBPACK_IMPORTED_MODULE_5__["default"], {
       name: "View Order",
@@ -8668,7 +9017,7 @@ var View = function View(_ref) {
           }),
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(antd__WEBPACK_IMPORTED_MODULE_17__["default"], {
             columns: columns2,
-            dataSource: data2,
+            dataSource: invoiceData,
             pagination: false,
             bordered: true,
             className: "mb-0" // Add any additional styling classes here
@@ -8696,7 +9045,8 @@ var View = function View(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(antd__WEBPACK_IMPORTED_MODULE_13__["default"], {}), order.order_type == 'pickup' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_PickupOrder__WEBPACK_IMPORTED_MODULE_7__["default"], {
       order_id: order.id,
       customer_id: order.customer_id,
-      pickups: order.pickups
+      pickups: order.pickups,
+      pickupQuota: pickupQuota
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(antd__WEBPACK_IMPORTED_MODULE_14__["default"], {
       gutter: 6
     }), order.order_type == 'pickup' ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
@@ -9168,6 +9518,28 @@ module.exports = arraySome;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/_asciiSize.js":
+/*!*******************************************!*\
+  !*** ./node_modules/lodash/_asciiSize.js ***!
+  \*******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var baseProperty = __webpack_require__(/*! ./_baseProperty */ "./node_modules/lodash/_baseProperty.js");
+
+/**
+ * Gets the size of an ASCII `string`.
+ *
+ * @private
+ * @param {string} string The string inspect.
+ * @returns {number} Returns the string size.
+ */
+var asciiSize = baseProperty('length');
+
+module.exports = asciiSize;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/_assocIndexOf.js":
 /*!**********************************************!*\
   !*** ./node_modules/lodash/_assocIndexOf.js ***!
@@ -9555,6 +9927,75 @@ module.exports = baseKeys;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/_baseProperty.js":
+/*!**********************************************!*\
+  !*** ./node_modules/lodash/_baseProperty.js ***!
+  \**********************************************/
+/***/ ((module) => {
+
+/**
+ * The base implementation of `_.property` without support for deep paths.
+ *
+ * @private
+ * @param {string} key The key of the property to get.
+ * @returns {Function} Returns the new accessor function.
+ */
+function baseProperty(key) {
+  return function(object) {
+    return object == null ? undefined : object[key];
+  };
+}
+
+module.exports = baseProperty;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_baseRepeat.js":
+/*!********************************************!*\
+  !*** ./node_modules/lodash/_baseRepeat.js ***!
+  \********************************************/
+/***/ ((module) => {
+
+/** Used as references for various `Number` constants. */
+var MAX_SAFE_INTEGER = 9007199254740991;
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeFloor = Math.floor;
+
+/**
+ * The base implementation of `_.repeat` which doesn't coerce arguments.
+ *
+ * @private
+ * @param {string} string The string to repeat.
+ * @param {number} n The number of times to repeat the string.
+ * @returns {string} Returns the repeated string.
+ */
+function baseRepeat(string, n) {
+  var result = '';
+  if (!string || n < 1 || n > MAX_SAFE_INTEGER) {
+    return result;
+  }
+  // Leverage the exponentiation by squaring algorithm for a faster repeat.
+  // See https://en.wikipedia.org/wiki/Exponentiation_by_squaring for more details.
+  do {
+    if (n % 2) {
+      result += string;
+    }
+    n = nativeFloor(n / 2);
+    if (n) {
+      string += string;
+    }
+  } while (n);
+
+  return result;
+}
+
+module.exports = baseRepeat;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/_baseTimes.js":
 /*!*******************************************!*\
   !*** ./node_modules/lodash/_baseTimes.js ***!
@@ -9644,6 +10085,49 @@ var root = __webpack_require__(/*! ./_root */ "./node_modules/lodash/_root.js");
 var coreJsData = root['__core-js_shared__'];
 
 module.exports = coreJsData;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_createPadding.js":
+/*!***********************************************!*\
+  !*** ./node_modules/lodash/_createPadding.js ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var baseRepeat = __webpack_require__(/*! ./_baseRepeat */ "./node_modules/lodash/_baseRepeat.js"),
+    baseToString = __webpack_require__(/*! ./_baseToString */ "./node_modules/lodash/_baseToString.js"),
+    castSlice = __webpack_require__(/*! ./_castSlice */ "./node_modules/lodash/_castSlice.js"),
+    hasUnicode = __webpack_require__(/*! ./_hasUnicode */ "./node_modules/lodash/_hasUnicode.js"),
+    stringSize = __webpack_require__(/*! ./_stringSize */ "./node_modules/lodash/_stringSize.js"),
+    stringToArray = __webpack_require__(/*! ./_stringToArray */ "./node_modules/lodash/_stringToArray.js");
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeCeil = Math.ceil;
+
+/**
+ * Creates the padding for `string` based on `length`. The `chars` string
+ * is truncated if the number of characters exceeds `length`.
+ *
+ * @private
+ * @param {number} length The padding length.
+ * @param {string} [chars=' '] The string used as padding.
+ * @returns {string} Returns the padding for `string`.
+ */
+function createPadding(length, chars) {
+  chars = chars === undefined ? ' ' : baseToString(chars);
+
+  var charsLength = chars.length;
+  if (charsLength < 2) {
+    return charsLength ? baseRepeat(chars, length) : chars;
+  }
+  var result = baseRepeat(chars, nativeCeil(length / stringSize(chars)));
+  return hasUnicode(chars)
+    ? castSlice(stringToArray(result), 0, length).join('')
+    : result.slice(0, length);
+}
+
+module.exports = createPadding;
 
 
 /***/ }),
@@ -11106,6 +11590,34 @@ module.exports = stackSet;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/_stringSize.js":
+/*!********************************************!*\
+  !*** ./node_modules/lodash/_stringSize.js ***!
+  \********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var asciiSize = __webpack_require__(/*! ./_asciiSize */ "./node_modules/lodash/_asciiSize.js"),
+    hasUnicode = __webpack_require__(/*! ./_hasUnicode */ "./node_modules/lodash/_hasUnicode.js"),
+    unicodeSize = __webpack_require__(/*! ./_unicodeSize */ "./node_modules/lodash/_unicodeSize.js");
+
+/**
+ * Gets the number of symbols in `string`.
+ *
+ * @private
+ * @param {string} string The string to inspect.
+ * @returns {number} Returns the string size.
+ */
+function stringSize(string) {
+  return hasUnicode(string)
+    ? unicodeSize(string)
+    : asciiSize(string);
+}
+
+module.exports = stringSize;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/_toSource.js":
 /*!******************************************!*\
   !*** ./node_modules/lodash/_toSource.js ***!
@@ -11138,6 +11650,60 @@ function toSource(func) {
 }
 
 module.exports = toSource;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/_unicodeSize.js":
+/*!*********************************************!*\
+  !*** ./node_modules/lodash/_unicodeSize.js ***!
+  \*********************************************/
+/***/ ((module) => {
+
+/** Used to compose unicode character classes. */
+var rsAstralRange = '\\ud800-\\udfff',
+    rsComboMarksRange = '\\u0300-\\u036f',
+    reComboHalfMarksRange = '\\ufe20-\\ufe2f',
+    rsComboSymbolsRange = '\\u20d0-\\u20ff',
+    rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange,
+    rsVarRange = '\\ufe0e\\ufe0f';
+
+/** Used to compose unicode capture groups. */
+var rsAstral = '[' + rsAstralRange + ']',
+    rsCombo = '[' + rsComboRange + ']',
+    rsFitz = '\\ud83c[\\udffb-\\udfff]',
+    rsModifier = '(?:' + rsCombo + '|' + rsFitz + ')',
+    rsNonAstral = '[^' + rsAstralRange + ']',
+    rsRegional = '(?:\\ud83c[\\udde6-\\uddff]){2}',
+    rsSurrPair = '[\\ud800-\\udbff][\\udc00-\\udfff]',
+    rsZWJ = '\\u200d';
+
+/** Used to compose unicode regexes. */
+var reOptMod = rsModifier + '?',
+    rsOptVar = '[' + rsVarRange + ']?',
+    rsOptJoin = '(?:' + rsZWJ + '(?:' + [rsNonAstral, rsRegional, rsSurrPair].join('|') + ')' + rsOptVar + reOptMod + ')*',
+    rsSeq = rsOptVar + reOptMod + rsOptJoin,
+    rsSymbol = '(?:' + [rsNonAstral + rsCombo + '?', rsCombo, rsRegional, rsSurrPair, rsAstral].join('|') + ')';
+
+/** Used to match [string symbols](https://mathiasbynens.be/notes/javascript-unicode). */
+var reUnicode = RegExp(rsFitz + '(?=' + rsFitz + ')|' + rsSymbol + rsSeq, 'g');
+
+/**
+ * Gets the size of a Unicode `string`.
+ *
+ * @private
+ * @param {string} string The string inspect.
+ * @returns {number} Returns the string size.
+ */
+function unicodeSize(string) {
+  var result = reUnicode.lastIndex = 0;
+  while (reUnicode.test(string)) {
+    ++result;
+  }
+  return result;
+}
+
+module.exports = unicodeSize;
 
 
 /***/ }),
@@ -11548,6 +12114,104 @@ module.exports = keys;
 
 /***/ }),
 
+/***/ "./node_modules/lodash/padEnd.js":
+/*!***************************************!*\
+  !*** ./node_modules/lodash/padEnd.js ***!
+  \***************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var createPadding = __webpack_require__(/*! ./_createPadding */ "./node_modules/lodash/_createPadding.js"),
+    stringSize = __webpack_require__(/*! ./_stringSize */ "./node_modules/lodash/_stringSize.js"),
+    toInteger = __webpack_require__(/*! ./toInteger */ "./node_modules/lodash/toInteger.js"),
+    toString = __webpack_require__(/*! ./toString */ "./node_modules/lodash/toString.js");
+
+/**
+ * Pads `string` on the right side if it's shorter than `length`. Padding
+ * characters are truncated if they exceed `length`.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category String
+ * @param {string} [string=''] The string to pad.
+ * @param {number} [length=0] The padding length.
+ * @param {string} [chars=' '] The string used as padding.
+ * @returns {string} Returns the padded string.
+ * @example
+ *
+ * _.padEnd('abc', 6);
+ * // => 'abc   '
+ *
+ * _.padEnd('abc', 6, '_-');
+ * // => 'abc_-_'
+ *
+ * _.padEnd('abc', 3);
+ * // => 'abc'
+ */
+function padEnd(string, length, chars) {
+  string = toString(string);
+  length = toInteger(length);
+
+  var strLength = length ? stringSize(string) : 0;
+  return (length && strLength < length)
+    ? (string + createPadding(length - strLength, chars))
+    : string;
+}
+
+module.exports = padEnd;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/padStart.js":
+/*!*****************************************!*\
+  !*** ./node_modules/lodash/padStart.js ***!
+  \*****************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var createPadding = __webpack_require__(/*! ./_createPadding */ "./node_modules/lodash/_createPadding.js"),
+    stringSize = __webpack_require__(/*! ./_stringSize */ "./node_modules/lodash/_stringSize.js"),
+    toInteger = __webpack_require__(/*! ./toInteger */ "./node_modules/lodash/toInteger.js"),
+    toString = __webpack_require__(/*! ./toString */ "./node_modules/lodash/toString.js");
+
+/**
+ * Pads `string` on the left side if it's shorter than `length`. Padding
+ * characters are truncated if they exceed `length`.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category String
+ * @param {string} [string=''] The string to pad.
+ * @param {number} [length=0] The padding length.
+ * @param {string} [chars=' '] The string used as padding.
+ * @returns {string} Returns the padded string.
+ * @example
+ *
+ * _.padStart('abc', 6);
+ * // => '   abc'
+ *
+ * _.padStart('abc', 6, '_-');
+ * // => '_-_abc'
+ *
+ * _.padStart('abc', 3);
+ * // => 'abc'
+ */
+function padStart(string, length, chars) {
+  string = toString(string);
+  length = toInteger(length);
+
+  var strLength = length ? stringSize(string) : 0;
+  return (length && strLength < length)
+    ? (createPadding(length - strLength, chars) + string)
+    : string;
+}
+
+module.exports = padStart;
+
+
+/***/ }),
+
 /***/ "./node_modules/lodash/stubArray.js":
 /*!******************************************!*\
   !*** ./node_modules/lodash/stubArray.js ***!
@@ -11605,6 +12269,104 @@ function stubFalse() {
 }
 
 module.exports = stubFalse;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/toFinite.js":
+/*!*****************************************!*\
+  !*** ./node_modules/lodash/toFinite.js ***!
+  \*****************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var toNumber = __webpack_require__(/*! ./toNumber */ "./node_modules/lodash/toNumber.js");
+
+/** Used as references for various `Number` constants. */
+var INFINITY = 1 / 0,
+    MAX_INTEGER = 1.7976931348623157e+308;
+
+/**
+ * Converts `value` to a finite number.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.12.0
+ * @category Lang
+ * @param {*} value The value to convert.
+ * @returns {number} Returns the converted number.
+ * @example
+ *
+ * _.toFinite(3.2);
+ * // => 3.2
+ *
+ * _.toFinite(Number.MIN_VALUE);
+ * // => 5e-324
+ *
+ * _.toFinite(Infinity);
+ * // => 1.7976931348623157e+308
+ *
+ * _.toFinite('3.2');
+ * // => 3.2
+ */
+function toFinite(value) {
+  if (!value) {
+    return value === 0 ? value : 0;
+  }
+  value = toNumber(value);
+  if (value === INFINITY || value === -INFINITY) {
+    var sign = (value < 0 ? -1 : 1);
+    return sign * MAX_INTEGER;
+  }
+  return value === value ? value : 0;
+}
+
+module.exports = toFinite;
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash/toInteger.js":
+/*!******************************************!*\
+  !*** ./node_modules/lodash/toInteger.js ***!
+  \******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var toFinite = __webpack_require__(/*! ./toFinite */ "./node_modules/lodash/toFinite.js");
+
+/**
+ * Converts `value` to an integer.
+ *
+ * **Note:** This method is loosely based on
+ * [`ToInteger`](http://www.ecma-international.org/ecma-262/7.0/#sec-tointeger).
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to convert.
+ * @returns {number} Returns the converted integer.
+ * @example
+ *
+ * _.toInteger(3.2);
+ * // => 3
+ *
+ * _.toInteger(Number.MIN_VALUE);
+ * // => 0
+ *
+ * _.toInteger(Infinity);
+ * // => 1.7976931348623157e+308
+ *
+ * _.toInteger('3.2');
+ * // => 3
+ */
+function toInteger(value) {
+  var result = toFinite(value),
+      remainder = result % 1;
+
+  return result === result ? (remainder ? result - remainder : result) : 0;
+}
+
+module.exports = toInteger;
 
 
 /***/ }),

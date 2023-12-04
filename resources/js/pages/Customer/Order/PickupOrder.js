@@ -1,10 +1,34 @@
 import React, {useState} from 'react';
-import { List, Divider } from 'antd';
+import {Row, Col, Statistic, List, Divider } from 'antd';
 
-const PickupOrder = ({ pickups}) => {
+const PickupOrder = ({ pickups, pickupQuota}) => {
+
+
+    const totalMealsPickedUp = () => {
+        return pickups.reduce((sum, item) => sum + item.qty, 0);
+    }
+
+    const remainingPickups = () => {
+        return ( pickupQuota - totalMealsPickedUp() )
+    }
 
     return (
         <div>
+
+            <Row gutter={16}>
+                <Col span={6}>
+                    <Statistic title="Remaining" value={ remainingPickups() } />
+                </Col>
+                <Col span={6}>
+                    <Statistic title="Total Meals Picked UP" value={ totalMealsPickedUp() } />
+                </Col>
+                <Col span={6}>
+                    <Statistic title="Quota" value={ pickupQuota } />
+                </Col>
+                <Col span={6}>
+                    <Statistic title="Total Pickups" value={pickups.length} />
+                </Col>
+            </Row>
 
             <Divider/>
 

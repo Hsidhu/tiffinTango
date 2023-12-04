@@ -9,20 +9,19 @@ const Dashboard = ({ }) => {
             <h1>Customer Dashboard</h1>
 
             <Row gutter={16}>
-                <Col span={8}>
-                    <Statistic title="Active Users" value={112893} />
+                <Col sm={24} md={8} >
+                    <Statistic title="Total Active Customers" value={112893} />
                 </Col>
-                <Col span={8}>
-                    <Statistic title="Account Balance (CNY)" value={112893} precision={2} />
+                <Col sm={24} md={8}>
+                    <Statistic title="Total Orders this Month" value={112893}  />
                 </Col>
-                <Col span={8}>
-                    <Statistic title="Orders" value={112893} loading />
+                <Col sm={24} md={8}>
+                    <Statistic title="Orders" value={112893} />
                 </Col>
             </Row>
 
-            <div className="site-statistic-demo-card">
-                <Row gutter={16}>
-                    <Col span={8}>
+            <Row gutter={16}>
+                    <Col sm={24} md={8}>
                         <Card>
                             <Statistic
                                 title="Active"
@@ -36,7 +35,7 @@ const Dashboard = ({ }) => {
                             />
                         </Card>
                     </Col>
-                    <Col span={8}>
+                    <Col sm={24} md={8}>
                         <Card>
                             <Statistic
                                 title="Idle"
@@ -50,7 +49,7 @@ const Dashboard = ({ }) => {
                             />
                         </Card>
                     </Col>
-                    <Col span={8}>
+                    <Col sm={24} md={8}>
                         <Card>
                             <Statistic
                                 title="Idle"
@@ -64,8 +63,7 @@ const Dashboard = ({ }) => {
                             />
                         </Card>
                     </Col>
-                </Row>
-            </div>
+            </Row>
         </>
     );
 }

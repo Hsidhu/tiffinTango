@@ -2330,7 +2330,9 @@ function Login() {
     justify: "center",
     align: "middle",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      span: 6,
+      sm: 24,
+      md: 8,
+      lg: 6,
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
         name: "normal_login",
         onFinish: onFinish,
