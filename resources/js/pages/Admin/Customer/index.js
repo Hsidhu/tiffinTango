@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { Space, Table, Row, Col, Button, Divider } from 'antd';
+import { Space, Table, Row, Col, Button, Divider, Input } from 'antd';
 import { getCustomers } from "../../../redux/Customer/actions"
 import TableHeaderLink from '../../../components/tableHeaderLink';
+import { isEmpty } from 'lodash';
 
 const Customer = ({ }) => {
     const history = useHistory();
+    const [searchText, setSearchText] = useState('');
+
     const {customers} = useSelector(state => state)
     const dispatch = useDispatch();
 
@@ -14,13 +17,23 @@ const Customer = ({ }) => {
         dispatch(getCustomers())
     }, [])
 
-    if(!customers){
+    if(isEmpty(customers)){
         return null;
     }
 
     const handleEditClick = (id) => {
         history.push(`/admin/customer/edit/${id}`)
     }
+    const handleSearch = (e) => {
+        setSearchText(e.target.value);
+    };
+
+    const filteredData = customers.data.filter(
+        entry =>
+          entry.full_name.toLowerCase().includes(searchText.toLowerCase()) ||
+          entry.email.toLowerCase().includes(searchText.toLowerCase()) ||
+          entry.phone.toLowerCase().includes(searchText.toLowerCase())
+      );
 
     const columns = [
         {
@@ -30,7 +43,7 @@ const Customer = ({ }) => {
             sorter: (a, b) => a.full_name.length - b.full_name.length,
             render: (_, record) => (
                 <a onClick={ () => handleEditClick(record.id)} >{record.full_name}</a>
-            ),
+            )
         },
         {
             title: 'email',
@@ -77,6 +90,11 @@ const Customer = ({ }) => {
                 dataIndex: 'start_date'
             },
             {
+                key: 'end_date',
+                title: 'End Date',
+                dataIndex: 'end_date'
+            },
+            {
                 title: 'Action',
                 key: 'action',
                 render: (_, record) => (
@@ -102,9 +120,15 @@ const Customer = ({ }) => {
                 ]}
             />
             <Divider />
-            <Table rowKey="id" 
+            <Input
+                placeholder="Search customers"
+                value={searchText}
+                onChange={handleSearch}
+            />
+            <Table rowKey="id"
+                pagination={false}
                 columns={columns} 
-                dataSource={customers.data} 
+                dataSource={filteredData} 
                 expandable={{ expandedRowRender }}
             />
         </>

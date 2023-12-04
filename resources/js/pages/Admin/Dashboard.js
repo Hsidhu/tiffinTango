@@ -5,19 +5,23 @@ import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
 
 
 const Dashboard = ({ }) => {
+
+    useEffect(()=>{
+        console.log('Dashboard')
+    }, [])
     return (
         <>
             <h1>Admin Boilerplate</h1>
 
             <Row gutter={16}>
                 <Col span={8}>
-                    <Statistic title="Active Users" value={112893} />
+                    <Statistic title="Total Active Customers" value={112893} />
                 </Col>
                 <Col span={8}>
-                    <Statistic title="Account Balance (CNY)" value={112893} precision={2} />
+                    <Statistic title="Total Orders this Month" value={112893}  />
                 </Col>
                 <Col span={8}>
-                    <Statistic title="Orders" value={112893} loading />
+                    <Statistic title="Orders" value={112893} />
                 </Col>
             </Row>
 

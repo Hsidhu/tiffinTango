@@ -24,6 +24,9 @@ class DailyOrderGenerator
         $orders = $this->getMealPlanOrders($deliveryWindowId);
 
         foreach ($orders as $order) {
+            if($order->customer->status == 0){
+                continue;
+            }
 
             $deliveryZoneId = $order->customer->address->delivery_zone_id;
 

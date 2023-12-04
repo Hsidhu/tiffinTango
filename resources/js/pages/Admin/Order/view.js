@@ -167,8 +167,8 @@ const View = ({ }) => {
                 subTitle="Order Detail"
                 backUri="/admin/orders"
                 HeaderButtons = {[
-                    <Link key={'generate_deliveries'} to="/admin/order/generateDeliveries">
-                        <Button type='primary'>Generate Deliveries</Button>
+                    <Link key={'customer'} to={`/admin/customer/edit/${order.customer_id}`}>
+                        <Button type='primary'>Edit Customer</Button>
                     </Link>,
                 ]}
             >
@@ -207,7 +207,7 @@ const View = ({ }) => {
                 <Col span={18}>
                     <Card
                         title="Order Detail"
-                        extra={<a href="#">Invoice</a>}
+                        extra={<span>extra</span>}
                     >
                         <br />
                         <Table

@@ -12316,12 +12316,12 @@ var View = function View(_ref) {
       subTitle: "Order Detail",
       backUri: "/admin/orders",
       HeaderButtons: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_16__.Link, {
-        to: "/admin/order/generateDeliveries",
+        to: "/admin/customer/edit/".concat(order.customer_id),
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(antd__WEBPACK_IMPORTED_MODULE_17__["default"], {
           type: "primary",
-          children: "Generate Deliveries"
+          children: "Edit Customer"
         })
-      }, 'generate_deliveries')],
+      }, 'customer')],
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_18__["default"], {
         size: "small",
         column: 3,
@@ -12382,9 +12382,8 @@ var View = function View(_ref) {
         span: 18,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_22__["default"], {
           title: "Order Detail",
-          extra: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("a", {
-            href: "#",
-            children: "Invoice"
+          extra: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
+            children: "extra"
           }),
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(antd__WEBPACK_IMPORTED_MODULE_23__["default"], {
             columns: columns2,

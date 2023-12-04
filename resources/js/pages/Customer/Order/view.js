@@ -155,7 +155,7 @@ const View = ({ }) => {
                 <Col span={18}>
                     <Card
                         title="Order Detail"
-                        extra={<a href="#">Invoice</a>}
+                        extra={<span>extra</span>}
                     >
                         <br />
                         <Table
