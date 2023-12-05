@@ -10,6 +10,8 @@ use App\Models\Driver;
 use App\Models\DriverZone;
 use App\Models\Address;
 
+use App\Http\Resources\Admin\DeliveryZoneResource;
+
 // https://mapsengine.google.com/map/ 
 
 class DeliveryZoneController extends Controller
@@ -17,7 +19,7 @@ class DeliveryZoneController extends Controller
     public function index()
     {
         $deliveryZones = DeliveryZone::get();
-        return response()->json($deliveryZones);
+        return DeliveryZoneResource::collection($deliveryZones);
     }
 
     public function create(Request $request)

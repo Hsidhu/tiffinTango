@@ -30,7 +30,7 @@ class Driver extends Authenticatable
 
     public function shift()
     {
-        return $this->hasOne(\App\Models\DeliveryWindow::class);
+        return $this->belongsTo(\App\Models\DeliveryWindow::class, 'delivery_window_id');
     }
 
     public function getFullNameAttribute($value)

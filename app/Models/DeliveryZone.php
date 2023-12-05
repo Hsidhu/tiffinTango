@@ -16,11 +16,20 @@ class DeliveryZone extends Model
 
     protected $guarded = [];
 
-    public $relation = [
-        'belongsTo' => [
-            'location' => [\App\Models\Location::class],
-        ],
-    ];
+    public function location()
+    {
+        return $this->belongsTo(\App\Models\Location::class);
+    }
+
+    public function addresses()
+    {
+        return $this->hasMany(\App\Models\Address::class);
+    }
+
+    public function drivers()
+    {
+        return $this->hasMany(\App\Models\DriverZone::class);
+    }
 
     protected $casts = [
         'boundaries' => 'array'

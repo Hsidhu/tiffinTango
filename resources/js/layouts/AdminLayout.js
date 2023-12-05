@@ -11,6 +11,7 @@ import { adminSideMenu } from '../routes/menu';
 import HeaderProfileDorpdown from '../components/headerProfileDorpdown';
 import HeaderLogo from '../components/headerLogo';
 import HeaderNotificationBell from '../components/HeaderNotificationBell';
+import PageSetup from '../components/pageSetup'
 
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -70,9 +71,9 @@ function AdminLayout() {
                 <Layout style={{ padding: '0 24px 24px' }}>
                     <Content style={{ padding: 24, margin: 0, minHeight: 280}}>
                         <Switch>
-                            {privateRouteList.map(({ component: Component, path, exact }, index) => (
+                            {privateRouteList.map(({ component: Component, path, exact, title}, index) => (
                                 <Route path={`/${path}`} key={index} exact={exact}>
-                                    <Component />
+                                    <PageSetup title={title} Component={Component} />
                                 </Route>
                             ))}
                         </Switch>

@@ -6,6 +6,7 @@ import {
 } from 'antd';
 import { getDeliveryZones } from "../../../redux/DeliveryZone/actions"
 import TableHeaderLink from '../../../components/tableHeaderLink';
+import { isEmpty } from 'lodash';
 
 const Driver = ({ }) => {
     const history = useHistory();
@@ -16,7 +17,7 @@ const Driver = ({ }) => {
         dispatch(getDeliveryZones())
     }, [])
 
-    if(!deliveryZones){
+    if(isEmpty(deliveryZones)){
         return null;
     }
 
@@ -26,10 +27,10 @@ const Driver = ({ }) => {
 
     const columns = [
         {
-            title: 'Full Name',
+            title: 'Name',
             dataIndex: 'name',
             key: 'name',
-            sorter: (a, b) => a.full_name.length - b.full_name.length,
+            sorter: (a, b) => a.name.length - b.name.length,
             render: (_, record) => (
                 <a onClick={ () => handleEditClick(record.id)} >{record.name}</a>
             ),
@@ -40,9 +41,20 @@ const Driver = ({ }) => {
             key: 'type',
         },
         {
-            title: 'Created_at',
-            dataIndex: 'created_at',
-            key: 'created_at',
+            title: '#Address',
+            dataIndex: '#Address',
+            key: '#Address',
+            render: (_, record) => (
+               <span>{record.addresses.length}</span>
+            ),
+        },
+        {
+            title: '#Drivers',
+            dataIndex: '#Drivers',
+            key: '#Drivers',
+            render: (_, record) => (
+               <span>{record.drivers.length}</span>
+            ),
         },
         {
             title: 'Action',
@@ -50,7 +62,6 @@ const Driver = ({ }) => {
             render: (_, record) => (
                 <Space size="middle">
                     <a onClick={ () => handleEditClick(record.id)} >Edit</a>
-                    <a onClick={ () => handleEditClick(record.id)} >Delete</a>
                 </Space>
             ),
         },
@@ -66,7 +77,7 @@ const Driver = ({ }) => {
             <Divider />
             <Table rowKey="id" 
                 columns={columns} 
-                dataSource={deliveryZones}
+                dataSource={deliveryZones.data}
                 pagination={false}
              />
         </>

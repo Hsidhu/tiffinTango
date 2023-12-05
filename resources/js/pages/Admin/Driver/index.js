@@ -45,12 +45,27 @@ const Driver = ({ }) => {
             key: 'phone',
         },
         {
+            title: '#Delivery Shift',
+            dataIndex: '#Delivery Shift',
+            key: '#Delivery Shift',
+            render: (_, record) => (
+                <>{record.shift.name}</>
+            ),
+        },
+        {
+            title: '#Delivery zone',
+            dataIndex: '#Delivery zone',
+            key: '#Delivery zone',
+            render: (_, record) => (
+                <>{record.driverZones.length}</>
+            ),
+        },
+        {
             title: 'Action',
             key: 'action',
             render: (_, record) => (
                 <Space size="middle">
                     <a onClick={ () => handleEditClick(record.id)} >Edit</a>
-                    <a onClick={ () => handleEditClick(record.id)} >Delete</a>
                 </Space>
             ),
         },

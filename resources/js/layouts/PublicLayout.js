@@ -13,6 +13,7 @@ import { ArrowUpOutlined, MenuFoldOutlined } from '@ant-design/icons';
 
 import CookieConsent from '../components/cookieConsent';
 import { getSiteSettings } from '../redux/Common/actions';
+import PageSetup from '../components/pageSetup'
 
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -72,9 +73,10 @@ const PublicLayout = () => {
 
             <Content>
                 <Switch>
-                    {publicRouteList.map(({ component: Component, path, exact }, index) => (
+                    {publicRouteList.map(({ component: Component, path, exact, title }, index) => (
+                        
                         <Route path={`/${path}`} key={index} exact={exact}>
-                            <Component />
+                            <PageSetup title={title} Component={Component} />
                         </Route>
                     ))}
                 </Switch>

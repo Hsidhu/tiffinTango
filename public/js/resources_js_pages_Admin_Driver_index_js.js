@@ -6352,22 +6352,35 @@ var Driver = function Driver(_ref) {
     dataIndex: 'phone',
     key: 'phone'
   }, {
+    title: '#Delivery Shift',
+    dataIndex: '#Delivery Shift',
+    key: '#Delivery Shift',
+    render: function render(_, record) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+        children: record.shift.name
+      });
+    }
+  }, {
+    title: '#Delivery zone',
+    dataIndex: '#Delivery zone',
+    key: '#Delivery zone',
+    render: function render(_, record) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+        children: record.driverZones.length
+      });
+    }
+  }, {
     title: 'Action',
     key: 'action',
     render: function render(_, record) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
         size: "middle",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
           onClick: function onClick() {
             return handleEditClick(record.id);
           },
           children: "Edit"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
-          onClick: function onClick() {
-            return handleEditClick(record.id);
-          },
-          children: "Delete"
-        })]
+        })
       });
     }
   }];
