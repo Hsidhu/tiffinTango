@@ -6221,7 +6221,7 @@ var CoreSettings = function CoreSettings(_ref) {
         valuePropName: "checked",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"].Item, {
-        label: "distance_unit",
+        label: "Distance Unit",
         name: ['core', 'distance_unit'],
         wrapperCol: {
           span: 4
@@ -6257,7 +6257,7 @@ var CoreSettings = function CoreSettings(_ref) {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"].Item, {
         wrapperCol: {
-          offset: 8,
+          offset: 4,
           span: 16
         },
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {

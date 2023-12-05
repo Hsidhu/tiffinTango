@@ -66,7 +66,7 @@ const CoreSettings = ({settings, getSettings, saveSettings}) => {
                     <Switch />
                 </Form.Item>
 
-                <Form.Item label="distance_unit" name={['core', 'distance_unit']} wrapperCol={{ span: 4 }} >
+                <Form.Item label="Distance Unit" name={['core', 'distance_unit']} wrapperCol={{ span: 4 }} >
                     <Select
                         options={[
                             { value:"km",  label:"KM" },
@@ -93,7 +93,7 @@ const CoreSettings = ({settings, getSettings, saveSettings}) => {
                     <Input />
                 </Form.Item>
 
-                <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                <Form.Item wrapperCol={{ offset: 4, span: 16 }}>
                     <Button type="primary" htmlType="submit">Save</Button>
                 </Form.Item>
         </Form>

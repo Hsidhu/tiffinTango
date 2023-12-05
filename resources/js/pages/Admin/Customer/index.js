@@ -21,9 +21,6 @@ const Customer = ({ }) => {
         return null;
     }
 
-    const handleEditClick = (id) => {
-        history.push(`/admin/customer/edit/${id}`)
-    }
     const handleSearch = (e) => {
         setSearchText(e.target.value);
     };
@@ -42,7 +39,7 @@ const Customer = ({ }) => {
             key: 'full_name',
             sorter: (a, b) => a.full_name.length - b.full_name.length,
             render: (_, record) => (
-                <a onClick={ () => handleEditClick(record.id)} >{record.full_name}</a>
+                <a onClick={ () => history.push(`/admin/customer/edit/${record.id}`)} >{record.full_name}</a>
             )
         },
         {
@@ -70,8 +67,8 @@ const Customer = ({ }) => {
             key: 'action',
             render: (_, record) => (
                 <Space size="middle">
-                    <a onClick={ () => handleEditClick(record.id)} >Edit</a>
-                    <a>Delete</a>
+                    <a onClick={ () => history.push(`/admin/customer/edit/${record.id}`)} >Edit</a>
+                    <a onClick={ () => history.push(`/admin/customer/createOrder/${record.id}`)} >New Order</a>
                 </Space>
             ),
         },

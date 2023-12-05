@@ -6342,9 +6342,6 @@ var Customer = function Customer(_ref) {
   if ((0,lodash__WEBPACK_IMPORTED_MODULE_4__.isEmpty)(customers)) {
     return null;
   }
-  var handleEditClick = function handleEditClick(id) {
-    history.push("/admin/customer/edit/".concat(id));
-  };
   var handleSearch = function handleSearch(e) {
     setSearchText(e.target.value);
   };
@@ -6361,7 +6358,7 @@ var Customer = function Customer(_ref) {
     render: function render(_, record) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
         onClick: function onClick() {
-          return handleEditClick(record.id);
+          return history.push("/admin/customer/edit/".concat(record.id));
         },
         children: record.full_name
       });
@@ -6390,11 +6387,14 @@ var Customer = function Customer(_ref) {
         size: "middle",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
           onClick: function onClick() {
-            return handleEditClick(record.id);
+            return history.push("/admin/customer/edit/".concat(record.id));
           },
           children: "Edit"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
-          children: "Delete"
+          onClick: function onClick() {
+            return history.push("/admin/customer/createOrder/".concat(record.id));
+          },
+          children: "New Order"
         })]
       });
     }
