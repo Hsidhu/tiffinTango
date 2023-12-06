@@ -7,10 +7,7 @@ import {
 } from 'antd';
 import { usePlacesWidget } from "react-google-autocomplete";
 import { GOOGLE_API_KEY } from '../../../config/constants';
-import { createDriver } from '../../../redux/Driver/actions'
-import { phonePattern } from '../../../validationHelper'
-import TableHeaderLink from '../../../components/tableHeaderLink';
-import { getDeliveryWindows } from '../../../redux/Common/actions';
+import { phonePattern } from '../../../validationHelper';
 
 const DriverForm = ({form, onFormChange, hasId, onFormSubmit }) => {
 

@@ -15,7 +15,6 @@ const Create = ({ }) => {
     const dispatch = useDispatch();
     const [form] = Form.useForm()
 
-
     useEffect(() => {
         dispatch(getDeliveryWindowsList());
     }, [])

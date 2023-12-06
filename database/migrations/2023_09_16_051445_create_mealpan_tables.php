@@ -125,14 +125,6 @@ return new class extends Migration
             $table->id();
             $table->integer('driver_id');
             $table->integer('delivery_zone_id');
-            $table->integer('status');
-            $table->timestamps();
-        });
-
-        Schema::create('driver_shifts', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->id();
-            $table->integer('driver_id');
             $table->integer('delivery_window_id');
             $table->timestamps();
         });
@@ -366,7 +358,6 @@ return new class extends Migration
         Schema::dropIfExists('drivers');
         Schema::dropIfExists('addresses');
         Schema::dropIfExists('driver_zones');
-        Schema::dropIfExists('driver_shifts');
         Schema::dropIfExists('delivery_zones');
         Schema::dropIfExists('delivery_windows');
         Schema::dropIfExists('settings');
