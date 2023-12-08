@@ -10,7 +10,7 @@ import {
 
 import LocationForm from './LocationForm';
 import { createLocation } from '../../../redux/Location/actions'
-
+import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const Create = ({ }) => {
     const history = useHistory()
