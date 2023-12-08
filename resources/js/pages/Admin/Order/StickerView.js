@@ -132,22 +132,9 @@ const StickerView = ({}) => {
             <Row className='sticker_page_header'>
                 <Col span={18}>
                 <Space>
-                        {!isEmpty(deliveryZoneList) ?
-                            <Select
-                                placeholder={"Select Delivery Zone"}
-                                defaultValue={deliveryZoneID}
-                                size={'medium'}
-                                style={{
-                                    width: 300,
-                                }}
-                                options={deliveryZoneList}
-                                onChange={updateDeliveryZone}
-                            />
-                            : null
-                        }
                         {!isEmpty(deliveryWindows) ?
                             <Select
-                                placeholder={"Select Delivery Zone"}
+                                placeholder="Select Delivery Zone"
                                 defaultValue={deliveryWindowID}
                                 size={'medium'}
                                 style={{
@@ -155,6 +142,19 @@ const StickerView = ({}) => {
                                 }}
                                 options={deliveryWindows}
                                 onChange={updateDeliveryWindow}
+                            />
+                            : null
+                        }
+                        {!isEmpty(deliveryZoneList) ?
+                            <Select
+                                placeholder="Select Delivery Zone"
+                                defaultValue={deliveryZoneID}
+                                size={'medium'}
+                                style={{
+                                    width: 300,
+                                }}
+                                options={deliveryZoneList}
+                                onChange={updateDeliveryZone}
                             />
                             : null
                         }

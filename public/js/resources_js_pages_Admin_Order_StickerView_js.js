@@ -1699,16 +1699,7 @@ var StickerView = function StickerView(_ref) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(antd__WEBPACK_IMPORTED_MODULE_15__["default"], {
         span: 18,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_16__["default"], {
-          children: [!(0,lodash__WEBPACK_IMPORTED_MODULE_8__.isEmpty)(deliveryZoneList) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(antd__WEBPACK_IMPORTED_MODULE_17__["default"], {
-            placeholder: "Select Delivery Zone",
-            defaultValue: deliveryZoneID,
-            size: 'medium',
-            style: {
-              width: 300
-            },
-            options: deliveryZoneList,
-            onChange: updateDeliveryZone
-          }) : null, !(0,lodash__WEBPACK_IMPORTED_MODULE_8__.isEmpty)(deliveryWindows) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(antd__WEBPACK_IMPORTED_MODULE_17__["default"], {
+          children: [!(0,lodash__WEBPACK_IMPORTED_MODULE_8__.isEmpty)(deliveryWindows) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(antd__WEBPACK_IMPORTED_MODULE_17__["default"], {
             placeholder: "Select Delivery Zone",
             defaultValue: deliveryWindowID,
             size: 'medium',
@@ -1717,6 +1708,15 @@ var StickerView = function StickerView(_ref) {
             },
             options: deliveryWindows,
             onChange: updateDeliveryWindow
+          }) : null, !(0,lodash__WEBPACK_IMPORTED_MODULE_8__.isEmpty)(deliveryZoneList) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(antd__WEBPACK_IMPORTED_MODULE_17__["default"], {
+            placeholder: "Select Delivery Zone",
+            defaultValue: deliveryZoneID,
+            size: 'medium',
+            style: {
+              width: 300
+            },
+            options: deliveryZoneList,
+            onChange: updateDeliveryZone
           }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(antd__WEBPACK_IMPORTED_MODULE_18__["default"], {
             type: 'primary',
             onClick: fetchStickers,
