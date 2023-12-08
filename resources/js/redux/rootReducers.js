@@ -4,7 +4,7 @@ import { locations, location } from './Location/reducer';
 import { customers, customer } from './Customer/reducer';
 import { drivers, driver, driverSelect } from './Driver/reducer';
 import { mealplans, mealplan, mealplanOptions } from './MealPlan/redux';
-import { orderData, cart, orderSummary, selectedMealPlan } from './Cart/redux'
+import { orderType, orderData, cart, orderSummary, selectedMealPlan } from './Cart/redux'
 import { orders, order, dailyDeliveries, deliveryStickers } from './Order/redux'
 import { deliveryZones, deliveryZone, deliveryZoneList } from './DeliveryZone/reducer';
 import { mediaFiles } from './Media/redux';
@@ -19,7 +19,7 @@ export default {
     customers, customer,
     drivers, driver, driverSelect,
     mealplans, mealplan, mealplanOptions,
-    orderData, cart, orderSummary, selectedMealPlan,
+    orderType, orderData, cart, orderSummary, selectedMealPlan,
     orders, order, dailyDeliveries, deliveryStickers,
     deliveryZones, deliveryZone, deliveryZoneList
 }

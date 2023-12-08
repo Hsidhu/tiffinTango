@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { isEmpty } from 'lodash';
 import {
-    Row, Col, Select, Card,
+    Row, Col, Select, Card, Radio,
     Typography, Button
 } from 'antd';
+import { orderTypeOptions } from '../../config/constants';
 import MealPlanOptions from "../containers/cart/mealPlanOptions"
 const { Text } = Typography;
 
-const SelectMealPlanForm = ({ nextForm, orderData, selectedMealPlan, getMealPlanForOrder, addToCartselectMealPlan }) => {
+const SelectMealPlanForm = ({ nextForm, orderType, orderData, selectedMealPlan, setOrderType, getMealPlanForOrder, addToCartselectMealPlan, clearCartselectMealPlan }) => {
 
     useEffect(() => {
-        getMealPlanForOrder()
+        getMealPlanForOrder(orderType)
     }, [])
 
     if (isEmpty(orderData)) {
@@ -22,6 +23,11 @@ const SelectMealPlanForm = ({ nextForm, orderData, selectedMealPlan, getMealPlan
         label: `${item.name} - $${item.price}`
     }));
 
+    const handleOrderTypeChange = ({ target: { value } }) => {
+        clearCartselectMealPlan()
+        setOrderType(value)
+        getMealPlanForOrder(value)
+    }
     const handleChange = (value) => {
         const meal = _.find(orderData, { meal_id: value });
         addToCartselectMealPlan(meal);
@@ -31,6 +37,18 @@ const SelectMealPlanForm = ({ nextForm, orderData, selectedMealPlan, getMealPlan
         <Card title="Select Mealpan"  >
 
             <Row>
+                <Col>
+                    <Text>Select Order Type:</Text> <br/>
+                    <Radio.Group 
+                        size="large" 
+                        optionType="button"
+                        defaultValue={orderType}
+                        onChange={handleOrderTypeChange}
+                        options={orderTypeOptions} 
+                    />
+                </Col>
+            </Row>
+            <Row>
                 <Col span={24}>
                     <Text>Select your Plan:</Text>
                     <Select size="large"
@@ -38,7 +56,7 @@ const SelectMealPlanForm = ({ nextForm, orderData, selectedMealPlan, getMealPlan
                         defaultValue={selectedMealPlan?.meal_id}
                         style={{ width: '100%' }}
                         onChange={handleChange}
-                        options={optionItems}
+                        options={optionItems ?? null}
                     />
                 </Col>
             </Row>

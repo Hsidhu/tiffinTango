@@ -1,7 +1,9 @@
 import { getRequest, postRequest, deleteRequest } from "../../config/axiosClient"
 
 export const GET_MEALPLAN_ORDER_DATA = "GET_MEALPLAN_ORDER_DATA";
-export const SELECT_MEALPLAN = "SELECT_MEALPLAN"
+export const SET_ORDER_TYPE = 'SET_ORDER_TYPE';
+export const CLEAR_CART_ITEMS = 'CLEAR_CART_ITEMS';
+export const SELECT_MEALPLAN = "SELECT_MEALPLAN";
 export const SELECT_MEALPLAN_OPTIONS = "SELECT_MEALPLAN_OPTIONS"
 export const ORDER_META_DATA = "ORDER_META_DATA"
 export const ORDER_CUSTOMER_INFO = "ORDER_META_DATA"
@@ -17,12 +19,26 @@ export const getMealPlanForOrder = (delivery_type = '') => (dispatch) => {
     });
 }
 
+export const setOrderType = (type) => (dispatch) => {
+    dispatch({
+        type: SET_ORDER_TYPE,
+        payload: type
+    });
+}
+
 export const getDeliveryCharge = (coords) => (dispatch) => {
     const res = getRequest('mealplanorder/deliveryCharge').then(response => {
         dispatch({
             type: ADD_DELIVERY_CHARGE,
             payload: response.data
         });
+    });
+}
+
+export const clearCartselectMealPlan = (mealPlanObject) => (dispatch) => {
+    dispatch({
+        type: CLEAR_CART_ITEMS,
+        payload: {}
     });
 }
 

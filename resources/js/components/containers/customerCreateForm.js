@@ -4,6 +4,6 @@ import { getDeliveryCharge, placeOrder } from '../../redux/Cart/actions';
 import { getDeliveryWindowsList } from "../../redux/Common/actions";
 
 export default connect(
-    ({ orderData, cart, deliveryWindows }) => ({ orderData, cart, deliveryWindows }),
+    ({ orderType, orderData, cart, deliveryWindows }) => ({ orderType, orderData, cart, deliveryWindows }),
     { getDeliveryWindowsList, getDeliveryCharge, placeOrder }
 )(CustomerCreateForm)

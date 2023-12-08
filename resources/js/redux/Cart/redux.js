@@ -1,5 +1,7 @@
 import {
     GET_MEALPLAN_ORDER_DATA,
+    SET_ORDER_TYPE,
+    CLEAR_CART_ITEMS,
     SELECT_MEALPLAN,
     SELECT_MEALPLAN_OPTIONS,
     ADD_DELIVERY_CHARGE
@@ -8,6 +10,15 @@ import {
 export const orderData = (state = [], action) => {
     switch (action.type) {
         case GET_MEALPLAN_ORDER_DATA:
+            return action.payload
+        default:
+            return state
+    }
+}
+
+export const orderType = (state = 'pickup', action) => {
+    switch (action.type) {
+        case SET_ORDER_TYPE:
             return action.payload
         default:
             return state
@@ -39,6 +50,8 @@ export const cart = (state = {}, action) => {
             let newStateDelivery = _.cloneDeep(state);
             newStateDelivery.deliveryCharges = action.payload
             return newStateDelivery
+        case CLEAR_CART_ITEMS:
+            return action.payload
         default:
             return state
     }

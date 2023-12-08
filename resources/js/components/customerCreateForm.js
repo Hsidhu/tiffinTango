@@ -10,14 +10,17 @@ import { usePlacesWidget } from "react-google-autocomplete";
 import { GOOGLE_API_KEY, orderTypeOptions, autocompleteOptions } from '../config/constants';
 import { phonePattern } from '../validationHelper'
 
-const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindowsList, getDeliveryCharge, placeOrder }) => {
-    const [orderType, setOrderType] = useState('pickup');
-    const [deliveryWindowShow, setDeliveryWindowShow] = useState(false);
+const CustomerCreateForm = ({ form, orderType, orderData, deliveryWindows, getDeliveryWindowsList, getDeliveryCharge, placeOrder }) => {
+    
     const antInputRef = useRef(null);
 
     useEffect(()=>{
         getDeliveryWindowsList()
     }, []);
+
+    const isOrderTypeDelivery = ()=> {
+        return orderType == 'delivery'
+    }
 
     const { ref: antRef } = usePlacesWidget({
         apiKey: GOOGLE_API_KEY,
@@ -69,17 +72,14 @@ const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindo
                     lng: place.geometry.location.lng(),
                     search_address: `${street1} ${city} ${state}`
                 });
-                if(orderType != 'pickup'){
+                if( isOrderTypeDelivery() ){
                     getDeliveryCharge()
                 }
             }
         }
     });
 
-    const onFormLayoutChange = ({ order_type }) => {
-        if(order_type){
-            order_type == 'delivery' ? setDeliveryWindowShow(true) : setDeliveryWindowShow(false)
-        }
+    const onFormLayoutChange = ({  }) => {
     };
 
     const onDateChange = (date, dateString) => {
@@ -92,18 +92,14 @@ const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindo
             labelCol={{ span: 6, }}
             wrapperCol={{ span: 16, }}
             layout="vertical"
-            initialValues={{ order_type: orderType }}
+            initialValues={{ }}
             onValuesChange={onFormLayoutChange}
             style={{}}
             // onFinish={onFormSubmit}
         >
 
-            <Form.Item label="Order Type" name="order_type" >
-                <Radio.Group size="large" optionType="button" options={orderTypeOptions}  />
-            </Form.Item>
-
             {
-                deliveryWindowShow && 
+                isOrderTypeDelivery() && 
                 <Form.Item label="Delivery Window" name="delivery_window_id"
                     rules={[{ required: true}]}
                     >
@@ -232,7 +228,7 @@ const CustomerCreateForm = ({ form, orderData, deliveryWindows, getDeliveryWindo
             <Row>
                 <Col span={24}>
                     {
-                        deliveryWindowShow && 
+                        isOrderTypeDelivery() && 
                         <Form.Item label="Delivery Comment" name="delivery_comment" 
                         rules={[{ required: true}]}>
                             <Input.TextArea rows={2} />

@@ -4,6 +4,6 @@ import { getMealPlanForOrder, getDeliveryCharge, placeOrder } from '../../../red
 
 
 export default connect(
-    ({ orderData, cart }) => ({ orderData, cart }),
+    ({ orderType, orderData, cart }) => ({orderType, orderData, cart }),
     { getMealPlanForOrder, getDeliveryCharge, placeOrder }
 )(CustomerDetailForm)
