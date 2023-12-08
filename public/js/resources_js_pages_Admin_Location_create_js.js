@@ -3163,7 +3163,7 @@ var Create = function Create(_ref) {
     console.log(name);
   };
   var onFormSubmit = function onFormSubmit(values) {
-    dispatch((0,_redux_Location_actions__WEBPACK_IMPORTED_MODULE_3__.createLocation)(values));
+    dispatch((0,_redux_Location_actions__WEBPACK_IMPORTED_MODULE_3__.createLocation)(values, history));
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_tableHeaderLink__WEBPACK_IMPORTED_MODULE_4__["default"], {

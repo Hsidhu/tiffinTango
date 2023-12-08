@@ -3181,7 +3181,7 @@ var Edit = function Edit(_ref) {
     console.log(name);
   };
   var onFormSubmit = function onFormSubmit(values) {
-    dispatch((0,_redux_Location_actions__WEBPACK_IMPORTED_MODULE_4__.updateLocation)(values));
+    dispatch((0,_redux_Location_actions__WEBPACK_IMPORTED_MODULE_4__.updateLocation)(values, history));
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     form.setFieldsValue(_objectSpread({}, location.data));

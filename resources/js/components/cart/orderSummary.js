@@ -73,7 +73,7 @@ const OrderSummary = ({ cart, siteSettings }) => {
                 >
                     <List.Item.Meta
                         title={<Text>{cart.items[0].name}</Text>}
-                        description="Ant Design"
+                        description="MealPlan"
                     />
                 </List.Item>
             </List>

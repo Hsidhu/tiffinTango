@@ -35,7 +35,7 @@ const Edit = ({ }) => {
     };
 
     const onFormSubmit = (values) => {
-        dispatch(updateLocation(values));
+        dispatch(updateLocation(values, history));
     }
 
     useEffect(() => {

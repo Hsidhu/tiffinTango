@@ -23,7 +23,7 @@ const Create = ({ }) => {
     };
 
     const onFormSubmit = (values) => {
-        dispatch(createLocation(values));
+        dispatch(createLocation(values, history));
     }
 
     return (
