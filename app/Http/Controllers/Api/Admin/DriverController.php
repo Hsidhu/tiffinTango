@@ -4,9 +4,14 @@ namespace App\Http\Controllers\Api\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Rule;
 use App\Models\Driver;
 use App\Models\Address;
+use App\Models\DriverZone;
 use App\Http\Resources\Admin\DriverResource;
+use App\Rules\UniqueDriverDeliveryZone;
+use App\Rules\UniqueWindowZoneForDriver;
+
 
 class DriverController extends Controller
 {
@@ -33,7 +38,7 @@ class DriverController extends Controller
         
         $address = Address::create($request->address);
         $driverData = array_merge(['address_id' => $address->id, 'password' => \Hash::make(config('app.customer_default')) ],
-            $request->only(['first_name','last_name','email', 'phone', 'license', 'delivery_window_id', 'status'])
+            $request->only(['first_name','last_name','email', 'phone', 'license', 'status'])
         );
         $driver = Driver::create($driverData);
         return response()->json($driver);
@@ -41,8 +46,8 @@ class DriverController extends Controller
 
     public function edit($id)
     {
-        $driver = Driver::with('address')->find($id);
-        return response()->json($driver);
+        $driver = Driver::find($id);
+        return new DriverResource($driver);
     }
     
     public function update(Request $request)
@@ -62,7 +67,7 @@ class DriverController extends Controller
             'address.country' => ['required'],
         ]);
         $driver->update(
-            $request->only(['first_name', 'last_name', 'email', 'phone', 'delivery_window_id', 'license', 'status'])
+            $request->only(['first_name', 'last_name', 'email', 'phone', 'license', 'status'])
         );
         $address->update(
             $request->address
@@ -84,6 +89,36 @@ class DriverController extends Controller
     {
         $drivers = Driver::getDataForSelect();
         return response()->json($drivers);
+    }
+
+    public function workForm(Request $request)
+    {
+        $this->validate($request, [
+            'driver_id' => 'required',
+            'delivery_zone_id' => 'required',
+            // Add custom rule for checking uniqueness of combination
+            'delivery_zone_id' => [
+                'required',
+                new UniqueDriverDeliveryZone($request->delivery_window_id, $request->driver_id),
+                new UniqueWindowZoneForDriver($request->delivery_window_id, $request->delivery_zone_id, $request->driver_id)
+            ],
+        ]);
+
+        $driverDeliveryZone = DriverZone::updateOrCreate(
+            $request->only(['driver_id', 'delivery_window_id', 'delivery_zone_id']), 
+            $request->only(['driver_id', 'delivery_window_id', 'delivery_zone_id'])
+        );
+        return response()->json($driverDeliveryZone);
+    }
+
+    public function deleteDeliveryWindowAndZone($id)
+    {
+        $item = DriverZone::find($id);
+        if (!$item) {
+            return response()->json(['message' => 'Not Found'], 404);
+        }
+        $item->delete();
+        return response()->json(['message' => 'Deleted successfully']);
     }
 
 }

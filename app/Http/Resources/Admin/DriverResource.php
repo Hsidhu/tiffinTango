@@ -3,9 +3,12 @@
 namespace App\Http\Resources\Admin;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Admin\DriverZoneResource;
 
 class DriverResource extends JsonResource
 {
+    public static $wrap = null;
+
     /**
      * Transform the resource into an array.
      *
@@ -17,14 +20,18 @@ class DriverResource extends JsonResource
         return [
             'id' => $this->id,
             'full_name' => $this->full_name,
+            'first_name' => $this->first_name,
+            'last_name' => $this->last_name,
             'email' => $this->email,
             'phone' => $this->phone,
             'address_id' => $this->address->id,
-            'address' => $this->address->address,
+            'full_address' => $this->address->formatted_Address,
+            'address' => $this->address,
             'city' => $this->address->city,
             'postal_code' => $this->address->postal_code,
-            'driverZones' => $this->driverZones,
-            'shift' => $this->shift,
+            'license' => $this->license,
+            'status' => $this->status,
+            'driverZones' => DriverZoneResource::collection($this->driverZones),
             'created_at' => $this->created_at->setTimezone(config('app.CLIENT_TIMEZONE'))->format('Y-m-d H:i:s')
         ];
     }

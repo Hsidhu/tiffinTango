@@ -28,6 +28,8 @@ Route::post('/driver/update', [App\Http\Controllers\Api\Admin\DriverController::
 Route::delete('/driver/delete/{id}', [App\Http\Controllers\Api\Admin\DriverController::class, 'delete']);
 
 Route::get('/driver/select', [App\Http\Controllers\Api\Admin\DriverController::class, 'getDriversSelect']);
+Route::post('/driver/workForm', [App\Http\Controllers\Api\Admin\DriverController::class, 'workForm']);
+Route::delete('/driver/deliveryWindowAndZone/{id}', [App\Http\Controllers\Api\Admin\DriverController::class, 'deleteDeliveryWindowAndZone']);
 
 
 // mealplan create

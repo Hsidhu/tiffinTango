@@ -28,11 +28,6 @@ class Driver extends Authenticatable
         return $this->hasMany(\App\Models\DriverZone::class);
     }
 
-    public function shift()
-    {
-        return $this->belongsTo(\App\Models\DeliveryWindow::class, 'delivery_window_id');
-    }
-
     public function getFullNameAttribute($value)
     {
         return $this->first_name.' '.$this->last_name;

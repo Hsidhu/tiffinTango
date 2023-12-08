@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { Space, Table, Row, Col, Button, Divider, Input } from 'antd';
+import {
+    MinusCircleTwoTone, PlusCircleTwoTone
+} from '@ant-design/icons';
 import { getCustomers } from "../../../redux/Customer/actions"
 import TableHeaderLink from '../../../components/tableHeaderLink';
 import { isEmpty } from 'lodash';
@@ -103,7 +106,7 @@ const Customer = ({ }) => {
         ];
 
         const data = record.mealplanorders;
-        return <Table rowKey="id" columns={columns} dataSource={data} pagination={false} />;
+        return <Table rowKey="id" columns={columns} dataSource={data} pagination={false} bordered />;
     }
 
     return (
@@ -126,7 +129,15 @@ const Customer = ({ }) => {
                 pagination={false}
                 columns={columns} 
                 dataSource={filteredData} 
-                expandable={{ expandedRowRender }}
+                expandable={{
+                    expandedRowRender,
+                    expandIcon: ({ expanded, onExpand, record }) =>
+                        expanded ? (
+                        <MinusCircleTwoTone onClick={e => onExpand(record, e)} style={{fontSize:"24px"}} />
+                        ) : (
+                        <PlusCircleTwoTone onClick={e => onExpand(record, e)} style={{fontSize:"24px"}} />
+                        )
+                }}
             />
         </>
     );

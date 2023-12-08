@@ -127,6 +127,7 @@ return new class extends Migration
             $table->integer('delivery_zone_id');
             $table->integer('delivery_window_id');
             $table->timestamps();
+            $table->unique(['delivery_window_id', 'delivery_zone_id']);
         });
 
         DB::statement("

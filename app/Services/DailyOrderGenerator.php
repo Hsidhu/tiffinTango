@@ -5,6 +5,7 @@ use App\Models\Customer;
 use App\Models\MealPlanOrder;
 use App\Models\MealPlan;
 use App\Models\Driver;
+use App\Models\DriverZone;
 use App\Models\DailyDeliveryMealPlanLog;
 use App\Models\OrderStatus;
 use Carbon\Carbon;
@@ -119,11 +120,11 @@ class DailyOrderGenerator
      */
     public function getDriver($deliveryZoneId, $deliveryWindowId)
     {
-        return Driver::where('delivery_window_id', $deliveryWindowId)->where('status', Driver::ACTIVE)
-        ->whereHas('driverZones', function ($query) use ($deliveryZoneId) {
-            $query->where('delivery_zone_id', $deliveryZoneId);
-        })
-        ->first();
+        $driverZone = DriverZone::where([
+            'delivery_window_id' => $deliveryWindowId,
+            'delivery_zone_id' => $deliveryZoneId
+        ])->first();
+        return $driverZone->driver;
     }
 
     /**

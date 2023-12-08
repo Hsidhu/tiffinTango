@@ -270,6 +270,24 @@ var HolderOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 
 
 /***/ }),
 
+/***/ "./node_modules/@ant-design/icons-svg/es/asn/MinusCircleTwoTone.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@ant-design/icons-svg/es/asn/MinusCircleTwoTone.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// This icon file is generated automatically.
+var MinusCircleTwoTone = { "icon": function render(primaryColor, secondaryColor) { return { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z", "fill": primaryColor } }, { "tag": "path", "attrs": { "d": "M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm192 396c0 4.4-3.6 8-8 8H328c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h368c4.4 0 8 3.6 8 8v48z", "fill": secondaryColor } }, { "tag": "path", "attrs": { "d": "M696 480H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h368c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z", "fill": primaryColor } }] }; }, "name": "minus-circle", "theme": "twotone" };
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MinusCircleTwoTone);
+
+
+/***/ }),
+
 /***/ "./node_modules/@ant-design/icons-svg/es/asn/MinusSquareOutlined.js":
 /*!**************************************************************************!*\
   !*** ./node_modules/@ant-design/icons-svg/es/asn/MinusSquareOutlined.js ***!
@@ -284,6 +302,24 @@ __webpack_require__.r(__webpack_exports__);
 // This icon file is generated automatically.
 var MinusSquareOutlined = { "icon": { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M328 544h368c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z" } }, { "tag": "path", "attrs": { "d": "M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z" } }] }, "name": "minus-square", "theme": "outlined" };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MinusSquareOutlined);
+
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons-svg/es/asn/PlusCircleTwoTone.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@ant-design/icons-svg/es/asn/PlusCircleTwoTone.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+// This icon file is generated automatically.
+var PlusCircleTwoTone = { "icon": function render(primaryColor, secondaryColor) { return { "tag": "svg", "attrs": { "viewBox": "64 64 896 896", "focusable": "false" }, "children": [{ "tag": "path", "attrs": { "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z", "fill": primaryColor } }, { "tag": "path", "attrs": { "d": "M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm192 396c0 4.4-3.6 8-8 8H544v152c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V544H328c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h152V328c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v152h152c4.4 0 8 3.6 8 8v48z", "fill": secondaryColor } }, { "tag": "path", "attrs": { "d": "M696 480H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z", "fill": primaryColor } }] }; }, "name": "plus-circle", "theme": "twotone" };
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PlusCircleTwoTone);
 
 
 /***/ }),
@@ -819,6 +855,39 @@ HolderOutlined.displayName = 'HolderOutlined';
 
 /***/ }),
 
+/***/ "./node_modules/@ant-design/icons/es/icons/MinusCircleTwoTone.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@ant-design/icons/es/icons/MinusCircleTwoTone.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ant_design_icons_svg_es_asn_MinusCircleTwoTone__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/MinusCircleTwoTone */ "./node_modules/@ant-design/icons-svg/es/asn/MinusCircleTwoTone.js");
+/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
+
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
+
+
+
+var MinusCircleTwoTone = function MinusCircleTwoTone(props, ref) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
+    ref: ref,
+    icon: _ant_design_icons_svg_es_asn_MinusCircleTwoTone__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }));
+};
+MinusCircleTwoTone.displayName = 'MinusCircleTwoTone';
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(MinusCircleTwoTone));
+
+/***/ }),
+
 /***/ "./node_modules/@ant-design/icons/es/icons/MinusSquareOutlined.js":
 /*!************************************************************************!*\
   !*** ./node_modules/@ant-design/icons/es/icons/MinusSquareOutlined.js ***!
@@ -849,6 +918,39 @@ var MinusSquareOutlined = function MinusSquareOutlined(props, ref) {
 };
 MinusSquareOutlined.displayName = 'MinusSquareOutlined';
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(MinusSquareOutlined));
+
+/***/ }),
+
+/***/ "./node_modules/@ant-design/icons/es/icons/PlusCircleTwoTone.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@ant-design/icons/es/icons/PlusCircleTwoTone.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectSpread2 */ "./node_modules/@babel/runtime/helpers/esm/objectSpread2.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _ant_design_icons_svg_es_asn_PlusCircleTwoTone__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ant-design/icons-svg/es/asn/PlusCircleTwoTone */ "./node_modules/@ant-design/icons-svg/es/asn/PlusCircleTwoTone.js");
+/* harmony import */ var _components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AntdIcon */ "./node_modules/@ant-design/icons/es/components/AntdIcon.js");
+
+// GENERATE BY ./scripts/generate.ts
+// DON NOT EDIT IT MANUALLY
+
+
+
+var PlusCircleTwoTone = function PlusCircleTwoTone(props, ref) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_components_AntdIcon__WEBPACK_IMPORTED_MODULE_2__["default"], (0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_objectSpread2__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props), {}, {
+    ref: ref,
+    icon: _ant_design_icons_svg_es_asn_PlusCircleTwoTone__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }));
+};
+PlusCircleTwoTone.displayName = 'PlusCircleTwoTone';
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(PlusCircleTwoTone));
 
 /***/ }),
 
@@ -2583,6 +2685,217 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pagination__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Pagination */ "./node_modules/antd/es/pagination/Pagination.js");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_Pagination__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "./node_modules/antd/es/popconfirm/PurePanel.js":
+/*!******************************************************!*\
+  !*** ./node_modules/antd/es/popconfirm/PurePanel.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Overlay: () => (/* binding */ Overlay)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../button */ "./node_modules/antd/es/button/index.js");
+/* harmony import */ var _button_button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../button/button */ "./node_modules/antd/es/button/button.js");
+/* harmony import */ var _util_ActionButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../_util/ActionButton */ "./node_modules/antd/es/_util/ActionButton.js");
+/* harmony import */ var _locale_provider_LocaleReceiver__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../locale-provider/LocaleReceiver */ "./node_modules/antd/es/locale-provider/LocaleReceiver.js");
+/* harmony import */ var _locale_default__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../locale/default */ "./node_modules/antd/es/locale/default.js");
+/* harmony import */ var _util_getRenderPropValue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../_util/getRenderPropValue */ "./node_modules/antd/es/_util/getRenderPropValue.js");
+/* harmony import */ var _config_provider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config-provider */ "./node_modules/antd/es/config-provider/context.js");
+
+
+
+
+
+
+
+
+
+var Overlay = function Overlay(props) {
+  var prefixCls = props.prefixCls,
+    okButtonProps = props.okButtonProps,
+    cancelButtonProps = props.cancelButtonProps,
+    title = props.title,
+    cancelText = props.cancelText,
+    okText = props.okText,
+    okType = props.okType,
+    icon = props.icon,
+    _props$showCancel = props.showCancel,
+    showCancel = _props$showCancel === void 0 ? true : _props$showCancel,
+    close = props.close,
+    onConfirm = props.onConfirm,
+    onCancel = props.onCancel;
+  var _React$useContext = react__WEBPACK_IMPORTED_MODULE_1__.useContext(_config_provider__WEBPACK_IMPORTED_MODULE_2__.ConfigContext),
+    getPrefixCls = _React$useContext.getPrefixCls;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_locale_provider_LocaleReceiver__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    componentName: "Popconfirm",
+    defaultLocale: _locale_default__WEBPACK_IMPORTED_MODULE_4__["default"].Popconfirm
+  }, function (contextLocale) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+      className: "".concat(prefixCls, "-inner-content")
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+      className: "".concat(prefixCls, "-message")
+    }, icon && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("span", {
+      className: "".concat(prefixCls, "-message-icon")
+    }, icon), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+      className: "".concat(prefixCls, "-message-title")
+    }, (0,_util_getRenderPropValue__WEBPACK_IMPORTED_MODULE_5__.getRenderPropValue)(title))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement("div", {
+      className: "".concat(prefixCls, "-buttons")
+    }, showCancel && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_button__WEBPACK_IMPORTED_MODULE_6__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      onClick: onCancel,
+      size: "small"
+    }, cancelButtonProps), cancelText !== null && cancelText !== void 0 ? cancelText : contextLocale.cancelText), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.createElement(_util_ActionButton__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      buttonProps: (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        size: 'small'
+      }, (0,_button_button__WEBPACK_IMPORTED_MODULE_8__.convertLegacyProps)(okType)), okButtonProps),
+      actionFn: onConfirm,
+      close: close,
+      prefixCls: getPrefixCls('btn'),
+      quitOnNullishReturnValue: true,
+      emitEvent: true
+    }, okText !== null && okText !== void 0 ? okText : contextLocale.okText)));
+  });
+};
+
+/***/ }),
+
+/***/ "./node_modules/antd/es/popconfirm/index.js":
+/*!**************************************************!*\
+  !*** ./node_modules/antd/es/popconfirm/index.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _ant_design_icons_es_icons_ExclamationCircleFilled__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ant-design/icons/es/icons/ExclamationCircleFilled */ "./node_modules/@ant-design/icons/es/icons/ExclamationCircleFilled.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var rc_util_es_hooks_useMergedState__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rc-util/es/hooks/useMergedState */ "./node_modules/rc-util/es/hooks/useMergedState.js");
+/* harmony import */ var rc_util_es_KeyCode__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rc-util/es/KeyCode */ "./node_modules/rc-util/es/KeyCode.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _config_provider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../config-provider */ "./node_modules/antd/es/config-provider/context.js");
+/* harmony import */ var _popover__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../popover */ "./node_modules/antd/es/popover/index.js");
+/* harmony import */ var _util_reactNode__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../_util/reactNode */ "./node_modules/antd/es/_util/reactNode.js");
+/* harmony import */ var _PurePanel__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./PurePanel */ "./node_modules/antd/es/popconfirm/PurePanel.js");
+
+
+var _this = undefined;
+var __rest = undefined && undefined.__rest || function (s, e) {
+  var t = {};
+  for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
+  }
+  return t;
+};
+
+
+
+
+
+
+
+
+
+var Popconfirm = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.forwardRef(function (props, ref) {
+  var customizePrefixCls = props.prefixCls,
+    _props$placement = props.placement,
+    placement = _props$placement === void 0 ? 'top' : _props$placement,
+    _props$trigger = props.trigger,
+    trigger = _props$trigger === void 0 ? 'click' : _props$trigger,
+    _props$okType = props.okType,
+    okType = _props$okType === void 0 ? 'primary' : _props$okType,
+    _props$icon = props.icon,
+    icon = _props$icon === void 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_ant_design_icons_es_icons_ExclamationCircleFilled__WEBPACK_IMPORTED_MODULE_6__["default"], null) : _props$icon,
+    children = props.children,
+    overlayClassName = props.overlayClassName,
+    onOpenChange = props.onOpenChange,
+    onVisibleChange = props.onVisibleChange,
+    restProps = __rest(props, ["prefixCls", "placement", "trigger", "okType", "icon", "children", "overlayClassName", "onOpenChange", "onVisibleChange"]);
+  var _React$useContext = react__WEBPACK_IMPORTED_MODULE_5__.useContext(_config_provider__WEBPACK_IMPORTED_MODULE_7__.ConfigContext),
+    getPrefixCls = _React$useContext.getPrefixCls;
+  var _useMergedState = (0,rc_util_es_hooks_useMergedState__WEBPACK_IMPORTED_MODULE_3__["default"])(false, {
+      value: props.open !== undefined ? props.open : props.visible,
+      defaultValue: props.defaultOpen !== undefined ? props.defaultOpen : props.defaultVisible
+    }),
+    _useMergedState2 = (0,_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useMergedState, 2),
+    open = _useMergedState2[0],
+    setOpen = _useMergedState2[1];
+  // const isDestroyed = useDestroyed();
+  var settingOpen = function settingOpen(value, e) {
+    setOpen(value, true);
+    onVisibleChange === null || onVisibleChange === void 0 ? void 0 : onVisibleChange(value, e);
+    onOpenChange === null || onOpenChange === void 0 ? void 0 : onOpenChange(value, e);
+  };
+  var close = function close(e) {
+    settingOpen(false, e);
+  };
+  var onConfirm = function onConfirm(e) {
+    var _a;
+    return (_a = props.onConfirm) === null || _a === void 0 ? void 0 : _a.call(_this, e);
+  };
+  var onCancel = function onCancel(e) {
+    var _a;
+    settingOpen(false, e);
+    (_a = props.onCancel) === null || _a === void 0 ? void 0 : _a.call(_this, e);
+  };
+  var _onKeyDown = function onKeyDown(e) {
+    if (e.keyCode === rc_util_es_KeyCode__WEBPACK_IMPORTED_MODULE_4__["default"].ESC && open) {
+      settingOpen(false, e);
+    }
+  };
+  var onInternalOpenChange = function onInternalOpenChange(value) {
+    var _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled;
+    if (disabled) {
+      return;
+    }
+    settingOpen(value);
+  };
+  var prefixCls = getPrefixCls('popover', customizePrefixCls);
+  var prefixClsConfirm = getPrefixCls('popconfirm', customizePrefixCls);
+  var overlayClassNames = classnames__WEBPACK_IMPORTED_MODULE_2___default()(prefixClsConfirm, overlayClassName);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_popover__WEBPACK_IMPORTED_MODULE_8__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, restProps, {
+    trigger: trigger,
+    prefixCls: prefixCls,
+    placement: placement,
+    onOpenChange: onInternalOpenChange,
+    open: open,
+    ref: ref,
+    overlayClassName: overlayClassNames,
+    _overlay: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.createElement(_PurePanel__WEBPACK_IMPORTED_MODULE_9__.Overlay, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      okType: okType,
+      icon: icon
+    }, props, {
+      prefixCls: prefixCls,
+      close: close,
+      onConfirm: onConfirm,
+      onCancel: onCancel
+    }))
+  }), (0,_util_reactNode__WEBPACK_IMPORTED_MODULE_10__.cloneElement)(children, {
+    onKeyDown: function onKeyDown(e) {
+      var _a, _b;
+      if ( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5__.isValidElement(children)) {
+        (_b = children === null || children === void 0 ? void 0 : (_a = children.props).onKeyDown) === null || _b === void 0 ? void 0 : _b.call(_a, e);
+      }
+      _onKeyDown(e);
+    }
+  }));
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Popconfirm);
 
 /***/ }),
 
@@ -6297,12 +6610,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/space/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/divider/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/popconfirm/index.js");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/table/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/divider/index.js");
+/* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ant-design/icons */ "./node_modules/@ant-design/icons/es/icons/MinusCircleTwoTone.js");
+/* harmony import */ var _ant_design_icons__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ant-design/icons */ "./node_modules/@ant-design/icons/es/icons/PlusCircleTwoTone.js");
 /* harmony import */ var _redux_Driver_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../redux/Driver/actions */ "./resources/js/redux/Driver/actions.js");
 /* harmony import */ var _components_tableHeaderLink__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/tableHeaderLink */ "./resources/js/components/tableHeaderLink.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure " + obj); }
+
 
 
 
@@ -6338,7 +6655,7 @@ var Driver = function Driver(_ref) {
     render: function render(_, record) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
         onClick: function onClick() {
-          return handleEditClick(record.id);
+          return history.push("/admin/driver/edit/".concat(record.id));
         },
         children: record.full_name
       });
@@ -6352,17 +6669,8 @@ var Driver = function Driver(_ref) {
     dataIndex: 'phone',
     key: 'phone'
   }, {
-    title: '#Delivery Shift',
-    dataIndex: '#Delivery Shift',
-    key: '#Delivery Shift',
-    render: function render(_, record) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-        children: record.shift.name
-      });
-    }
-  }, {
-    title: '#Delivery zone',
-    dataIndex: '#Delivery zone',
+    title: '#Delivery zone/shift',
+    dataIndex: '#Delivery zone/shift',
     key: '#Delivery zone',
     render: function render(_, record) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
@@ -6373,26 +6681,99 @@ var Driver = function Driver(_ref) {
     title: 'Action',
     key: 'action',
     render: function render(_, record) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
         size: "middle",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
           onClick: function onClick() {
-            return handleEditClick(record.id);
+            return history.push("/admin/driver/edit/".concat(record.id));
           },
           children: "Edit"
-        })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+          onClick: function onClick() {
+            return history.push("/admin/driver/workForm/".concat(record.id));
+          },
+          children: "Work Form"
+        })]
       });
     }
   }];
+  var handelDeleteZone = function handelDeleteZone(e, deliveryWindowAndZoneId) {
+    (0,_redux_Driver_actions__WEBPACK_IMPORTED_MODULE_2__.deleteDriverZone)(deliveryWindowAndZoneId);
+    history.go(0);
+  };
+  var handelDeleteZoneCancel = function handelDeleteZoneCancel(e) {
+    console.log(e);
+  };
+  var expandedRowRender = function expandedRowRender(record) {
+    var columns = [{
+      key: 'delivery_window_name',
+      title: 'Delivery Window Name',
+      dataIndex: 'delivery_window_name'
+    }, {
+      key: 'delivery_zone_name',
+      title: 'Delivery Zone Name',
+      dataIndex: 'delivery_zone_name'
+    }, {
+      title: 'Action',
+      key: 'action',
+      render: function render(_, record) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          title: "Are you sure to delete this task?",
+          onConfirm: function onConfirm(e) {
+            return handelDeleteZone(e, record.id);
+          },
+          onCancel: handelDeleteZoneCancel,
+          okText: "Yes",
+          cancelText: "No",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+            href: "#",
+            children: "Delete"
+          })
+        });
+      }
+    }];
+    var data = record.driverZones;
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      rowKey: "id",
+      columns: columns,
+      dataSource: data,
+      pagination: false,
+      size: "small",
+      bordered: true
+    });
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_tableHeaderLink__WEBPACK_IMPORTED_MODULE_3__["default"], {
       name: "Drivers",
       toUri: "/admin/driver/create",
       toText: "Create"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
       rowKey: "id",
       columns: columns,
-      dataSource: drivers.data
+      dataSource: drivers.data,
+      expandable: {
+        expandedRowRender: expandedRowRender,
+        expandIcon: function expandIcon(_ref2) {
+          var expanded = _ref2.expanded,
+            onExpand = _ref2.onExpand,
+            record = _ref2.record;
+          return expanded ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_10__["default"], {
+            onClick: function onClick(e) {
+              return onExpand(record, e);
+            },
+            style: {
+              fontSize: "24px"
+            }
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ant_design_icons__WEBPACK_IMPORTED_MODULE_11__["default"], {
+            onClick: function onClick(e) {
+              return onExpand(record, e);
+            },
+            style: {
+              fontSize: "24px"
+            }
+          });
+        }
+      }
     })]
   });
 };

@@ -6,10 +6,7 @@ import {
 } from 'antd';
 import { getDriver, updateDriver } from '../../../redux/Driver/actions'
 import TableHeaderLink from '../../../components/tableHeaderLink';
-import { getDeliveryWindowsList } from '../../../redux/Common/actions';
-import { getDeliveryZoneList } from '../../../redux/DeliveryZone/actions';
 import DriverForm from './DriverForm';
-import WorkForm from './workForm';
 
 const Edit = ({ }) => {
     const history = useHistory();
@@ -21,15 +18,17 @@ const Edit = ({ }) => {
 
     useEffect(() => {
         dispatch(getDriver(id))
-        dispatch(getDeliveryWindowsList());
-        dispatch(getDeliveryZoneList());
     }, [])
+
+    useEffect(() => {
+        if(driver){
+            form.setFieldsValue({ ...driver })
+        }
+    }, [driver])
 
     if (!driver) {
         return null;
     }
-
-    
 
     const mapSwitchValue = (value) => (value ? 1 : 0);
 
@@ -42,20 +41,7 @@ const Edit = ({ }) => {
         dispatch(updateDriver(values, history));
     }
 
-    useEffect(() => {
-        form.setFieldsValue({ ...driver })
-    }, [form, driver])
-
-    const items = [
-        { 
-            label: 'Driver Edit', key: 'driver_edit',
-            children: <DriverForm form={form} onFormChange={onFormChange}  onFormSubmit={onFormSubmit} hasId={true} />
-        },
-        { 
-            label: 'Shift Setup', key: 'shift_setup', 
-            children: <WorkForm /> 
-        },
-    ];
+    
 
     return (
         <>
@@ -64,7 +50,7 @@ const Edit = ({ }) => {
                 backUri="/admin/drivers"
             />
             <Divider />
-            <Tabs items={items} />
+            <DriverForm form={form} onFormChange={onFormChange}  onFormSubmit={onFormSubmit} hasId={true} />
         </>
 
     );

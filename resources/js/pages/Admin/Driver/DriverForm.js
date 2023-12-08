@@ -12,7 +12,6 @@ import { phonePattern } from '../../../validationHelper';
 const DriverForm = ({form, onFormChange, hasId, onFormSubmit }) => {
 
     const antInputRef = useRef(null);
-    const {deliveryWindows} = useSelector(state => state)
 
     const { ref: antRef } = usePlacesWidget({
         apiKey: GOOGLE_API_KEY,
@@ -22,7 +21,6 @@ const DriverForm = ({form, onFormChange, hasId, onFormSubmit }) => {
             types: ["address"]
         },
         onPlaceSelected: (place) => {
-            console.log(place)
             const address = place.address_components;
             let { street1, city, state, zip, country } = {
                 street1: '',
@@ -132,10 +130,6 @@ const DriverForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                             <Input />
                         </Form.Item>
 
-                        <Form.Item label="Shift" name="delivery_window_id">
-                            <Radio.Group size="large" optionType="button" options={deliveryWindows}  />
-                        </Form.Item>
-
                         <Form.Item label="Status" name="status" valuePropName="checked">
                             <Switch />
                         </Form.Item>
@@ -146,7 +140,6 @@ const DriverForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                         <Form.Item label="Search Address" name="search_address" labelWrap>
                             <Input
                                 ref={(c) => {
-                                    console.log(c)
                                     antInputRef.current = c;
                                     if (c)
                                         antRef.current = c.input;

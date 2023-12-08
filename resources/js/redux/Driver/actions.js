@@ -34,6 +34,15 @@ export const createDriver = (data, history) => (dispatch) => {
     });
 }
 
+export const updateWorkForm = (data, history) => (dispatch) => {
+    const res = postRequest('admin/driver/workForm', data).then(response => {
+        message.success('Driver Successfully!')
+        history.push('/admin/drivers')
+    }).catch(error => {
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
+    });
+}
+
 export const getDriver = (id) => (dispatch) => {
     const res = getRequest(`admin/driver/edit/${id}`).then(response => {
         dispatch({
@@ -76,5 +85,12 @@ export const getDriverSelect = () => (dispatch) => {
             type: GET_DRIVER_SELECT,
             payload: response.data
         });
+    });
+}
+
+
+export const deleteDriverZone=(deliveryWindowAndZoneId) => {
+    const res = deleteRequest(`admin/driver/deliveryWindowAndZone/${deliveryWindowAndZoneId}`).then(response => {
+        message.success('Driver Zone Deleted!')
     });
 }

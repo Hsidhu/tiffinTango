@@ -1,35 +1,53 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
-    Row, Col, Button, Divider,
-    Form, Select
+    Row, Col, Button, Input, Divider, Form, Select
 } from 'antd';
 import {isEmpty} from 'lodash'
+import {getDriver, updateWorkForm } from '../../../redux/Driver/actions'
+import TableHeaderLink from '../../../components/tableHeaderLink';
+import { getDeliveryWindowsList } from '../../../redux/Common/actions';
+import { getDeliveryZoneList } from '../../../redux/DeliveryZone/actions';
 
 // get shifts and zones
-
 const WorkForm = ({ }) => {
+    const history = useHistory();
+    let { id } = useParams();
     const dispatch = useDispatch();
     const [form] = Form.useForm();
 
-    const {deliveryWindows, deliveryZoneList} = useSelector(state => state)
+    const {driver, deliveryWindows, deliveryZoneList} = useSelector(state => state)
 
-    if(isEmpty(deliveryWindows) && isEmpty(deliveryZoneList) ){
+    useEffect(() => {
+        dispatch(getDriver(id))
+        dispatch(getDeliveryWindowsList());
+        dispatch(getDeliveryZoneList());
+    }, [])
+
+    useEffect(() => {
+        form.setFieldsValue({
+            driver_id:id,
+        })
+    }, [id])
+
+    if(isEmpty(deliveryWindows) || isEmpty(deliveryZoneList) ){
         return null
     }
-    // useEffect(() => {
-    //     form.setFieldsValue({
-    //         address_id:address_id,
-    //         delivery_zone_id:delivery_zone_id
-    //     })
-    // }, [form, deliveryZoneList])
 
     const onFormSubmit = (values) => {
-        console.log(values);
+        dispatch(updateWorkForm(values, history))
     }
 
     return (
         <>
+            <TableHeaderLink
+                name="Assign Shift and Zone"
+                backUri="/admin/drivers"
+            />
+            
+            <Divider />
+
             <Form
                 form={form}
                 labelCol={{ span: 4, }}
@@ -39,17 +57,20 @@ const WorkForm = ({ }) => {
                 style={{}}
                 onFinish={onFormSubmit}
             >
+                <Form.Item name="driver_id" hidden>
+                    <Input type="hidden" />
+                </Form.Item>
+
                 <Form.Item label="Delivery Window" name="delivery_window_id"
                     rules={[ { required: true },
                     ]}
                 >
                     <Select
-                        mode="multiple"
                         showArrow
                         style={{
                             width: '100%',
                         }}
-                        options={deliveryWindows}
+                        options={deliveryWindows ?? []}
                     />
                 </Form.Item>
 
@@ -58,12 +79,11 @@ const WorkForm = ({ }) => {
                     ]}
                 >
                     <Select
-                        mode="multiple"
                         showArrow
                         style={{
                             width: '100%',
                         }}
-                        options={deliveryZoneList}
+                        options={deliveryZoneList ?? []}
                     />
                 </Form.Item>
 

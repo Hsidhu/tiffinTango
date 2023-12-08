@@ -184,6 +184,12 @@ export const privateRouteList = [
         exact: true,
     },
     {
+        path: 'admin/driver/workForm/:id',
+        component: lazy(() => import('../pages/Admin/Driver/workForm')),
+        title:'Driver Work Setup',
+        exact: true,
+    },
+    {
         path: 'admin/delivery_zones',
         component: lazy(() => import('../pages/Admin/DeliveryZone/index')),
         title:'Delivery Zones',
