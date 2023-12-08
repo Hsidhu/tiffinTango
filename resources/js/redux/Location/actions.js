@@ -42,7 +42,7 @@ export const getLocation = (id) => (dispatch) => {
 }
 
 export const updateLocation = (data, history) => (dispatch) => {
-    const res = postRequest('location/update', data).then(response => {
+    const res = postRequest('admin/location/update', data).then(response => {
         dispatch({
             type: GET_LOCATION,
             payload: response.data
@@ -56,7 +56,7 @@ export const updateLocation = (data, history) => (dispatch) => {
 
 export const deleteLocation = (id) => (dispatch) => {
 
-    const res = deleteRequest(`location/delete/${id}`).then(response => {
+    const res = deleteRequest(`admin/location/delete/${id}`).then(response => {
         // dispatch({
         //     type: GET_LOCATION,
         //     payload: response.data
