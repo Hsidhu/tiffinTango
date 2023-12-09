@@ -70,9 +70,9 @@ Route::post('/order/optimizeRoute', [App\Http\Controllers\Api\Admin\DailyDeliver
 
 Route::get('/order/cloneOrder/{id}', [App\Http\Controllers\Api\Admin\OrderController::class, 'cloneOrder']);
 
-
 // Marketing
 Route::get('/marketing', [App\Http\Controllers\Api\Admin\MarketingController::class, 'index']);
+Route::post('/marketing/bulkEmail', [App\Http\Controllers\Api\Admin\MarketingController::class, 'bulkEmail']);
 
 // site Settings
 Route::get('/settings/{code}', [App\Http\Controllers\Api\Admin\SettingController::class, 'index']);

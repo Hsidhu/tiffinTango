@@ -5,14 +5,16 @@ import {
     Space, Table, Divider, Tabs, Statistic 
 } from 'antd';
 import TableHeaderLink from '../../../components/tableHeaderLink';
+import BulkEmailNotification from '../../../components/containers/bulkEmailNotification';
 
 const Marketing = () => {
+    const history = useHistory();
 
     const tabItems = [
         { 
             key: 'Customer_Email',
             label: 'Customer Emails',
-            children: <span>send email to customers</span>
+            children: <BulkEmailNotification history={history} />
         },
     ]
 
