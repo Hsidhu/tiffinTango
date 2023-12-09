@@ -224,6 +224,12 @@ export const privateRouteList = [
         component: lazy(() => import('../pages/Admin/Media/index')),
         title:'Media',
         exact: true,
+    },
+    {
+        path: 'admin/profile',
+        component: lazy(() => import('../pages/Profile/view')),
+        title:'Profile',
+        exact: true,
     }
 ]
 
@@ -243,6 +249,12 @@ export const customerRouteList = [
         component: lazy(() => import('../pages/Customer/Order/view')),
         exact: true,
     },
+    {
+        path: 'customer/profile',
+        component: lazy(() => import('../pages/Profile/view')),
+        title:'Profile',
+        exact: true,
+    }
 ];
 
 

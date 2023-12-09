@@ -10,7 +10,6 @@ import {customerRouteList} from '../routes/routes';
 import { customerSideMenu } from '../routes/menu';
 import HeaderProfileDorpdown from '../components/headerProfileDorpdown';
 import HeaderLogo from '../components/headerLogo';
-import HeaderNotificationBell from '../components/HeaderNotificationBell';
 
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -37,7 +36,6 @@ function CustomerLayout() {
                     <Col flex={3}>
                         <div style={{ display: 'flex', alignItems:'center', justifyContent:'end' }}>
                             <Space size={"large"}>
-                                <HeaderNotificationBell/>
                                 <HeaderProfileDorpdown />
                             </Space>
                         </div>

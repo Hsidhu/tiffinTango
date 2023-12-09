@@ -55,10 +55,24 @@ function* logout() {
     }
 }
 
+function* updatePassword(action){
+    try {
+        const response = yield call(() => postRequest('auth/updatePassword', action.payload));
+        yield put({ type: actions.UPDATE_PASSWORD, payload: response.data });
+    } catch (error) {
+        if (error.response.status === 422) {
+            message.error(error.response.data.errors.join(','));
+        } else {
+            message.error('Something Went Wrong');
+        }
+    }
+}
+
 
 export default function* rootSaga() {
     yield all([takeLatest(actions.LOGIN, login)]);
     yield all([takeLatest(actions.GET_AUTH_USER, getAuthUser)]);
     yield all([takeLatest(actions.LOGOUT, logout)]);
     yield all([takeLatest(actions.REGISTER, register)]);
+    yield all([takeLatest(actions.UPDATE_PASSWORD, updatePassword)]);
 }

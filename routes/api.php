@@ -25,6 +25,7 @@ Route::get('/mealplan/options/{mealplan_id}', [App\Http\Controllers\Api\Admin\Me
 Route::group(['middleware' => 'auth:sanctum'], function() {
     
     Route::get('/auth/user', [App\Http\Controllers\Api\Admin\UserController::class, 'getAuthUser']);
+    Route::post('/auth/updatePassword', [App\Http\Controllers\Api\Admin\UserController::class, 'updatePassword']);
     Route::delete('/logout', [App\Http\Controllers\Api\Auth\AuthController::class,'logout']);
     
     // media

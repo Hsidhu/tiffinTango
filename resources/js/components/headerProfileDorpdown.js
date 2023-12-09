@@ -46,15 +46,11 @@ const HeaderProfileDorpdown = () => {
         });
     };
 
-    const onClick = (e) => {
-        console.log(e.key);
-    };
-
     const items = [
         {
             key: 'profile',
             label: (
-                <Link to='/admin/locations'>
+                <Link to='/admin/profile'>
                     Profile
                 </Link>
             ),
