@@ -45,7 +45,7 @@ class CloneMealPlanOrder {
             $clonedTotal->order_id = $clonedOrder->id;
             $clonedTotal->save();
         }
-        return $originalOrder;
+        return $clonedOrder;
     }
 
 }

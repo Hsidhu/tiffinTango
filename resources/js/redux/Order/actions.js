@@ -21,6 +21,8 @@ export const getOrder = (id) => (dispatch) => {
             type: GET_ORDER,
             payload: response.data
         });
+    }).catch(error => {
+        message.success('Order Not Found!');
     });
 }
 
