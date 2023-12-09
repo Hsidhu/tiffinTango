@@ -11504,7 +11504,7 @@ var SelectMealPlanForm = function SelectMealPlanForm(_ref) {
         }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"].Group, {
           size: "large",
           optionType: "button",
-          defaultValue: orderType,
+          value: orderType,
           onChange: handleOrderTypeChange,
           options: _config_constants__WEBPACK_IMPORTED_MODULE_2__.orderTypeOptions
         })]
@@ -11517,7 +11517,7 @@ var SelectMealPlanForm = function SelectMealPlanForm(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
           size: "large",
           placeholder: "Select MealPlan",
-          defaultValue: selectedMealPlan === null || selectedMealPlan === void 0 ? void 0 : selectedMealPlan.meal_id,
+          value: selectedMealPlan === null || selectedMealPlan === void 0 ? void 0 : selectedMealPlan.meal_id,
           style: {
             width: '100%'
           },

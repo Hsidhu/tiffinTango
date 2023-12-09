@@ -42,7 +42,7 @@ const SelectMealPlanForm = ({ nextForm, orderType, orderData, selectedMealPlan, 
                     <Radio.Group 
                         size="large" 
                         optionType="button"
-                        defaultValue={orderType}
+                        value={orderType}
                         onChange={handleOrderTypeChange}
                         options={orderTypeOptions} 
                     />
@@ -53,7 +53,7 @@ const SelectMealPlanForm = ({ nextForm, orderType, orderData, selectedMealPlan, 
                     <Text>Select your Plan:</Text>
                     <Select size="large"
                         placeholder = "Select MealPlan"
-                        defaultValue={selectedMealPlan?.meal_id}
+                        value={selectedMealPlan?.meal_id}
                         style={{ width: '100%' }}
                         onChange={handleChange}
                         options={optionItems ?? null}

@@ -74,6 +74,8 @@ export const selectedMealPlan = (state = {}, action) => {
                 newState.selectedOptions.push(newOptionValue);
             }
             return newState
+        case CLEAR_CART_ITEMS:
+            return action.payload
         default:
             return state
     }

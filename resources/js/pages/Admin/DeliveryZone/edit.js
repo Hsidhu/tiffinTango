@@ -11,7 +11,6 @@ import GoogleMapReact from 'google-map-react';
 import { GOOGLE_API_KEY } from '../../../config/constants';
 import { updateDeliveryZone, getDeliveryZone } from '../../../redux/DeliveryZone/actions'
 import TableHeaderLink from '../../../components/tableHeaderLink';
-import AssignZoneToDriver from '../../../components/containers/assignZoneToDriver';
 
 const Edit = ({ }) => {
     const history = useHistory()
@@ -91,7 +90,7 @@ const Edit = ({ }) => {
                 </Col>
 
                 <Col span={8}>
-                    <AssignZoneToDriver zone_id={id} />
+
                 </Col>
             </Row>
             <Divider />
