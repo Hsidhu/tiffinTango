@@ -12661,6 +12661,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var OrderUpdateComment = function OrderUpdateComment(_ref) {
   var order_id = _ref.order_id,
+    label = _ref.label,
     field = _ref.field,
     value = _ref.value,
     updateOrderStatus = _ref.updateOrderStatus;
@@ -12668,28 +12669,34 @@ var OrderUpdateComment = function OrderUpdateComment(_ref) {
     _useState2 = _slicedToArray(_useState, 2),
     editable = _useState2[0],
     setEditable = _useState2[1];
-  if ((0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(value)) {
-    return null;
-  }
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(value),
+    _useState4 = _slicedToArray(_useState3, 2),
+    textValue = _useState4[0],
+    setTextValue = _useState4[1];
   var handleDoubleClick = function handleDoubleClick() {
     setEditable(true);
   };
   var handleChange = function handleChange(e) {
+    setTextValue(e.target.value);
+  };
+  var handleBlur = function handleBlur(e) {
     updateOrderStatus(_defineProperty({
       id: order_id
-    }, field, e.target.value));
-  };
-  var handleBlur = function handleBlur() {
+    }, field, textValue));
     setEditable(false);
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
       direction: "vertical",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_4__["default"].Text, {
-        children: [field, ":"]
+      style: {
+        width: "100%",
+        marginBottom: "10px"
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"].Text, {
+        children: label
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"].TextArea, {
         rows: 2,
-        value: value,
+        value: textValue,
         onChange: handleChange,
         onDoubleClick: handleDoubleClick,
         onBlur: handleBlur,
@@ -13028,11 +13035,8 @@ var View = function View(_ref) {
   if ((0,lodash__WEBPACK_IMPORTED_MODULE_4__.isEmpty)(order)) {
     return null;
   }
-  var onChange = function onChange(key) {
-    console.log(key);
-  };
-  var clickHandler = function clickHandler() {
-    history.push('/admin/drivers/edit');
+  var createNewOrder = function createNewOrder() {
+    dispatch((0,_redux_Order_actions__WEBPACK_IMPORTED_MODULE_3__.cloneOrder)(id, history));
   };
   var sharedOnCell = function sharedOnCell(_, index) {
     if (index >= 1) {
@@ -13153,7 +13157,11 @@ var View = function View(_ref) {
           type: "primary",
           children: "Edit Customer"
         })
-      }, 'customer')],
+      }, 'customer'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_18__["default"], {
+        type: "primary",
+        onClick: createNewOrder,
+        children: "Clone Order"
+      }, 'createNewOrder')],
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_19__["default"], {
         size: "small",
         column: 3,
@@ -13191,20 +13199,20 @@ var View = function View(_ref) {
               order_id: order.id,
               field: 'start_date',
               defaultDate: order.start_date
-            })
+            }, 'start_date')
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_19__["default"].Item, {
             label: "End Date",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_containers_orderDateChange__WEBPACK_IMPORTED_MODULE_9__["default"], {
               order_id: order.id,
               field: 'end_date',
               defaultDate: order.end_date
-            })
+            }, 'end_date')
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_19__["default"].Item, {
             label: "Status",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_containers_orderStatus__WEBPACK_IMPORTED_MODULE_8__["default"], {
               order_id: order.id,
               statusID: order === null || order === void 0 ? void 0 : order.order_status_id
-            })
+            }, 'status_id')
           })]
         })
       })
@@ -13244,13 +13252,15 @@ var View = function View(_ref) {
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_containers_orderUpdateComment__WEBPACK_IMPORTED_MODULE_10__["default"], {
           order_id: order.id,
+          label: "Comment:",
           field: 'comment',
           value: order.comment
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_containers_orderUpdateComment__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        }, 'comment'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_containers_orderUpdateComment__WEBPACK_IMPORTED_MODULE_10__["default"], {
           order_id: order.id,
+          label: "Delivery Comment:",
           field: 'delivery_comment',
           value: order.delivery_comment
-        })]
+        }, 'delivery_comment')]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_20__["default"], {}), order.order_type == 'pickup' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_PickupOrder__WEBPACK_IMPORTED_MODULE_11__["default"], {
       order_id: order.id,

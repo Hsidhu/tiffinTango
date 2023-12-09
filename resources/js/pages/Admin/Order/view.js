@@ -8,7 +8,7 @@ import {
     Card, Table, Divider
 } from 'antd';
 
-import { getOrder } from "../../../redux/Order/actions"
+import { getOrder, cloneOrder } from "../../../redux/Order/actions"
 import { isEmpty } from 'lodash';
 import TableHeaderLink from '../../../components/tableHeaderLink';
 import GoogleMapReact from 'google-map-react';
@@ -47,12 +47,9 @@ const View = ({ }) => {
         return null;
     }
 
-    const onChange = (key) => {
-        console.log(key);
-    };
 
-    const clickHandler = () => {
-        history.push('/admin/drivers/edit')
+    const createNewOrder = () => {
+        dispatch(cloneOrder(id, history))
     }
 
     const sharedOnCell = (_, index) => {
@@ -176,6 +173,7 @@ const View = ({ }) => {
                     <Link key={'customer'} to={`/admin/customer/edit/${order.customer_id}`}>
                         <Button type='primary'>Edit Customer</Button>
                     </Link>,
+                    <Button key={'createNewOrder'} type='primary' onClick={createNewOrder}>Clone Order</Button>
                 ]}
             >
                 <Descriptions size="small" column={3}>
@@ -197,13 +195,13 @@ const View = ({ }) => {
                             {order?.order_type}
                         </Descriptions.Item>
                         <Descriptions.Item label="Start Date">
-                            <OrderDateChange order_id={order.id} field={'start_date'} defaultDate={order.start_date} />
+                            <OrderDateChange key={'start_date'} order_id={order.id} field={'start_date'} defaultDate={order.start_date} />
                         </Descriptions.Item>
                         <Descriptions.Item label="End Date">
-                            <OrderDateChange order_id={order.id} field={'end_date'} defaultDate={order.end_date} />
+                            <OrderDateChange key={'end_date'} order_id={order.id} field={'end_date'} defaultDate={order.end_date} />
                         </Descriptions.Item>
                         <Descriptions.Item label="Status">
-                            <OrderStatus order_id={order.id} statusID={order?.order_status_id} />
+                            <OrderStatus key={'status_id'} order_id={order.id} statusID={order?.order_status_id} />
                         </Descriptions.Item>
                     </Descriptions>
                 </Col>
@@ -238,9 +236,9 @@ const View = ({ }) => {
                         <p>Created Date: {moment(order.created_at, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
                     </Card>
                     <br/>
-                    <OrderUpdateComment order_id={order.id} field={'comment'} value={order.comment}/>
+                    <OrderUpdateComment key={'comment'} order_id={order.id} label="Comment:" field={'comment'} value={order.comment}/>
                     <br/>
-                    <OrderUpdateComment order_id={order.id} field={'delivery_comment'} value={order.delivery_comment}/>
+                    <OrderUpdateComment key={'delivery_comment'} order_id={order.id} label="Delivery Comment:" field={'delivery_comment'} value={order.delivery_comment}/>
                 </Col>
             </Row>
             <Divider />

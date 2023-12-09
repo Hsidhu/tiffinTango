@@ -24,6 +24,13 @@ export const getOrder = (id) => (dispatch) => {
     });
 }
 
+export const cloneOrder = (id, history) => (dispatch) => {
+    const res = getRequest(`admin/order/cloneOrder/${id}`).then(response => {
+        message.success('New Order Created!');
+        history.push(`/admin/order/view/${response.data.id}`)
+    });
+}
+
 // any key pair can be updated
 export const updateOrderStatus = (data) => (dispatch) => {
 

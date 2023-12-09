@@ -37,7 +37,7 @@ class OrderController extends Controller
         $newRequest = $request->except('id');
         $order->update($newRequest);
         
-        return new OrderResource($order);
+        return new OrderResource($order, true);
     }
 
     public function getOrderStatuses()

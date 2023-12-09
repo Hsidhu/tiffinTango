@@ -3,36 +3,34 @@ import React, { useState } from 'react';
 import { isEmpty } from 'lodash';
 import { Input, Space, Typography } from 'antd';
 
-const OrderUpdateComment = ({order_id, field, value, updateOrderStatus}) => {
+const OrderUpdateComment = ({order_id, label, field, value, updateOrderStatus}) => {
 
     const [editable, setEditable] = useState(false);
-
-    if(isEmpty(value)){
-        return null;
-    }
+    const [textValue, setTextValue] = useState(value);
 
     const handleDoubleClick = () => {
         setEditable(true);
     };
 
     const handleChange = (e) => {
-        updateOrderStatus({
-            id:order_id,
-            [field]: e.target.value
-        })
+        setTextValue(e.target.value)
     };
 
-    const handleBlur = () => {
+    const handleBlur = (e) => {
+        updateOrderStatus({
+            id:order_id,
+            [field]: textValue
+        })
         setEditable(false);
     };
 
     return(
         <>
-            <Space direction='vertical'>
-                <Typography.Text>{field}:</Typography.Text>
+            <Space direction='vertical' style={{width:"100%", marginBottom:"10px"}}>
+                <Typography.Text>{label}</Typography.Text>
                 <Input.TextArea
                         rows={2}
-                        value={value}
+                        value={textValue}
                         onChange={handleChange}
                         onDoubleClick={handleDoubleClick}
                         onBlur={handleBlur}
