@@ -2,28 +2,26 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
-    Row, Col, Space, Button, Divider, Form, Input, Select, Radio,
+    Row, Col, Space, Button, Divider, Select, Radio,
     Typography
 } from 'antd';
 import { isEmpty } from 'lodash';
 import { getMealPlanForOrder } from '../../../redux/Cart/actions'
 import { createCustomerOrder } from '../../../redux/Customer/actions'
 import TableHeaderLink from '../../../components/tableHeaderLink';
-import { ConsoleSqlOutlined } from '@ant-design/icons';
+import { orderTypeOptions } from '../../../config/constants'
 
 const CreateOrder = ({ }) => {
     const history = useHistory()
     let { id } = useParams();
+    const dispatch = useDispatch();
 
     const {orderData} = useSelector(state => state)
 
-    const [deliveryType, setDeliveryType] = useState('');
-    const [mealplanSelect, setMealplanSelect] = useState(null);
-    const [selectedMealplan, setSelectedMealplan] = useState(null);
-    const [selectedMealplanOptions, setSelectedMealplanOptions] = useState(null);
-
-    const dispatch = useDispatch();
-    const [form] = Form.useForm();
+    const [deliveryType, setDeliveryType] = useState('pickup');
+    const [mealplanSelect, setMealplanSelect] = useState([]);
+    const [selectedMealplan, setSelectedMealplan] = useState({});
+    const [selectedMealplanOptions, setSelectedMealplanOptions] = useState([]);
 
     useEffect(() => {
         dispatch(getMealPlanForOrder(deliveryType))
@@ -31,14 +29,13 @@ const CreateOrder = ({ }) => {
 
     useEffect(() => {
         if(orderData) {
-            const optionItems = orderData.map((item) => ({
+            const mealPlanItems = orderData.map((item) => ({
                 value: item.meal_id,
                 label: `${item.name} - $${item.price}`
             }));
-            setMealplanSelect(optionItems)
+            setMealplanSelect(mealPlanItems)
         }
     }, [orderData]);
-
 
     const onFormSubmit = () => {
         const data = {
@@ -46,11 +43,10 @@ const CreateOrder = ({ }) => {
             meal: selectedMealplan,
             options: selectedMealplanOptions
         }
-        
         dispatch(createCustomerOrder(data, history));
     }
 
-    const onDeliveryTypeChange = (value) => {
+    const handleOrderTypeChange = ({ target: { value } }) => {
         if(value != deliveryType){
             setDeliveryType(value)
             setMealplanSelect(null)
@@ -67,9 +63,7 @@ const CreateOrder = ({ }) => {
     }
 
     const onOptionChange = (newItem) => {
-        console.log(newItem)
         setSelectedMealplanOptions((currentItems) => {
-
             if (!currentItems) {
                 // currentItems is null, initialize it as an empty array
                 return [newItem];
@@ -103,7 +97,6 @@ const CreateOrder = ({ }) => {
         return <Radio.Group size="large"
                 options={buildData}
                 onChange={onChange}
-                defaultValue={ null }
             />;
     }
 
@@ -120,7 +113,6 @@ const CreateOrder = ({ }) => {
 
         return <Select size="large"
                 options={buildData}
-                defaultValue={ null }
                 onChange={onChange}
                 placeholder = "Select Extra Options"
                 style={{
@@ -159,28 +151,37 @@ const CreateOrder = ({ }) => {
             <Row>
                 <Col span={16}>
 
-                    <Select
-                        placeholder={'Select Plan delivery'}
-                        style={{ width: 400, }}
-                        onChange={onDeliveryTypeChange}
-                        options={[
-                            {value: 'pickup', label: 'Pickup'},
-                            {value: 'delivery', label: 'Delivery'}
-                        ]}
-                    />
+                    <Space direction='vertical' style={{width:"100%", marginBottom:"10px"}}>
+                        <Typography.Text>Select Order Type: </Typography.Text>
+                        <Radio.Group 
+                            size="large" 
+                            optionType="button"
+                            value={deliveryType}
+                            onChange={handleOrderTypeChange}
+                            options={orderTypeOptions} 
+                        />
+                    </Space>
 
-                    <Select
-                        placeholder={'Select MealPlan'}
-                        style={{ width: 400, }}
-                        onChange={onMealPlanChange}
-                        options={mealplanSelect}
-                    />
+                    <Space direction='vertical' style={{width:"100%", marginBottom:"10px"}}>
+                        <Typography.Text>Select MealPlan: </Typography.Text>
+                        <Select
+                            size={'large'}
+                            placeholder={'Select MealPlan'}
+                            style={{ width: 600, }}
+                            value={selectedMealplan?.meal_id}
+                            onChange={onMealPlanChange}
+                            options={mealplanSelect}
+                        />
+                    </Space>
 
                     {
                         !isEmpty(selectedMealplan) ? buildOptionView() : null
                     }
 
-                    <Button block disabled={isEmpty(selectedMealplan) ? true : false} size={'large'} type="primary" onClick={onFormSubmit}>
+                    <Button block size={'large'} type="primary" style={{ width: 600, }}
+                        disabled={isEmpty(selectedMealplan) ? true : false}
+                        onClick={onFormSubmit}
+                    >
                         Submit
                     </Button>
                 
