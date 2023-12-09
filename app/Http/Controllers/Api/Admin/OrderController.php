@@ -9,19 +9,23 @@ use App\Models\PickedUpMealPlanLog;
 use App\Models\DailyDeliveryMealPlanLog;
 use App\Http\Resources\Admin\OrderResource;
 use Carbon\Carbon;
+use App\Services\CloneMealPlanOrder;
 
 class OrderController extends Controller
 {
     public function index()
     {
         $orders = MealPlanOrder::get();
-        return OrderResource::collection($orders);
+        return OrderResource::collection($orders->map(function ($order)  {
+            return new OrderResource($order, false);
+        }));
     }
 
     public function view($id)
     {
         $order = MealPlanOrder::find($id);
-        return new OrderResource($order);
+        $withDetails = true;
+        return new OrderResource($order, $withDetails);
     }
 
     /**
@@ -77,5 +81,12 @@ class OrderController extends Controller
         $deliveryModel->addMedia($request->file('image'))->toMediaCollection();
 
         return response()->json($deliveryModel);
+    }
+
+    public function cloneOrder($id)
+    {
+        $order = CloneMealPlanOrder::createNewOrder($id);
+        $withDetails = true;
+        return new OrderResource($order, $withDetails);
     }
 }

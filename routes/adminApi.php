@@ -11,7 +11,6 @@ Route::get('/location/edit/{id}', [App\Http\Controllers\Api\Admin\LocationContro
 Route::post('/location/update', [App\Http\Controllers\Api\Admin\LocationController::class, 'update']);
 Route::delete('/location/delete/{id}', [App\Http\Controllers\Api\Admin\LocationController::class, 'delete']);
 
-
 // Customer Routes
 Route::get('/customers', [App\Http\Controllers\Api\Admin\CustomerController::class, 'index']);
 Route::post('/customer/create', [App\Http\Controllers\Api\Admin\CustomerController::class, 'create']);
@@ -68,6 +67,8 @@ Route::post('/order/generateDailyDelivery/update', [App\Http\Controllers\Api\Adm
 
 Route::post('/order/getStickerData', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'getStickerData']);
 Route::post('/order/optimizeRoute', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'optimizeRoute']);
+
+Route::get('/order/cloneOrder/{id}', [App\Http\Controllers\Api\Admin\OrderController::class, 'cloneOrder']);
 
 
 // site Settings

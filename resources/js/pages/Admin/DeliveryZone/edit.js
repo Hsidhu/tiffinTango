@@ -24,7 +24,7 @@ const Edit = ({ }) => {
         dispatch(getDeliveryZone(id))
     }, [])
 
-    if (!deliveryZone) {
+    if (isEmpty(deliveryZone)) {
         return null;
     }
 

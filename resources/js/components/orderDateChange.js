@@ -9,8 +9,7 @@ const OrderDateChange = ({order_id, field, defaultDate, updateOrderStatus}) => {
         return null;
     }
 
-    const handleDateChange = (date, dateString) =>{
-        console.log(date, dateString);
+    const handleDateChange = (date, dateString) => {
         updateOrderStatus({
             id:order_id,
             [field]: date.format('YYYY-MM-DD')

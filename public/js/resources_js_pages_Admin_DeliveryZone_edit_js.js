@@ -3388,7 +3388,7 @@ var Edit = function Edit(_ref) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_redux_DeliveryZone_actions__WEBPACK_IMPORTED_MODULE_5__.getDeliveryZone)(id));
   }, []);
-  if (!deliveryZone) {
+  if ((0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(deliveryZone)) {
     return null;
   }
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {

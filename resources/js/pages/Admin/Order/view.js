@@ -16,11 +16,13 @@ import { GOOGLE_API_KEY } from '../../../config/constants';
 
 import OrderStatus from '../../../components/containers/orderStatus';
 import OrderDateChange from '../../../components/containers/orderDateChange'
+import OrderUpdateComment from '../../../components/containers/orderUpdateComment';
 
 import PickupOrder from './PickupOrder';
 import DailyDeliveryTable from '../../../components/dailyDeliveryTable';
 
 import AssignZoneToAddress from '../../../components/containers/assignZoneToAddress';
+
 
 const { Title } = Typography;
 
@@ -235,6 +237,10 @@ const View = ({ }) => {
                         <p>End Date: {moment(order.end_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
                         <p>Created Date: {moment(order.created_at, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
                     </Card>
+                    <br/>
+                    <OrderUpdateComment order_id={order.id} field={'comment'} value={order.comment}/>
+                    <br/>
+                    <OrderUpdateComment order_id={order.id} field={'delivery_comment'} value={order.delivery_comment}/>
                 </Col>
             </Row>
             <Divider />
