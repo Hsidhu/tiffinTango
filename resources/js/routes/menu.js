@@ -7,7 +7,7 @@ import {
     SettingFilled,
     LoginOutlined,
     UnorderedListOutlined,
-    UserOutlined,
+    AimOutlined,
     CarFilled,
     PushpinFilled,
     TeamOutlined
@@ -35,6 +35,7 @@ export const adminSideMenu = [
     getItem('/admin/orders', <Link to="/admin/orders" >Orders</Link>, <UnorderedListOutlined />),
     getItem('/admin/customers',<Link to="/admin/customers" >Customers</Link>, <TeamOutlined />),
     getItem('/admin/drivers',<Link to="/admin/drivers" >Drivers</Link>, <TeamOutlined />),
+    getItem('/admin/marketing',<Link to="/admin/marketing" >Marketing</Link>, <AimOutlined />),
     getItem('/admin/mealplans',<Link to="/admin/mealplans" >MealPlans</Link>, <CopyFilled />),
     getItem('/admin/delivery_zones',<Link to="/admin/delivery_zones" >Delivery Zone</Link>, <CarFilled />),
     getItem('/admin/locations', <Link to="/admin/locations" >Locations</Link>, <PushpinFilled />),

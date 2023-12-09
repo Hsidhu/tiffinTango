@@ -71,6 +71,9 @@ Route::post('/order/optimizeRoute', [App\Http\Controllers\Api\Admin\DailyDeliver
 Route::get('/order/cloneOrder/{id}', [App\Http\Controllers\Api\Admin\OrderController::class, 'cloneOrder']);
 
 
+// Marketing
+Route::get('/marketing', [App\Http\Controllers\Api\Admin\MarketingController::class, 'index']);
+
 // site Settings
 Route::get('/settings/{code}', [App\Http\Controllers\Api\Admin\SettingController::class, 'index']);
 Route::post('/settings/save', [App\Http\Controllers\Api\Admin\SettingController::class, 'save']);

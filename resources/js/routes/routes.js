@@ -208,6 +208,12 @@ export const privateRouteList = [
         exact: true,
     },
     {
+        path: 'admin/marketing',
+        component: lazy(() => import('../pages/Admin/Marketing/index')),
+        title:'Marketing',
+        exact: true,
+    },
+    {
         path: 'admin/settings',
         component: lazy(() => import('../pages/Admin/settings')),
         title:'Settings',

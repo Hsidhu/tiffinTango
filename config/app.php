@@ -236,7 +236,7 @@ return [
 
     ],
 
-    'customer_default' => env('CUSTOMER_DEFAULT_PWD', 'customer_default_password'),
+    'customer_default_pwd' => env('CUSTOMER_DEFAULT_PWD', '123456789'),
     'CLIENT_TIMEZONE' => env('CLIENT_TIMEZONE', 'America/Toronto'),
 
 ];

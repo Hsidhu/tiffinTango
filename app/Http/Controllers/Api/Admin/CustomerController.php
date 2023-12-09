@@ -32,7 +32,7 @@ class CustomerController extends Controller
         ]);
         
         $address = Address::create($request->address);
-        $customerData = array_merge(['address_id' => $address->id, 'password' => \Hash::make(config('app.customer_default')) ],
+        $customerData = array_merge(['address_id' => $address->id, 'password' => \Hash::make(config('app.customer_default_pwd')) ],
             $request->only(['first_name','last_name','email', 'phone', 'status'])
         );
         $customer = Customer::create($customerData);

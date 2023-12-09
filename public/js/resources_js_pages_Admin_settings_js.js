@@ -6249,8 +6249,15 @@ var CoreSettings = function CoreSettings(_ref) {
           min: 0
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"].Item, {
-        label: "maps_api_key",
+        label: "Maps API Key",
         name: ['core', 'maps_api_key'],
+        wrapperCol: {
+          span: 8
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(antd__WEBPACK_IMPORTED_MODULE_2__["default"].Item, {
+        label: "GA4 Code",
+        name: ['core', 'ga4_code'],
         wrapperCol: {
           span: 8
         },

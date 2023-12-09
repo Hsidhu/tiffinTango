@@ -123,7 +123,7 @@ class OrderController extends Controller
     private function createCustomer(Request $request)
     {
         $address = Address::create($request->only(['address', 'city', 'state', 'postal_code', 'country', 'lat', 'lng']));
-        $customerData = array_merge(['address_id' => $address->id, 'password' => config('app.customer_default')],
+        $customerData = array_merge(['address_id' => $address->id, 'password' => config('app.customer_default_pwd')],
             $request->only(['first_name','last_name','email', 'phone'])
         );
         return Customer::create($customerData);

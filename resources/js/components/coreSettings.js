@@ -89,7 +89,11 @@ const CoreSettings = ({settings, getSettings, saveSettings}) => {
                 </Form.Item>
 
 
-                <Form.Item label="maps_api_key" name={['core', 'maps_api_key']} wrapperCol={{ span: 8 }}>
+                <Form.Item label="Maps API Key" name={['core', 'maps_api_key']} wrapperCol={{ span: 8 }}>
+                    <Input />
+                </Form.Item>
+
+                <Form.Item label="GA4 Code" name={['core', 'ga4_code']} wrapperCol={{ span: 8 }}>
                     <Input />
                 </Form.Item>
 
