@@ -13,17 +13,10 @@ const Terms = () => {
                     <Content className='site-layout-background'>
                         <Row align='middle' justify='space-between'>
                             <Col md={12} sm={24}>
-                                <Divider />
+                                <Divider>Terms and Conditions</Divider>
                                 <p>
                                     Welcome to ABcatering. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use,
                                     which together with our privacy policy govern our relationship with you in relation to this website.
-                                </p>
-                                <Divider />
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry. Lorem Ipsum has been the industry's standard dummy
-                                    text ever since the 1500s, when an unknown printer took a galley
-                                    of type and scrambled it to make a type specimen book.
                                 </p>
                                 <Divider />
                                 <p>

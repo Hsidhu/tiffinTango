@@ -39,12 +39,12 @@ const MealPlanOptions = ({mealPlanID, orderData, cart, selectMealPlanOption}) =>
         return <Radio.Group size="large"
                 options={buildData}
                 onChange={onChange}
-                defaultValue={ defaultValue ? defaultValue.value_id : null }
+                value={ defaultValue ? defaultValue.value_id : null }
             />;
     }
 
     const buildSelectOptions = (values) => {
-        const buildData = values.map((item)=>({
+        const buildData = values.map((item) => ({
             value: item.value_id,
             label: `${item.value} - $${item.price}`
         }))

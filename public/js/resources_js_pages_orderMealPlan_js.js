@@ -11218,7 +11218,7 @@ var MealPlanOptions = function MealPlanOptions(_ref) {
       size: "large",
       options: buildData,
       onChange: onChange,
-      defaultValue: defaultValue ? defaultValue.value_id : null
+      value: defaultValue ? defaultValue.value_id : null
     });
   };
   var buildSelectOptions = function buildSelectOptions(values) {

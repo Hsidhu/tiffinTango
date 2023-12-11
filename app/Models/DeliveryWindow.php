@@ -9,11 +9,14 @@ class DeliveryWindow extends Model
 {
     use HasFactory;
 
+    const ACTIVE = 1;
+    const INACTIVE = 0;
+
     protected $guarded = [];
 
     public static function getDataForSelect()
     {
-        return static::all()->map(function ($item) {
+        return static::where('status', self::ACTIVE)->get()->map(function ($item) {
             return [
                 'value' => $item->id,
                 'label' => $item->name,
