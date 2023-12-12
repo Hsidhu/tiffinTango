@@ -22,7 +22,7 @@ class OrderController extends Controller
     public function view($id)
     {
         $order = MealPlanOrder::find($id);
-        return new OrderResource($order);
+        return new OrderResource($order, true);
     }
 
     public function getOrderStatuses()

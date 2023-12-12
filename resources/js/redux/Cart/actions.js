@@ -1,4 +1,6 @@
 import { getRequest, postRequest, deleteRequest } from "../../config/axiosClient"
+import { message } from "antd"
+import { displayErrors } from "../../config/helpers"
 
 export const GET_MEALPLAN_ORDER_DATA = "GET_MEALPLAN_ORDER_DATA";
 export const SET_ORDER_TYPE = 'SET_ORDER_TYPE';
@@ -78,7 +80,10 @@ export const placeOrder = (data) => (dispatch) => {
             type: ORDER_PLACED,
             payload: response.data
         });
+        // get email or customer back
+        message.success('Order Place sucessfully')
     }).catch(error => {
         console.log(error);
+        message.success('Something went wrong please contact us!')
     });
 }

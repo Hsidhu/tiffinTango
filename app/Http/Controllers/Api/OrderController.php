@@ -117,7 +117,8 @@ class OrderController extends Controller
             "is_summable" => 0
         ];
         $orderItemTotal = MealPlanOrderTotal::insert($orderTotalItems);
-        return;
+
+        return response()->json($customer);
     }
 
     private function createCustomer(Request $request)
