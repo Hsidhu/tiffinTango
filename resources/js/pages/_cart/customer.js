@@ -13,10 +13,22 @@ const Customer = ({ prevForm }) => {
 
     return (
         <Row gutter={16} justify={'center'} align={'center'}>
-            <Col span={16}>
+            <Col xs = {{
+                    span:24,
+                }}
+                md = {{
+                    span:16
+                }}
+            >
                 <CustomerDetailForm  prevForm ={prevForm} />
             </Col>
-            <Col span={6}>
+            <Col xs = {{
+                    span:24,
+                }}
+                md = {{
+                    span:6
+                }}
+            >
                 <OrderSummary />
             </Col>
         </Row>
