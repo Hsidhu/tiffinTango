@@ -10,7 +10,7 @@ import { axiosConfig } from '../../config/constants';
 import CustomerCreateForm from '../containers/customerCreateForm';
 
 const CustomerDetailForm = ({prevForm, orderType, cart, placeOrder }) => {
-
+    const history = useHistory()
     const [form] = Form.useForm();
 
     if (isEmpty(cart)) {
@@ -23,7 +23,7 @@ const CustomerDetailForm = ({prevForm, orderType, cart, placeOrder }) => {
             values.start_date = values.start_date.format('YYYY-MM-DD')
             values.order_type = orderType
             console.log(values)
-            placeOrder({...values,...cart })
+            placeOrder({...values,...cart }, history)
         }).catch((err) => {
             console.log(err)
         });

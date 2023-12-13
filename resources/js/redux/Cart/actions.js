@@ -72,7 +72,7 @@ export const setOrderMetaData = (data) => (dispatch) => {
     });
 }
 
-export const placeOrder = (data) => (dispatch) => {
+export const placeOrder = (data, history) => (dispatch) => {
     console.log(data);
     const res = postRequest('mealplanorder/create', data).then(response => {
         console.log(response.data)
@@ -82,6 +82,7 @@ export const placeOrder = (data) => (dispatch) => {
         });
         // get email or customer back
         message.success('Order Place sucessfully')
+        history.go(0)
     }).catch(error => {
         console.log(error);
         message.error('Something went wrong please contact us!')
