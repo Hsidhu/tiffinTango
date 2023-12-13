@@ -12283,12 +12283,22 @@ var Customer = function Customer(_ref) {
     justify: 'center',
     align: 'center',
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      span: 16,
+      xs: {
+        span: 24
+      },
+      md: {
+        span: 16
+      },
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_containers_cart_customerDetailForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
         prevForm: prevForm
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      span: 6,
+      xs: {
+        span: 24
+      },
+      md: {
+        span: 6
+      },
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_containers_cart_orderSummary__WEBPACK_IMPORTED_MODULE_2__["default"], {})
     })]
   });
@@ -12397,6 +12407,8 @@ var contentStyle = {
   borderRadius: '8px',
   marginTop: 16
 };
+
+// move to order sucess page
 var OrderMealPlan = function OrderMealPlan() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
     _useState2 = _slicedToArray(_useState, 2),
