@@ -29,7 +29,7 @@ const AssignZoneToAddress = ({ address_id, delivery_zone_id, deliveryZoneList, g
 
     const onFormSubmit = (values) => {
         assignAddressToZone(values);
-        //window.location.reload();
+        window.location.reload();
     }
 
     return (

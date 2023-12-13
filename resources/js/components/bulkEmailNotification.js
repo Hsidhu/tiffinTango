@@ -12,8 +12,8 @@ const BulkEmailNotification = ({bulkEmail}) => {
     const [form] = Form.useForm();
 
     const handleSubmit = (values) => {
-        console.log(values)
         bulkEmail(values);
+        form.resetFields();
     }
 
     return (

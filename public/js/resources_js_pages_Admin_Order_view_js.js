@@ -12252,9 +12252,8 @@ var AssignZoneToAddress = function AssignZoneToAddress(_ref) {
   }
   var onFormSubmit = function onFormSubmit(values) {
     assignAddressToZone(values);
-    //window.location.reload();
+    window.location.reload();
   };
-
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
     form: form,
     labelCol: {
@@ -13152,14 +13151,20 @@ var View = function View(_ref) {
       HeaderButtons: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Link, {
         to: "/admin/customer/edit/".concat(order.customer_id),
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_18__["default"], {
-          type: "primary",
           children: "Edit Customer"
         })
       }, 'customer'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_18__["default"], {
-        type: "primary",
+        type: "dashed",
+        danger: true,
         onClick: createNewOrder,
         children: "Clone Order"
-      }, 'createNewOrder')],
+      }, 'createNewOrder'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Link, {
+        to: "/admin/order/generateDeliveries",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_18__["default"], {
+          type: "primary",
+          children: "Generate Deliveries"
+        })
+      }, 'generate_deliveries')],
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_19__["default"], {
         size: "small",
         column: 3,

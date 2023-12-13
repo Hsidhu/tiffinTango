@@ -84,6 +84,6 @@ export const placeOrder = (data) => (dispatch) => {
         message.success('Order Place sucessfully')
     }).catch(error => {
         console.log(error);
-        message.success('Something went wrong please contact us!')
+        message.error('Something went wrong please contact us!')
     });
 }

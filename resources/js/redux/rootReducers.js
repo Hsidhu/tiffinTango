@@ -3,7 +3,7 @@ import {siteSettings, redirectTo, cookieConsent, orderStatuses, deliveryWindows}
 import { locations, location } from './Location/reducer';
 import { customers, customer } from './Customer/reducer';
 import { drivers, driver, driverSelect } from './Driver/reducer';
-import { mealplans, mealplan, mealplanOptions } from './MealPlan/redux';
+import { mealplans, mealplan, mealplanSelectList, mealplanOptions } from './MealPlan/redux';
 import { orderType, orderData, cart, orderSummary, selectedMealPlan } from './Cart/redux'
 import { orders, order, dailyDeliveries, deliveryStickers } from './Order/redux'
 import { deliveryZones, deliveryZone, deliveryZoneList } from './DeliveryZone/reducer';
@@ -18,7 +18,7 @@ export default {
     locations, location,
     customers, customer,
     drivers, driver, driverSelect,
-    mealplans, mealplan, mealplanOptions,
+    mealplans, mealplan, mealplanOptions, mealplanSelectList,
     orderType, orderData, cart, orderSummary, selectedMealPlan,
     orders, order, dailyDeliveries, deliveryStickers,
     deliveryZones, deliveryZone, deliveryZoneList

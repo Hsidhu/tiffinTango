@@ -27,7 +27,7 @@ export const publicTopMenu = [
     getItem('/order/mealplan',  <Link to="/order/mealplan" >MealPlan</Link>, <UnorderedListOutlined />),
     getItem('/order/catering', <Link to="/order/catering" >Catering</Link>, <UnorderedListOutlined />),
     getItem('/order/takeout', <Link to="/order/takeout" >Takeout</Link>, <UnorderedListOutlined />),
-    getItem('/login', 'login', <LoginOutlined />)
+    getItem('/customer/login', <Link to="/customer/login" >Login</Link>, <LoginOutlined />)
 ];
 
 export const adminSideMenu = [

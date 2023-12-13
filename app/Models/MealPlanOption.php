@@ -10,8 +10,10 @@ class MealPlanOption extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    const ACTIVE = 1;
+    const INACTIVE = 0;
 
+    protected $guarded = [];
 
     public function optionValues()
     {
@@ -38,5 +40,15 @@ class MealPlanOption extends Model
             return;
         })->filter();
         return $result->values()->all();   
+    }
+
+    public static function getAllActiveDataForSelect()
+    {
+        return static::where('status', self::ACTIVE)->get()->map(function ($item) {
+            return [
+                'value' => $item->id,
+                'label' => $item->name,
+            ];
+        });  
     }
 }

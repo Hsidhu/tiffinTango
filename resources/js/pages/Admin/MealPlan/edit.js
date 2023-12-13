@@ -7,8 +7,7 @@ import {
 import { mapSwitchValue } from '../../../config/helpers'
 import { getMealPlan, updateMealPlan } from '../../../redux/MealPlan/actions';
 
-import MealPlanAddonCreate from '../../../components/mealPlan/mealPlanAddonCreate';
-import CreateMealPlanOptions from '../../../components/mealPlan/createMealPlanOptions';
+import MealPlanAddonList from '../../../components/mealPlan/mealPlanAddonList';
 import TableHeaderLink from '../../../components/tableHeaderLink';
 
 import MealPlanForm from './mealPlanForm';
@@ -50,12 +49,8 @@ const Edit = ({ }) => {
             children: <MealPlanForm form={form} onFormChange={onFormChange}  onFormSubmit={onFormSubmit} hasId={true} />
         },
         { 
-            label: 'Add Options', key: 'Options', 
-            children: <MealPlanAddonCreate /> 
-        },
-        { 
-            label: 'Create Options', key: 'create_option', 
-            children: <CreateMealPlanOptions /> 
+            label: 'Options', key: 'Options', 
+            children: <MealPlanAddonList /> 
         }
     ];
 

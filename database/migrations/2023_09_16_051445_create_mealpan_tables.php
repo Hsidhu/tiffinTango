@@ -223,7 +223,7 @@ return new class extends Migration
             $table->string('hash', 40)->nullable()->index();
             $table->integer('customer_id');
             $table->string('order_type', 32);
-            $table->integer('delivery_window_id')->default(1);
+            $table->integer('delivery_window_id')->nullable();
             $table->dateTime('start_date');
             $table->dateTime('end_date')->nullable();
             $table->text('cart')->nullable();

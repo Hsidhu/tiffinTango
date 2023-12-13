@@ -16,6 +16,9 @@ class MealPlan extends Model implements HasMedia
 {
     use HasFactory, InteractsWithMedia;
 
+    const ACTIVE = 1;
+    const INACTIVE = 0;
+
     protected $guarded = [];
 
     protected $casts = [
@@ -60,4 +63,14 @@ class MealPlan extends Model implements HasMedia
     // {
     //     return 'images/mealplan/'.$this->attributes['image'];
     // }
+
+    public static function getAllActiveDataForSelect()
+    {
+        return static::where('status', self::ACTIVE)->get()->map(function ($item) {
+            return [
+                'value' => $item->id,
+                'label' => $item->name,
+            ];
+        });  
+    }
 }

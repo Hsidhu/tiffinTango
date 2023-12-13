@@ -7545,7 +7545,13 @@ var MealPan = function MealPan(_ref) {
           type: "primary",
           children: "Create"
         })
-      }, 'create_mealplan')]
+      }, 'create_mealplan'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, {
+        to: "/admin/mealplan/createOptions",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          type: "primary",
+          children: "Create Options"
+        }, "create_options")
+      }, 'create_options')]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_11__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_12__["default"], {
       rowKey: "id",
       columns: columns,

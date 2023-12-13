@@ -171,9 +171,12 @@ const View = ({ }) => {
                 backUri="/admin/orders"
                 HeaderButtons = {[
                     <Link key={'customer'} to={`/admin/customer/edit/${order.customer_id}`}>
-                        <Button type='primary'>Edit Customer</Button>
+                        <Button>Edit Customer</Button>
                     </Link>,
-                    <Button key={'createNewOrder'} type='primary' onClick={createNewOrder}>Clone Order</Button>
+                    <Button key={'createNewOrder'} type="dashed" danger onClick={createNewOrder}>Clone Order</Button>,
+                    <Link key={'generate_deliveries'} to="/admin/order/generateDeliveries">
+                        <Button type='primary'>Generate Deliveries</Button>
+                    </Link>,
                 ]}
             >
                 <Descriptions size="small" column={3}>

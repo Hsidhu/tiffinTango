@@ -73,15 +73,18 @@ class MealPlanController extends Controller
     public function createAddon(Request $request)
     {
         $this->validate($request, [
-            'meal_plan_id' => ['required'],
-            'meal_plan_option_id' => ['required', ]
+            'meal_plan_option_id' => ['required', ],
+            'meal_plan_ids' => ['required', 'array']
         ]);
-        $addOn = $request->only(['meal_plan_id', 'meal_plan_option_id']);
+        $data = $request->all();
 
-        $mealPlanOption = MealPlanAddon::updateOrCreate(
-            $addOn,
-            $addOn
-        );
+        $mealPlanOption = MealPlanOption::find($data['meal_plan_option_id']);
+
+        if (!$mealPlanOption) {
+            return response()->json(['message' => 'Meal plan option not found'], 404);
+        }
+
+        $mealPlanOption->mealPlans()->sync($data['meal_plan_ids']);
         return response()->json($mealPlanOption);
     }
 
@@ -137,9 +140,30 @@ class MealPlanController extends Controller
         return $filename.'_'.time().'.'.$extension;
     }
 
+    public function mealPlanList()
+    {
+        $mealplans = MealPlan::getAllActiveDataForSelect();
+        return response()->json($mealplans);
+    }
+
+    public function mealPlanOptionsList()
+    {
+        $options = MealPlan::getAllActiveDataForSelect();
+        return response()->json($options);
+    }
+
+    public function removeMealPlanAddon($mealPlanID, $optionID)
+    {
+        $addOnRemoved = MealPlanAddon::where([
+            'meal_plan_id' => $mealPlanID,
+            'meal_plan_option_id' => $optionID
+        ])->delete();
+        return response()->json(['success' =>'removed']);
+    }
+    
     public function mealPlanOrderData()
     {
-        $mealPlans = MealPlan::where('status', 1)->get();
+        $mealPlans = MealPlan::where('status', MealPlan::ACTIVE)->get();
         return MealPlanOrderResource::collection($mealPlans)->collection;
     }
 

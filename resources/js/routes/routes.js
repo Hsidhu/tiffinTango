@@ -166,6 +166,12 @@ export const privateRouteList = [
         exact: true,
     },
     {
+        path: 'admin/mealplan/createOptions',
+        component: lazy(() => import('../pages/Admin/MealPlan/CreateOptions')),
+        title:'MealPlan Create Options',
+        exact: true,
+    },
+    {
         path: 'admin/drivers',
         component: lazy(() => import('../pages/Admin/Driver/index')),
         title:'Drivers',

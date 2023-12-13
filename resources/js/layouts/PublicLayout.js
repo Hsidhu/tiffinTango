@@ -115,6 +115,9 @@ const PublicLayout = () => {
                             <li>
                                 <Link to="/about-us">About Us</Link>
                             </li>
+                            <li>
+                                <Link to="/admin/login">Admin login</Link>
+                            </li>
                         </ul>
                     </Col>
                 </Row>
@@ -122,8 +125,7 @@ const PublicLayout = () => {
                     <Button size={'large'} icon={<ArrowUpOutlined />} />
                 </BackTop>
                 <Divider/>
-                AB Catering ©2024 Created by FirstWish.ca
-
+                    AB Catering ©2024 Created by FirstWish.ca
                 <CookieConsent/>
             </Footer>
         </Layout>

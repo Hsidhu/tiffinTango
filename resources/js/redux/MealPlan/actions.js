@@ -7,20 +7,12 @@ export const GET_MEALPLAN = "GET_MEALPLAN"
 export const CREATE_MEALPLAN = "CREATE_MEALPLAN"
 export const CREATE_MEALPLAN_OPTION = "CREATE_MEALPLAN_OPTION"
 export const GET_MEALPLAN_OPTIONS = "GET_MEALPLAN_OPTIONS"
+export const GET_MEALPLAN_SELECT_DATA = "GET_MEALPLAN_SELECT_DATA";
 
 export const getMealPlans = () => (dispatch) => {
     const res = getRequest('mealplan').then(response => {
         dispatch({
             type: GET_MEALPLANS,
-            payload: response.data
-        });
-    });
-}
-
-export const getMealPlanOptions = (mealplan_id) => (dispatch) => {
-    const res = getRequest(`mealplan/options/${mealplan_id}`).then(response => {
-        dispatch({
-            type: GET_MEALPLAN_OPTIONS,
             payload: response.data
         });
     });
@@ -49,7 +41,6 @@ export const createMealPlan = (data, history) => (dispatch) => {
 export const createMealPlanOption = (data) => (dispatch) => {
 
     const res = postRequest('admin/mealplan/create/option', data).then(response => {
-        console.log(response.data)
         dispatch({
             type: CREATE_MEALPLAN_OPTION,
             payload: response.data
@@ -94,14 +85,42 @@ export const updateMealPlan = (data, history) => (dispatch) => {
 }
 
 
-export const createMealPlanAddon = (data) => (dispatch) => {
+export const createMealPlanAddon = (data, history) => (dispatch) => {
 
     const res = postRequest('admin/mealplan/create/addon', data).then(response => {
         dispatch({
             type: CREATE_MEALPLAN_OPTION,
             payload: response.data
         });
-        message.success('MealPlan Addon Done!');
+        message.success('MealPlan Addons Created!');
+        history.push('/admin/mealplans')
+    }).catch(error => {
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
+    });
+}
+
+export const getMealPlanSelectData = () => (dispatch) => {
+    const res = getRequest(`admin/mealplan/list`).then(response => {
+        dispatch({
+            type: GET_MEALPLAN_SELECT_DATA,
+            payload: response.data
+        });
+    });
+}
+
+export const getMealPlanOptions = () => (dispatch) => {
+    const res = getRequest(`mealplan/options/list`).then(response => {
+        dispatch({
+            type: GET_MEALPLAN_OPTIONS,
+            payload: response.data
+        });
+    });
+}
+
+export const removeMealPlanAddon = (mealPlanID, optionID) => (dispatch) => {
+
+    const res = deleteRequest(`admin/mealplan/remove/addon/${mealPlanID}/${optionID}`).then(response => {
+        message.success('MealPlan Addon Deleted!');
     }).catch(error => {
         message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });

@@ -27020,5 +27020,9 @@ tr.drop-over-upward td {
 }
 
 .row-status-canceled {
-  background-color: #d42626; /* example color */
+  background-color: rgba(129, 33, 33, 0.3607843137); /* example color */
+}
+
+.row-orderType-pickup {
+  background-color: rgba(9, 62, 175, 0.1921568627); /* example color */
 }

@@ -16,24 +16,23 @@ import { createMealPlanOption } from '../../redux/MealPlan/actions';
 
 const CreateMealPlanOptions = ({ }) => {
     const history = useHistory()
-    const [componentSize, setComponentSize] = useState();
-
-    const errors = useSelector(state => state.errors)
     const dispatch = useDispatch();
 
     const [form] = Form.useForm()
 
     const onFormSubmit = (values) => {
         dispatch(createMealPlanOption(values));
+        window.location.reload();
     }
 
+    // link to multipule mealplan add multi
     return (
         <Form
             form={form}
             labelCol={{ span: 4, }}
             wrapperCol={{ span: 14, }}
             layout="horizontal"
-            initialValues={{ display_type: 'radio', optionValues:[{value : " ", price:1.00}] }}
+            initialValues={{ display_type: 'select', optionValues:[{value : " ", price:1.00}] }}
             style={{}}
             onFinish={onFormSubmit}
         >
@@ -52,9 +51,8 @@ const CreateMealPlanOptions = ({ }) => {
                         ]}
                     > 
                         <Radio.Group buttonStyle="solid" >
-                            <Radio.Button value="radio">radio</Radio.Button>
-                            <Radio.Button value="select">select</Radio.Button>
-                            <Radio.Button value="input">input</Radio.Button>
+                            <Radio.Button value="select">Select</Radio.Button>
+                            <Radio.Button value="radio">Radio</Radio.Button>
                         </Radio.Group>
                     </Form.Item>
 

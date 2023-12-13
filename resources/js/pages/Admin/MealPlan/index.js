@@ -90,6 +90,9 @@ const MealPan = ({ }) => {
                     <Link key={'create_mealplan'} to="/admin/mealplan/create">
                         <Button type='primary'>Create</Button>
                     </Link>,
+                    <Link key={'create_options'} to="/admin/mealplan/createOptions">
+                        <Button key="create_options" type='primary'>Create Options</Button>
+                    </Link>
                 ]}
             />
             <Divider />

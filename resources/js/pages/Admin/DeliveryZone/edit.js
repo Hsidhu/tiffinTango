@@ -24,19 +24,17 @@ const Edit = ({ }) => {
         dispatch(getDeliveryZone(id))
     }, [])
 
+    useEffect(() => {
+        form.setFieldsValue({ ...deliveryZone })
+    }, [deliveryZone])
+
     if (isEmpty(deliveryZone)) {
         return null;
     }
 
-    useEffect(() => {
-        form.setFieldsValue({ ...deliveryZone })
-    }, [form, deliveryZone])
-
-
     const onFormSubmit = (values) => {
         dispatch(updateDeliveryZone(values, history));
     }
-    console.log(typeof deliveryZone.boundaries)
 
     const handleApiLoaded = (map, maps) => {
 

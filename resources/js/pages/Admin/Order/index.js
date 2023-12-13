@@ -23,8 +23,14 @@ const Order = ({ }) => {
     }
 
     const getRowClassName = (record) => {
-        // Example condition: change color if a certain field is true
-        return record.status=='Canceled'? 'row-status-canceled' : '';
+        if(record.status=='Canceled'){
+            return 'row-status-canceled'
+        }
+        if(record.order_type=='pickup'){
+            return 'row-orderType-pickup'
+        }
+        // Default row color
+        return '';
     };
 
     const columns = [
