@@ -23,9 +23,6 @@ const OrderDateChange = ({order_id, field, defaultDate, updateOrderStatus}) => {
                 allowClear={false}
                 defaultValue={moment(defaultDate, 'YYYY-MM-DD')}
                 onChange={handleDateChange}
-                disabledDate={current => {
-                    return current && (current < moment().add(1, "day") || current.day() === 0);
-                }}
             />
         </>
     )

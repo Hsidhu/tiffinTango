@@ -68,15 +68,6 @@ const MealPan = ({ }) => {
             render: (_, record) => (
                 <Space size="middle">
                     <a onClick={ () => handleEditClick(record.id)} >Edit</a>
-                    <Popconfirm
-                        title="Are you sure to delete this task?"
-                        onConfirm={confirm}
-                        onCancel={cancel}
-                        okText="Yes"
-                        cancelText="No"
-                        >
-                        <a href="#">Delete</a>
-                    </Popconfirm>
                 </Space>
             ),
         },
@@ -88,7 +79,7 @@ const MealPan = ({ }) => {
                 name="MealPlans"
                 HeaderButtons = {[
                     <Link key={'create_mealplan'} to="/admin/mealplan/create">
-                        <Button type='primary'>Create</Button>
+                        <Button type='primary'>Create mealplan</Button>
                     </Link>,
                     <Link key={'create_options'} to="/admin/mealplan/createOptions">
                         <Button key="create_options" type='primary'>Create Options</Button>

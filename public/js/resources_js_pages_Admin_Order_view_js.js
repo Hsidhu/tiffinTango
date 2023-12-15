@@ -12550,10 +12550,7 @@ var OrderDateChange = function OrderDateChange(_ref) {
       bordered: false,
       allowClear: false,
       defaultValue: moment__WEBPACK_IMPORTED_MODULE_1___default()(defaultDate, 'YYYY-MM-DD'),
-      onChange: handleDateChange,
-      disabledDate: function disabledDate(current) {
-        return current && (current < moment__WEBPACK_IMPORTED_MODULE_1___default()().add(1, "day") || current.day() === 0);
-      }
+      onChange: handleDateChange
     })
   });
 };

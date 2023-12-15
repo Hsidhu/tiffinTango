@@ -33,8 +33,10 @@ class CreateMealPlanOrder
         $this->subTotalPrice = $mealPlan->price;
 
         $options = $this->request->get('options');
-        foreach($options as $option) {
-            $this->subTotalPrice  += $option['price'];
+        if($options){
+            foreach($options as $option) {
+                $this->subTotalPrice  += $option['price'];
+            }
         }
 
         // add delivery order period

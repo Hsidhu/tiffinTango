@@ -112,7 +112,7 @@ const CustomerCreateForm = ({ form, orderType, orderData, deliveryWindows, getDe
                 >
                 <DatePicker size="large" style={{width: "100%"}} format={'DD-MM-YYYY'}
                     disabledDate={current => {
-                        return current && (current < moment().add(1, "day") || current.day() === 0);
+                        return current && (current.day() === 0);
                     }}
                 />
             </Form.Item>

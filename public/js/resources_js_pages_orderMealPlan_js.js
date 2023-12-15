@@ -11991,7 +11991,7 @@ var CustomerCreateForm = function CustomerCreateForm(_ref) {
         },
         format: 'DD-MM-YYYY',
         disabledDate: function disabledDate(current) {
-          return current && (current < moment__WEBPACK_IMPORTED_MODULE_1___default()().add(1, "day") || current.day() === 0);
+          return current && current.day() === 0;
         }
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
