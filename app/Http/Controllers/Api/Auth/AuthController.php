@@ -70,7 +70,8 @@ class AuthController extends Controller
         $guard = ($userType === 'customer') ? 'customer-web' : 'web';
 
         Auth::guard($guard)->logout();
-        Auth::user()->tokens()->delete();
+        Auth::user()->currentAccessToken()->delete();
+        //Auth::user()->tokens()->delete();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return response()->json(["message" => "User successfully logged out"], 204);
