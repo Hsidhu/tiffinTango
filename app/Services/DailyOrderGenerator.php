@@ -164,12 +164,12 @@ class DailyOrderGenerator
     public function getDayOfTheWeek()
     {
         $weekMap = [
-            1 => ['monday_to_friday', 'monday_to_saturday'], // 'monday'
-            2 => ['monday_to_friday', 'monday_to_saturday'], // 'tuesday'
-            3 => ['monday_to_friday', 'monday_to_saturday'], // 'wednesday',
-            4 => ['monday_to_friday', 'monday_to_saturday'], // 'thursday',
-            5 => ['monday_to_friday', 'monday_to_saturday'], // 'friday',
-            6 => ['monday_to_saturday'], // saturday
+            1 => ['mon_to_friday', 'mon_to_saturday'], // 'monday'
+            2 => ['mon_to_friday', 'mon_to_saturday'], // 'tuesday'
+            3 => ['mon_to_friday', 'mon_to_saturday'], // 'wednesday',
+            4 => ['mon_to_friday', 'mon_to_saturday'], // 'thursday',
+            5 => ['mon_to_friday', 'mon_to_saturday'], // 'friday',
+            6 => ['mon_to_saturday'], // saturday
             7 => [],//'sunday',
         ];
         $dayOfWeekInNumber = Carbon::now()->tz(config('app.CLIENT_TIMEZONE'))->dayOfWeek;
