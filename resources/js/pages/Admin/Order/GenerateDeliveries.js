@@ -117,7 +117,7 @@ const GenerateDeliveries = ({ }) => {
                 !isEmpty(dailyDeliveries) ?
                     <Collapse accordion defaultActiveKey={Object.keys(dailyDeliveries)[0]}>
                         {Object.keys(dailyDeliveries).map((key) => (
-                            <Panel header="Zone Deliveries 1" key={key}>
+                            <Panel header={`Zone Deliveries - ${key}`} key={key}>
                                 <DndSortTable tableColumns={columns} tableData={dailyDeliveries[key]} onDragfinish={deliveryUpdate} />
                             </Panel>
                         ))}

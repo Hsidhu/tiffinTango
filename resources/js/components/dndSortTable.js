@@ -76,6 +76,7 @@ const DndSortTable = ({tableColumns, tableData, onDragfinish}) => {
         <DndProvider backend={HTML5Backend}>
             <Table
                 rowKey={'id'}
+                pagination={false}
                 columns={tableColumns}
                 dataSource={data}
                 components={components}

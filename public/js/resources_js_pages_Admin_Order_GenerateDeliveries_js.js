@@ -6513,6 +6513,7 @@ var DndSortTable = function DndSortTable(_ref3) {
     backend: react_dnd_html5_backend__WEBPACK_IMPORTED_MODULE_6__.HTML5Backend,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"], {
       rowKey: 'id',
+      pagination: false,
       columns: tableColumns,
       dataSource: data,
       components: components,
@@ -6775,7 +6776,7 @@ var GenerateDeliveries = function GenerateDeliveries(_ref) {
       defaultActiveKey: Object.keys(dailyDeliveries)[0],
       children: Object.keys(dailyDeliveries).map(function (key) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Panel, {
-          header: "Zone Deliveries 1",
+          header: "Zone Deliveries - ".concat(key),
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_dndSortTable__WEBPACK_IMPORTED_MODULE_6__["default"], {
             tableColumns: columns,
             tableData: dailyDeliveries[key],
