@@ -41,7 +41,7 @@ function* getAuthUser() {
         const response = yield call(() => getRequest('auth/user'));
         yield put({ type: actions.GET_AUTH_USER_SUCCESS, payload: response.data });
     } catch (error) {
-        console.log(error);
+        localStorage.removeItem("token")
         yield put({ type: actions.GET_AUTH_USER_FAILURE });
     }
 }
@@ -49,6 +49,7 @@ function* getAuthUser() {
 function* logout() {
     try {
         yield call(() => deleteRequest('logout'));
+        localStorage.removeItem("token")
         yield put({ type: actions.LOGOUT_SUCCESS });
     } catch (e) {
         yield put({ type: actions.LOGOUT_FAILURE });

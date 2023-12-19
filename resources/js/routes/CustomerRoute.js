@@ -31,7 +31,7 @@ function CustomerRoute({ children, ...rest }) {
             ) : (
                 <Redirect
                     to={{
-                        pathname: '/login',
+                        pathname: '/customer/login',
                         state: { from: location },
                     }}
                 />

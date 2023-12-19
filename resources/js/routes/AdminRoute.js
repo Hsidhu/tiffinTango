@@ -32,7 +32,7 @@ function AdminRoute({ children, ...rest }) {
             ) : (
                 <Redirect
                     to={{
-                        pathname: '/login',
+                        pathname: '/admin/login',
                         state: { from: location },
                     }}
                 />
