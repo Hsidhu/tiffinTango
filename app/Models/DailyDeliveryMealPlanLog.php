@@ -23,22 +23,22 @@ class DailyDeliveryMealPlanLog extends Model implements HasMedia
 
     public function order()
     {
-        return $this->belongsTo(\App\Models\MealPlanOrder::class);
+        return $this->belongsTo(\App\Models\MealPlanOrder::class, 'order_id');
     }
 
     public function customer()
     {
-        return $this->belongsTo(\App\Models\Customer::class);
+        return $this->belongsTo(\App\Models\Customer::class, 'customer_id');
     }
 
     public function driver()
     {
-        return $this->belongsTo(\App\Models\Driver::class);
+        return $this->belongsTo(\App\Models\Driver::class, 'driver_id');
     }
 
     public function deliveryZone()
     {
-        return $this->belongsTo(\App\Models\DeliveryZone::class);
+        return $this->belongsTo(\App\Models\DeliveryZone::class, 'delivery_zone_id');
     }
 
     public function deliveryWindow()

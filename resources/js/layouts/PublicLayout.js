@@ -99,9 +99,7 @@ const PublicLayout = () => {
                     
                     <Col sm={24} md={6} lg={8}>
                         <h2>Opening time</h2>
-                        <p> Tuesday - Wednesday 11pm - 10pm </p>
-                        <p> Thursday  - Saturday 11pm - 11pm </p>
-                        <p> Sunday - Monday 11pm - 10pm</p>
+                        <p> Monday - Sunday 11am - 12pm </p>
                     </Col>
                     <Col sm={24} md={6} lg={8}>
                         <h2>Follow Us</h2>

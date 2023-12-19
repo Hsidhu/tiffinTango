@@ -17,6 +17,7 @@ class Driver extends Authenticatable
 
     protected $guarded = [];
 
+    public $appends = ['full_name'];
     protected $hidden = ['password']; 
 
     public function address()

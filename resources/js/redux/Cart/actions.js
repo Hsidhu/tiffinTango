@@ -1,6 +1,6 @@
 import { getRequest, postRequest, deleteRequest } from "../../config/axiosClient"
 import { message } from "antd"
-import { displayErrors } from "../../config/helpers"
+import { GET_CUSTOMER } from "../Customer/actions";
 
 export const GET_MEALPLAN_ORDER_DATA = "GET_MEALPLAN_ORDER_DATA";
 export const SET_ORDER_TYPE = 'SET_ORDER_TYPE';
@@ -11,6 +11,7 @@ export const ORDER_META_DATA = "ORDER_META_DATA"
 export const ORDER_CUSTOMER_INFO = "ORDER_META_DATA"
 export const ADD_DELIVERY_CHARGE = "ADD_DELIVERY_CHARGE"
 export const ORDER_PLACED = "ORDER_PLACED"
+
 
 export const getMealPlanForOrder = (delivery_type = '') => (dispatch) => {
     const res = getRequest(`mealplanorder/data?delivery_type=${delivery_type}`).then(response => {
@@ -78,6 +79,10 @@ export const placeOrder = (data, history) => (dispatch) => {
         console.log(response.data)
         dispatch({
             type: ORDER_PLACED,
+            payload: response.data
+        });
+        dispatch({
+            type: GET_CUSTOMER,
             payload: response.data
         });
         // get email or customer back
