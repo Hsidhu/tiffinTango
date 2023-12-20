@@ -2,6 +2,8 @@ import { getRequest, postRequest, deleteRequest } from "../../config/axiosClient
 import { message } from "antd"
 
 export const SET_ERRORS = "SET_ERRORS"
+export const CLEAR_FRONTEND_DATA = "CLEAR_FRONTEND_DATA"
+export const CLEAR_ADMIN_DATA = "CLEAR_ADMIN_DATA"
 export const REDIRECT_TO = "REDIRECT_TO";
 export const GET_SITE_SETTINGS = "GET_SITE_SETTINGS";
 
@@ -21,8 +23,6 @@ export const getSiteSettings = () => (dispatch) => {
         });
     });
 }
-
-
 
 // action creators
 export const redirect = link => {
@@ -47,8 +47,19 @@ export const getDeliveryWindowsList = () => (dispatch) => {
     });
 }
 
+export const clearFrontendData = () => (dispatch) => {
+    dispatch({
+        type: CLEAR_ADMIN_DATA,
+    });
+}
 
-export const setcookieConsent = () => {
+export const clearBackendData = () => (dispatch) => {
+    dispatch({
+        type: CLEAR_FRONTEND_DATA,
+    });
+}
+
+export const setcookieConsent = ()=> (dispatch) => {
     dispatch({
         type: COOKIE_CONSENT,
         payload: data

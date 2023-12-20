@@ -46,13 +46,17 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request): UserResource
     {
-        $data = $request->all();
-        $userDetails = [
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => \Hash::make($data['password']),
-        ];
-        $user = User::create($userDetails);
+        $this->validate($request, [
+            'name' => ['required'],
+            'email' => ['required', 'email:filter', 'min:4', 'max:96', 'unique:users,email'],
+            'password' => ['password'],
+        ]);
+
+        $user = User::create([
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'password' => \Hash::make($request->get('password')),
+        ]);
         $token = $user->createToken('auth_token')->plainTextToken;
 
         $request->session()->regenerate();
@@ -71,7 +75,7 @@ class AuthController extends Controller
 
         Auth::guard($guard)->logout();
         Auth::user()->currentAccessToken()->delete();
-        //Auth::user()->tokens()->delete();
+        // Auth::user()->tokens()->delete();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return response()->json(["message" => "User successfully logged out"], 204);

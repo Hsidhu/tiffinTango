@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-    Button, message, Steps,
+    Steps,
     Space, Divider, Row, Col
 } from 'antd';
+import { useDispatch, useSelector } from 'react-redux'
 import SitePageHeader from '../components/sitePageHeader';
 import MealPlan from './_cart/mealPlan';
 import Customer from './_cart/customer';
+import OrderPlaced from './_cart/orderPlaced';
+import { nextStep } from '../redux/Cart/actions';
 
 const contentStyle = {
     color: '#000000',
@@ -15,13 +18,12 @@ const contentStyle = {
 
 // move to order sucess page
 const OrderMealPlan = () => {
-    const [current, setCurrent] = useState(0);
+
+    const dispatch = useDispatch();
+    const {stepReducer} = useSelector(state => state)
 
     const next = () => {
-        setCurrent(current + 1);
-    };
-    const prev = () => {
-        setCurrent(current - 1);
+        dispatch(nextStep());
     };
 
     const steps = [
@@ -33,7 +35,12 @@ const OrderMealPlan = () => {
         {
             title: 'Details',
             description: "Customer Detail",
-            content: <Customer prevForm={prev} />,
+            content: <Customer />,
+        },
+        {
+            title: 'Order Placed',
+            description: "Order state",
+            content: <OrderPlaced />,
         }
     ];
     const items = steps.map((item) => ({
@@ -56,11 +63,11 @@ const OrderMealPlan = () => {
             >
                 <Row gutter={16}>
                     <Col span={24}>
-                        <Steps current={current} items={items} />
+                        <Steps current={stepReducer.currentStep} items={items} />
                         <Divider />
                         <div style={contentStyle}>
 
-                            {steps[current].content}
+                            {steps[stepReducer.currentStep].content}
 
                         </div>
                     </Col>

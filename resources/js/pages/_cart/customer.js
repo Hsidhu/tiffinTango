@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-    Row, Col, Button, message, Steps,
-    Layout, Divider
+    Row, Col
 } from 'antd';
-
 
 import CustomerDetailForm from '../../components/containers/cart/customerDetailForm';
 import OrderSummary from '../../components/containers/cart/orderSummary';
 
 
-const Customer = ({ prevForm }) => {
+const Customer = ({ }) => {
 
     return (
         <Row gutter={16} justify={'center'} align={'center'}>
@@ -20,7 +18,7 @@ const Customer = ({ prevForm }) => {
                     span:16
                 }}
             >
-                <CustomerDetailForm  prevForm ={prevForm} />
+                <CustomerDetailForm />
             </Col>
             <Col xs = {{
                     span:24,

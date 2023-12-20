@@ -9,7 +9,7 @@ import { ArrowLeftOutlined } from '@ant-design/icons';
 import { axiosConfig } from '../../config/constants';
 import CustomerCreateForm from '../containers/customerCreateForm';
 
-const CustomerDetailForm = ({prevForm, orderType, cart, placeOrder }) => {
+const CustomerDetailForm = ({orderType, cart, placeOrder, prevStep }) => {
     const history = useHistory()
     const [form] = Form.useForm();
 
@@ -31,7 +31,7 @@ const CustomerDetailForm = ({prevForm, orderType, cart, placeOrder }) => {
 
     return (
         <Card title="Customer Details" 
-            extra={<Button key="go_back" onClick={prevForm}>
+            extra={<Button key="go_back" onClick={prevStep}>
                     <ArrowLeftOutlined />
                 </Button>
             }

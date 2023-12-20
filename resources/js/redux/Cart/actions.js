@@ -1,6 +1,7 @@
 import { getRequest, postRequest, deleteRequest } from "../../config/axiosClient"
 import { message } from "antd"
 import { GET_CUSTOMER } from "../Customer/actions";
+import { clearFrontendData } from "../Common/actions";
 
 export const GET_MEALPLAN_ORDER_DATA = "GET_MEALPLAN_ORDER_DATA";
 export const SET_ORDER_TYPE = 'SET_ORDER_TYPE';
@@ -11,7 +12,28 @@ export const ORDER_META_DATA = "ORDER_META_DATA"
 export const ORDER_CUSTOMER_INFO = "ORDER_META_DATA"
 export const ADD_DELIVERY_CHARGE = "ADD_DELIVERY_CHARGE"
 export const ORDER_PLACED = "ORDER_PLACED"
+export const ORDER_NEXT_STEP_TRACK = "ORDER_NEXT_STEP_TRACK"
+export const ORDER_PREV_STEP_TRACK = "ORDER_PREV_STEP_TRACK"
+export const ORDER_RESET_STEP_TRACK = "ORDER_RESET_STEP_TRACK"
 
+
+export const nextStep = () => (dispatch) => (
+    dispatch({
+        type: ORDER_NEXT_STEP_TRACK
+    })
+);
+
+export const prevStep = () => (dispatch) => (
+    dispatch({
+        type: ORDER_PREV_STEP_TRACK
+    })
+);
+
+export const resetStep = () => (dispatch) => (
+    dispatch({
+        type: ORDER_RESET_STEP_TRACK
+    })
+);
 
 export const getMealPlanForOrder = (delivery_type = '') => (dispatch) => {
     const res = getRequest(`mealplanorder/data?delivery_type=${delivery_type}`).then(response => {
@@ -74,7 +96,7 @@ export const setOrderMetaData = (data) => (dispatch) => {
 }
 
 export const placeOrder = (data, history) => (dispatch) => {
-    console.log(data);
+
     const res = postRequest('mealplanorder/create', data).then(response => {
         console.log(response.data)
         dispatch({
@@ -85,9 +107,11 @@ export const placeOrder = (data, history) => (dispatch) => {
             type: GET_CUSTOMER,
             payload: response.data
         });
+        dispatch(clearFrontendData())
+        dispatch(nextStep())
         // get email or customer back
         message.success('Order Place sucessfully')
-        history.go(0)
+
     }).catch(error => {
         console.log(error);
         message.error('Something went wrong please contact us!')

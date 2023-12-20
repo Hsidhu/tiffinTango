@@ -4,8 +4,15 @@ import {
     CLEAR_CART_ITEMS,
     SELECT_MEALPLAN,
     SELECT_MEALPLAN_OPTIONS,
-    ADD_DELIVERY_CHARGE
+    ADD_DELIVERY_CHARGE,
+    ORDER_NEXT_STEP_TRACK,
+    ORDER_PREV_STEP_TRACK,
+    ORDER_RESET_STEP_TRACK
 } from './actions'
+
+import {
+    CLEAR_FRONTEND_DATA
+} from '../Common/actions'
 
 export const orderData = (state = [], action) => {
     switch (action.type) {
@@ -52,6 +59,8 @@ export const cart = (state = {}, action) => {
             return newStateDelivery
         case CLEAR_CART_ITEMS:
             return action.payload
+        case CLEAR_FRONTEND_DATA:
+            return state
         default:
             return state
     }
@@ -76,6 +85,8 @@ export const selectedMealPlan = (state = {}, action) => {
             return newState
         case CLEAR_CART_ITEMS:
             return action.payload
+        case CLEAR_FRONTEND_DATA:
+            return state
         default:
             return state
     }
@@ -85,6 +96,8 @@ export const orderSummary = (state = [], action) => {
     switch (action.type) {
         case SELECT_MEALPLAN:
             return action.payload
+        case CLEAR_FRONTEND_DATA:
+            return state
         default:
             return state
     }
@@ -96,9 +109,33 @@ export const cartTotal = (state = [], action) => {
             return action.payload
         case SELECT_MEALPLAN_OPTIONS:
             return action.payload
+        case CLEAR_FRONTEND_DATA:
+            return state
         default:
             return state
     }
 }
 
+
+export const stepReducer = (state = {currentStep:0}, action) => {
+    switch (action.type) {
+        case ORDER_NEXT_STEP_TRACK:
+            return {
+                ...state,
+                currentStep: state.currentStep + 1,
+            };
+        case ORDER_PREV_STEP_TRACK:
+            return {
+                ...state,
+                currentStep: state.currentStep - 1,
+            };
+        case ORDER_RESET_STEP_TRACK:
+            return {
+                ...state,
+                currentStep: 0,
+            };
+      default:
+        return state;
+    }
+};
 

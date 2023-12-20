@@ -9,7 +9,18 @@ axiosClient.defaults.headers = axiosConfig.headers;
 
 // To share cookies to cross site domain, change to true.
 axiosClient.defaults.withCredentials = false;
-axiosClient.defaults.headers.Authorization = `Bearer ${localStorage.getItem("token", '')}`
+
+axiosClient.interceptors.request.use(
+    async (config) => {
+        config.headers = {
+            Authorization: `Bearer ${localStorage.getItem("token", '')}`,
+        };
+        return config;
+    },
+    (error) => {
+        Promise.reject(error);
+    }
+);
 
 export function getCustomRequest(URL) {
   return axios.get(`/${URL}`).then(response => response);

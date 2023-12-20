@@ -111,7 +111,6 @@ const GenerateDeliveries = ({ }) => {
                 </Col>
             </Row>
 
-            
             <Divider />
             {
                 !isEmpty(dailyDeliveries) ?
@@ -126,7 +125,6 @@ const GenerateDeliveries = ({ }) => {
                     : null
             }
             
-
         </>
     );
 }
