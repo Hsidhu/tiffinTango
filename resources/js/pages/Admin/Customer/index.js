@@ -13,7 +13,7 @@ const Customer = ({ }) => {
     const history = useHistory();
     const [searchText, setSearchText] = useState('');
 
-    const {customers} = useSelector(state => state)
+    const {customers, deliveryZoneList} = useSelector(state => state)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -64,6 +64,10 @@ const Customer = ({ }) => {
             title: 'Delivery Zone',
             dataIndex: 'delivery_zone_id',
             key: 'delivery_zone_id',
+            render: (_, record) => {
+                const zone = deliveryZoneList.find(option => option.value === record.delivery_zone_id);
+                return <span>{zone.label}</span>
+            }
         },
         {
             title: 'Action',
@@ -126,7 +130,7 @@ const Customer = ({ }) => {
                 onChange={handleSearch}
             />
             <Table rowKey="id"
-                pagination={false}
+                pagination={{ defaultPageSize: 20}}
                 columns={columns} 
                 dataSource={filteredData} 
                 expandable={{

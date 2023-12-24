@@ -136,6 +136,12 @@ export const privateRouteList = [
         exact: true,
     },
     {
+        path: 'admin/customer/view/:id',
+        component: lazy(() => import('../pages/Admin/Customer/view')),
+        title:'Customer View',
+        exact: true,
+    },
+    {
         path: 'admin/customer/edit/:id',
         component: lazy(() => import('../pages/Admin/Customer/edit')),
         title:'Customer Edit',
@@ -181,6 +187,12 @@ export const privateRouteList = [
         path: 'admin/driver/create',
         component: lazy(() => import('../pages/Admin/Driver/create')),
         title:'Driver Create',
+        exact: true,
+    },
+    {
+        path: 'admin/driver/view/:id',
+        component: lazy(() => import('../pages/Admin/Driver/view')),
+        title:'Driver View',
         exact: true,
     },
     {

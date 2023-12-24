@@ -9,6 +9,12 @@ export const UPDATE_DRIVER = "UPDATE_DRIVER"
 export const DELETE_DRIVER = "DELETE_DRIVER"
 export const GET_DRIVER_SELECT = "GET_DRIVER_SELECT"
 
+const FileFormconfig = {
+    headers: {
+        'content-type': 'multipart/form-data',
+    },
+};
+
 export const getDrivers = () => (dispatch) => {
     const res = getRequest('admin/drivers').then(response => {
         dispatch({
@@ -92,5 +98,30 @@ export const getDriverSelect = () => (dispatch) => {
 export const deleteDriverZone=(deliveryWindowAndZoneId) => {
     const res = deleteRequest(`admin/driver/deliveryWindowAndZone/${deliveryWindowAndZoneId}`).then(response => {
         message.success('Driver Zone Deleted!')
+    });
+}
+
+
+export const addMedia = (data) => (dispatch) => {
+    const res = postRequest('admin/driver/addMedia', data, FileFormconfig).then(response => {
+        dispatch({
+            type: GET_DRIVER,
+            payload: response.data
+        });
+        message.success('Media Added Done!')
+    }).catch(error => {
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
+    });
+}
+
+export const removeMedia = (data) => (dispatch) => {
+    const res = postRequest('admin/driver/removeMedia', data).then(response => {
+        dispatch({
+            type: GET_DRIVER,
+            payload: response.data
+        });
+        message.success('Media Removed Done!')
+    }).catch(error => {
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
 }

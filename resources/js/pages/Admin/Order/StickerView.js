@@ -7,7 +7,6 @@ import moment from 'moment';
 
 import { getDailyDeliveries, getStickerData } from "../../../redux/Order/actions";
 import { getDeliveryWindowsList } from '../../../redux/Common/actions'
-import { getDeliveryZoneList } from '../../../redux/DeliveryZone/actions'
 import { isEmpty } from 'lodash';
 
 import { postRequest } from '../../../config/axiosClient';
@@ -25,7 +24,6 @@ const StickerView = ({}) => {
 
     useEffect(() => {
         dispatch(getDeliveryWindowsList())
-        dispatch(getDeliveryZoneList())
     }, [])
 
     

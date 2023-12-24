@@ -19,14 +19,11 @@ const Create = ({ }) => {
         dispatch(getDeliveryWindowsList());
     }, [])
 
-    const mapSwitchValue = (value) => (value ? 1 : 0);
-
     const onFormChange = ({ name }) => {
         console.log(name);
     };
 
     const onFormSubmit = (values) => {
-        values.status = mapSwitchValue(values.status);
         dispatch(createDriver(values, history));
     }
 

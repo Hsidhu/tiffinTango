@@ -6390,6 +6390,9 @@ var Order = function Order(_ref) {
         })
       }, 'generate_deliveries')]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(antd__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      pagination: {
+        defaultPageSize: 20
+      },
       rowKey: "id",
       columns: columns,
       dataSource: orders.data,

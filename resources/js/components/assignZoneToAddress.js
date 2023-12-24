@@ -7,14 +7,9 @@ import {
 } from 'antd';
 import { isEmpty } from 'lodash';
 
-const AssignZoneToAddress = ({ address_id, delivery_zone_id, deliveryZoneList, getDeliveryZoneList, assignAddressToZone }) => {
+const AssignZoneToAddress = ({ address_id, delivery_zone_id, deliveryZoneList, assignAddressToZone }) => {
     const history = useHistory()
-
     const [form] = Form.useForm()
-
-    useEffect(() => {
-        getDeliveryZoneList();
-    }, [])
 
     useEffect(() => {
         form.setFieldsValue({

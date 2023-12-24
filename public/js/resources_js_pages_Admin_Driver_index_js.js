@@ -6655,7 +6655,7 @@ var Driver = function Driver(_ref) {
     render: function render(_, record) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
         onClick: function onClick() {
-          return history.push("/admin/driver/edit/".concat(record.id));
+          return history.push("/admin/driver/view/".concat(record.id));
         },
         children: record.full_name
       });
@@ -6684,6 +6684,11 @@ var Driver = function Driver(_ref) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_6__["default"], {
         size: "middle",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+          onClick: function onClick() {
+            return history.push("/admin/driver/view/".concat(record.id));
+          },
+          children: "View"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
           onClick: function onClick() {
             return history.push("/admin/driver/edit/".concat(record.id));
           },

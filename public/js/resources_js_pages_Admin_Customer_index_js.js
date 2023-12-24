@@ -6439,7 +6439,8 @@ var Customer = function Customer(_ref) {
   var _useSelector = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
       return state;
     }),
-    customers = _useSelector.customers;
+    customers = _useSelector.customers,
+    deliveryZoneList = _useSelector.deliveryZoneList;
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_redux_Customer_actions__WEBPACK_IMPORTED_MODULE_2__.getCustomers)());
@@ -6483,7 +6484,15 @@ var Customer = function Customer(_ref) {
   }, {
     title: 'Delivery Zone',
     dataIndex: 'delivery_zone_id',
-    key: 'delivery_zone_id'
+    key: 'delivery_zone_id',
+    render: function render(_, record) {
+      var zone = deliveryZoneList.find(function (option) {
+        return option.value === record.delivery_zone_id;
+      });
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+        children: zone.label
+      });
+    }
   }, {
     title: 'Action',
     key: 'action',
@@ -6555,7 +6564,9 @@ var Customer = function Customer(_ref) {
       onChange: handleSearch
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
       rowKey: "id",
-      pagination: false,
+      pagination: {
+        defaultPageSize: 20
+      },
       columns: columns,
       dataSource: filteredData,
       expandable: {

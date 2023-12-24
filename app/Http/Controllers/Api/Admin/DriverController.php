@@ -11,6 +11,7 @@ use App\Models\DriverZone;
 use App\Http\Resources\Admin\DriverResource;
 use App\Rules\UniqueDriverDeliveryZone;
 use App\Rules\UniqueWindowZoneForDriver;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 
 class DriverController extends Controller
@@ -41,6 +42,7 @@ class DriverController extends Controller
             $request->only(['first_name','last_name','email', 'phone', 'license', 'status'])
         );
         $driver = Driver::create($driverData);
+
         return response()->json($driver);
     }
 
@@ -74,6 +76,34 @@ class DriverController extends Controller
         );
 
         return response()->json($driver);
+    }
+
+    public function addMedia(Request $request)
+    {
+        $driver = Driver::find($request->id);
+
+        if ($request->hasFile('avatar')) {
+            $driver->clearMediaCollection('driverAvatars');
+            $driver->addMediaFromRequest('avatar')->toMediaCollection('driverAvatars');
+        }
+
+        // Add new documents
+        if ($request->hasFile('document')) {
+            $driver->addMediaFromRequest('document') ->toMediaCollection('documents');
+        }
+
+        return new DriverResource($driver);
+    }
+
+    public function removeMedia(Request $request)
+    {
+        $driver = Driver::find($request->id);
+        $this->validate($request, [
+            'media_id' => 'required',
+        ]);
+        Media::findOrFail($request->media_id)->delete();
+
+        return new DriverResource($driver);
     }
 
     public function delete($id)

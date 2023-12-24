@@ -2,15 +2,19 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
-    Row, Col, Button, Divider,
-    Form, Input, Switch, Radio
+    Row, Col, Button,
+    Form, Input, Switch
 } from 'antd';
 import { usePlacesWidget } from "react-google-autocomplete";
 import { GOOGLE_API_KEY } from '../../../config/constants';
 import { phonePattern } from '../../../validationHelper';
+import FileUploadListView from '../../../components/fileUploadListView';
+import FileUpload from '../../../components/fileUpload';
 
-const DriverForm = ({form, onFormChange, hasId, onFormSubmit }) => {
+import { addMedia, removeMedia } from '../../../redux/Driver/actions';
 
+const DriverForm = ({form, onFormChange, driver, onFormSubmit }) => {
+    
     const antInputRef = useRef(null);
 
     const { ref: antRef } = usePlacesWidget({
@@ -64,10 +68,17 @@ const DriverForm = ({form, onFormChange, hasId, onFormSubmit }) => {
 
                 form.setFieldsValue({address:{ lat: place.geometry.location.lat() }});
                 form.setFieldsValue({address:{ lng: place.geometry.location.lng() }});
-                //antInputRef.current.setValue(place?.formatted_address);
             }
         }
     });
+
+    const mapSwitchValue = (value) => (value ? 1 : 0);
+    const handleFormSubmission = (values) => {
+        values.status = mapSwitchValue(values.status);
+
+        onFormSubmit(values);
+    }
+
 
     return (
         <>
@@ -79,7 +90,7 @@ const DriverForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                 initialValues={{}}
                 onValuesChange={onFormChange}
                 style={{}}
-                onFinish={onFormSubmit}
+                onFinish={handleFormSubmission}
             >
                 <Row>
                     <Col span={12}>
@@ -186,15 +197,36 @@ const DriverForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                             <Input type="hidden" />
                         </Form.Item>
 
+                        {driver && 
+                            <Form.Item label="Avatar">
+                                {
+                                    <FileUpload objectID={driver.id} type={'avatar'} buttonText={'Upload Profile pic'} limiter={1} onAdd={addMedia} />
+                                }
+                                
+                                {driver?.avatar && (
+                                    <FileUploadListView fileListArray={[driver.avatar]} type="images" onRemove={removeMedia} objectID={driver.id} />
+                                )}
+                            </Form.Item>
+                        }
+
+                        { driver &&
+                            <Form.Item label="Documents">
+                                <FileUpload objectID={driver.id} type={'document'} buttonText={'Upload Documents'} limiter={1} onAdd={addMedia} />
+                                {driver?.documents && (
+                                    <FileUploadListView fileListArray={driver?.documents} onRemove={removeMedia} objectID={driver.id} />
+                                )}
+                            </Form.Item>
+                        }
+
                         {
-                            hasId &&
+                            driver &&
                             <Form.Item name="id" hidden>
                                 <Input type="hidden" />
                             </Form.Item>
                         }
 
                         {
-                            hasId &&
+                            driver &&
                             <Form.Item name="address_id" hidden>
                                 <Input type="hidden" />
                             </Form.Item>

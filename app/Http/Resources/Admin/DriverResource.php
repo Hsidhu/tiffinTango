@@ -4,6 +4,7 @@ namespace App\Http\Resources\Admin;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\Admin\DriverZoneResource;
+use App\Http\Resources\Admin\DocumentResource;
 
 class DriverResource extends JsonResource
 {
@@ -32,7 +33,23 @@ class DriverResource extends JsonResource
             'license' => $this->license,
             'status' => $this->status,
             'driverZones' => DriverZoneResource::collection($this->driverZones),
-            'created_at' => $this->created_at->setTimezone(config('app.CLIENT_TIMEZONE'))->format('Y-m-d H:i:s')
+            'created_at' => $this->created_at->setTimezone(config('app.CLIENT_TIMEZONE'))->format('Y-m-d H:i:s'),
+            'avatar' => $this->getAvatarInfo(),
+            'documents' => DocumentResource::collection($this->getMedia('documents')),
         ];
+    }
+
+    protected function getAvatarInfo()
+    {
+        $avatar = $this->getFirstMedia('driverAvatars');
+
+        return $avatar ? 
+            [
+                'uid' => $avatar->id,
+                'name' => $avatar->name,
+                'status' => 'done',
+                'url' => $avatar->getUrl()
+            ]
+            : null;
     }
 }

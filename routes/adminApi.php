@@ -26,6 +26,9 @@ Route::get('/driver/edit/{id}', [App\Http\Controllers\Api\Admin\DriverController
 Route::post('/driver/update', [App\Http\Controllers\Api\Admin\DriverController::class, 'update']);
 Route::delete('/driver/delete/{id}', [App\Http\Controllers\Api\Admin\DriverController::class, 'delete']);
 
+Route::post('/driver/addMedia', [App\Http\Controllers\Api\Admin\DriverController::class, 'addMedia']);
+Route::post('/driver/removeMedia', [App\Http\Controllers\Api\Admin\DriverController::class, 'removeMedia']);
+
 Route::get('/driver/select', [App\Http\Controllers\Api\Admin\DriverController::class, 'getDriversSelect']);
 Route::post('/driver/workForm', [App\Http\Controllers\Api\Admin\DriverController::class, 'workForm']);
 Route::delete('/driver/deliveryWindowAndZone/{id}', [App\Http\Controllers\Api\Admin\DriverController::class, 'deleteDeliveryWindowAndZone']);

@@ -34,7 +34,7 @@ const Driver = ({ }) => {
             key: 'full_name',
             sorter: (a, b) => a.full_name.length - b.full_name.length,
             render: (_, record) => (
-                <a onClick={ () => history.push(`/admin/driver/edit/${record.id}`) } >{record.full_name}</a>
+                <a onClick={ () => history.push(`/admin/driver/view/${record.id}`) } >{record.full_name}</a>
             ),
         },
         {
@@ -60,6 +60,7 @@ const Driver = ({ }) => {
             key: 'action',
             render: (_, record) => (
                 <Space size="middle">
+                    <a onClick={ () => history.push(`/admin/driver/view/${record.id}`) } >View</a>
                     <a onClick={ () => history.push(`/admin/driver/edit/${record.id}`) } >Edit</a>
                     <a onClick={ () => history.push(`/admin/driver/workForm/${record.id}`)} >Work Form</a>
                 </Space>

@@ -12,14 +12,15 @@ use Illuminate\Notifications\Notifiable;
 use App\Notifications\NewCustomerNotification;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Customer extends Authenticatable
+class Customer extends Authenticatable implements HasMedia
 {
-    use HasFactory, HasApiTokens, Notifiable;
+    use HasFactory, HasApiTokens, Notifiable, InteractsWithMedia;
 
     const ACTIVE = 1;
     const INACTIVE = 0;
-
 
     private $send_invite = false;
 
@@ -27,6 +28,11 @@ class Customer extends Authenticatable
     
     public $appends = ['full_name'];
     protected $hidden = ['password']; 
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('driverAvatars')->singleFile();
+    }
     
     public function mealplanorders()
     {

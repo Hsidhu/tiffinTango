@@ -28,6 +28,8 @@ export const createDeliveryZone = (data) => (dispatch) => {
             payload: response.data
         });
         message.success('DeliveryZone Created!')
+        dispatch(getDeliveryZoneList())
+        
     }).catch(error => {
         message.error('Create DeliveryZone: Something went wrong!')
     });
@@ -50,6 +52,8 @@ export const updateDeliveryZone = (data, navigate) => (dispatch) => {
             payload: response.data
         });
         message.success('DeliveryZone Updated!')
+        dispatch(getDeliveryZoneList())
+
         navigate.push('/admin/delivery_zones')
         
     }).catch(error => {

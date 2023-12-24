@@ -76,7 +76,8 @@ const Order = ({ }) => {
                 ]}
             />
             <Divider />
-            <Table 
+            <Table
+                pagination={{ defaultPageSize: 20}}
                 rowKey="id" columns={columns} 
                 dataSource={orders.data} 
                 rowClassName={getRowClassName}

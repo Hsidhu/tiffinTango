@@ -8,7 +8,6 @@ import {isEmpty} from 'lodash'
 import {getDriver, updateWorkForm } from '../../../redux/Driver/actions'
 import TableHeaderLink from '../../../components/tableHeaderLink';
 import { getDeliveryWindowsList } from '../../../redux/Common/actions';
-import { getDeliveryZoneList } from '../../../redux/DeliveryZone/actions';
 
 // get shifts and zones
 const WorkForm = ({ }) => {
@@ -22,7 +21,6 @@ const WorkForm = ({ }) => {
     useEffect(() => {
         dispatch(getDriver(id))
         dispatch(getDeliveryWindowsList());
-        dispatch(getDeliveryZoneList());
     }, [])
 
     useEffect(() => {

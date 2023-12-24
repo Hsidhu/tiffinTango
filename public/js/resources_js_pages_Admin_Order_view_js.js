@@ -12232,15 +12232,11 @@ var AssignZoneToAddress = function AssignZoneToAddress(_ref) {
   var address_id = _ref.address_id,
     delivery_zone_id = _ref.delivery_zone_id,
     deliveryZoneList = _ref.deliveryZoneList,
-    getDeliveryZoneList = _ref.getDeliveryZoneList,
     assignAddressToZone = _ref.assignAddressToZone;
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useHistory)();
   var _Form$useForm = antd__WEBPACK_IMPORTED_MODULE_4__["default"].useForm(),
     _Form$useForm2 = _slicedToArray(_Form$useForm, 1),
     form = _Form$useForm2[0];
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    getDeliveryZoneList();
-  }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     form.setFieldsValue({
       address_id: address_id,
@@ -12326,7 +12322,6 @@ __webpack_require__.r(__webpack_exports__);
     deliveryZoneList: deliveryZoneList
   };
 }, {
-  getDeliveryZoneList: _redux_DeliveryZone_actions__WEBPACK_IMPORTED_MODULE_2__.getDeliveryZoneList,
   assignAddressToZone: _redux_DeliveryZone_actions__WEBPACK_IMPORTED_MODULE_2__.assignAddressToZone
 })(_assignZoneToAddress__WEBPACK_IMPORTED_MODULE_1__["default"]));
 

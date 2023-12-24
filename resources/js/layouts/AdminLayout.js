@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { 
     Layout, Menu, MenuProps, Col, Row, Space
 } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {privateRouteList} from '../routes/routes';
+// actions
+import { getDeliveryZoneList } from '../redux/DeliveryZone/actions';
 
+import {privateRouteList} from '../routes/routes';
 import { adminSideMenu } from '../routes/menu';
 import HeaderProfileDorpdown from '../components/headerProfileDorpdown';
 import HeaderLogo from '../components/headerLogo';
@@ -20,6 +22,10 @@ function AdminLayout() {
 
     const dispatch = useDispatch();
     const history = useHistory()
+
+    useEffect(()=>{
+        dispatch(getDeliveryZoneList())
+    }, [])
 
     const sidebarOnClickHandler = ({key}) => {
         if(key){
