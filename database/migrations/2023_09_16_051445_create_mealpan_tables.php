@@ -183,7 +183,6 @@ return new class extends Migration
             $table->string('delivery_days', 164)->nullable();
             $table->string('delivery_type', 164)->default('pickup');
             $table->integer('quota', 10)->default(24);
-            $table->string('image')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

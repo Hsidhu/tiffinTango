@@ -24,14 +24,29 @@ class MealPlanResource extends JsonResource
             'price' => $this->price,
             'discount' => $this->discount,
             'duration' => $this->duration,
-            'media_url' => $this->getFirstMediaUrl() ?? null,
-            'media_id' => $this->getFirstMedia()->id ?? null,
+            'media_url' => $this->getFirstMediaUrl('mealPlanImage') ?? null,
             'delivery_type'=> $this->delivery_type,
             'delivery_days'=> $this->delivery_days,
+            'media_info' => $this->getImageInfo(),
             'quota'=> $this->quota,
             'status'=> $this->status,
             'options' => MealPlanOptionResource::collection($this->options)
         ];
 
     }
+
+    protected function getImageInfo()
+    {
+        $mealPlanImage = $this->getFirstMedia('mealPlanImage');
+
+        return $mealPlanImage ? 
+            [
+                'uid' => $mealPlanImage->id,
+                'name' => $mealPlanImage->name,
+                'status' => 'done',
+                'url' => $mealPlanImage->getUrl()
+            ]
+            : null;
+    }
+
 }

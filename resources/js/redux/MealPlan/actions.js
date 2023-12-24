@@ -1,6 +1,6 @@
 import { getRequest, postRequest, deleteRequest } from "../../config/axiosClient"
 import { message } from 'antd';
-import { displayErrors } from "../../config/helpers"
+import { displayErrors, fileFormconfig } from "../../config/helpers"
 
 export const GET_MEALPLANS = "GET_MEALPLANS"
 export const GET_MEALPLAN = "GET_MEALPLAN"
@@ -121,6 +121,32 @@ export const removeMealPlanAddon = (mealPlanID, optionID) => (dispatch) => {
 
     const res = deleteRequest(`admin/mealplan/remove/addon/${mealPlanID}/${optionID}`).then(response => {
         message.success('MealPlan Addon Deleted!');
+    }).catch(error => {
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
+    });
+}
+
+
+
+export const addMedia = (data) => (dispatch) => {
+    const res = postRequest('admin/mealplan/addMedia', data, fileFormconfig).then(response => {
+        dispatch({
+            type: GET_MEALPLAN,
+            payload: response.data
+        });
+        message.success('Media Added Done!')
+    }).catch(error => {
+        message.error(<div>{displayErrors(error.response.data)}</div>, 10);
+    });
+}
+
+export const removeMedia = (data) => (dispatch) => {
+    const res = postRequest('admin/mealplan/removeMedia', data).then(response => {
+        dispatch({
+            type: GET_MEALPLAN,
+            payload: response.data
+        });
+        message.success('Media Removed Done!')
     }).catch(error => {
         message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });

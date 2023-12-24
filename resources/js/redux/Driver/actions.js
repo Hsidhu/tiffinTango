@@ -1,6 +1,6 @@
 import { getRequest, postRequest, deleteRequest } from "../../config/axiosClient"
 import { message } from "antd"
-import { displayErrors } from "../../config/helpers"
+import { displayErrors, fileFormconfig } from "../../config/helpers"
 
 export const GET_DRIVERS = "GET_DRIVERS"
 export const CREATE_DRIVER = "CREATE_DRIVER"
@@ -9,11 +9,6 @@ export const UPDATE_DRIVER = "UPDATE_DRIVER"
 export const DELETE_DRIVER = "DELETE_DRIVER"
 export const GET_DRIVER_SELECT = "GET_DRIVER_SELECT"
 
-const FileFormconfig = {
-    headers: {
-        'content-type': 'multipart/form-data',
-    },
-};
 
 export const getDrivers = () => (dispatch) => {
     const res = getRequest('admin/drivers').then(response => {
@@ -103,7 +98,7 @@ export const deleteDriverZone=(deliveryWindowAndZoneId) => {
 
 
 export const addMedia = (data) => (dispatch) => {
-    const res = postRequest('admin/driver/addMedia', data, FileFormconfig).then(response => {
+    const res = postRequest('admin/driver/addMedia', data, fileFormconfig).then(response => {
         dispatch({
             type: GET_DRIVER,
             payload: response.data

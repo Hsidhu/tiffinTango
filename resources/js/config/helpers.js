@@ -1,5 +1,11 @@
 import { axiosConfig } from "./constants";
 
+export const fileFormconfig = {
+    headers: {
+        'content-type': 'multipart/form-data',
+    },
+};
+
 export const getBase64FileReader = (file) =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();

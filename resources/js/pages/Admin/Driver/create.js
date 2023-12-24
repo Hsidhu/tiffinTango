@@ -1,9 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {
-    Row, Col, Button, Divider,
-    Form
+    Divider, Form
 } from 'antd';
 import { createDriver } from '../../../redux/Driver/actions'
 import TableHeaderLink from '../../../components/tableHeaderLink';
@@ -34,7 +33,7 @@ const Create = ({ }) => {
                 backUri="/admin/drivers"
             />
             <Divider />
-            <DriverForm form={form} onFormChange={onFormChange}  onFormSubmit={onFormSubmit} hasId={false} />
+            <DriverForm form={form} onFormChange={onFormChange}  onFormSubmit={onFormSubmit} />
         </>
 
     );

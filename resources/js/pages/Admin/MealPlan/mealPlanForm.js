@@ -1,76 +1,16 @@
-import React, { useState, useRef } from 'react';
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react';
 import {
     Row, Col, Button,
     Form, Input, Select,
-    Switch, InputNumber, Upload
+    Switch, InputNumber
 } from 'antd';
-import MediaLibrary from '../../../components/containers/mediaLibrary';
+import FileUploadListView from '../../../components/fileUploadListView';
+import FileUpload from '../../../components/fileUpload';
+import { addMedia, removeMedia } from '../../../redux/MealPlan/actions';
 
 const { TextArea } = Input;
 
-const MealPlanForm = ({form, onFormChange, hasId, onFormSubmit }) => {
-
-    const [previewVisible, setPreviewVisible] = useState(false);
-    const [previewImage, setPreviewImage] = useState("");
-    const [fileList, setFileList] = useState([]);
-    const [mediaLibraryVisible, setMediaLibraryVisible] = useState(false);
-
-
-    const handleCancel = () => {
-        setPreviewVisible(false)
-    }
-    const handlePreview = (file) => {
-        setPreviewImage(file.thumbUrl)
-        setPreviewVisible(true)
-    };
-    const handleUpload = ({ fileList }) => {
-        // this is equivalent to your "const img = event.target.files[0]"
-        // here, antd is giving you an array of files, just like event.target.files
-        // but the structure is a bit different that the original file
-        // the original file is located at the `originFileObj` key of each of this files
-        // so `event.target.files[0]` is actually fileList[0].originFileObj
-        console.log('fileList', fileList);
-        // you store them in state, so that you can make a http req with them later
-        setFileList(fileList)
-    };
-
-    const handleRemove = (file) => {
-        // Handle the removal of the file from the fileList
-        const updatedFileList = fileList.filter((item) => item.uid !== file.uid);
-        setFileList(updatedFileList);
-    };
-
-     // Function to handle file selection from the media library
-    const handleMediaSelect = (mediaItem) => {
-        // You would translate your media item into the format expected by Ant Design's Upload component
-        const newFileList = [...fileList, {
-            uid: mediaItem.id, // Must be unique
-            name: mediaItem.name,
-            preview: mediaItem.file_url,
-            status: 'done',
-            url: mediaItem.file_url, // The URL to access the media item
-        }];
-
-        setFileList(newFileList);
-        setMediaLibraryVisible(false);
-        form.setFieldsValue({
-            mediaFileId: mediaItem.id
-        });
-    };
-
-    const handleUploadClick = (event) => {
-        event.preventDefault(); // This will prevent the default file dialog from opening
-        setMediaLibraryVisible(true);
-      };
-
-    const uploadButton = (
-        <div onClick={handleUploadClick}>
-            <PlusOutlined />
-            <div className="ant-upload-text">Upload</div>
-        </div>
-    );
+const MealPlanForm = ({form, onFormChange, mealplan, onFormSubmit }) => {
 
     return (
         <>
@@ -85,7 +25,7 @@ const MealPlanForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                 onFinish={onFormSubmit}
             >
                 {
-                    hasId &&
+                    mealplan &&
                     <Form.Item name="id" hidden>
                         <Input type="hidden" />
                     </Form.Item>
@@ -192,7 +132,7 @@ const MealPlanForm = ({form, onFormChange, hasId, onFormSubmit }) => {
 
                         <Form.Item
                             name={['quota']}
-                            label="quota"
+                            label="Quota"
                             rules={[
                                 {
                                     required: false
@@ -206,20 +146,17 @@ const MealPlanForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                             />
                         </Form.Item>
 
-                        <Form.Item label="Upload" name='image'>
-                            <Upload
-                                listType="picture-card"
-                                limit={1}
-                                fileList={fileList}
-                                onPreview={handlePreview}
-                                onChange={handleUpload}
-                                onRemove={handleRemove}
-                                openFileDialogOnClick={false}
-                                beforeUpload={() => { return false; }}
-                            >
-                                {uploadButton}
-                            </Upload>
-                        </Form.Item>
+                        {mealplan && 
+                            <Form.Item label="Upload image" name='image'>
+                                {
+                                    <FileUpload objectID={mealplan.id} type={'image'} buttonText={'Upload Image'} limiter={1} onAdd={addMedia} />
+                                }
+                                
+                                {mealplan?.media_info && (
+                                    <FileUploadListView fileListArray={[mealplan.media_info]} type="images" onRemove={removeMedia} objectID={mealplan.id} />
+                                )}
+                            </Form.Item>
+                        }
 
                         <Form.Item label="Status" name="status" valuePropName="checked">
                             <Switch />
@@ -237,10 +174,6 @@ const MealPlanForm = ({form, onFormChange, hasId, onFormSubmit }) => {
 
             </Form>
 
-            <MediaLibrary
-                openLibraryFlag={mediaLibraryVisible}
-                handleFileSelection={handleMediaSelect}
-            />
         </>
 
     );

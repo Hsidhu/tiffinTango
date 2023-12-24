@@ -5796,7 +5796,6 @@ var FileUpload = function FileUpload(_ref) {
     onAdd = _ref.onAdd;
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   var onChangeHandler = function onChangeHandler(file) {
-    console.log(file);
     var formData = new FormData();
     formData.append('id', objectID);
     formData.append(type, file.fileList[0].originFileObj);

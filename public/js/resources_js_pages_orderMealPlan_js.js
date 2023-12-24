@@ -12540,7 +12540,7 @@ var SelectedMealPlanView = function SelectedMealPlanView(_ref) {
     children: [!(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(selectedMealPlan) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
       preview: false,
       width: 200,
-      src: (0,_config_helpers__WEBPACK_IMPORTED_MODULE_1__.imageUrl)("images/".concat(selectedMealPlan.image))
+      src: selectedMealPlan.media_url
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
       preview: false,
       width: 200,

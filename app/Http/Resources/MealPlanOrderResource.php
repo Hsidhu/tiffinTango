@@ -23,7 +23,7 @@ class MealPlanOrderResource extends JsonResource
             'description' => $this->description,
             'short_description' => $this->short_description,
             'price' => $this->price,
-            'image' => $this->image,
+            'media_url' => $this->getFirstMediaUrl('mealPlanImage') ?? null,
             'mealPlanOptions' => MealPlanAddOnOrderResource::collection($this->addOns)
         ];
     }

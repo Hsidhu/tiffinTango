@@ -46,7 +46,7 @@ const Edit = ({ }) => {
     const items = [
         { 
             label: 'MealPlan', key: 'mealplan_edit',
-            children: <MealPlanForm form={form} onFormChange={onFormChange}  onFormSubmit={onFormSubmit} hasId={true} />
+            children: <MealPlanForm form={form} onFormChange={onFormChange}  onFormSubmit={onFormSubmit} mealplan={mealplan} />
         },
         { 
             label: 'Options', key: 'Options', 

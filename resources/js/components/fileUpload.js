@@ -10,7 +10,6 @@ const FileUpload = ({ objectID, type, buttonText = 'Upload', onAdd }) => {
     const dispatch = useDispatch();
 
     const onChangeHandler = (file) => {
-        console.log(file)
         const formData = new FormData();
         formData.append('id', objectID);
         formData.append(type, file.fileList[0].originFileObj);

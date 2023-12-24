@@ -46,6 +46,10 @@ Route::get('/mealplan/options/list', [App\Http\Controllers\Api\Admin\MealPlanCon
 Route::get('/mealplan/list', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'mealPlanOptionsList']);
 Route::delete('/mealplan/remove/addon/{mealPlanID}/{optionID}', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'removeMealPlanAddon']);
 
+
+Route::post('/mealplan/addMedia', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'addMedia']);
+Route::post('/mealplan/removeMedia', [App\Http\Controllers\Api\Admin\MealPlanController::class, 'removeMedia']);
+
 // Delivery Zones
 Route::get('/delivery_zones', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'index']);
 Route::post('/delivery_zone/create', [App\Http\Controllers\Api\Admin\DeliveryZoneController::class, 'create']);

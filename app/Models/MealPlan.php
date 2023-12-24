@@ -25,6 +25,11 @@ class MealPlan extends Model implements HasMedia
         "price" => 'float',
         "quota" => 'int',
     ];
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('mealPlanImage')->singleFile();
+    }
     
     public function addOns()
     {

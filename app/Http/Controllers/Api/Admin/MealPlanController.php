@@ -12,6 +12,7 @@ use App\Http\Resources\MealPlanOrderResource;
 use App\Models\MealPlanAddon;
 use Illuminate\Support\Facades\Storage;
 use App\Models\MediaFile;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class MealPlanController extends Controller
 {
@@ -116,9 +117,6 @@ class MealPlanController extends Controller
             'delivery_days' => ['required']
         ]);
 
-        //$fileName = $mealPlan->image;
-        //$this->addMediaToModel($mealPlan, $request->file('mediaFileId'));
-
         $mealPlan->update($request->only([
                 'name','description','short_description', 
                 'price', 'discount', 'delivery_days', 'quota', 'delivery_type', 'status'
@@ -165,6 +163,29 @@ class MealPlanController extends Controller
     {
         $mealPlans = MealPlan::where('status', MealPlan::ACTIVE)->get();
         return MealPlanOrderResource::collection($mealPlans)->collection;
+    }
+
+    public function addMedia(Request $request)
+    {
+        $mealPlan = MealPlan::find($request->id);
+
+        if ($request->hasFile('image')) {
+            $mealPlan->clearMediaCollection('mealPlanImage');
+            $mealPlan->addMediaFromRequest('image')->toMediaCollection('mealPlanImage');
+        }
+
+        return new MealPlanResource($mealPlan);
+    }
+
+    public function removeMedia(Request $request)
+    {
+        $mealPlan = MealPlan::find($request->id);
+        $this->validate($request, [
+            'media_id' => 'required',
+        ]);
+        Media::findOrFail($request->media_id)->delete();
+
+        return new MealPlanResource($mealPlan);
     }
 
 

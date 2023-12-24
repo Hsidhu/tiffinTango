@@ -5796,7 +5796,6 @@ var FileUpload = function FileUpload(_ref) {
     onAdd = _ref.onAdd;
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   var onChangeHandler = function onChangeHandler(file) {
-    console.log(file);
     var formData = new FormData();
     formData.append('id', objectID);
     formData.append(type, file.fileList[0].originFileObj);
@@ -6395,8 +6394,7 @@ var Create = function Create(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_DriverForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
       form: form,
       onFormChange: onFormChange,
-      onFormSubmit: onFormSubmit,
-      hasId: false
+      onFormSubmit: onFormSubmit
     })]
   });
 };

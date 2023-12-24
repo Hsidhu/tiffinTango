@@ -14,7 +14,7 @@ const SelectedMealPlanView = ({selectedMealPlan}) => {
                     <Image
                         preview={false}
                         width={200}
-                        src={imageUrl(`images/${selectedMealPlan.image}`)}
+                        src={selectedMealPlan.media_url}
                     /> 
                     : 
                     <Image
