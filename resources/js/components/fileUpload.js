@@ -26,7 +26,7 @@ const FileUpload = ({ objectID, type, buttonText = 'Upload', onAdd }) => {
                 onChange={onChangeHandler}
                 customRequest={({ onSuccess }) => onSuccess('ok')}
             >
-                <Button icon={<UploadOutlined />}>Upload Document</Button>
+                <Button icon={<UploadOutlined />}>{buttonText}</Button>
             </Upload>
         </>
     )

@@ -26,7 +26,7 @@ class Driver extends Authenticatable implements HasMedia
     {
         $this->addMediaCollection('driverAvatars')->singleFile();
         $this->addMediaCollection('documents')
-            ->useDisk('media') // Specify the disk to use for storing documents
+            //->useDisk('media') // Specify the disk to use for storing documents
             ->acceptsFile(function ($file) {
                 return in_array($file->mimeType, ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']);
             });
