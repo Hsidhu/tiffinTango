@@ -2865,7 +2865,7 @@ var LocationForm = function LocationForm(_ref) {
       apiKey: _config_constants__WEBPACK_IMPORTED_MODULE_3__.GOOGLE_API_KEY,
       options: {
         componentRestrictions: {
-          country: ["us", "ca"]
+          country: ["ca"]
         },
         fields: ["address_components", "geometry"],
         types: ["address"]
@@ -2975,7 +2975,12 @@ var LocationForm = function LocationForm(_ref) {
     onFinish: onFormSubmit,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
-        span: 12,
+        xs: {
+          span: 24
+        },
+        md: {
+          span: 12
+        },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"].Item, {
           label: "Name",
           name: "name",
@@ -3020,7 +3025,12 @@ var LocationForm = function LocationForm(_ref) {
           })
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
-        span: 12,
+        xs: {
+          span: 24
+        },
+        md: {
+          span: 12
+        },
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"].Item, {
           label: "Search Address",
           name: "search_address",
@@ -3094,7 +3104,12 @@ var LocationForm = function LocationForm(_ref) {
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_8__["default"], {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_9__["default"], {
-        span: 12,
+        xs: {
+          span: 24
+        },
+        md: {
+          span: 12
+        },
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(antd__WEBPACK_IMPORTED_MODULE_7__["default"].Item, {
           wrapperCol: {
             offset: 4,

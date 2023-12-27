@@ -34,7 +34,13 @@ const MealPlanForm = ({form, onFormChange, mealplan, onFormSubmit }) => {
                     <Input type="hidden" />
                 </Form.Item>
                 <Row>
-                    <Col span={12}>
+                    <Col xs = {{
+                            span:24,
+                        }}
+                        md = {{
+                            span:12
+                        }}
+                        >
                         <Form.Item label="Name" name="name"
                             rules={[
                                 {
@@ -94,8 +100,13 @@ const MealPlanForm = ({form, onFormChange, mealplan, onFormSubmit }) => {
                         </Form.Item>
 
                     </Col>
-                    <Col span={12}>
-
+                    <Col xs = {{
+                            span:24,
+                        }}
+                        md = {{
+                            span:12
+                        }}
+                    >
                         <Form.Item label="Delivery Plan" name="delivery_days"
                             rules={[{
                                 required: true

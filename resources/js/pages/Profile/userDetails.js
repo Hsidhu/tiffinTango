@@ -14,11 +14,11 @@ const UserDetails = ({}) => {
     return (
         <>
             <Descriptions title="User Info" layout="vertical">
-                <Descriptions.Item label="UserName">{authenticateReducer.name}</Descriptions.Item>
+                <Descriptions.Item label="User name">{authenticateReducer.name}</Descriptions.Item>
                 <Descriptions.Item label="Email">{authenticateReducer.email}</Descriptions.Item>
-                <Descriptions.Item label="Telephone">{authenticateReducer?.phone}</Descriptions.Item>
-                <Descriptions.Item label="Address" span={2}>
-                        No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
+                <Descriptions.Item label="Phone">{authenticateReducer?.phone}</Descriptions.Item>
+                <Descriptions.Item label="Info" span={2}>
+                        
                 </Descriptions.Item>
             </Descriptions>
         </>

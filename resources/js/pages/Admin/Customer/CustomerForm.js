@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
 import {
     Row, Col, Button, 
     Form, Input, Switch
@@ -10,10 +9,8 @@ import { GOOGLE_API_KEY } from '../../../config/constants';
 import { phonePattern } from '../../../validationHelper'
 
 const CustomerForm = ({form, onFormChange, hasId, onFormSubmit }) => {
-    const history = useHistory()
 
     const antInputRef = useRef(null);
-
     
     const { ref: antRef } = usePlacesWidget({
         apiKey: GOOGLE_API_KEY,
@@ -96,7 +93,13 @@ const CustomerForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                 style={{}}
             >
                 <Row>
-                    <Col span={12}>
+                    <Col xs = {{
+                            span:24,
+                        }}
+                        md = {{
+                            span:12
+                        }}
+                        >
                         <Form.Item label="First Name" name="first_name"
                             rules={[
                                 {
@@ -143,7 +146,13 @@ const CustomerForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                         </Form.Item>
 
                     </Col>
-                    <Col span={12}>
+                    <Col xs = {{
+                            span:24,
+                        }}
+                        md = {{
+                            span:12
+                        }}
+                    >
 
                         <Form.Item label="Search Address" name="search_address" labelWrap>
                             <Input
@@ -212,7 +221,12 @@ const CustomerForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                 </Row>
 
                 <Row>
-                    <Col span={12}>
+                    <Col xs = {{
+                            span:24,
+                        }}
+                        md = {{
+                            span:12
+                        }}>
                         <Form.Item wrapperCol={{ offset: 4, span: 16 }}>
                             <Button type="primary" htmlType="submit">Submit</Button>
                         </Form.Item>

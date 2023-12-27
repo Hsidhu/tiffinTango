@@ -93,7 +93,12 @@ const DriverForm = ({form, onFormChange, driver, onFormSubmit }) => {
                 onFinish={handleFormSubmission}
             >
                 <Row>
-                    <Col span={12}>
+                    <Col xs = {{
+                            span:24,
+                        }}
+                        md = {{
+                            span:12
+                        }}>
                         <Form.Item label="First Name" name="first_name"
                             rules={[
                                 {
@@ -147,7 +152,12 @@ const DriverForm = ({form, onFormChange, driver, onFormSubmit }) => {
 
                     </Col>
 
-                    <Col span={12}>
+                    <Col xs = {{
+                            span:24,
+                        }}
+                        md = {{
+                            span:12
+                        }}>
                         <Form.Item label="Search Address" name="search_address" labelWrap>
                             <Input
                                 ref={(c) => {
@@ -236,7 +246,12 @@ const DriverForm = ({form, onFormChange, driver, onFormSubmit }) => {
                 </Row>
 
                 <Row>
-                    <Col span={12}>
+                    <Col xs = {{
+                            span:24,
+                        }}
+                        md = {{
+                            span:12
+                        }}>
                         <Form.Item wrapperCol={{ offset: 4, span: 16 }}>
                             <Button type="primary" htmlType="submit">Submit</Button>
                         </Form.Item>

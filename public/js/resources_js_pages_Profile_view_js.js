@@ -3402,18 +3402,17 @@ var UserDetails = function UserDetails(_ref) {
       title: "User Info",
       layout: "vertical",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"].Item, {
-        label: "UserName",
+        label: "User name",
         children: authenticateReducer.name
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"].Item, {
         label: "Email",
         children: authenticateReducer.email
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"].Item, {
-        label: "Telephone",
+        label: "Phone",
         children: authenticateReducer === null || authenticateReducer === void 0 ? void 0 : authenticateReducer.phone
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"].Item, {
-        label: "Address",
-        span: 2,
-        children: "No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China"
+        label: "Info",
+        span: 2
       })]
     })
   });

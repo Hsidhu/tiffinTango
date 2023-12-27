@@ -6,9 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\MealPlanOrder;
 use App\Models\OrderStatus;
 use App\Models\PickedUpMealPlanLog;
-use App\Models\DailyDeliveryMealPlanLog;
 use App\Http\Resources\Admin\OrderResource;
-use Carbon\Carbon;
 use App\Services\CloneMealPlanOrder;
 
 class OrderController extends Controller
@@ -59,28 +57,6 @@ class OrderController extends Controller
             'qty' => $request->get('qty') ?? 1
         ]);
         return response()->json($picked);
-    }
-
-    public function delivered(Request $request)
-    {
-        $order = MealPlanOrder::find($request->order_id);
-        $dailyDeliveryId = DailyDeliveryMealPlanLog::where([
-            'id' => $request->id,
-            'order_id' => $order->id,
-            'customer_id' => $order->customer_id,
-            'driver_id' => $request->get('driver_id'),
-        ])->update([
-            'lat' => $request->get('lat'),
-            'lng' => $request->get('lng'),
-            'comment' => $request->get('comment'),
-            'image' =>'image'
-        ]);
-
-        $deliveryModel = DailyDeliveryMealPlanLog::find($dailyDeliveryId);
-        // // addMediaFromRequest
-        $deliveryModel->addMedia($request->file('image'))->toMediaCollection();
-
-        return response()->json($deliveryModel);
     }
 
     public function cloneOrder($id)

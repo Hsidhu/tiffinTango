@@ -12544,7 +12544,7 @@ var SelectedMealPlanView = function SelectedMealPlanView(_ref) {
     }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(antd__WEBPACK_IMPORTED_MODULE_4__["default"], {
       preview: false,
       width: 200,
-      src: (0,_config_helpers__WEBPACK_IMPORTED_MODULE_1__.imageUrl)("images/site/tiffin_shape.jpeg")
+      src: (0,_config_helpers__WEBPACK_IMPORTED_MODULE_1__.imageUrl)("images/site/feature_one.jpeg")
     }), !(0,lodash__WEBPACK_IMPORTED_MODULE_2__.isEmpty)(selectedMealPlan) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_5__["default"], {
       title: "Selected Meal Plan Description",
       bordered: true,

@@ -69,7 +69,6 @@ Route::get('/order/statuses', [App\Http\Controllers\Api\Admin\OrderStatusControl
 Route::post('/order/updates', [App\Http\Controllers\Api\Admin\OrderController::class, 'orderUpdates']);
 
 Route::post('/order/picked', [App\Http\Controllers\Api\Admin\OrderController::class, 'picked']);
-Route::post('/order/delivered', [App\Http\Controllers\Api\Admin\OrderController::class, 'delivered']);
 
 Route::get('/order/dailyDeliveries', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'index']);
 Route::post('/order/generateDailyDeliveries', [App\Http\Controllers\Api\Admin\DailyDeliveryController::class,'generateDailyDeliveries']);

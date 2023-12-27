@@ -50,6 +50,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapAdminRoutes();
         $this->mapCustomerRoutes();
+        $this->mapDriverRoutes();
     }
 
     /**
@@ -80,5 +81,14 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('auth:sanctum')
             ->namespace($this->namespace)
             ->group(base_path('routes/customerApi.php'));
+    }
+
+    protected function mapDriverRoutes()
+    {
+        Route::prefix('api/driver')
+            ->middleware('api')
+            ->middleware('auth:sanctum')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/driverApi.php'));
     }
 }

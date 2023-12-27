@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    Row, Col,
     Image, Descriptions
 } from 'antd';
 import {imageUrl} from '../../config/helpers'
@@ -20,7 +21,7 @@ const SelectedMealPlanView = ({selectedMealPlan}) => {
                     <Image
                         preview={false}
                         width={200}
-                        src={imageUrl(`images/site/tiffin_shape.jpeg`)}
+                        src={imageUrl(`images/site/feature_one.jpeg`)}
                     /> 
             }
             {

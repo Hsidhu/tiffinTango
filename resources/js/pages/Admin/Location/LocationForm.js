@@ -20,7 +20,7 @@ const LocationForm = ({form, onFormChange, hasId, onFormSubmit }) => {
     const { ref: antRef } = usePlacesWidget({
         apiKey: GOOGLE_API_KEY,
         options: {
-            componentRestrictions: { country: ["us", "ca"] },
+            componentRestrictions: { country: ["ca"] },
             fields: ["address_components", "geometry"],
             types: ["address"]
         },
@@ -100,7 +100,13 @@ const LocationForm = ({form, onFormChange, hasId, onFormSubmit }) => {
             onFinish={onFormSubmit}
         >
             <Row>
-                <Col span={12}>
+                <Col xs = {{
+                        span:24,
+                    }}
+                    md = {{
+                        span:12
+                    }}
+                    >
                     <Form.Item label="Name" name="name"
                         rules={[
                             {
@@ -145,7 +151,12 @@ const LocationForm = ({form, onFormChange, hasId, onFormSubmit }) => {
                     </Form.Item>
 
                 </Col>
-                <Col span={12}>
+                <Col xs = {{
+                        span:24,
+                    }}
+                    md = {{
+                        span:12
+                    }}>
 
                     <Form.Item label="Search Address" name="search_address" labelWrap>
                         <Input
@@ -206,7 +217,12 @@ const LocationForm = ({form, onFormChange, hasId, onFormSubmit }) => {
             </Row>
 
             <Row>
-                <Col span={12}>
+                <Col xs = {{
+                        span:24,
+                    }}
+                    md = {{
+                        span:12
+                    }}>
                     <Form.Item wrapperCol={{ offset: 4, span: 18 }}>
                         <Button type="primary" htmlType="submit">Submit</Button>
                     </Form.Item>

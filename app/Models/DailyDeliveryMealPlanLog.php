@@ -21,6 +21,11 @@ class DailyDeliveryMealPlanLog extends Model implements HasMedia
         'updated_at' => 'datetime',
     ];
 
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('deliveryProof')->singleFile();
+    }
+
     public function order()
     {
         return $this->belongsTo(\App\Models\MealPlanOrder::class, 'order_id');
