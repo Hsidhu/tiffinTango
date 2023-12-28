@@ -6358,7 +6358,10 @@ var Order = function Order(_ref) {
   }, {
     key: 'order_type',
     title: 'Order Type',
-    dataIndex: 'order_type'
+    dataIndex: 'order_type',
+    sorter: function sorter(a, b) {
+      return a.order_type.length - b.order_type.length;
+    }
   }, {
     key: 'status',
     title: 'Status',

@@ -47,6 +47,7 @@ const Order = ({ }) => {
             key: 'order_type',
             title: 'Order Type',
             dataIndex: 'order_type',
+            sorter: (a, b) => a.order_type.length - b.order_type.length,
         },
         {
             key: 'status',
