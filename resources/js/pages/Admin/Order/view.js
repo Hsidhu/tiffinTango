@@ -17,6 +17,7 @@ import { GOOGLE_API_KEY } from '../../../config/constants';
 import OrderStatus from '../../../components/containers/orderStatus';
 import OrderDateChange from '../../../components/containers/orderDateChange'
 import OrderUpdateComment from '../../../components/containers/orderUpdateComment';
+import OrderDeliveryWindowUpdate from '../../../components/containers/orderDeliveryWindowUpdate';
 
 import PickupOrder from './PickupOrder';
 import DailyDeliveryTable from '../../../components/dailyDeliveryTable';
@@ -25,6 +26,8 @@ import AssignZoneToAddress from '../../../components/containers/assignZoneToAddr
 
 
 const { Title } = Typography;
+
+// view delivery window change update
 
 const View = ({ }) => {
     const history = useHistory()
@@ -206,6 +209,14 @@ const View = ({ }) => {
                         <Descriptions.Item label="Status">
                             <OrderStatus key={'status_id'} order_id={order.id} statusID={order?.order_status_id} />
                         </Descriptions.Item>
+                        {
+                            order.order_type != 'pickup' ?
+                            <Descriptions.Item label="Delivery Window">
+                                <OrderDeliveryWindowUpdate key={'delivery_window_id'} order_id={order.id} deliveryWindowId={order?.delivery_window_id} />
+                            </Descriptions.Item>
+                            : null
+                        }
+                        
                     </Descriptions>
                 </Col>
             </Row>

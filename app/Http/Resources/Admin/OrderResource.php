@@ -63,6 +63,7 @@ class OrderResource extends JsonResource
             'comment' => $this->comment,
             'delivery_comment' => $this->delivery_comment,
             'payment_processed'=> $this->payment_processed,
+            'delivery_window_id' => $this->delivery_window_id,
             'items' => OrderItemResource::collection($this->items),
             'totals' => OrderTotalResource::collection($this->totals),
             'deliveries' => DailyDeliveryMealPlanLogResouce::collection($this->deliveries),

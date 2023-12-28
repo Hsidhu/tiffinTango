@@ -1692,6 +1692,7 @@ var StickerView = function StickerView(_ref) {
     children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(antd__WEBPACK_IMPORTED_MODULE_12__["default"], {
       tip: "Loading..."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(antd__WEBPACK_IMPORTED_MODULE_13__["default"], {
+      gutter: 16,
       className: "sticker_page_header",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(antd__WEBPACK_IMPORTED_MODULE_14__["default"], {
         span: 18,
@@ -1718,7 +1719,16 @@ var StickerView = function StickerView(_ref) {
             type: 'primary',
             onClick: fetchStickers,
             children: "Fetch Stickers"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(antd__WEBPACK_IMPORTED_MODULE_17__["default"], {
+          })]
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(antd__WEBPACK_IMPORTED_MODULE_13__["default"], {
+      gutter: 16,
+      className: "sticker_page_header",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(antd__WEBPACK_IMPORTED_MODULE_14__["default"], {
+        span: 18,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_15__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(antd__WEBPACK_IMPORTED_MODULE_17__["default"], {
             type: 'primary',
             onClick: handleOptimizeRoute,
             children: "Optimize Route"

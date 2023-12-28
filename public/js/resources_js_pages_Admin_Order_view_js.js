@@ -12354,6 +12354,37 @@ function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("
 
 /***/ }),
 
+/***/ "./resources/js/components/containers/orderDeliveryWindowUpdate.js":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/containers/orderDeliveryWindowUpdate.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _orderDeliveryWindowUpdate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../orderDeliveryWindowUpdate */ "./resources/js/components/orderDeliveryWindowUpdate.js");
+/* harmony import */ var _redux_Common_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../redux/Common/actions */ "./resources/js/redux/Common/actions.js");
+/* harmony import */ var _redux_Order_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../redux/Order/actions */ "./resources/js/redux/Order/actions.js");
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_0__.connect)(function (_ref) {
+  var deliveryWindows = _ref.deliveryWindows;
+  return {
+    deliveryWindows: deliveryWindows
+  };
+}, {
+  getDeliveryWindowsList: _redux_Common_actions__WEBPACK_IMPORTED_MODULE_2__.getDeliveryWindowsList,
+  updateOrderStatus: _redux_Order_actions__WEBPACK_IMPORTED_MODULE_3__.updateOrderStatus
+})(_orderDeliveryWindowUpdate__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
 /***/ "./resources/js/components/containers/orderStatus.js":
 /*!***********************************************************!*\
   !*** ./resources/js/components/containers/orderStatus.js ***!
@@ -12550,6 +12581,66 @@ var OrderDateChange = function OrderDateChange(_ref) {
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OrderDateChange);
+
+/***/ }),
+
+/***/ "./resources/js/components/orderDeliveryWindowUpdate.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/orderDeliveryWindowUpdate.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/select/index.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var OrderDeliveryWindowUpdate = function OrderDeliveryWindowUpdate(_ref) {
+  var order_id = _ref.order_id,
+    deliveryWindowId = _ref.deliveryWindowId,
+    _ref$disabled = _ref.disabled,
+    disabled = _ref$disabled === void 0 ? false : _ref$disabled,
+    deliveryWindows = _ref.deliveryWindows,
+    getDeliveryWindowsList = _ref.getDeliveryWindowsList,
+    updateOrderStatus = _ref.updateOrderStatus;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    getDeliveryWindowsList();
+  }, []);
+  if ((0,lodash__WEBPACK_IMPORTED_MODULE_1__.isEmpty)(deliveryWindows)) {
+    return null;
+  }
+  var update = function update(value) {
+    updateOrderStatus({
+      id: order_id,
+      delivery_window_id: value
+    });
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(antd__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      disabled: disabled,
+      size: 'large',
+      defaultValue: deliveryWindowId,
+      style: {
+        width: 120
+      },
+      bordered: false,
+      options: deliveryWindows,
+      onChange: update
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OrderDeliveryWindowUpdate);
 
 /***/ }),
 
@@ -12948,19 +13039,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/typography/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/button/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/descriptions/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/divider/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/row/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/col/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/card/index.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/table/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/typography/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/button/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/descriptions/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/divider/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/row/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/col/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/card/index.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! antd */ "./node_modules/antd/es/table/index.js");
 /* harmony import */ var _redux_Order_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../redux/Order/actions */ "./resources/js/redux/Order/actions.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
@@ -12970,10 +13061,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_containers_orderStatus__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../components/containers/orderStatus */ "./resources/js/components/containers/orderStatus.js");
 /* harmony import */ var _components_containers_orderDateChange__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../components/containers/orderDateChange */ "./resources/js/components/containers/orderDateChange.js");
 /* harmony import */ var _components_containers_orderUpdateComment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../components/containers/orderUpdateComment */ "./resources/js/components/containers/orderUpdateComment.js");
-/* harmony import */ var _PickupOrder__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./PickupOrder */ "./resources/js/pages/Admin/Order/PickupOrder.js");
-/* harmony import */ var _components_dailyDeliveryTable__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../components/dailyDeliveryTable */ "./resources/js/components/dailyDeliveryTable.js");
-/* harmony import */ var _components_containers_assignZoneToAddress__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../components/containers/assignZoneToAddress */ "./resources/js/components/containers/assignZoneToAddress.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_containers_orderDeliveryWindowUpdate__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../components/containers/orderDeliveryWindowUpdate */ "./resources/js/components/containers/orderDeliveryWindowUpdate.js");
+/* harmony import */ var _PickupOrder__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./PickupOrder */ "./resources/js/pages/Admin/Order/PickupOrder.js");
+/* harmony import */ var _components_dailyDeliveryTable__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../../components/dailyDeliveryTable */ "./resources/js/components/dailyDeliveryTable.js");
+/* harmony import */ var _components_containers_assignZoneToAddress__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../components/containers/assignZoneToAddress */ "./resources/js/components/containers/assignZoneToAddress.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -13000,12 +13092,16 @@ function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("
 
 
 
-var Title = antd__WEBPACK_IMPORTED_MODULE_15__["default"].Title;
+
+var Title = antd__WEBPACK_IMPORTED_MODULE_16__["default"].Title;
+
+// view delivery window change update
+
 var View = function View(_ref) {
   var _order$items, _order$totals;
   _objectDestructuringEmpty(_ref);
-  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_16__.useHistory)();
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_16__.useParams)(),
+  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_17__.useHistory)();
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_17__.useParams)(),
     id = _useParams.id;
   var _useSelector = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
       return state;
@@ -13076,20 +13172,20 @@ var View = function View(_ref) {
     },
     render: function render(text, record) {
       var _record$options;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("b", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)("b", {
           children: record.name
-        }), !(0,lodash__WEBPACK_IMPORTED_MODULE_4__.isEmpty)(record.options) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("ul", {
+        }), !(0,lodash__WEBPACK_IMPORTED_MODULE_4__.isEmpty)(record.options) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)("ul", {
           className: "list-unstyled mb-0 mt-2",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("li", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("u", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)("li", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)("u", {
               className: "text-muted",
               children: "Options:"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("ul", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)("ul", {
               className: "list-unstyled",
               children: (_record$options = record.options) === null || _record$options === void 0 ? void 0 : _record$options.map(function (option, index) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("li", {
-                  children: [option.option_name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("br", {}), option.value_name, " - $", option.value_price.toFixed(2)]
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)("li", {
+                  children: [option.option_name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)("br", {}), option.value_name, " - $", option.value_price.toFixed(2)]
                 }, index);
               })
             })]
@@ -13109,7 +13205,7 @@ var View = function View(_ref) {
     key: 'subtotal',
     className: 'text-right',
     render: function render(text, record) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("b", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)("b", {
         children: ["$", record.subtotal]
       });
     }
@@ -13135,46 +13231,46 @@ var View = function View(_ref) {
     };
   });
   invoiceData.push.apply(invoiceData, _toConsumableArray(totals));
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_tableHeaderLink__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_tableHeaderLink__WEBPACK_IMPORTED_MODULE_5__["default"], {
       name: "View Order",
       subTitle: "Order Detail",
       backUri: "/admin/orders",
-      HeaderButtons: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Link, {
+      HeaderButtons: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Link, {
         to: "/admin/customer/edit/".concat(order.customer_id),
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_18__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_19__["default"], {
           children: "Edit Customer"
         })
-      }, 'customer'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_18__["default"], {
+      }, 'customer'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_19__["default"], {
         type: "dashed",
         danger: true,
         onClick: createNewOrder,
         children: "Clone Order"
-      }, 'createNewOrder'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_17__.Link, {
+      }, 'createNewOrder'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Link, {
         to: "/admin/order/generateDeliveries",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_18__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_19__["default"], {
           type: "primary",
           children: "Generate Deliveries"
         })
       }, 'generate_deliveries')],
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_19__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_20__["default"], {
         size: "small",
         column: 3,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_19__["default"].Item, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_20__["default"].Item, {
           label: "OrderID",
           children: order === null || order === void 0 ? void 0 : order.id
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_19__["default"].Item, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_20__["default"].Item, {
           label: "Creation At",
           children: order === null || order === void 0 ? void 0 : order.created_at
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_19__["default"].Item, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_20__["default"].Item, {
           label: "Last Updated at ",
           children: order === null || order === void 0 ? void 0 : order.updated_at
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_20__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_21__["default"], {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_22__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_21__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_22__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_23__["default"], {
         span: 24,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_19__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_20__["default"], {
           title: "",
           bordered: true,
           layout: "vertical",
@@ -13185,42 +13281,48 @@ var View = function View(_ref) {
           contentStyle: {
             fontSize: "20px"
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_19__["default"].Item, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_20__["default"].Item, {
             label: "Order Type",
             children: order === null || order === void 0 ? void 0 : order.order_type
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_19__["default"].Item, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_20__["default"].Item, {
             label: "Start Date",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_containers_orderDateChange__WEBPACK_IMPORTED_MODULE_9__["default"], {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_containers_orderDateChange__WEBPACK_IMPORTED_MODULE_9__["default"], {
               order_id: order.id,
               field: 'start_date',
               defaultDate: order.start_date
             }, 'start_date')
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_19__["default"].Item, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_20__["default"].Item, {
             label: "End Date",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_containers_orderDateChange__WEBPACK_IMPORTED_MODULE_9__["default"], {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_containers_orderDateChange__WEBPACK_IMPORTED_MODULE_9__["default"], {
               order_id: order.id,
               field: 'end_date',
               defaultDate: order.end_date
             }, 'end_date')
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_19__["default"].Item, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_20__["default"].Item, {
             label: "Status",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_containers_orderStatus__WEBPACK_IMPORTED_MODULE_8__["default"], {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_containers_orderStatus__WEBPACK_IMPORTED_MODULE_8__["default"], {
               order_id: order.id,
               statusID: order === null || order === void 0 ? void 0 : order.order_status_id
             }, 'status_id')
-          })]
+          }), order.order_type != 'pickup' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_20__["default"].Item, {
+            label: "Delivery Window",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_containers_orderDeliveryWindowUpdate__WEBPACK_IMPORTED_MODULE_11__["default"], {
+              order_id: order.id,
+              deliveryWindowId: order === null || order === void 0 ? void 0 : order.delivery_window_id
+            }, 'delivery_window_id')
+          }) : null]
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_21__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_22__["default"], {
       gutter: 12,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_22__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_23__["default"], {
         span: 18,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_23__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_24__["default"], {
           title: "Order Detail",
-          extra: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("span", {
+          extra: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)("span", {
             children: "extra"
           }),
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_24__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_25__["default"], {
             columns: columns2,
             dataSource: invoiceData,
             pagination: false,
@@ -13228,45 +13330,45 @@ var View = function View(_ref) {
             className: "mb-0" // Add any additional styling classes here
           })]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_22__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_23__["default"], {
         span: 6,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_23__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_24__["default"], {
           title: "Customer details",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("p", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)("p", {
             children: ["Name: ", order.customer_name]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)("p", {
             children: ["Email: ", order.email]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)("p", {
             children: ["Phone: ", order.phone]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)("p", {
             children: ["Start Date: ", moment__WEBPACK_IMPORTED_MODULE_2___default()(order.start_date, 'YYYY-MM-DD').format('DD-MM-YYYY')]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)("p", {
             children: ["End Date: ", moment__WEBPACK_IMPORTED_MODULE_2___default()(order.end_date, 'YYYY-MM-DD').format('DD-MM-YYYY')]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)("p", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)("p", {
             children: ["Created Date: ", moment__WEBPACK_IMPORTED_MODULE_2___default()(order.created_at, 'YYYY-MM-DD').format('DD-MM-YYYY')]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_containers_orderUpdateComment__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_containers_orderUpdateComment__WEBPACK_IMPORTED_MODULE_10__["default"], {
           order_id: order.id,
           label: "Comment:",
           field: 'comment',
           value: order.comment
-        }, 'comment'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_containers_orderUpdateComment__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        }, 'comment'), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_containers_orderUpdateComment__WEBPACK_IMPORTED_MODULE_10__["default"], {
           order_id: order.id,
           label: "Delivery Comment:",
           field: 'delivery_comment',
           value: order.delivery_comment
         }, 'delivery_comment')]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_20__["default"], {}), order.order_type == 'pickup' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_PickupOrder__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_21__["default"], {}), order.order_type == 'pickup' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_PickupOrder__WEBPACK_IMPORTED_MODULE_12__["default"], {
       order_id: order.id,
       customer_id: order.customer_id,
       pickups: order.pickups,
       pickupQuota: pickupQuota
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_21__["default"], {
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(antd__WEBPACK_IMPORTED_MODULE_22__["default"], {
       gutter: 6,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_22__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_23__["default"], {
         span: 16,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(google_map_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(google_map_react__WEBPACK_IMPORTED_MODULE_6__["default"], {
           style: {
             height: '500px'
           },
@@ -13287,15 +13389,15 @@ var View = function View(_ref) {
             handleApiLoaded(map, maps);
           }
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_22__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_23__["default"], {
         span: 6,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_containers_assignZoneToAddress__WEBPACK_IMPORTED_MODULE_13__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_containers_assignZoneToAddress__WEBPACK_IMPORTED_MODULE_14__["default"], {
           address_id: order.address_id,
           delivery_zone_id: order.address_delivery_zone_id
         })
       })]
-    }), order.order_type == 'pickup' ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(antd__WEBPACK_IMPORTED_MODULE_20__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_14__.jsx)(_components_dailyDeliveryTable__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    }), order.order_type == 'pickup' ? null : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(antd__WEBPACK_IMPORTED_MODULE_21__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_15__.jsx)(_components_dailyDeliveryTable__WEBPACK_IMPORTED_MODULE_13__["default"], {
         dailyDeliveryLogs: order.deliveries
       })]
     })]

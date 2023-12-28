@@ -15,6 +15,10 @@ export const getMealPlans = () => (dispatch) => {
             type: GET_MEALPLANS,
             payload: response.data
         });
+        dispatch({
+            type: GET_MEALPLAN,
+            payload: {}
+        });
     });
 }
 

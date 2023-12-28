@@ -13,7 +13,9 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = MealPlanOrder::get();
+        $orders = MealPlanOrder::whereDoesntHave('status', function ($query) {
+            $query->where('name', 'canceled');
+        })->get();
         return OrderResource::collection($orders->map(function ($order)  {
             return new OrderResource($order, false);
         }));

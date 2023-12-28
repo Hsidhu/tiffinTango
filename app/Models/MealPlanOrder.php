@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Request;
 use Carbon\Carbon;
 
+// add soft delete
+
 class MealPlanOrder extends Model
 {
     use HasFactory;

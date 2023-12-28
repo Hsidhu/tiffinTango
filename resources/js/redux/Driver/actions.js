@@ -16,6 +16,11 @@ export const getDrivers = () => (dispatch) => {
             type: GET_DRIVERS,
             payload: response.data
         });
+
+        dispatch({
+            type: GET_DRIVER,
+            payload: {}
+        });
         message.success('Fetch Drivers!')
     }).catch(error => {
         message.error("Couldn't get Drivers!")

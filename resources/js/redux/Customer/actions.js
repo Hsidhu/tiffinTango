@@ -14,6 +14,10 @@ export const getCustomers = () => (dispatch) => {
             type: GET_CUSTOMERS,
             payload: response.data
         });
+        dispatch({
+            type: GET_CUSTOMER,
+            payload: {}
+        });
     });
 }
 

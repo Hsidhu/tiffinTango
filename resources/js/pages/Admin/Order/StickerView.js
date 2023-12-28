@@ -127,9 +127,9 @@ const StickerView = ({}) => {
     return (
         <>
             {loading && <Spin tip="Loading..." />}
-            <Row className='sticker_page_header'>
+            <Row gutter={16} className='sticker_page_header'>
                 <Col span={18}>
-                <Space>
+                    <Space>
                         {!isEmpty(deliveryWindows) ?
                             <Select
                                 placeholder="Select Delivery Zone"
@@ -160,6 +160,14 @@ const StickerView = ({}) => {
                             Fetch Stickers
                         </Button>
 
+                    </Space>
+                </Col>
+            </Row>
+            <br/>
+            <Row gutter={16} className='sticker_page_header'>
+                <Col span={18}>
+                    <Space>
+                        
                         <Button type={'primary'} onClick={handleOptimizeRoute}>
                             Optimize Route
                         </Button>

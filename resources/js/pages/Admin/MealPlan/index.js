@@ -51,6 +51,7 @@ const MealPan = ({ }) => {
             title: 'Delivery type',
             dataIndex: 'delivery_type',
             key: 'delivery_type',
+            sorter: (a, b) => a.delivery_type.length - b.delivery_type.length
         },
         { 
             title: 'price',

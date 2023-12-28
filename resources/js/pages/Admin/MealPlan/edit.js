@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
-    Row, Col, Tabs, Typography, Divider, Form
+    Row, Col, Tabs, Divider, Form, Button
 } from 'antd';
 import { mapSwitchValue } from '../../../config/helpers'
 import { getMealPlan, updateMealPlan } from '../../../redux/MealPlan/actions';
@@ -59,6 +59,11 @@ const Edit = ({ }) => {
             <TableHeaderLink
                 name="Edit MealPlan"
                 backUri="/admin/mealplans"
+                HeaderButtons = {[
+                    <Link key={'create_options'} to="/admin/mealplan/createOptions">
+                        <Button key="create_options" type='primary'>Create Options</Button>
+                    </Link>
+                ]}
             />
             <Divider />
             <Row>

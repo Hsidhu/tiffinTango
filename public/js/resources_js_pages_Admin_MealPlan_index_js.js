@@ -7284,7 +7284,10 @@ var MealPan = function MealPan(_ref) {
   }, {
     title: 'Delivery type',
     dataIndex: 'delivery_type',
-    key: 'delivery_type'
+    key: 'delivery_type',
+    sorter: function sorter(a, b) {
+      return a.delivery_type.length - b.delivery_type.length;
+    }
   }, {
     title: 'price',
     dataIndex: 'price',

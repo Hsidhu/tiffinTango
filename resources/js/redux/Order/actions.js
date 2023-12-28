@@ -12,6 +12,10 @@ export const getOrders = () => (dispatch) => {
             type: GET_ORDERS,
             payload: response.data
         });
+        dispatch({
+            type: GET_ORDER,
+            payload: {}
+        });
     });
 }
 

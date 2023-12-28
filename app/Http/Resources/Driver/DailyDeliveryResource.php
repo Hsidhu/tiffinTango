@@ -1,0 +1,54 @@
+<?php
+
+namespace App\Http\Resources\Driver;
+
+use Illuminate\Http\Resources\Json\JsonResource;
+
+class DailyDeliveryResource extends JsonResource
+{
+    public static $wrap = null;
+
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
+     */
+    public function toArray($request)
+    {
+        return [
+            'id' => $this->id,
+            'customer_id' => $this->customer_id,
+            'customer_name' => $this->customer->full_name,
+            'customer_email' => $this->customer->email,
+            'address' => $this->customer->address->formatted_address,
+            'delivery_zone_id' => $this->customer->address->delivery_zone_id,
+            'delivery_zone_name' => $this->customer->address->deliveryZone->name,
+            'customer_phone' => $this->customer->phone,
+            'driver_id' => $this->driver_id,
+            'driver_name' => $this->driver->full_name,
+            'driver_email' => $this->driver->email,
+            'driver_phone' => $this->driver->phone,
+            'order_id' => $this->order->id,
+            'delivery_comment' => $this->order->delivery_comment,
+            'items' => $this->order->items()->first(),
+            'media_url' => $this->getFirstMediaUrl('deliveryProof') ?? null,
+            'priority' => $this->priority,
+            'created_at' => $this->created_at->setTimezone(config('app.CLIENT_TIMEZONE'))->format('Y-m-d H:i:s')
+        ];
+    }
+
+    protected function proofImage()
+    {
+        $file = $this->getFirstMedia('deliveryProof');
+
+        return $file ? 
+            [
+                'uid' => $file->id,
+                'name' => $file->name,
+                'status' => 'done',
+                'url' => $file->getUrl()
+            ]
+            : null;
+    }
+}
