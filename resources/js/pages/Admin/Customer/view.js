@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { Card, Avatar, Divider, Tag, Row, Col } from 'antd';
+import { Card, Avatar, Divider, Button, Row, Col } from 'antd';
 import {
     ContactsOutlined,
     PhoneOutlined,
     HomeOutlined,
-    FileOutlined,
     MailOutlined,
-    FileTextOutlined,
   } from '@ant-design/icons';
 
-  import { getCustomer } from '../../../redux/Customer/actions'
+import { getCustomer } from '../../../redux/Customer/actions'
 import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const View = ({ }) => {
@@ -34,6 +32,11 @@ const View = ({ }) => {
             <TableHeaderLink
                 name="View customer"
                 backUri="/admin/customers"
+                HeaderButtons = {[
+                    <Link key={'edit_customer'} to={`/admin/customer/edit/${id}`}>
+                        <Button type='primary'>Edit Customer</Button>
+                    </Link>,
+                ]}
             />
             <Divider />
 

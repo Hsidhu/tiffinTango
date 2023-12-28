@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { Card, Avatar, Divider, Tag, Row, Col } from 'antd';
+import { Card, Avatar, Divider, Button, Row, Col } from 'antd';
 import {
     ContactsOutlined,
     PhoneOutlined,
@@ -9,7 +9,7 @@ import {
     FileOutlined,
     MailOutlined,
     FileTextOutlined,
-  } from '@ant-design/icons';
+} from '@ant-design/icons';
 
 import { getDriver } from '../../../redux/Driver/actions'
 import TableHeaderLink from '../../../components/tableHeaderLink';
@@ -34,6 +34,11 @@ const View = ({ }) => {
             <TableHeaderLink
                 name="View Driver"
                 backUri="/admin/drivers"
+                HeaderButtons = {[
+                    <Link key={'edit_driver'} to={`/admin/driver/edit/${id}`}>
+                        <Button type='primary'>Edit Driver</Button>
+                    </Link>,
+                ]}
             />
             <Divider />
 
