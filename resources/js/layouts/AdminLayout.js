@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 // actions
 import { getDeliveryZoneList } from '../redux/DeliveryZone/actions';
+import { getOrderStatuses } from '../redux/Common/actions';
 
 import {privateRouteList} from '../routes/routes';
 import { adminSideMenu } from '../routes/menu';
@@ -25,6 +26,7 @@ function AdminLayout() {
 
     useEffect(()=>{
         dispatch(getDeliveryZoneList())
+        dispatch(getOrderStatuses())
     }, [])
 
     const sidebarOnClickHandler = ({key}) => {

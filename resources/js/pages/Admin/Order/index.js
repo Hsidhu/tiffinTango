@@ -7,7 +7,7 @@ import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const Order = ({ }) => {
     const history = useHistory();
-    const orders = useSelector(state => state.orders)
+    const {orders} = useSelector(state => state)
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -47,6 +47,11 @@ const Order = ({ }) => {
             key: 'order_type',
             title: 'Order Type',
             dataIndex: 'order_type',
+            filters: [
+                { text: 'pickup', value: 'pickup' },
+                { text: 'delivery', value: 'delivery'},
+              ],
+              onFilter: (value, record) => record.order_type.indexOf(value) === 0,
             sorter: (a, b) => a.order_type.length - b.order_type.length,
         },
         {

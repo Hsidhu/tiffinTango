@@ -25,7 +25,7 @@ export const createCustomers = (data, history) => (dispatch) => {
 
     const res = postRequest('admin/customer/create', data).then(response => {
         dispatch({
-            type: GET_CUSTOMERS,
+            type: GET_CUSTOMER,
             payload: response.data
         });
         message.success('Customer Created')

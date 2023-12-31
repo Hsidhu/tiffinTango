@@ -6317,9 +6317,10 @@ function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("
 var Order = function Order(_ref) {
   _objectDestructuringEmpty(_ref);
   var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useHistory)();
-  var orders = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
-    return state.orders;
-  });
+  var _useSelector = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
+      return state;
+    }),
+    orders = _useSelector.orders;
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_redux_Order_actions__WEBPACK_IMPORTED_MODULE_2__.getOrders)());
@@ -6359,6 +6360,16 @@ var Order = function Order(_ref) {
     key: 'order_type',
     title: 'Order Type',
     dataIndex: 'order_type',
+    filters: [{
+      text: 'pickup',
+      value: 'pickup'
+    }, {
+      text: 'delivery',
+      value: 'delivery'
+    }],
+    onFilter: function onFilter(value, record) {
+      return record.order_type.indexOf(value) === 0;
+    },
     sorter: function sorter(a, b) {
       return a.order_type.length - b.order_type.length;
     }

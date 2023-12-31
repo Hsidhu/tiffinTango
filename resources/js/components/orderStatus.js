@@ -2,12 +2,7 @@ import React, {useEffect} from 'react';
 import { Select } from 'antd';
 import { isEmpty } from 'lodash';
 
-
-const OrderStatus = ({order_id, statusID, disabled = false, orderStatuses, getOrderStatuses, updateOrderStatus}) => {
-
-    useEffect(()=>{
-        getOrderStatuses()
-    }, [])
+const OrderStatus = ({order_id, statusID, disabled = false, orderStatuses, updateOrderStatus}) => {
 
     if(isEmpty(orderStatuses)){
         return null;

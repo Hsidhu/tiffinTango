@@ -45,7 +45,6 @@ const View = ({ }) => {
         }
     }, [])
 
-
     if (isEmpty(order)) {
         return null;
     }
