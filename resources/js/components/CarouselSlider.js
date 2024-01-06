@@ -30,7 +30,6 @@ const textOverLay = {
 
 const CarouselSlider = () => {
     const onChange = (currentSlide) => {
-        console.log(currentSlide);
     };
     return (
         <Carousel afterChange={onChange} autoplay={true} dotPosition={'right'} >

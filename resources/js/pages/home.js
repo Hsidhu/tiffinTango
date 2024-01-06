@@ -1,15 +1,19 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import {Typography, Space} from 'antd'
 import ContentCards from '../components/contentCards';
 import FeatureCards from '../components/featureCards';
+import { isEmpty } from 'lodash';
 
-function Home() {
+const Home = ({}) => {
+
+    const {siteName} = useSelector(state => state)
     return (
         <>
             <div style={{ padding: '0 50px' }}>
                 <div style={{ display:'flex', justifyContent: 'center', margin: '10px' }}>
                     <Typography.Title level={1} style={{margin: "14px 8px"}}>
-                        Welcome To AB Catering
+                        Welcome To { siteName }
                     </Typography.Title>
                 </div>
                 

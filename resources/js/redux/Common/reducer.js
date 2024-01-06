@@ -1,4 +1,5 @@
 import {
+    SITE_NAME,
     GET_SITE_SETTINGS,
     SET_ERRORS,
     REDIRECT_TO,
@@ -11,6 +12,17 @@ import {
 export const siteSettings = (state = {}, action) => {
     switch (action.type) {
         case GET_SITE_SETTINGS:
+            return action.payload
+        default:
+            return state
+    }
+}
+
+export const siteName = (state = 'your restaurants', action) => {
+    switch (action.type) {
+        case GET_SITE_SETTINGS:
+            return action.payload.core.site_name
+        case SITE_NAME:
             return action.payload
         default:
             return state

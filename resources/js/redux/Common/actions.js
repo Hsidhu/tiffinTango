@@ -2,6 +2,7 @@ import { getRequest, postRequest, deleteRequest } from "../../config/axiosClient
 import { message } from "antd"
 
 export const SET_ERRORS = "SET_ERRORS"
+export const SITE_NAME = "SITE_NAME"
 export const CLEAR_FRONTEND_DATA = "CLEAR_FRONTEND_DATA"
 export const CLEAR_ADMIN_DATA = "CLEAR_ADMIN_DATA"
 export const REDIRECT_TO = "REDIRECT_TO";
