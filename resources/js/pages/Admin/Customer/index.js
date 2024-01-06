@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { Space, Table, Row, Col, Button, Divider, Input } from 'antd';
 import {
@@ -10,11 +10,12 @@ import TableHeaderLink from '../../../components/tableHeaderLink';
 import { isEmpty } from 'lodash';
 
 const Customer = ({ }) => {
-    const history = useHistory();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [searchText, setSearchText] = useState('');
 
-    const {customers, deliveryZoneList} = useSelector(state => state)
-    const dispatch = useDispatch();
+    const customers = useSelector(state => state.customers)
+    const deliveryZoneList = useSelector(state => state.deliveryZoneList)
 
     useEffect(() => {
         dispatch(getCustomers())
@@ -42,7 +43,7 @@ const Customer = ({ }) => {
             key: 'full_name',
             sorter: (a, b) => a.full_name.length - b.full_name.length,
             render: (_, record) => (
-                <a onClick={ () => history.push(`/admin/customer/edit/${record.id}`)} >{record.full_name}</a>
+                <a onClick={ () => navigate(`/admin/customer/edit/${record.id}`)} >{record.full_name}</a>
             )
         },
         {
@@ -74,8 +75,8 @@ const Customer = ({ }) => {
             key: 'action',
             render: (_, record) => (
                 <Space size="middle">
-                    <a onClick={ () => history.push(`/admin/customer/edit/${record.id}`)} >Edit</a>
-                    <a onClick={ () => history.push(`/admin/customer/createOrder/${record.id}`)} >New Order</a>
+                    <a onClick={ () => navigate(`/admin/customer/edit/${record.id}`)} >Edit</a>
+                    <a onClick={ () => navigate(`/admin/customer/createOrder/${record.id}`)} >New Order</a>
                 </Space>
             ),
         },

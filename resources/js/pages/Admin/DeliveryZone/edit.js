@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { isEmpty } from "lodash"
 import {
@@ -13,7 +13,7 @@ import { updateDeliveryZone, getDeliveryZone } from '../../../redux/DeliveryZone
 import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const Edit = ({ }) => {
-    const history = useHistory()
+    const navigate = useNavigate()
     let { id } = useParams();
     const deliveryZone = useSelector(state => state.deliveryZone)
     const dispatch = useDispatch();
@@ -33,7 +33,7 @@ const Edit = ({ }) => {
     }
 
     const onFormSubmit = (values) => {
-        dispatch(updateDeliveryZone(values, history));
+        dispatch(updateDeliveryZone(values, navigate));
     }
 
     const handleApiLoaded = (map, maps) => {

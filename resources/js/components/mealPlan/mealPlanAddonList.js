@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
     Row, Col, List, Typography, Button
@@ -8,7 +8,7 @@ import { removeMealPlanAddon } from '../../redux/MealPlan/actions';
 import { isEmpty } from 'lodash';
 
 const MealPlanAddonList = ({ }) => {
-    const history = useHistory()
+    const navigate = useNavigate()
     const { mealplan } = useSelector(state => state)
     const dispatch = useDispatch();
 

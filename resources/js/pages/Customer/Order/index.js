@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { Space, Table, Divider, Button } from 'antd';
 import { getCustomerOrders } from "../../../redux/Order/actions"
 import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const Order = ({ }) => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const orders = useSelector(state => state.orders)
     const dispatch = useDispatch();
 
@@ -19,7 +19,7 @@ const Order = ({ }) => {
     }
 
     const handleEditClick = (id) => {
-        history.push(`/customer/order/view/${id}`)
+        navigate(`/customer/order/view/${id}`)
     }
 
     const getRowClassName = (record) => {

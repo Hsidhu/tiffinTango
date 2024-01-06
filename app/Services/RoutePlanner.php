@@ -31,8 +31,7 @@ class RoutePlanner
             }
             $refinedOrder[] = $orginalOrder[$value['orginal_waypoint_order']];
             
-            DailyDeliveryMealPlanLog::where('id', $orginalOrder[$value['orginal_waypoint_order']])
-            ->update([  'priority' => $key ]);
+            DailyDeliveryMealPlanLog::where('id', $orginalOrder[$value['orginal_waypoint_order']])->update(['priority' => $key]);
         }
         return true;
         //dd($refinedOrder, $optimizedList);
@@ -56,9 +55,9 @@ class RoutePlanner
     {
         // get address by zone
         $optimzied = Geocoder::directionRouter(
-            'Markham, ON, CA',
+            $start,
             $addressList,
-            'Markham, ON, CA'
+            $end
         );
         return $optimzied;
     }

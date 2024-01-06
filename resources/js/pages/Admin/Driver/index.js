@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { 
     Space, Table, Divider, Popconfirm
@@ -11,7 +11,7 @@ import { getDrivers, deleteDriverZone } from "../../../redux/Driver/actions"
 import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const Driver = ({ }) => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const drivers = useSelector(state => state.drivers)
     const dispatch = useDispatch();
 
@@ -23,10 +23,6 @@ const Driver = ({ }) => {
         return null;
     }
 
-    const handleEditClick = (id) => {
-        history.push(`/admin/driver/edit/${id}`)
-    }
-
     const columns = [
         {
             title: 'Full Name',
@@ -34,7 +30,7 @@ const Driver = ({ }) => {
             key: 'full_name',
             sorter: (a, b) => a.full_name.length - b.full_name.length,
             render: (_, record) => (
-                <a onClick={ () => history.push(`/admin/driver/view/${record.id}`) } >{record.full_name}</a>
+                <a onClick={ () => navigate(`/admin/driver/view/${record.id}`) } >{record.full_name}</a>
             ),
         },
         {
@@ -60,9 +56,9 @@ const Driver = ({ }) => {
             key: 'action',
             render: (_, record) => (
                 <Space size="middle">
-                    <a onClick={ () => history.push(`/admin/driver/view/${record.id}`) } >View</a>
-                    <a onClick={ () => history.push(`/admin/driver/edit/${record.id}`) } >Edit</a>
-                    <a onClick={ () => history.push(`/admin/driver/workForm/${record.id}`)} >Work Form</a>
+                    <a onClick={ () => navigate(`/admin/driver/view/${record.id}`) } >View</a>
+                    <a onClick={ () => navigate(`/admin/driver/edit/${record.id}`) } >Edit</a>
+                    <a onClick={ () => navigate(`/admin/driver/workForm/${record.id}`)} >Work Form</a>
                 </Space>
             ),
         },
@@ -70,7 +66,7 @@ const Driver = ({ }) => {
 
     const handelDeleteZone = (e, deliveryWindowAndZoneId) => {
         deleteDriverZone(deliveryWindowAndZoneId)
-        history.go(0);
+        navigate(0);
     };
     const handelDeleteZoneCancel = (e) => {
         console.log(e);

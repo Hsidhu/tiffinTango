@@ -1,19 +1,14 @@
-import { lazy, Suspense, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Spinner from '../components/Spinner';
 
-import PublicRoute from './PublicRoute';
 import PublicLayout from '../layouts/PublicLayout';
-
-import AuthRoute  from './AuthRoute'
-import AuthRoutes from "../layouts/AuthRoutes"
-
-import AdminRoute from './AdminRoute'
+import AuthLayout from "../layouts/AuthLayout"
 import AdminLayout from '../layouts/AdminLayout';
-
-import CustomerRoute from './CustomerRoute';
 import CustomerLayout from '../layouts/CustomerLayout'
+
+import { publicRouteList, authRouteList, adminRouteList, customerRouteList } from '../routes/routes';
 
 const NoPageFound = lazy(() => import('../pages/noPageFound'));
 
@@ -22,28 +17,42 @@ export function AppRoutes({ }) {
     return (
         <Router>
             <Suspense fallback={<Spinner/>}>
-                <Switch>
+                <Routes>
 
-                    <PublicRoute path={["/", '/order/*', '/about-us', '/terms-and-conditions', '/policies']} exact>
-                        <PublicLayout />
-                    </PublicRoute>
+                    <Route path="/" element={<PublicLayout />}>
 
-                    <AuthRoute path={["/login", "/admin/login", "/customer/login", "/registration"]} exact>
-                        <AuthRoutes />
-                    </AuthRoute>
-                    
-                    <AdminRoute path={["/admin/*"]} >
-                        <AdminLayout />
-                    </AdminRoute>
+                        {publicRouteList.map(({ component: Component, path, exact }, index) => (
+                            <Route path={`/${path}`} key={index} exact={exact} element={<Component />}/>
+                        ))}
 
-                    <CustomerRoute path={["/customer/*"]} >
-                        <CustomerLayout />
-                    </CustomerRoute>
-
-                    <Route path="*">
-                        <NoPageFound />
                     </Route>
-                </Switch>
+
+                    <Route element={<AuthLayout />}>
+                        {authRouteList.map(({ component: Component, path, exact }, index) => (
+                            <Route path={`/${path}`} key={index} exact={exact} element={<Component />}/>
+                        ))}
+
+                    </Route>
+
+                    <Route path="/admin" element={<AdminLayout />}>
+                        {adminRouteList.map(({ component: Component, path, exact }, index) => (
+                            
+                            <Route path={`${path}`} key={index} exact={exact} element={<Component />}/>
+                            
+                        ))}
+                    </Route>
+
+                    <Route path="/customer" element={<CustomerLayout />}>
+
+                        {customerRouteList.map(({ component: Component, path, exact }, index) => (
+                            <Route path={`${path}`} key={index} exact={exact} element={<Component />}/>
+                        ))}
+
+                    </Route>
+
+                    <Route path="*" element={<NoPageFound />} />
+                   
+                </Routes>
             </Suspense>
         </Router>
     );

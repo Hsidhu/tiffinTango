@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
     Row, Col, Space, Button, Divider, Select, Radio,
@@ -12,7 +12,7 @@ import TableHeaderLink from '../../../components/tableHeaderLink';
 import { orderTypeOptions } from '../../../config/constants'
 
 const CreateOrder = ({ }) => {
-    const history = useHistory()
+    const navigate = useNavigate()
     let { id } = useParams();
     const dispatch = useDispatch();
 
@@ -43,7 +43,7 @@ const CreateOrder = ({ }) => {
             meal: selectedMealplan,
             options: selectedMealplanOptions
         }
-        dispatch(createCustomerOrder(data, history));
+        dispatch(createCustomerOrder(data, navigate));
     }
 
     const handleOrderTypeChange = ({ target: { value } }) => {

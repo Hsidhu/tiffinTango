@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { MenuOutlined } from '@ant-design/icons';
 import { Table, Image } from 'antd';
 
 const DailyDeliveryTable = ({dailyDeliveryLogs}) => {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     if(!dailyDeliveryLogs){
         return null;

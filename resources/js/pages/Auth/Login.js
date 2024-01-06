@@ -1,19 +1,22 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom';
 import actions from '../../redux/Authenticate/actions';
-import { Form, Input, Button, Checkbox, Row, Col, Layout } from 'antd';
+import { Form, Input, Button, Checkbox, Row, Col} from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { USER_TYPE_USER, USER_TYPE_CUSTOMER } from '../../config/constants';
 
 function Login() {
     const location = useLocation();
     const { loader } = useSelector(state => state.authenticateReducer)
     const dispatch = useDispatch();
 
-    let userType;
-    if (location.pathname.includes('/admin')) {
-        userType = 'admin';
-    } else if (location.pathname.includes('/customer')) {
-        userType = 'customer';
+    const getUserType = () => {
+        if (location.pathname.includes('/admin')) {
+            return USER_TYPE_USER;
+        }
+        if (location.pathname.includes('/customer')) {
+            return USER_TYPE_CUSTOMER;
+        }
     }
 
     let onFinish = (values) => {
@@ -23,7 +26,7 @@ function Login() {
                 'email': values.email, 
                 'password': values.password, 
                 'remember': values.remember,
-                'user_type': userType
+                'user_type': getUserType()
             },
         });
     };

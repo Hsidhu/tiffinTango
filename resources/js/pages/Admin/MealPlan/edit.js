@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
     Row, Col, Tabs, Divider, Form, Button
@@ -13,7 +13,7 @@ import TableHeaderLink from '../../../components/tableHeaderLink';
 import MealPlanForm from './mealPlanForm';
 
 const Edit = ({ }) => {
-    const history = useHistory()
+    const navigate = useNavigate()
     let { id } = useParams();
 
     const mealplan = useSelector(state => state.mealplan)
@@ -31,7 +31,7 @@ const Edit = ({ }) => {
 
     const onFormSubmit = (values) => {
         values.status = mapSwitchValue(values.status);
-        dispatch(updateMealPlan(values, history));
+        dispatch(updateMealPlan(values, navigate));
     }
 
     if(!mealplan){

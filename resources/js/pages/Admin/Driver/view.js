@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { Card, Avatar, Divider, Button, Row, Col } from 'antd';
 import {
@@ -15,9 +15,9 @@ import { getDriver } from '../../../redux/Driver/actions'
 import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const View = ({ }) => {
-    const history = useHistory();
+    const navigate = useNavigate();
     let { id } = useParams();
-    const { driver } = useSelector(state => state)
+    const driver = useSelector(state => state.driver)
     const dispatch = useDispatch();
 
     useEffect(() => {

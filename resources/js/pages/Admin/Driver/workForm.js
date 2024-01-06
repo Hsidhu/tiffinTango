@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
-    Row, Col, Button, Input, Divider, Form, Select
+    Button, Input, Divider, Form, Select
 } from 'antd';
 import {isEmpty} from 'lodash'
 import {getDriver, updateWorkForm } from '../../../redux/Driver/actions'
@@ -11,12 +11,14 @@ import { getDeliveryWindowsList } from '../../../redux/Common/actions';
 
 // get shifts and zones
 const WorkForm = ({ }) => {
-    const history = useHistory();
+    const navigate = useNavigate();
     let { id } = useParams();
     const dispatch = useDispatch();
     const [form] = Form.useForm();
 
-    const {driver, deliveryWindows, deliveryZoneList} = useSelector(state => state)
+    const driver = useSelector(state => state.driver)
+    const deliveryWindows = useSelector(state => state.deliveryWindows)
+    const deliveryZoneList = useSelector(state => state.deliveryZoneList)
 
     useEffect(() => {
         dispatch(getDriver(id))
@@ -34,7 +36,7 @@ const WorkForm = ({ }) => {
     }
 
     const onFormSubmit = (values) => {
-        dispatch(updateWorkForm(values, history))
+        dispatch(updateWorkForm(values, navigate))
     }
 
     return (
@@ -64,7 +66,6 @@ const WorkForm = ({ }) => {
                     ]}
                 >
                     <Select
-                        showArrow
                         style={{
                             width: '100%',
                         }}
@@ -77,7 +78,6 @@ const WorkForm = ({ }) => {
                     ]}
                 >
                     <Select
-                        showArrow
                         style={{
                             width: '100%',
                         }}

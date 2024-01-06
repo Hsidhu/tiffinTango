@@ -3,9 +3,9 @@ import StickerSheet from '../../../components/containers/stickerSheet';
 import { Row, Col, Space, Divider, Select, Button, Spin, message } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import Papa from 'papaparse';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
-import { getDailyDeliveries, getStickerData } from "../../../redux/Order/actions";
+import { getStickerData } from "../../../redux/Order/actions";
 import { getDeliveryWindowsList } from '../../../redux/Common/actions'
 import { isEmpty } from 'lodash';
 
@@ -112,7 +112,7 @@ const StickerView = ({}) => {
         const blob = new Blob([csv], { type: 'text/csv' });
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
-        a.download = `route_csv_${deliveryZoneID}_${deliveryWindowID}_${moment(new Date()).format("DD_MM_YYYY")}`;
+        a.download = `route_csv_${deliveryZoneID}_${deliveryWindowID}_${dayjs(new Date()).format("DD_MM_YYYY")}`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);

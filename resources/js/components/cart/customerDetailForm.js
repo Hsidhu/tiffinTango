@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { isEmpty } from 'lodash';
-import moment from "moment";
 import {
     Row, Col, Button, Card, Form
 } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { axiosConfig } from '../../config/constants';
 import CustomerCreateForm from '../containers/customerCreateForm';
 
 const CustomerDetailForm = ({orderType, cart, placeOrder, prevStep }) => {
-    const history = useHistory()
+    const navigate = useNavigate()
     const [form] = Form.useForm();
 
     if (isEmpty(cart)) {
@@ -22,8 +20,7 @@ const CustomerDetailForm = ({orderType, cart, placeOrder, prevStep }) => {
         .then((values) => {
             values.start_date = values.start_date.format('YYYY-MM-DD')
             values.order_type = orderType
-            console.log(values)
-            placeOrder({...values,...cart }, history)
+            placeOrder({...values,...cart }, navigate)
         }).catch((err) => {
             console.log(err)
         });

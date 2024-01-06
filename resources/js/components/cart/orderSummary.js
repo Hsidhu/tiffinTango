@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigatee, useParams } from 'react-router-dom';
 import { isEmpty } from 'lodash';
 import {
     Card, Table,

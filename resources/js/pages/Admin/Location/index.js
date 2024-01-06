@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { Space, Table, Tag, Row, Col, Button } from 'antd';
 import { getLocations } from "../../../redux/Location/actions";
 import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const Locations = ({ }) => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const {locations} = useSelector(state => state)
     const dispatch = useDispatch();
 
@@ -19,7 +19,7 @@ const Locations = ({ }) => {
     }
 
     const handleEditClick = (id) => {
-        history.push(`/admin/location/edit/${id}`)
+        navigate(`/admin/location/edit/${id}`)
     }
 
     const columns = [

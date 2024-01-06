@@ -4,7 +4,7 @@ import {
     Form,
     Input, Radio, DatePicker
 } from 'antd';
-import moment from "moment";
+import dayjs from 'dayjs';
 
 import { usePlacesWidget } from "react-google-autocomplete";
 import { GOOGLE_API_KEY, orderTypeOptions, autocompleteOptions } from '../config/constants';
@@ -112,7 +112,7 @@ const CustomerCreateForm = ({ form, orderType, orderData, deliveryWindows, getDe
                 >
                 <DatePicker size="large" style={{width: "100%"}} format={'DD-MM-YYYY'}
                     disabledDate={current => {
-                        return current && (current < moment().add(0, "day") || current.day() === 0);
+                        return current && (current < dayjs().add(0, "day") || current.day() === 0);
                     }}
                 />
             </Form.Item>

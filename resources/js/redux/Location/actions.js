@@ -17,7 +17,7 @@ export const getLocations = () => (dispatch) => {
     });
 }
 
-export const createLocation = (data, history) => (dispatch) => {
+export const createLocation = (data, navigate) => (dispatch) => {
 
     const res = postRequest('admin/location/create', data).then(response => {
         console.log(response.data)
@@ -26,7 +26,7 @@ export const createLocation = (data, history) => (dispatch) => {
             payload: response.data
         });
         message.success('Location Created!');
-        history.push('/admin/locations')
+        navigate('/admin/locations')
     }).catch(error => {
         message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
@@ -41,14 +41,14 @@ export const getLocation = (id) => (dispatch) => {
     });
 }
 
-export const updateLocation = (data, history) => (dispatch) => {
+export const updateLocation = (data, navigate) => (dispatch) => {
     const res = postRequest('admin/location/update', data).then(response => {
         dispatch({
             type: GET_LOCATION,
             payload: response.data
         });
         message.success('Location Update!');
-        history.push('/admin/locations')
+        navigate('/admin/locations')
     }).catch(error => {
         message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });

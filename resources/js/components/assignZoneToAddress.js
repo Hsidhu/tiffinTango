@@ -1,5 +1,4 @@
 import React, {useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import {
     Row, Col,
     Button, Form,
@@ -8,7 +7,6 @@ import {
 import { isEmpty } from 'lodash';
 
 const AssignZoneToAddress = ({ address_id, delivery_zone_id, deliveryZoneList, assignAddressToZone }) => {
-    const history = useHistory()
     const [form] = Form.useForm()
 
     useEffect(() => {

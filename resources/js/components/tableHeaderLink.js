@@ -1,22 +1,17 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
-    Row, Col, Space,
-    Button, Descriptions,
-    PageHeader
+    Button
 } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
+import { PageHeader } from '@ant-design/pro-layout';
 import { isEmpty } from 'lodash';
 
-const headerWrapper = {
-    padding: "24px",
-    backgroundColor: "#f5f5f5"
-}
 
 const TableHeaderLink = ({ name, backUri, toUri, toText, HeaderButtons, children, subTitle }) => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const navTo = (uri) => {
-        history.push(uri)
+        navigate(uri)
     }
 
     if(isEmpty(HeaderButtons)){

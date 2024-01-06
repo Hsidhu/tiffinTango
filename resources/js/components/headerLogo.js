@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button, Result } from 'antd';
-import { Route, Switch, useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { axiosConfig } from '../config/constants';
 

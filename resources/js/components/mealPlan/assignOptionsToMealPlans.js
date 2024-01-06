@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     Row, Col, Button,
@@ -13,11 +13,12 @@ import { getMealPlanSelectData, getMealPlanOptions, createMealPlanAddon} from '.
 
 const AssignOptionsToMealPlans = ({}) => {
 
-    const history = useHistory()
+    const navigate = useNavigate()
     const dispatch = useDispatch();
     const [form] = Form.useForm()
 
-    const { mealplanSelectList, mealplanOptions } = useSelector(state => state)
+    const mealplanSelectList  = useSelector(state => state.mealplanSelectList)
+    const mealplanOptions  = useSelector(state => state.mealplanOptions)
 
     useEffect(() => {
         dispatch(getMealPlanSelectData());
@@ -29,7 +30,7 @@ const AssignOptionsToMealPlans = ({}) => {
     }
 
     const onFormSubmit = (values) => {
-        dispatch(createMealPlanAddon(values, history));
+        dispatch(createMealPlanAddon(values, navigate));
     }
 
     return (

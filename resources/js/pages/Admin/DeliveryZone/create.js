@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
     Divider, Button, Space,
@@ -10,7 +10,7 @@ import CreateZones from '../../../components/CreateZones';
 import AssignZoneToDriver from '../../../components/containers/assignZoneToDriver';
 
 const Create = ({ }) => {
-    const history = useHistory()
+    const navigate = useNavigate()
 
     const openExternalLink = (URL) => {
         window.open(URL, '_blank');

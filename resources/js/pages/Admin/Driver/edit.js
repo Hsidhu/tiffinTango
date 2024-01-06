@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
     Divider, Form,
@@ -9,10 +9,11 @@ import TableHeaderLink from '../../../components/tableHeaderLink';
 import DriverForm from './DriverForm';
 
 const Edit = ({ }) => {
-    const history = useHistory();
-    let { id } = useParams();
-    const {driver} = useSelector(state => state)
+    const navigate = useNavigate();
     const dispatch = useDispatch();
+    
+    let { id } = useParams();
+    const driver = useSelector(state => state.driver)
 
     const [form] = Form.useForm();
 
@@ -35,7 +36,7 @@ const Edit = ({ }) => {
     };
 
     const onFormSubmit = (values) => {
-        dispatch(updateDriver(values, history));
+        dispatch(updateDriver(values, navigate));
     }
 
     return (

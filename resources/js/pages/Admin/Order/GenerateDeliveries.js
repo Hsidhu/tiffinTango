@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
     Row, Col, Button, Space, Select, Divider,
@@ -16,7 +16,7 @@ import DndSortTable from '../../../components/dndSortTable';
 const { Panel } = Collapse;
 
 const GenerateDeliveries = ({ }) => {
-    const history = useHistory()
+    const navigate = useNavigate()
     const { deliveryWindows, dailyDeliveries } = useSelector(state => state)
     const dispatch = useDispatch();
 
@@ -47,7 +47,7 @@ const GenerateDeliveries = ({ }) => {
     const columns = [
         { title: 'Customer Name', dataIndex: 'customer_name', key: 'customer_name',
             render: (_, record) => (
-                <a onClick={ () => history.push(`/admin/customer/edit/${record.customer_id}`)} >{record.id} - {record.customer_name}</a>
+                <a onClick={ () => navigate(`/admin/customer/edit/${record.customer_id}`)} >{record.id} - {record.customer_name}</a>
             ),
         },
         { title: 'Driver Name', dataIndex: 'driver_name', key: 'driver_name' },
@@ -64,7 +64,7 @@ const GenerateDeliveries = ({ }) => {
             key: 'action',
             render: (_, record) => (
                 <Space size="middle">
-                    <a onClick={ () => history.push(`/admin/order/view/${record.order_id}`)} >View Order</a>
+                    <a onClick={ () => navigate(`/admin/order/view/${record.order_id}`)} >View Order</a>
                 </Space>
             ),
         },

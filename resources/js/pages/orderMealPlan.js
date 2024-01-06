@@ -20,7 +20,7 @@ const contentStyle = {
 const OrderMealPlan = () => {
 
     const dispatch = useDispatch();
-    const {stepReducer} = useSelector(state => state)
+    const stepReducer = useSelector(state => state.stepReducer)
 
     const next = () => {
         dispatch(nextStep());

@@ -1,11 +1,13 @@
-import React from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom';
-import { 
-    Layout, Menu, MenuProps, Col, Row, Space
-} from 'antd';
+import React, {useEffect} from 'react';
+import { useNavigate, Outlet, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { 
+    Layout, Menu, Col, Row, Space
+} from 'antd';
 
-import {customerRouteList} from '../routes/routes';
+import Spinner from '../components/Spinner';
+import actions from '../redux/Authenticate/actions';
+import {USER_TYPE_CUSTOMER } from '../config/constants';
 
 import { customerSideMenu } from '../routes/menu';
 import HeaderProfileDorpdown from '../components/headerProfileDorpdown';
@@ -14,14 +16,26 @@ import HeaderLogo from '../components/headerLogo';
 const { Header, Sider, Content, Footer } = Layout;
 
 function CustomerLayout() {
-    const { name } = useSelector(state => state.authenticateReducer)
-
     const dispatch = useDispatch();
-    const history = useHistory()
+    const navigate = useNavigate()
+
+    const { isAuthenticated, validateUserLoader, userType, name } = useSelector(state => state.authenticateReducer)
+    
+    useEffect(() => {
+        if (!isAuthenticated) {
+            dispatch({
+                type: actions.GET_AUTH_USER,
+            });
+        }
+    }, [])
+
+    if (validateUserLoader) {
+        return <Spinner />;
+    }
 
     const sidebarOnClickHandler = ({key}) => {
         if(key){
-            history.push(key)
+            navigate(key)
         }
     }
 
@@ -67,13 +81,14 @@ function CustomerLayout() {
 
                 <Layout style={{ padding: '0 24px 24px' }}>
                     <Content style={{ padding: 24, margin: 0, minHeight: 280}}>
-                        <Switch>
-                            {customerRouteList.map(({ component: Component, path, exact }, index) => (
-                                <Route path={`/${path}`} key={index} exact={exact}>
-                                    <Component />
-                                </Route>
-                            ))}
-                        </Switch>
+                        
+                        {
+                            isAuthenticated && userType == USER_TYPE_CUSTOMER ? 
+                            <Outlet />
+                            :
+                            <Navigate to="/customer/login" replace />
+                        }
+
                     </Content>
                     <Footer style={{ textAlign: 'center'}}>
                         AB Catering ©2024 Created by FirstWish.ca

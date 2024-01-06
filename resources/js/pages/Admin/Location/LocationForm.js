@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
     Row, Col,
@@ -14,7 +14,7 @@ import { GOOGLE_API_KEY } from '../../../config/constants';
 import { phonePattern } from '../../../validationHelper'
 
 const LocationForm = ({form, onFormChange, hasId, onFormSubmit }) => {
-    const history = useHistory()
+    const navigate = useNavigate()
     const antInputRef = useRef(null);
 
     const { ref: antRef } = usePlacesWidget({

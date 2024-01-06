@@ -27,23 +27,23 @@ export const getDrivers = () => (dispatch) => {
     });
 }
 
-export const createDriver = (data, history) => (dispatch) => {
+export const createDriver = (data, navigate) => (dispatch) => {
     const res = postRequest('admin/driver/create', data).then(response => {
         dispatch({
             type: CREATE_DRIVER,
             payload: response.data
         });
         message.success('Create Driver Successfully!')
-        history.push('/admin/drivers')
+        navigate('/admin/drivers')
     }).catch(error => {
         message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
 }
 
-export const updateWorkForm = (data, history) => (dispatch) => {
+export const updateWorkForm = (data, navigate) => (dispatch) => {
     const res = postRequest('admin/driver/workForm', data).then(response => {
         message.success('Driver Successfully!')
-        history.push('/admin/drivers')
+        navigate('/admin/drivers')
     }).catch(error => {
         message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
@@ -58,14 +58,14 @@ export const getDriver = (id) => (dispatch) => {
     });
 }
 
-export const updateDriver = (data, history) => (dispatch) => {
+export const updateDriver = (data, navigate) => (dispatch) => {
     const res = postRequest('admin/driver/update', data).then(response => {
         dispatch({
             type: UPDATE_DRIVER,
             payload: response.data
         });
         message.success('Update Driver Done!')
-        history.push('/admin/drivers')
+        navigate('/admin/drivers')
     }).catch(error => {
         message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });

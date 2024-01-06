@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { useHistory, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import moment from "moment";
+import dayjs from 'dayjs';
 import {
     Row, Col, Typography,
     Button, Descriptions,
@@ -30,10 +30,10 @@ const { Title } = Typography;
 // view delivery window change update
 
 const View = ({ }) => {
-    const history = useHistory()
-    const { id } = useParams();
-    const {order} = useSelector(state => state)
+    const navigate = useNavigate()
     const dispatch = useDispatch();
+    const { id } = useParams();
+    const order = useSelector(state => state.order)
 
     useEffect(() => {
         dispatch(getOrder(id))
@@ -51,7 +51,7 @@ const View = ({ }) => {
 
 
     const createNewOrder = () => {
-        dispatch(cloneOrder(id, history))
+        dispatch(cloneOrder(id, navigate))
     }
 
     const sharedOnCell = (_, index) => {
@@ -244,9 +244,9 @@ const View = ({ }) => {
                         <p>Name: {order.customer_name}</p>
                         <p>Email: {order.email}</p>
                         <p>Phone: {order.phone}</p>
-                        <p>Start Date: {moment(order.start_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
-                        <p>End Date: {moment(order.end_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
-                        <p>Created Date: {moment(order.created_at, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
+                        <p>Start Date: {dayjs(order.start_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
+                        <p>End Date: {dayjs(order.end_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
+                        <p>Created Date: {dayjs(order.created_at, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
                     </Card>
                     <br/>
                     <OrderUpdateComment key={'comment'} order_id={order.id} label="Comment:" field={'comment'} value={order.comment}/>

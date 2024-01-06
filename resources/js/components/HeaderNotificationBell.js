@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { BellOutlined } from '@ant-design/icons';
 import { 
     Dropdown, Badge
@@ -23,7 +23,7 @@ const itemsMenu = [
 ];
 
 const HeaderNotificationBell = ({}) => {
-    const navigate = useHistory();
+    const navigate = useNavigate();
 
     return (
         <>

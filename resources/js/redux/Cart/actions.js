@@ -95,7 +95,7 @@ export const setOrderMetaData = (data) => (dispatch) => {
     });
 }
 
-export const placeOrder = (data, history) => (dispatch) => {
+export const placeOrder = (data, navigate) => (dispatch) => {
 
     const res = postRequest('mealplanorder/create', data).then(response => {
         console.log(response.data)

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
     Row, Col, Typography, Descriptions,
@@ -9,10 +9,10 @@ import actions from '../../redux/Authenticate/actions';
 
 const PasswordUpdate = ({}) => {
 
-    const history = useHistory()
+    const navigate = useNavigate()
     const dispatch = useDispatch();
 
-    const {authenticateReducer} = useSelector(state => state)
+    const authenticateReducer = useSelector(state => state.authenticateReducer)
 
     const onFinish = async (values) => {
         dispatch({

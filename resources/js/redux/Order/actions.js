@@ -30,10 +30,10 @@ export const getOrder = (id) => (dispatch) => {
     });
 }
 
-export const cloneOrder = (id, history) => (dispatch) => {
+export const cloneOrder = (id, navigate) => (dispatch) => {
     const res = getRequest(`admin/order/cloneOrder/${id}`).then(response => {
         message.success('New Order Created!');
-        history.push(`/admin/order/view/${response.data.id}`)
+        navigate(`/admin/order/view/${response.data.id}`)
     });
 }
 

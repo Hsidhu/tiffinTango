@@ -158,7 +158,7 @@ const MealPlanForm = ({form, onFormChange, mealplan, onFormSubmit }) => {
                         </Form.Item>
 
                         {mealplan && 
-                            <Form.Item label="Upload image" name='image'>
+                            <Form.Item label="Upload image">
                                 {
                                     <FileUpload objectID={mealplan.id} type={'image'} buttonText={'Upload Image'} limiter={1} onAdd={addMedia} />
                                 }

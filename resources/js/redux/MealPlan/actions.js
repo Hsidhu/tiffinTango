@@ -22,7 +22,7 @@ export const getMealPlans = () => (dispatch) => {
     });
 }
 
-export const createMealPlan = (data, history) => (dispatch) => {
+export const createMealPlan = (data, navigate) => (dispatch) => {
 
     const formData = new FormData();
     for ( var key in data ) {
@@ -36,7 +36,7 @@ export const createMealPlan = (data, history) => (dispatch) => {
             payload: response.data
         });
         message.success('Mealplan created!');
-        history.push('/admin/mealplans')
+        navigate('/admin/mealplans')
     }).catch(error => {
         message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
@@ -65,7 +65,7 @@ export const getMealPlan = (id) => (dispatch) => {
     });
 }
 
-export const updateMealPlan = (data, history) => (dispatch) => {
+export const updateMealPlan = (data, navigate) => (dispatch) => {
     const config = {
         headers: {
             'content-type': 'multipart/form-data',
@@ -82,14 +82,14 @@ export const updateMealPlan = (data, history) => (dispatch) => {
             payload: response.data
         });
         message.success('MealPlan SuccessFully Updated!');
-        history.push('/admin/mealplans')
+        navigate('/admin/mealplans')
     }).catch(error => {
         message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });
 }
 
 
-export const createMealPlanAddon = (data, history) => (dispatch) => {
+export const createMealPlanAddon = (data, navigate) => (dispatch) => {
 
     const res = postRequest('admin/mealplan/create/addon', data).then(response => {
         dispatch({
@@ -97,7 +97,7 @@ export const createMealPlanAddon = (data, history) => (dispatch) => {
             payload: response.data
         });
         message.success('MealPlan Addons Created!');
-        history.push('/admin/mealplans')
+        navigate('/admin/mealplans')
     }).catch(error => {
         message.error(<div>{displayErrors(error.response.data)}</div>, 10);
     });

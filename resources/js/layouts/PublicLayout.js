@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react';
 import { useDispatch } from 'react-redux'
-import { Route, Switch, useHistory, useLocation, Link } from 'react-router-dom';
+import { Route, Routes, useNavigate, useLocation, Link, Outlet } from 'react-router-dom';
 import {
-    Layout, Row, Col, Menu, Space,
-    BackTop, Button, Divider
+    Layout, Row, Col, Menu, Button, Divider
 } from 'antd';
 import { publicRouteList } from '../routes/routes';
 import { publicTopMenu } from '../routes/menu'
@@ -19,7 +18,7 @@ const { Header, Sider, Content, Footer } = Layout;
 
 // Layout for public pages
 const PublicLayout = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const location = useLocation();
     const dispatch = useDispatch()
 
@@ -30,7 +29,7 @@ const PublicLayout = () => {
 
     const handleMenuClick = ({ key }) => {
         if (key) {
-            history.push(key)
+            navigate(key)
         }
     };
     const renderSlider = () => {
@@ -72,14 +71,9 @@ const PublicLayout = () => {
             {renderSlider()}
 
             <Content>
-                <Switch>
-                    {publicRouteList.map(({ component: Component, path, exact, title }, index) => (
-                        
-                        <Route path={`/${path}`} key={index} exact={exact}>
-                            <PageSetup title={title} Component={Component} />
-                        </Route>
-                    ))}
-                </Switch>
+                
+                <Outlet/>
+
             </Content>
             <Footer>
                 <Row justify="center">
@@ -119,9 +113,7 @@ const PublicLayout = () => {
                         </ul>
                     </Col>
                 </Row>
-                <BackTop>
-                    <Button size={'large'} icon={<ArrowUpOutlined />} />
-                </BackTop>
+
                 <Divider/>
                     AB Catering ©2024 Created by FirstWish.ca
                 <CookieConsent/>

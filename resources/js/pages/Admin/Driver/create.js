@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import {
     Divider, Form
@@ -10,7 +10,7 @@ import { getDeliveryWindowsList } from '../../../redux/Common/actions';
 import DriverForm from './DriverForm';
 
 const Create = ({ }) => {
-    const history = useHistory()
+    const navigate = useNavigate()
     const dispatch = useDispatch();
     const [form] = Form.useForm()
 
@@ -23,7 +23,7 @@ const Create = ({ }) => {
     };
 
     const onFormSubmit = (values) => {
-        dispatch(createDriver(values, history));
+        dispatch(createDriver(values, navigate));
     }
 
     return (

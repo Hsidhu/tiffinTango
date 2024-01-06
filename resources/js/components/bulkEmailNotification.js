@@ -1,5 +1,5 @@
 import React, {useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
     Button, Form,
     Radio, Input, Popconfirm

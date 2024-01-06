@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
-import { useHistory, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import moment from "moment";
+import dayjs from 'dayjs';
 import {
-    Row, Col, Typography,
-    Button, Descriptions,
+    Row, Col, Typography, Descriptions,
     Card, Table, Divider
 } from 'antd';
 
@@ -17,10 +16,8 @@ import OrderStatus from '../../../components/containers/orderStatus';
 import PickupOrder from './PickupOrder';
 import DailyDeliveryTable from '../../../components/dailyDeliveryTable';
 
-const { Title } = Typography;
-
 const View = ({ }) => {
-    const history = useHistory()
+    const navigate = useNavigate()
     const { id } = useParams();
     const {order} = useSelector(state => state)
     const dispatch = useDispatch();
@@ -143,10 +140,10 @@ const View = ({ }) => {
                             {order?.order_type}
                         </Descriptions.Item>
                         <Descriptions.Item label="Start Date">
-                            {moment(order.start_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}
+                            {dayjs(order.start_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}
                         </Descriptions.Item>
                         <Descriptions.Item label="End Date">
-                            {moment(order.end_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}
+                            {dayjs(order.end_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}
                         </Descriptions.Item>
                         <Descriptions.Item label="Status">
                             <OrderStatus order_id={order.id} statusID={order?.order_status_id} disabled={true} />
@@ -179,9 +176,9 @@ const View = ({ }) => {
                         <p>Name: {order.customer_name}</p>
                         <p>Email: {order.email}</p>
                         <p>Phone: {order.phone}</p>
-                        <p>Start Date: {moment(order.start_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
-                        <p>End Date: {moment(order.end_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
-                        <p>Created Date: {moment(order.created_at, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
+                        <p>Start Date: {dayjs(order.start_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
+                        <p>End Date: {dayjs(order.end_date, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
+                        <p>Created Date: {dayjs(order.created_at, 'YYYY-MM-DD').format('DD-MM-YYYY')}</p>
                     </Card>
                 </Col>
             </Row>

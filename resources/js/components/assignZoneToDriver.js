@@ -1,5 +1,5 @@
 import React, {useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
     Row, Col,
     Button, Form,
@@ -7,7 +7,7 @@ import {
 } from 'antd';
 
 const AssignZoneToDriver = ({ zone_id, driverSelect, getDriverSelect, assignDriverToZone }) => {
-    const history = useHistory()
+    const navigate = useNavigate()
 
     const [form] = Form.useForm()
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { 
     Space, Table, Divider,
@@ -9,7 +9,7 @@ import { getMealPlans } from "../../../redux/MealPlan/actions"
 import TableHeaderLink from '../../../components/tableHeaderLink';
 
 const MealPan = ({ }) => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const mealplans = useSelector(state => state.mealplans)
     const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ const MealPan = ({ }) => {
     }
 
     const handleEditClick = (id) => {
-        history.push(`/admin/mealplan/edit/${id}`)
+        navigate(`/admin/mealplan/edit/${id}`)
     }
 
     const confirm = (e) => {

@@ -1,22 +1,17 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Tabs, Upload, Button } from 'antd';
 
 import Zone from './Zones/index'
-import PlacesAutoComplete from '../../components/PlacesAutoComplete';
 import CoreSettings from '../../components/containers/coreSettings';
 import CreateZones from '../../components/CreateZones';
 
 const Settings = () => {
-    const history = useHistory()
+    const navigate = useNavigate()
 
     const onChange = (key) => {
         console.log(key);
     };
-
-    const clickHandler = () => {
-        history.push('/admin/drivers/edit')
-    }
 
     const tabContent = [
         { 

@@ -1,37 +1,52 @@
 import React, { useEffect } from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom';
-import { 
-    Layout, Menu, MenuProps, Col, Row, Space
-} from 'antd';
+import { useNavigate, Outlet, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { 
+    Layout, Menu, Col, Row, Space
+} from 'antd';
+import Spinner from '../components/Spinner';
+import actions from '../redux/Authenticate/actions';
 
 // actions
 import { getDeliveryZoneList } from '../redux/DeliveryZone/actions';
 import { getOrderStatuses } from '../redux/Common/actions';
 
-import {privateRouteList} from '../routes/routes';
 import { adminSideMenu } from '../routes/menu';
 import HeaderProfileDorpdown from '../components/headerProfileDorpdown';
 import HeaderLogo from '../components/headerLogo';
 import HeaderNotificationBell from '../components/HeaderNotificationBell';
 import PageSetup from '../components/pageSetup'
+import { USER_TYPE_USER } from '../config/constants';
 
 const { Header, Sider, Content, Footer } = Layout;
 
 function AdminLayout() {
-    const { name } = useSelector(state => state.authenticateReducer)
-
     const dispatch = useDispatch();
-    const history = useHistory()
+    const navigate = useNavigate()
+
+    const { isAuthenticated, validateUserLoader, userType, name } = useSelector(state => state.authenticateReducer)
+    
+    useEffect(() => {
+        if (!isAuthenticated) {
+            dispatch({
+                type: actions.GET_AUTH_USER,
+            });
+        }
+    }, [])
 
     useEffect(()=>{
         dispatch(getDeliveryZoneList())
         dispatch(getOrderStatuses())
     }, [])
 
+    if (validateUserLoader) {
+        return <Spinner />;
+    }
+
+
     const sidebarOnClickHandler = ({key}) => {
         if(key){
-            history.push(key)
+            navigate(key)
         }
     }
 
@@ -78,13 +93,12 @@ function AdminLayout() {
 
                 <Layout style={{ padding: '0 24px 24px' }}>
                     <Content style={{ padding: 24, margin: 0, minHeight: 280}}>
-                        <Switch>
-                            {privateRouteList.map(({ component: Component, path, exact, title}, index) => (
-                                <Route path={`/${path}`} key={index} exact={exact}>
-                                    <PageSetup title={title} Component={Component} />
-                                </Route>
-                            ))}
-                        </Switch>
+                        {
+                            isAuthenticated && userType == USER_TYPE_USER ? 
+                            <Outlet />
+                            :
+                            <Navigate to="/admin/login" replace />
+                        }
                     </Content>
                     <Footer style={{ textAlign: 'center'}}>
                         AB Catering ©2024 Created by FirstWish.ca

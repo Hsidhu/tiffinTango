@@ -7,7 +7,8 @@ import { isEmpty } from 'lodash';
 
 const Home = ({}) => {
 
-    const {siteName} = useSelector(state => state)
+    const siteName = useSelector(state => state.siteName)
+    
     return (
         <>
             <div style={{ padding: '0 50px' }}>

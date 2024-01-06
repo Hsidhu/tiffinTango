@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
     Row, Col, Button, Divider, Form
@@ -12,7 +12,7 @@ import TableHeaderLink from '../../../components/tableHeaderLink';
 import MealPlanForm from './mealPlanForm';
 
 const Create = ({ }) => {
-    const history = useHistory()
+    const navigate = useNavigate()
 
     const dispatch = useDispatch();
     const [form] = Form.useForm()
@@ -25,7 +25,7 @@ const Create = ({ }) => {
     const onFormSubmit = (values) => {
         // Map the "status" value before submission
         values.status = mapSwitchValue(values.status);
-        dispatch(createMealPlan(values, history));
+        dispatch(createMealPlan(values, navigate));
     }
 
     return (

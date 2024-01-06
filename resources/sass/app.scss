@@ -4,11 +4,9 @@
 // Variables
 @import 'variables';
 
-// AntD
-@import '~antd/dist/antd.css';
-
-body {
-    height: auto !important;
+html, body {
+    height: 100%;
+    margin: 0px;
 }
 
 #app,

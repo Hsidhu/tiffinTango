@@ -4,7 +4,7 @@ import { displayErrors } from "../../config/helpers"
 
 export const SEND_BULK_EMAIL = "SEND_BULK_EMAIL";
 
-export const bulkEmail = (data, history) => (dispatch) => {
+export const bulkEmail = (data, navigate) => (dispatch) => {
     const res = postRequest('admin/marketing/bulkEmail', data).then(response => {
         
         message.success('Email Sent!');

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useHistory, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
     Row, Col, Button, Divider, Form
@@ -10,7 +10,7 @@ import TableHeaderLink from '../../../components/tableHeaderLink';
 import CustomerForm from './CustomerForm';
 
 const Edit = ({ }) => {
-    const history = useHistory()
+    const navigate = useNavigate()
     let { id } = useParams();
     const customer = useSelector(state => state.customer)
     const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const Edit = ({ }) => {
     }
 
     const onFormSubmit = (values) => {
-        dispatch(updateCustomer(values, history));
+        dispatch(updateCustomer(values, navigate));
     }
 
     const onFormChange = ({ name }) => {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { 
     Space, Table, Divider
@@ -9,7 +9,7 @@ import TableHeaderLink from '../../../components/tableHeaderLink';
 import { isEmpty } from 'lodash';
 
 const Driver = ({ }) => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const deliveryZones = useSelector(state => state.deliveryZones)
     const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ const Driver = ({ }) => {
     }
 
     const handleEditClick = (id) => {
-        history.push(`/admin/delivery_zone/edit/${id}`)
+        navigate(`/admin/delivery_zone/edit/${id}`)
     }
 
     const columns = [

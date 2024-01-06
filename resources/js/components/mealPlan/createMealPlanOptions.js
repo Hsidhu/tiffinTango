@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {
     Row, Col,
@@ -15,7 +15,7 @@ import {
 import { createMealPlanOption } from '../../redux/MealPlan/actions';
 
 const CreateMealPlanOptions = ({ }) => {
-    const history = useHistory()
+    const navigate = useNavigate()
     const dispatch = useDispatch();
 
     const [form] = Form.useForm()
