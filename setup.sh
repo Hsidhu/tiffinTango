@@ -16,3 +16,4 @@ php artisan storage:link
 # sudo chown -R daemon:daemon /opt/bitnami/apache/htdocs/tiffinTango/public/media
 # sudo chmod -R 775 /opt/bitnami/apache/htdocs/tiffinTango/public/media
 
+# mealplan:create-daily-orders

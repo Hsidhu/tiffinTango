@@ -52,7 +52,7 @@ class CreateDailyMealPlanOrders extends Command
             $deliveryZoneId = $order->customer->address->delivery_zone_id;
             $driver = $dailyOrderGenerator->getDriver($deliveryZoneId, $deliveryWindowId);
             
-            $this->info("driver found: {$driver->full_name}");
+            $this->info("Driver found: {$driver->full_name}");
 
             if($dailyOrderGenerator->orderItemsDeliveryDays($order->items)){
                 $dailyOrderGenerator->createDailyDeliveries(
@@ -65,7 +65,7 @@ class CreateDailyMealPlanOrders extends Command
                 );
             }
             else{
-                $this->info("Delivery day is not today for Order: {$order->id}");
+                $this->info("Delivery day is not today for Order ID: {$order->id}");
             }
         }
 

@@ -23,13 +23,13 @@ const SelectedMealPlanView = ({selectedMealPlan}) => {
                     </Typography.Text>
                 </List.Item>
                 <List.Item>
-                    <Typography.Text strong>Plan Type:</Typography.Text> <Typography.Text>
-                        Monthly
+                    <Typography.Text strong>Delivery Type:</Typography.Text> <Typography.Text>
+                        { !isEmpty(selectedMealPlan) && selectedMealPlan.delivery_type }
                     </Typography.Text>
                 </List.Item>
                 <List.Item>
-                    <Typography.Text strong>Order Type:</Typography.Text> <Typography.Text>
-                        Monthly
+                    <Typography.Text strong>Delivery Days:</Typography.Text> <Typography.Text>
+                        { !isEmpty(selectedMealPlan) && selectedMealPlan.delivery_days }
                     </Typography.Text>
                 </List.Item>
                 <List.Item>
