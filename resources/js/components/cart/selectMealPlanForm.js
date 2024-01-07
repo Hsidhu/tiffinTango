@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { isEmpty } from 'lodash';
 import {
     Row, Col, Select, Card, Radio,
-    Typography, Button
+    Typography, Button, Space, Flex
 } from 'antd';
 import { orderTypeOptions } from '../../config/constants';
 import MealPlanOptions from "../containers/cart/mealPlanOptions"
-const { Text } = Typography;
+
 
 const SelectMealPlanForm = ({ nextForm, orderType, orderData, selectedMealPlan, setOrderType, getMealPlanForOrder, addToCartselectMealPlan, clearCartselectMealPlan }) => {
 
@@ -33,24 +33,28 @@ const SelectMealPlanForm = ({ nextForm, orderType, orderData, selectedMealPlan, 
         addToCartselectMealPlan(meal);
     };
 
-    return (
-        <Card title="Select Mealpan"  >
+    const renderMealOptions = () => {
+        return !isEmpty(selectedMealPlan) ? <MealPlanOptions mealPlanID={selectedMealPlan.meal_id} /> : null
+    }
 
-            <Row>
-                <Col>
-                    <Text>Select Order Type:</Text> <br/>
-                    <Radio.Group 
+    return (
+        <Card title="Order Mealpan"  >
+            <Flex justify={'flex-start'} align={'flex-start'} vertical gap={16}>
+
+                <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+                    <Typography.Text strong >Select Order Type:</Typography.Text>
+                    <Radio.Group
+                        style={{ width: '100%' }}
                         size="large" 
                         optionType="button"
                         value={orderType}
                         onChange={handleOrderTypeChange}
                         options={orderTypeOptions} 
                     />
-                </Col>
-            </Row>
-            <Row>
-                <Col span={24}>
-                    <Text>Select your Plan:</Text>
+                </Space>
+
+                <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+                    <Typography.Text strong>Select your Plan:</Typography.Text>
                     <Select size="large"
                         placeholder = "Select MealPlan"
                         value={selectedMealPlan?.meal_id}
@@ -58,19 +62,15 @@ const SelectMealPlanForm = ({ nextForm, orderType, orderData, selectedMealPlan, 
                         onChange={handleChange}
                         options={optionItems ?? null}
                     />
-                </Col>
-            </Row>
-            
-            <div>
-                {
-                    !isEmpty(selectedMealPlan) ? <MealPlanOptions mealPlanID={selectedMealPlan.meal_id} /> : null
-                }
-                <br/>
+                </Space>
+
+                { renderMealOptions() }
 
                 <Button block disabled={isEmpty(selectedMealPlan) ? true : false} size={'large'} type="primary" onClick={nextForm}>
                     Next
                 </Button>
-            </div>
+
+            </Flex>
         </Card>
     );
 }

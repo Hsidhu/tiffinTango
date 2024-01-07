@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {
-    Row, Col, Space,
-    Radio, Select,
-    Typography
+    Space, Radio, Select, Flex, Typography
 } from 'antd';
 
-const { Text, Link } = Typography;
 import { isEmpty } from 'lodash';
 
 const MealPlanOptions = ({mealPlanID, orderData, cart, selectMealPlanOption}) => {
@@ -70,26 +67,21 @@ const MealPlanOptions = ({mealPlanID, orderData, cart, selectMealPlanOption}) =>
     }
     
     const optionView = options.map((option, index ) =>
-        <Space key={option.meal_plan_option_id} direction="vertical" size="middle" style={{ display: 'flex', margin: "12px 0px" }}>
-            <Row>
-                <Col span={4}>
-                    <Text>{option.name}: </Text>
-                </Col>
+        <Space key={option.meal_plan_option_id} direction="vertical" size="middle" style={{ width: '100%' }}>
+            
+                <Typography.Text strong>{option.name}: </Typography.Text>
 
-                <Col span={14}>
-                    <Space>
-                        {option.display == 'select' ? buildSelectOptions(option.values) : null}
-                        {option.display == 'radio' ? buildRadioOptions(option.values) : null}
-                    </Space>
+                {option.display == 'select' ? buildSelectOptions(option.values) : null}
+                {option.display == 'radio' ? buildRadioOptions(option.values) : null}
                     
-                </Col>
-            </Row>
         </Space>
     )
 
     return (
         <>
-            {optionView}
+            <Flex justify={'flex-start'} align={'flex-start'} vertical gap={16} style={{ width: '100%' }}>
+                {optionView}
+            </Flex>
         </>
     )
 }

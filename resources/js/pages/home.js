@@ -4,10 +4,13 @@ import {Typography, Space} from 'antd'
 import ContentCards from '../components/contentCards';
 import FeatureCards from '../components/featureCards';
 import { isEmpty } from 'lodash';
+import usePageTitle  from '../hooks/usePageTitle'
 
 const Home = ({}) => {
 
     const siteName = useSelector(state => state.siteName)
+
+    usePageTitle('Home page')
     
     return (
         <>

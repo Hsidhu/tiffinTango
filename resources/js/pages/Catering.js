@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Typography, Space } from 'antd'
+import { Flex, Col, Typography, Space, Divider, Row } from 'antd'
 import ContentCards from '../components/contentCards';
 import SitePageHeader from '../components/sitePageHeader';
 import CateringOrderForm from '../components/cateringOrderForm';
@@ -8,16 +8,15 @@ const Catering = ({ }) => {
     return (
         <>
             <SitePageHeader pageTitle={'Catering'}/>
-            <div style={{ padding: '0 50px' }}>
-                <Row>
-                    <Col span={16}>
-                        <CateringOrderForm />
-                    </Col>    
-                </Row>    
+            <Divider/>
+
+            <Flex justify={'center'} align={'center'} vertical gap={16}>
+                
+                <CateringOrderForm />
                 
                 <ContentCards />
 
-            </div>
+            </Flex>
         </>
     );
 }

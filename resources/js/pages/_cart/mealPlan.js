@@ -29,7 +29,7 @@ const MealPlan = ({nextForm}) => {
                     order: 1,
                 }}
                 md = {{
-                    span:8,
+                    span:10,
                     order: 1,
                 }}
                 >

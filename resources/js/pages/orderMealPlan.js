@@ -9,6 +9,7 @@ import MealPlan from './_cart/mealPlan';
 import Customer from './_cart/customer';
 import OrderPlaced from './_cart/orderPlaced';
 import { nextStep } from '../redux/Cart/actions';
+import usePageTitle  from '../hooks/usePageTitle'
 
 const contentStyle = {
     color: '#000000',
@@ -21,6 +22,8 @@ const OrderMealPlan = () => {
 
     const dispatch = useDispatch();
     const stepReducer = useSelector(state => state.stepReducer)
+
+    usePageTitle('Order MealPlan')
 
     const next = () => {
         dispatch(nextStep());
@@ -52,29 +55,32 @@ const OrderMealPlan = () => {
     return (
         <>
             <SitePageHeader pageTitle={'Order Tiffin'}/>
-            <Space
-                direction="vertical"
-                size="large"
-                style={{
-                    display: 'flex',
-                    margin: '18px 14px',
-                    padding: '0 50px'
-                }}
-            >
-                <Row gutter={16}>
-                    <Col span={24}>
+            
+            <Row gutter={16}>
+                <Col span={24}>
+                    <Divider />
+                    <Space
+                        direction="vertical"
+                        size="large"
+                        style={{
+                            display: 'flex',
+                            margin: '18px 14px',
+                            padding: '0 50px'
+                        }}
+                    >
                         <Steps current={stepReducer.currentStep} items={items} />
-                        <Divider />
+
+                        
                         <div style={contentStyle}>
 
                             {steps[stepReducer.currentStep].content}
 
                         </div>
-                    </Col>
+                    </Space>
+                </Col>
 
-                </Row>
+            </Row>
 
-            </Space>
         </>
     );
 };

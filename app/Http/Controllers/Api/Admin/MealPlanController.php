@@ -188,11 +188,4 @@ class MealPlanController extends Controller
         return new MealPlanResource($mealPlan);
     }
 
-
-    private function addMediaToModel(MealPlan $mealPlan, $mediaFileId)
-    {
-        $mediaFile = MediaFile::find($mediaFileId);
-        $mediaItem = $mediaFile->getMedia()->first();
-        $mediaItem->move($mealPlan);
-    }
 }
